@@ -4,7 +4,7 @@ Revamp of evsd site for new meteor structure and general improved organization
 
 Learning Meteor:
 
-[Tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app)
+>>[Tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app)
 
 Questions? these links may answer them.<br />
 >>[Structure of a Meteor App](https://guide.meteor.com/structure.html)<br />
