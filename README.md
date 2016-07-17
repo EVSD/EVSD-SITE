@@ -7,8 +7,10 @@ Learning Meteor:
 [Tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app)
 
 >>Questions? these links may answer them.
-[Structure of a Meteor App](https://guide.meteor.com/structure.html)
-[Blaze](https://guide.meteor.com/blaze.html)
+[Structure of a Meteor App](https://guide.meteor.com/structure.html)<br />
+
+[Blaze](https://guide.meteor.com/blaze.html)<br />
+
 [Publish/Subscribe](https://themeteorchef.com/snippets/publication-and-subscription-patterns/)
 [$ - Update Operators](https://docs.mongodb.com/manual/reference/operator/update/)
 [Schemas and Collection2](https://themeteorchef.com/snippets/using-the-collection2-package/#tmc-validating-against-schemas)
