@@ -1,2 +1,2 @@
 # EVSD-SITE
-The initial second attempt at a website EVHS
+Revamp of evsd site for new meteor structure and general improved organization
