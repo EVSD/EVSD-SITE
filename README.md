@@ -4,10 +4,11 @@ Revamp of evsd site for new meteor structure and general improved organization
 
 Learning Meteor:
 
->>[Tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app)
+>>[Tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app)<br />
+>>[Structure of a Meteor App](https://guide.meteor.com/structure.html)<br />
 
 Questions? these links may answer them.<br />
->>[Structure of a Meteor App](https://guide.meteor.com/structure.html)<br />
+>>
 [Blaze](https://guide.meteor.com/blaze.html)<br />
 [Publish/Subscribe](https://themeteorchef.com/snippets/publication-and-subscription-patterns/)<br />
 [$ - Update Operators](https://docs.mongodb.com/manual/reference/operator/update/)<br />
