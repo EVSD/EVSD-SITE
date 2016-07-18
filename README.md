@@ -28,5 +28,3 @@ Revamp of evsd site for new meteor structure and general improved organization
 
 *Further relevant links are put under individual issues (as I find them).*<br />
 *Ask any questions that you may have in the chat, one of us will get back to you shortly.*<br />
-
-- Jackson Chui
