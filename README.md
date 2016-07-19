@@ -1,5 +1,6 @@
 # EVSD-SITE
 
+[![Build Status](https://travis-ci.org/EVSD/EVSD-SITE.svg?branch=master)](https://travis-ci.org/EVSD/EVSD-SITE)
 [![Stories in Ready](https://badge.waffle.io/EVSD/EVSD-SITE.svg?label=ready&title=Ready)](http://waffle.io/EVSD/EVSD-SITE)
 
 Revamp of evsd site for new meteor structure and general improved organization
