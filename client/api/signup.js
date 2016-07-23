@@ -1,9 +1,8 @@
 if (Meteor.isClient){
 	Template.signup.events({
 		
-		//creates student, parent, and misc when click submit on signup page
 		'submit .signup':function(event){
-			
+		//set values for the students	
 		var student = {
 	      firstName: $('[name="firstName"]').val(),
 	      middleName: $('[name="middleName"]').val(),
@@ -15,11 +14,28 @@ if (Meteor.isClient){
 	      studentPhoneNo: $('[name="studentPhoneNo"]').val(),
 	      studentId: $('[name="studentId"]').val(),
 	      facebookAccount: $('[name="facebookAccount"]').val(),
-	      facebookEvsd: $('[name="facebookEvsd"]').val(),
-	      schoolloopEvsd: $('[name="schoolloopEvsd"]').val()
+	      facebook: $('[name="facebook"]').val(),
+	      schoolloop: $('[name="schoolloop"]').val()
+	    };
+	    //" " for the parent
+	    var parent = {
+        firstParent: $('[name="firstParent"]').val(),
+        firstParentPhoneNo: $('[name="firstParentPhoneNo"]').val(),
+        firstParentEmailAddress: $('[name="firstParentEmailAddress"]').val(),
+        firstParentEmployer: $('[name="firstParentEmployer"]').val(),
+        secondParent: $('[name="secondParent"]').val(),
+        secondParentPhoneNo: $('[name="secondParentPhoneNo"]').val(),
+        secondParentEmailAddress: $('[name="secondParentEmailAddress"]').val(),
+        secondParentEmployer: $('[name="secondParentEmployer"]').val()
+    	};
+	    //" " for other fields
+	    var misc = {
+	        findOut: $('[name="findOut"]').val(),
+	        whyjoin: $('[name="whyjoin"]').val(),
+	        concerns: $('[name="concerns"]').val()
 	    };
 
-	    Meteor.call('createreguser', student, function(err,res) {
+	    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 		    if (err){
 		      console.log('reg user error');
 		    } 
@@ -29,3 +45,4 @@ if (Meteor.isClient){
 	    
 	});
 }
+//put a conditional around all fields but name(s), email, and password if no pay?
