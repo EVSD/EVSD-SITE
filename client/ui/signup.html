@@ -1,0 +1,112 @@
+<template name="signup">
+ <div id="application-signup">
+    <div class="row">
+      <form class="signup">
+        <h3 class = "page-header">Evergreen Valley High School Speech and Debate <br> Sign Up Form </h3>
+        <h4 class="page-header">STUDENT INFORMATION</h4>
+
+        <div class="row">
+          <div class="input-field col s4">
+            <!--<i class="material-icons prefix">account_circle</i>-->
+            <label for="firstName">Student First Name</label>
+            <input type="text" name="firstName" class="validate" autofocus required>
+          </div>
+          <div class="input-field col s4">
+            <label for="middleName">Student Middle Name</label>
+            <input type="text" name="middleName" class="validate">
+          </div>
+          <div class="input-field col s4">
+            <label for="lastName">Student Last Name</label>
+            <input type="text" name="lastName" class="validate" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <!--<i class="material-icons prefix">grade</i>-->
+            <label for="studentGrade">Student Grade</label>
+            <input type="text" name="studentGrade"  placeholder="9/10/11/12" class="validate" required>
+          </div>
+          <div class="input-field col s6">
+            <!--<i class="material-icons prefix">today</i>-->
+            <label for="DOB">Student Date of Birth</label>
+            <input type="text" name="DOB" placeholder="MM/DD/YYYY" class="validate" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <!--<i class="material-icons prefix">email</i>-->
+            <label for="emailAddress">Student Email Address</label>
+            <input type="email" name="emailAddress" class="validate" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <!--<i class="material-icons prefix">lock_outline</i>-->
+            <label for="password">Password</label>
+            <input type="password" name="password" class="validate" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <!--<i class="material-icons prefix">phone</i>-->
+            <label for="studentPhoneNo">Student Phone Number</label>
+            <input type="text" name="studentPhoneNo" class="validate" required>
+          </div>
+          <div class="input-field col s6">
+            <!--<i class="material-icons prefix">assignment_ind</i>-->
+            <label for="studentId">Student ID Number</label>
+            <input type="text" name="studentId" class="validate" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s4">
+            <p>Does the student have a Facebook account?</p>
+            <p>
+              <label for="facebookAccounty">Yes</label>
+              <input name="facebookAccount" type="radio" value = "yes" id = "facebookAccounty" required/>
+            </p>
+            <p>
+              <label for = "facebookAccountn">No</label>
+              <input name="facebookAccount" type="radio" value = "no" id = "facebookAccountn" required/>
+            </p>
+          </div>
+          <div class="input-field col s4">
+            <p>Is he/she in the <a href="http://on.fb.me/1EcE7oz" target="_blank">Speech & Debate Facebook group</a>?</p>
+            <p>
+              <label for="facebookEvsdy">Yes</label>
+              <input name="facebookEvsd" type="radio" id="facebookEvsdy" value = "yes" required>
+            </p>
+            <p>
+              <label for="facebookEvsdn">No</label>
+              <input name="facebookEvsd" type="radio" id="facebookEvsdn" value = "no" required/>
+            </p>
+          </div>
+          <div class="input-field col s4">
+            <p>Is the student a part of the Speech & Debate Schoolloop group?</p>
+            <p>
+              <label for="schoolloopEvsdy">Yes</label>
+              <input name="schoolloopEvsd" type="radio" id="schoolloopEvsdy" value = "yes" required/>
+            </p>
+            <p>
+              <label for="schoolloopEvsdn">No</label>
+              <input name="schoolloopEvsd" type="radio" id="schoolloopEvsdn" value = "no" required/>
+            </p>
+          </div>
+        </div>
+
+        {{> Template.dynamic template="creditCard" data="signup"}}
+
+        <input type="submit" value="Sign Up">
+        <br>
+        <br>
+        <img src="https://raw.githubusercontent.com/EVSD/EVSDWebsite/master/project/public/img/stripelogo.png">
+        <p style="color:white">Hey look more hidden text</p>
+      </form>
+    </div>
+  </div>
+</template>
