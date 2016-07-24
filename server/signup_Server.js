@@ -71,9 +71,10 @@
 
       /*stripeId: "Null",
         Donation: "free"*/
-      }
-      settings{
-        role: "user",
+      },
+      
+      settings: {
+        role: "user"
         
       }
     });
