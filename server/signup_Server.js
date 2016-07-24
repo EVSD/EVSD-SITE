@@ -72,6 +72,10 @@
       /*stripeId: "Null",
         Donation: "free"*/
       }
+      settings{
+        role: "user",
+        
+      }
     });
   }
 });
