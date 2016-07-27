@@ -15,16 +15,14 @@ if(Meteor.isClient){
 	  },
 	  DOB: function() {
 	    return Meteor.user().profile.DOB;
-	  }
+	  },
+
+	email: function() {
+		return Meteor.user().emails[0].address;
+	}
 	});
 }
-
-
-
 /*
-	email: function() {
-		return Meteor.user().email;
-	},
 
 	needs modificaitons as an object. Right now it is being treated like a string. 
 	Cannot be returned b/c it is inherently an array or obj (idk rn).

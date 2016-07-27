@@ -38,7 +38,7 @@
         //MARK: give the ability to change all of this
       username: student.username,
       password: student.password,
-      
+      email: student.emailAddress,
       profile: {
         
         firstName: student.firstName,
