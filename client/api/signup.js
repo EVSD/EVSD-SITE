@@ -4,18 +4,19 @@ if (Meteor.isClient){
 		'submit .signup':function(event){
 		//set values for the students	
 		var student = {
-	      firstName: $('[name="firstName"]').val(),
-	      middleName: $('[name="middleName"]').val(),
-	      lastName: $('[name="lastName"]').val(),
-	      DOB: $('[name="DOB"]').val(),
-	      studentGrade: $('[name="studentGrade"]').val(),
-	      emailAddress: $('[name="emailAddress"]').val(),
-	      password: $('[name="password"]').val(),
-	      studentPhoneNo: $('[name="studentPhoneNo"]').val(),
-	      studentId: $('[name="studentId"]').val(),
-	      facebookAccount: $('[name="facebookAccount"]').val(),
-	      facebook: $('[name="facebook"]').val(),
-	      schoolloop: $('[name="schoolloop"]').val()
+		username: $('[name="username"]').val(),
+	    firstName: $('[name="firstName"]').val(),
+	    middleName: $('[name="middleName"]').val(),
+	    lastName: $('[name="lastName"]').val(),
+	    DOB: $('[name="DOB"]').val(),
+	    studentGrade: $('[name="studentGrade"]').val(),
+	    emailAddress: $('[name="emailAddress"]').val(),
+	    password: $('[name="password"]').val(),
+	    studentPhoneNo: $('[name="studentPhoneNo"]').val(),
+	    studentId: $('[name="studentId"]').val(),
+	    facebookAccount: $('[name="facebookAccount"]').val(),
+	    facebook: $('[name="facebook"]').val(),
+	    schoolloop: $('[name="schoolloop"]').val()
 	    };
 	    //" " for the parent
 	    var parent = {

@@ -2,6 +2,7 @@
   createreguser: function(student, parent, misc){
     // Checks Student, parent, and misc for pattern
     check(student, {
+      username: String,
       firstName: String,
       middleName: String,
       lastName: String,
@@ -31,23 +32,19 @@
         concerns: String
     });
 
-    //idk what this does specifically MARK
-    var username = student.emailAddress;
-    var email = student.emailAddress;
-    var password = student.password;
 
     //creates the user
     var user = Accounts.createUser({
-      username: username,
-  //MARK: give the ability to set usrname later
-      email: email,
-      password: password,
+        //MARK: give the ability to change all of this
+      username: student.username,
+      password: student.password,
       
       profile: {
         
         firstName: student.firstName,
         middleName: student.middleName,
         lastName: student.lastName,
+        email: email,
         DOB: student.DOB,
         studentGrade: student.studentGrade,
         studentPhoneNo: student.studentPhoneNo,

@@ -1,5 +1,5 @@
 if (Meteor.isClient){
 
-	Meteor.subscribe("allUsers");
+	Meteor.subscribe("currentUser");
 
 }

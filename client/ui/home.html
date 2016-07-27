@@ -1,0 +1,17 @@
+<template name="home">
+  <h2>Home</h2>
+ 
+    {{> loginButtons}}<br><br> 
+    
+    <!--if the user is logged in--> 
+    {{#if currentUser}}
+
+    	<a href="/profile">User Profile</a> <br>
+    		<!--need to add id-->
+    	<a href="/tournaments">Tournaments</a> <br><br>    		
+	  	{{else}}
+    		<a href="/signup">Sign up</a> <br>
+	  		<p>You can't view tournaments and profile</p>
+	{{/if}}
+
+</template>

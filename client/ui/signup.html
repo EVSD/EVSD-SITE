@@ -1,6 +1,9 @@
 <template name="signup">
  <!--defines structure for signup page-->
- 
+  <p><!--back to home-->
+    <a href="/">Back</a> <br/>
+  </p>
+
  <div id="application-signup">
     
     <div class="row">
@@ -11,6 +14,13 @@
           <h4 class="page-header">STUDENT INFORMATION</h4>
 
             <!--row for the first,middle, and last names-->
+            <div class="row">
+              <div class="input-field col s4">
+                  <!--<i class="material-icons prefix">account_circle</i>-->
+                  <label for="username">Username</label>
+                  <input type="text" name="username" class="validate" autofocus required>
+                </div>
+            </div>
             <div class="row"> 
               <div class="input-field col s4">
                 <!--<i class="material-icons prefix">account_circle</i>-->

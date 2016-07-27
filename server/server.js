@@ -1,11 +1,12 @@
 if(Meteor.isServer){
-	Meteor.publish('allUsers',function(){
+	Meteor.publish('currentUser',function(){
 
 		return Meteor.users.find({},{ 
 			fields: {
+				'username': 1,
 				'profile.firstName': 1, 
 				'profile.lastName':1,
-				'email': 1,
+				//'email': 1,
 				'profile.studentGrade': 1,
 				'profile.DOB': 1
 			}
