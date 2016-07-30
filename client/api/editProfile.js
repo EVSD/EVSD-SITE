@@ -1,20 +1,37 @@
 Template.editProfile.events({
 	
-	'submit .editProfile': function() {
+	'submit .editProfile': function(event) {
 
-		var firstName = event.target.firstName.value;
+		var firstName = event.target.firstName.value
 		var lastName = event.target.lastName.value;
 		var grade = event.target.grade.value;
-		var email = "testing@me.com";
-		
-		Meteor.users.update(Meteor.userId(), {
-			$set: {
-				"profile.firstName": firstName,
-				"profile.lastName": lastName,
-				"profile.studentGrade": grade
-				//"emails.0.address": "testing@me.com"
-			}
-		});
+		//var email = "testing@me.com";
+
+
+		if (firstName != ''){
+			Meteor.users.update(Meteor.userId(), {
+				$set: {"profile.firstName": firstName}
+			});
+		};
+		if (lastName != ''){
+			Meteor.users.update(Meteor.userId(), {
+				$set: {"profile.lastName": lastName}
+			});
+		};
+		if (grade != ''){
+			Meteor.users.update(Meteor.userId(), {
+				$set: {"profile.studentGrade": grade}
+			});
+		};
+
+		var oldPassword = event.target.old.value;
+		var newPassword = event.target.new.value;
+		var confirmPassword = event.target.confirm.value;
+		if (confirmPassword == newPassword){
+			Accounts.changePassword(oldPassword, newPassword);
+		};
+
+		//add directing back to regular profile page		
 	}
 });
 
