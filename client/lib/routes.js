@@ -17,23 +17,38 @@ FlowRouter.route('/', {
     BlazeLayout.render("view", {content: "home"});
   }
 });
-FlowRouter.route('/signup', {
-  action: function() {
-    BlazeLayout.render("view", {content: "signup"});
-  }
-});
+  FlowRouter.route('/signup', {
+    action: function() {
+      BlazeLayout.render("view", {content: "signup"});
+    }
+  });
+  FlowRouter.route('/login', {
+    action: function() {
+      BlazeLayout.render("view", {content: "login"});
+    }
+  });
+  FlowRouter.route('/profile', {
+    action: function() {
+      BlazeLayout.render("view", {content: "profile"});
+    }
+  });
+    FlowRouter.route('/profile/edit', {
+      action: function() {
+        BlazeLayout.render("view", {content: "editProfile"});
+      }
+    });
+/*
 FlowRouter.route('/tournaments', {
   action: function() {
     BlazeLayout.render("view", {content: "tournaments"});
   }
 });
-//MARK: NOT DONE YET
-FlowRouter.route('/profile', {
+FlowRouter.route('/tournaments/signup', {
   action: function() {
-    BlazeLayout.render("view", {content: "profile"});
+    BlazeLayout.render("view", {content: "tSignup"});
   }
 });
-
+*/
 
 
 

@@ -1,8 +1,22 @@
 if(Meteor.isServer){
+	
+	//publish User Data
 	Meteor.publish('currentUser',function(){
   		return Meteor.users.findOne(this.userId);
-	})
+	});
+
+	//publish tournament data for user
+	Meteor.publish('tournament',function(){
+		return Tournaments.find({userId: this.userId});
+		//P1Email: this.emails[0].address || P2Email: this.emails[0].address
+	});
 }
+
+
+
+
+
+
 
 //here because we removed autopublish
 //meteor does some magic with this and accounts to get this to work

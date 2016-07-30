@@ -44,7 +44,6 @@
         firstName: student.firstName,
         middleName: student.middleName,
         lastName: student.lastName,
-        email: email,
         DOB: student.DOB,
         studentGrade: student.studentGrade,
         studentPhoneNo: student.studentPhoneNo,

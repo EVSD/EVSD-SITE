@@ -1,0 +1,15 @@
+<template name="login">
+    <form>
+        <label for="loginEmail">Email</label>
+        	<input type="email" name="loginEmail"><br>
+        <label for="loginPassword">Password</label>
+        	<input type="password" name="loginPassword"><br>
+        <input type="submit" value="Login">
+        {{#if currentUser}}
+    	<p><!--back to home-->
+    		<a href="/">Home</a> <br/>
+  		</p>
+        {{/if}}
+
+    </form>
+</template>

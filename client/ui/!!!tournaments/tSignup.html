@@ -1,0 +1,21 @@
+<template name="tSignup">
+	
+	<p> Tournament Signup</p>
+	<form class="tournamentSignup">
+		<p>Your data has already been inserted</p>
+		<label for="partnerEmail">Partner Email: </label>
+      	<input type="text" name="partnerEmail" class="validate" 
+      		autofocus required><br><br>
+
+        <input type="submit" value="Sign Up for the Tournament">
+	</form>
+
+	<p> Check to see if you registered</p>
+		<ul>
+		{{#each tournaments}}<!--does this for all elements in tasks, and also goes through the funtion--> 
+			<!--does this for every key: value-->
+			<li>{{P2Email}} <!-- creates a list of task names --> 
+			</li>
+		{{/each}}
+	</ul>
+</template>
