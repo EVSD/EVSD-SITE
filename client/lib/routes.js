@@ -37,7 +37,7 @@ FlowRouter.route('/', {
         BlazeLayout.render("view", {content: "editProfile"});
       }
     });
-/*
+
 FlowRouter.route('/tournaments', {
   action: function() {
     BlazeLayout.render("view", {content: "tournaments"});
@@ -48,7 +48,6 @@ FlowRouter.route('/tournaments/signup', {
     BlazeLayout.render("view", {content: "tSignup"});
   }
 });
-*/
 
 
 

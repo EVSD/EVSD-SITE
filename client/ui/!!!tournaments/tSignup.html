@@ -1,21 +1,34 @@
 <template name="tSignup">
-	
-	<p> Tournament Signup</p>
-	<form class="tournamentSignup">
-		<p>Your data has already been inserted</p>
-		<label for="partnerEmail">Partner Email: </label>
-      	<input type="text" name="partnerEmail" class="validate" 
-      		autofocus required><br><br>
+{{> loginButtons}}
+	<h1>Add Tournament</h1>
+		{{#if currentUser}}
+			<form class ="add-tournament"> <!--used to create a form like something to input things-->
+				
+				<input type = "text" name="tournament" placeholder="tournament"/><br>  				
+				<input type = "text" name="firstName" placeholder="Add partner first name"/><br>  
+				<input type = "text" name="lastName" placeholder="Add partner last name"/><br>  
+				<input type = "email" name="email" placeholder="Add email"/><br>  
+				<input type="submit" value="Submit" />
+			</form>
+			{{else}}
+				<p>Please login to add tournaments</p>
+		{{/if}}
+		
 
-        <input type="submit" value="Sign Up for the Tournament">
-	</form>
-
-	<p> Check to see if you registered</p>
-		<ul>
-		{{#each tournaments}}<!--does this for all elements in tasks, and also goes through the funtion--> 
-			<!--does this for every key: value-->
-			<li>{{P2Email}} <!-- creates a list of task names --> 
-			</li>
+		{{#each tournaments}}
+ 
+			<h2>{{tournamentChosen}} Entry
+				{{#if currentUser}}
+					<a href="#" class="delete-tournament">x</a><br>
+				{{/if}}
+			</h2>
+			<p>created at: {{createdAt}}</p>
+				<h4>Partner 1</h4>
+				<li> {{p1FirstName}} {{p1LastName}}</li>
+				<li> {{p1Email}}</li>
+				<h4>Partner 2</h4>
+				<li> {{p2FirstName}} {{p2LastName}}</li>
+				<li> {{p2Email}}</li><br><br>			
 		{{/each}}
-	</ul>
+
 </template>

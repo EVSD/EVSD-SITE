@@ -7,19 +7,14 @@ if(Meteor.isServer){
 
 	//publish tournament data for user
 	Meteor.publish('tournament',function(){
-		return Tournaments.find({userId: this.userId});
-		//P1Email: this.emails[0].address || P2Email: this.emails[0].address
+	    if(this.userId) {
+       		var user = Meteor.users.findOne(this.userId);
+       		var email = user.emails[0].address;
+    	};
+			return Tournaments.find({p1Email: email});
 	});
 }
 
-
-
-
-
-
-
-//here because we removed autopublish
-//meteor does some magic with this and accounts to get this to work
 	/* also works, but alot more code and selective returning
 		return Meteor.users.find({},{ 
 			fields: {
@@ -32,3 +27,7 @@ if(Meteor.isServer){
 			}
 		});
 	*/
+
+
+			//email is the reaper of fucking death. Don't use email.
+		//switch out username with a verification code later
