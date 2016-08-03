@@ -1,14 +1,11 @@
 if(Meteor.isClient){
 
-	Meteor.subscribe('tournament');
 
 	//functions
 	Template.tSignup.helpers({
 		tournaments: function (){
 			return Tournaments.find({}); 
-			//{} passes nothing into the query (REQURED)
-			//sort makes sense but idk where from?
-		} //called in the ul in the #each tasks
+		}
 	});
 
 	Template.tSignup.events({

@@ -1,9 +1,5 @@
 if(Meteor.isServer){
 	
-	//publish User Data
-	Meteor.publish('currentUser',function(){
-  		return Meteor.users.findOne(this.userId);
-	});
 
 	//publish tournament data for user
 	Meteor.publish('tournament',function(){
@@ -13,7 +9,10 @@ if(Meteor.isServer){
     	};
 			return Tournaments.find({p1Email: email});
 	});
-}
+	Meteor.publish('allUsers', function(){
+	    return Meteor.users.find({});
+		})//restrict publication, current user should get enough info back
+};
 
 	/* also works, but alot more code and selective returning
 		return Meteor.users.find({},{ 
@@ -26,6 +25,11 @@ if(Meteor.isServer){
 				'profile.DOB': 1
 			}
 		});
+
+
+	Meteor.publish('currentUser',function(){
+  		return Meteor.users.findOne(this.userId);
+	});
 	*/
 
 

@@ -3,16 +3,29 @@
 	<p><!--back to home-->
     	<a href="/">Back</a> <br/>
   	</p>
+ 	{{#if currentUser}}
+		<h2>{{username}}'s Profile</h2>
 
-	<h2>Profile for {{username}}</h2>
+		<ul style="list-style-type:circle">
+			<li>Name: {{firstName}} {{lastName}}</li>
+			<li>Email: {{email}}</li>
+			<li>Grade: {{studentGrade}}</li>
+			<li>Club Role: {{clubRole}}</li>
+			<li>Birthdate: {{birthdate}}</li>
+			<li>Student Phone #: {{studentPhone}}</li>
+			<li>Student Id: {{studentId}}</li>
+		</ul>
 
-	<p>firstName: {{firstName}}</p>
-	<p>lastName: {{lastName}}</p>	
-	<p>email: {{email}}</p>
-	<p>Grade: {{studentGrade}}</p>
-	<p>Birthdate: {{DOB}}</p>
+		<a href="/profile/edit">edit info</a><br>
 
-	<a href="/profile/edit">edit info</a><br>
+		{{> adminConsole}}
+	{{/if}}
+
+		
+	<!--testing the roles
+	<form class="takeRoles">
+		<a href="#">add roles</a>
+	</form>-->
 
 </template>
 

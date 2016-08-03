@@ -34,7 +34,7 @@ FlowRouter.route('/', {
   });
     FlowRouter.route('/profile/edit', {
       action: function() {
-        BlazeLayout.render("view", {content: "editProfile"});
+        BlazeLayout.render("view", {content: "editView"});
       }
     });
 
@@ -49,21 +49,10 @@ FlowRouter.route('/tournaments/signup', {
   }
 });
 
-
-
-
-
-
-
-/*
-FlowRouter.route('/tournaments/record', {
-  action: function() {
-    BlazeLayout.render("view", {content: "tournamentsRecord"});
+Template.login.events({
+  'submit .login':function(event) {
+    if (this.userId){
+        //go back
+    }
   }
 });
-FlowRouter.route('/tournaments/signup', {
-  action: function() {
-    BlazeLayout.render("view", {content: "tournamentsRecord"});
-  }
-});
-*/

@@ -1,20 +1,18 @@
 <template name="home">
   <h2>Home</h2>
  
-    
+
     <!--if the user is logged in--> 
     {{#if currentUser}}
         {{> logout}}
+
     	<a href="/profile">User Profile</a> <br>
     		<!--need to add id-->
     	<a href="/tournaments">Tournaments</a> <br><br>
 
-        <p>You are logged in</p>
-
 	  	{{else}}
     		<a href="/signup">Sign up</a> <br>
             <a href="/login">Login</a><br>
-	  		<p>You are not logged in</p>
 	{{/if}}
 
 </template>

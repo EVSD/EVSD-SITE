@@ -1,0 +1,44 @@
+
+<!--MARK: set so that admin can only see this-->
+<template name="adminConsole">
+  
+{{#if isInRole 'admin'}}
+	<h3>Site Users</h3>
+
+
+	<table class="table table-bordered">
+		<thead>
+			<th>Name</th>
+			<th class="text-center">Email Address </th>
+		    <th>Role</th>
+		</thead>
+		<tbody>
+		  {{#each users}}
+		    <tr>
+		  		<!--First/Last Name-->
+		  		<td >{{profile.firstName}} {{profile.lastName}}</td>
+		  		<!--identifies email-->
+		  		<td class="text-left text-middle">
+			  		{{#if isCurrentUser _id}}
+			  			<label class="label label-success">You!</label>
+			  		{{/if}}
+			  		{{emails.[0].address}}
+		  		</td>
+            
+		    	<!--Role-->
+		    	<td>
+		    	
+				<select {{disableIfAdmin _id}} name="userRole" class="form-control">
+					<!--set it so that only admin shows admin option-->
+					<option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
+		            <option selected="{{selected roles.[0] 'officer'}}" value="officer">Officer</option>
+		            <option selected="{{selected roles.[0] 'member'}}" value="member">Member</option>
+				</select>
+		        </td> 
+		    </tr>
+		  {{/each}}
+		</tbody>
+	</table>
+{{/if}}
+</template>
+

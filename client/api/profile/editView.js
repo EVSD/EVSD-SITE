@@ -1,10 +1,17 @@
-Template.editProfile.events({
-	
-	'submit .editProfile': function(event) {
 
-		var firstName = event.target.firstName.value
+Template.editView.events({
+	
+	'submit .editView': function(event) {
+//I know there's a way to condense this, but that's for later
+//so is changing the email (cannot change roles lol)
+    if (confirm('Are you sure?')) {
+        var firstName = event.target.firstName.value
 		var lastName = event.target.lastName.value;
 		var grade = event.target.grade.value;
+		//
+		var birthdate = event.target.birthdate.value;
+		var studentPhone = event.target.studentPhone.value;
+		var studentId = event.target.studentId.value;
 		//var email = "testing@me.com";
 
 
@@ -23,6 +30,21 @@ Template.editProfile.events({
 				$set: {"profile.studentGrade": grade}
 			});
 		};
+		if (birthdate != ''){
+			Meteor.users.update(Meteor.userId(), {
+				$set: {"profile.birthdate": birthdate}
+			});
+		};
+		if (studentId != ''){
+			Meteor.users.update(Meteor.userId(), {
+				$set: {"profile.studentId": studentId}
+			});
+		};
+		if (studentPhone != ''){
+			Meteor.users.update(Meteor.userId(), {
+				$set: {"profile.studentPhoneNo": studentPhone}
+			});
+		};				
 
 		var oldPassword = event.target.old.value;
 		var newPassword = event.target.new.value;
@@ -30,8 +52,11 @@ Template.editProfile.events({
 		if (confirmPassword == newPassword){
 			Accounts.changePassword(oldPassword, newPassword);
 		};
-
+	}
 		//add directing back to regular profile page		
+	else {
+           return false;
+       }
 	}
 });
 
