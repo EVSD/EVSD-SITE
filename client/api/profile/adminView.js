@@ -1,7 +1,7 @@
 if (Meteor.isClient){
 
 	Template.adminView.events({
-	   	
+	   	//change user roles
 		'change [name="userRole"]': function( event) {
 			if (confirm('Are you sure?')){
 				let role = $( event.target ).find( 'option:selected' ).val();

@@ -2,11 +2,8 @@ if(Meteor.isServer){
 	
 	//publish tournament data for user
 	Meteor.publish('tournamentUser',function(){
-	    if(this.userId) {
-       		var user = Meteor.users.findOne(this.userId);
-       		var email = user.emails[0].address;
-    	};
-			return Tournaments.find({p1Email: email});
+
+			return Tournaments.find({});
 	});
 	//publish tournament data for admin
 	/*Meteor.publish('tournamentAdmin',function(){

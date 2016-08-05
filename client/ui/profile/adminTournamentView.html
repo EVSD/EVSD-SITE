@@ -1,0 +1,17 @@
+<template name="adminTournamentView">
+	<h2>Tournaments People Have Signed Up For</h2>
+	{{#each entries}}
+	<h3>{{tournament}} Entry
+				{{#if currentUser}}
+					<a href="#" class="delete-tournament">x</a><br>
+				{{/if}}
+	</h3>
+	<p>created at: {{createdAt}}</p>
+		<h4>Partner 1</h4>
+		<li> {{p1FirstName}} {{p1LastName}}</li>
+		<li> {{p1Email}}</li>
+		<h4>Partner 2</h4>
+		<li> {{p2FirstName}} {{p2LastName}}</li>
+		<li> {{p2Email}}</li><br><br>	
+	{{/each}}		
+</template>

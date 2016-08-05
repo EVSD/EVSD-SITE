@@ -70,21 +70,11 @@
       }
     });
     
-    /*let administrators = [{
-        name: { first: 'Admin', last: 'McAdmin' },
-        email: 'admin@admin.com',
-        password: 'password'
-      }]; 
-
-    let isAdmin = _checkIfAdmin( user.email ); if isAdmin*/
-
-    // Need _id of existing user record so this call must come
-    // after `Accounts.createUser` or `Accounts.onCreate`
     if (student.emailAddress == 'test@gmail.com'){
       Roles.addUsersToRoles(user, 'admin');
     }else{
       Roles.addUsersToRoles(user, 'member');
-    } //there will be a way for the admin to change member into officer
+    }
 
 
 

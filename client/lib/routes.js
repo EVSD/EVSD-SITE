@@ -48,11 +48,3 @@ FlowRouter.route('/tournaments/signup', {
     BlazeLayout.render("view", {content: "tSignup"});
   }
 });
-
-Template.login.events({
-  'submit .login':function(event) {
-    if (this.userId){
-        //go back
-    }
-  }
-});

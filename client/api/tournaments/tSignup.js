@@ -10,47 +10,23 @@ if(Meteor.isClient){
 			return TournamentList.find({});
 		}
 	});
-
 	Template.tSignup.events({
 		//submit is a type of HTML input
 		"submit .add-tournament": function(event){
-			var tournament = event.target.tournament.value;
-
-			var userFirst = Meteor.user().profile.firstName;
-			var userLast = Meteor.user().profile.lastName;
-			var userEmail = Meteor.user().emails[0].address;
-
-
-			var partnerFirst = event.target.firstName.value;
-			var partnerLast = event.target.lastName.value;
-			var partnerEmail = event.target.email.value;
-
-
-			if(!Meteor.userId()){
-				throw new Meteor.Error('No access');
-			} //esentially a break
-			Tournaments.insert({
-				
-				tournament: tournament,
-
-				p1FirstName: userFirst,
-				p1LastName: userLast,
-				p1Email: userEmail,
-				
-				p2FirstName: partnerFirst,
-				p2LastName: partnerLast,
-				p2Email: partnerEmail,
-
-				createdAt: new Date()
-				//need to test how getting different ones of these works
-			});
-			event.target.email.value = '';
-			event.target.lastName.value ='';
-			event.target.firstName.value ='';
-			return false; //same as making the function void, no need to return anything
+			var entry ={
+				 tournament : event.target.tournament.value,
+				 userFirst : Meteor.user().profile.firstName,
+				 userLast : Meteor.user().profile.lastName,
+				 userEmail : Meteor.user().emails[0].address,
+				 partnerFirst : event.target.firstName.value,
+				 partnerLast : event.target.lastName.value,
+				 partnerEmail : event.target.email.value
+			};
+			
+			Meteor.call('addTournament',entry);
 		},
 		"click .delete-tournament": function(event){
-			Tournaments.remove(this._id);
+			Meteor.call('removeTournament', this._id);
 		}
 	});
 }

@@ -2,7 +2,7 @@ if(Meteor.isClient){
 	
 	Template.profile.helpers({
 		
-		//student info
+		//student info, broken up so that we can use spacebars
 		firstName: function() {
 		    return Meteor.user().profile.firstName;
 		  },
@@ -43,7 +43,7 @@ if(Meteor.isClient){
 		//parent1
 		//parent2
 
-		});  
+	});  
 
 	Template.adminView.helpers({
 		users: function (){
