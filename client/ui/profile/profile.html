@@ -4,21 +4,24 @@
     	<a href="/">Back</a> <br/>
   	</p>
  	{{#if currentUser}}
-		<h2>{{username}}'s Profile</h2>
+		{{#if isInRole 'frozen'}}
+			<p>Ask admin for permission</p>
+		{{else}}
+			<h2>{{username}}'s Profile</h2>
 
-		<ul style="list-style-type:circle">
-			<li>Name: {{firstName}} {{lastName}}</li>
-			<li>Email: {{email}}</li>
-			<li>Grade: {{studentGrade}}</li>
-			<li>Club Role: {{clubRole}}</li>
-			<li>Birthdate: {{birthdate}}</li>
-			<li>Student Phone #: {{studentPhone}}</li>
-			<li>Student Id: {{studentId}}</li>
-		</ul>
+			<ul style="list-style-type:circle">
+				<li>Name: {{firstName}} {{lastName}}</li>
+				<li>Email: {{email}}</li>
+				<li>Grade: {{studentGrade}}</li>
+				<li>Club Role: {{clubRole}}</li>
+				<li>Birthdate: {{birthdate}}</li>
+				<li>Student Phone #: {{studentPhone}}</li>
+				<li>Student Id: {{studentId}}</li>
+			</ul>
 
-		<a href="/profile/edit">edit info</a><br>
-
-		{{> adminConsole}}
+			<a href="/profile/edit">edit info</a><br>
+		{{> adminView}}
+		{{/if}}
 	{{/if}}
 
 		

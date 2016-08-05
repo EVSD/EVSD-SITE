@@ -1,18 +1,24 @@
 if (Meteor.isClient){
 
-	Template.adminConsole.events({
-	  'change [name="userRole"]': function( event) {
-	    let role = $( event.target ).find( 'option:selected' ).val();
-	    //console.log(role);
-	    Meteor.call( "setRoleOnUser", {
-	      user: this._id,
-	      role: role
-	    }, ( error, response ) => {
-	      if ( error ) {
-	        Bert.alert( error.reason, "warning" );
-	      }
-	    });
-	  }
+	Template.adminView.events({
+	   	
+		'change [name="userRole"]': function( event) {
+			if (confirm('Are you sure?')){
+				let role = $( event.target ).find( 'option:selected' ).val();
+			    //console.log(role);
+			    Meteor.call( "setRoleOnUser", {
+			      user: this._id,
+			      role: role
+			    }, ( error, response ) => {
+			      if ( error ) {
+			        Bert.alert( error.reason, "warning" );
+			      }
+			    	});
+			}else {
+				return false;
+			}
+		}
+
 	});	
 	Template.registerHelper( 'isCurrentUser', ( currentUser ) => {
 	  return currentUser === Meteor.userId() ? true : false;

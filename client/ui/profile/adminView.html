@@ -1,6 +1,6 @@
 
 <!--MARK: set so that admin can only see this-->
-<template name="adminConsole">
+<template name="adminView">
   
 {{#if isInRole 'admin'}}
 	<h3>Site Users</h3>
@@ -33,6 +33,8 @@
 					<option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
 		            <option selected="{{selected roles.[0] 'officer'}}" value="officer">Officer</option>
 		            <option selected="{{selected roles.[0] 'member'}}" value="member">Member</option>
+		            <option selected="{{selected roles.[0] 'frozen'}}" value="frozen">Frozen</option>
+
 				</select>
 		        </td> 
 		    </tr>

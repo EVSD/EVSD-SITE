@@ -21,16 +21,18 @@ if(Meteor.isClient){
 		email: function() {
 			return Meteor.user().emails[0].address;
 		 },
-		   clubRole: function(){
-			   	var role = Meteor.user().roles[0];
-			   	if (role == 'member'){
-			   		return "Member";
-			   	}else if (role == 'admin'){
-			   		return "Admin";
-			   	}else if (role == 'officer'){
-			   		return "Officer";
-			   	}else return "No role";
-		   },
+	   clubRole: function(){
+		   	var role = Meteor.user().roles[0];
+		   	if (role == 'member'){
+		   		return "Member";
+		   	}else if (role == 'admin'){
+		   		return "Admin";
+		   	}else if (role == 'officer'){
+		   		return "Officer";
+		   	}else if (role == 'frozen'){
+		   		return "Frozen";
+		   	}else return "No role";
+	   },
 		studentPhone:function(){
 			return Meteor.user().profile.studentPhoneNo;
 		 },
@@ -43,7 +45,7 @@ if(Meteor.isClient){
 
 		});  
 
-	Template.adminConsole.helpers({
+	Template.adminView.helpers({
 		users: function (){
 			return Meteor.users.find({}); 
 		}
