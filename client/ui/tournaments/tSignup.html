@@ -4,10 +4,15 @@
 		{{#if currentUser}}
 			<form class ="add-tournament"> <!--used to create a form like something to input things-->
 				
-				<input type = "text" name="tournament" placeholder="tournament"/><br>  				
+				Tournament(s):<select name="tournament">
+					{{#each tournamentList}}
+						<option value="{{tournament}}">{{tournament}}</option>
+					{{/each}}<!--set it so that only admin shows admin option-->
+				</select><br>
+				<!--<input type = "text" name="tournament" placeholder="tournament"/><br>  -->				
 				<input type = "text" name="firstName" placeholder="Add partner first name"/><br>  
 				<input type = "text" name="lastName" placeholder="Add partner last name"/><br>  
-				<input type = "email" name="email" placeholder="Add email"/><br>  
+				<input type = "email" name="email" placeholder="Add email" class="validate"/><br>  
 				<input type="submit" value="Submit" />
 			</form>
 			{{else}}
@@ -17,7 +22,7 @@
 
 		{{#each tournaments}}
  
-			<h2>{{tournamentChosen}} Entry
+			<h2>{{tournament}} Entry
 				{{#if currentUser}}
 					<a href="#" class="delete-tournament">x</a><br>
 				{{/if}}
@@ -30,5 +35,6 @@
 				<li> {{p2FirstName}} {{p2LastName}}</li>
 				<li> {{p2Email}}</li><br><br>			
 		{{/each}}
+
 
 </template>

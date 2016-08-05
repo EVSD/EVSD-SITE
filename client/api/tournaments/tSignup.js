@@ -5,6 +5,9 @@ if(Meteor.isClient){
 	Template.tSignup.helpers({
 		tournaments: function (){
 			return Tournaments.find({}); 
+		},
+		tournamentList: function (){
+			return TournamentList.find({});
 		}
 	});
 
@@ -28,7 +31,7 @@ if(Meteor.isClient){
 			} //esentially a break
 			Tournaments.insert({
 				
-				tournamentChosen: tournament,
+				tournament: tournament,
 
 				p1FirstName: userFirst,
 				p1LastName: userLast,
@@ -42,7 +45,8 @@ if(Meteor.isClient){
 				//need to test how getting different ones of these works
 			});
 			event.target.email.value = '';
-
+			event.target.lastName.value ='';
+			event.target.firstName.value ='';
 			return false; //same as making the function void, no need to return anything
 		},
 		"click .delete-tournament": function(event){

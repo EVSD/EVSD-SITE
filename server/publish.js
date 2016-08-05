@@ -1,19 +1,39 @@
 if(Meteor.isServer){
 	
-
 	//publish tournament data for user
-	Meteor.publish('tournament',function(){
+	Meteor.publish('tournamentUser',function(){
 	    if(this.userId) {
        		var user = Meteor.users.findOne(this.userId);
        		var email = user.emails[0].address;
     	};
 			return Tournaments.find({p1Email: email});
 	});
+	//publish tournament data for admin
+	/*Meteor.publish('tournamentAdmin',function(){
+			return Tournaments.find({});
+	});*/
+
+
+
+
+
+
+
+
+
+	//publish all the user data
 	Meteor.publish('allUsers', function(){
 	    return Meteor.users.find({});
-		})//restrict publication, current user should get enough info back
+		});
+
+	Meteor.publish('tournamentList', function(){
+		return TournamentList.find({});
+	});
 };
 
+
+
+//*******************************************//
 	/* also works, but alot more code and selective returning
 		return Meteor.users.find({},{ 
 			fields: {

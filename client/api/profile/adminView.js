@@ -32,5 +32,9 @@ if (Meteor.isClient){
 	Template.registerHelper( 'selected', ( v1, v2 ) => {
 	  return v1 === v2 ? true : false;
 	});
+	/*Template.registerHelper( 'displayTournament', ( v1, v2 ) => {
+	  
+	  return v1 === v2 ? true : false;
+	});*/
 
 }
