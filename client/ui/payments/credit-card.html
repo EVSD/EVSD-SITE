@@ -1,0 +1,64 @@
+<template name="creditCard">
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Cardholder Name</label>
+      <input type="text" data-stripe="cardholder_name" class="form-control name" placeholder="Cardholder Name">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Billing Address line 1</label>
+      <input type="text" data-stripe="address_line1" class="form-control address_line1" placeholder="Billing Address line 1">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Billing Address line 2</label>
+      <input type="text" data-stripe="address_line2" class="form-control address_line2" placeholder="Billing Address line 2">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-3">
+      <label>City</label>
+      <input type="text" data-stripe="address_city" class="form-control address_city" placeholder="city">
+    </div>
+  <div class="col-xs-3">
+    <label>State</label>
+    <input type="text" data-stripe="address_state" class="form-control address_state" placeholder="state">
+  </div>
+  <div class="col-xs-3">
+    <label>Zip</label>
+    <input type="text" data-stripe="address_zip" class="form-control address_zip" placeholder="Zip">
+  </div>
+  <div class="col-xs-3">
+    <label>Country</label>
+    <input type="text" data-stripe="address_country" class="form-control address_country" placeholder="Country">
+  </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label class="text-success"><i class="fa fa-lock"></i> Card Number </label>
+        <input type="text" data-stripe="cardNumber" class="form-control card-number" placeholder="Card Number">
+      </div>
+    </div>
+  </div> <!-- end .row -->
+  <div class="row">
+    <div class="col-xs-4">
+      <label>Exp. Mo.</label>
+      <input type="text" data-stripe="expMo" class="form-control exp-month" placeholder="Exp. Mo.">
+    </div>
+    <div class="col-xs-4">
+      <label>Exp. Yr.</label>
+      <input type="text" data-stripe="expYr" class="form-control exp-year" placeholder="Exp. Yr">
+    </div>
+    <div class="col-xs-4">
+      <label>CVC</label>
+      <input type="text" data-stripe="cvc" class="form-control cvc" placeholder="CVC">
+    </div>
+  </div> <!-- end .row -->
+</template>

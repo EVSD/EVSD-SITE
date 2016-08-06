@@ -1,6 +1,15 @@
 if (Meteor.isClient){
+	
+	Template.signup.helpers({
+		firstName: function() {
+		    return Meteor.user().profile.firstName;
+		  },
+		lastName: function() {
+		    return Meteor.user().profile.lastName;
+		  },
+	});
 	Template.signup.events({
-		
+			
 		'submit .signup':function(event){
 			//set values for the students	
 			var student = {
@@ -38,12 +47,13 @@ if (Meteor.isClient){
 
 		    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 			    if (err){
-			      console.log('reg user error');
-			    } 
-			});
-		}
-
-	    
+			      alert('reg user error');
+			    }else{
+			    	//redirects you home if successfully signed up
+					FlowRouter.path("/");	
+		    	}
+		    });
+		},//end of signup   
 	});
 }
 //put a conditional around all fields but name(s), email, and password if no pay?

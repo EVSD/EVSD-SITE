@@ -2,13 +2,13 @@
 	
 	<p><!--back to home-->
     	<a href="/">Back</a> <br/>
-  	</p>
+ 	</p>
  	{{#if currentUser}}
 		{{#if isInRole 'frozen'}}
 			<p>Ask admin for permission</p>
 		{{else}}
 			<h2>{{username}}'s Profile</h2>
-
+ 
 			<ul style="list-style-type:circle">
 				<li>Name: {{firstName}} {{lastName}}</li>
 				<li>Email: {{email}}</li>

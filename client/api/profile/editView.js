@@ -2,7 +2,6 @@
 Template.editView.events({
 	
 	'submit .editView': function(event) {
-
 	    if (confirm('Are you sure?')) {
 	        var firstName = event.target.firstName.value
 			var lastName = event.target.lastName.value;
@@ -11,6 +10,7 @@ Template.editView.events({
 			var birthdate = event.target.birthdate.value;
 			var studentPhone = event.target.studentPhone.value;
 			var studentId = event.target.studentId.value;
+			FlowRouter.go("/profile");
 
 			//THIS SHOULD BE A METHOD 'Changes'
 			if (firstName != ''){
@@ -43,26 +43,22 @@ Template.editView.events({
 					$set: {"profile.studentPhoneNo": studentPhone}
 				});
 			};				
-
+			//passwords
 			var oldPassword = event.target.old.value;
 			var newPassword = event.target.new.value;
 			var confirmPassword = event.target.confirm.value;
 			if (confirmPassword == newPassword){
 				Accounts.changePassword(oldPassword, newPassword);
 			};
-		}
-			//add directing back to regular profile page		
+		}	    
 		else {
-	           return false;
-	       }
+			alert("You did not save any changes. Click back to go to main profile");
+	        }
 		}
 });
 
 //can edit everything but the email, password, and username 
 	//(need to find a way later)
-
-
-		//Accounts.setPassword(this._id, "scandiaca");
 
 /* MARK: About Emails (and probably passwords and usernames too)
 	The email is a little bit tricker, you have to do this from the server since 

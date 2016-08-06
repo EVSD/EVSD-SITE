@@ -3,6 +3,8 @@
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
+#twbs:bootstrap
+
 
 meteor-base@1.0.4             # Packages every Meteor app needs to have
 mobile-experience@1.0.4       # Packages for a great mobile UX
@@ -24,3 +26,4 @@ check@1.2.3
 alanning:roles			#Allows authorization (Admin, Officers, Members)
 kadira:flow-router
 kadira:blaze-layout
+themeteorchef:bert

@@ -1,10 +1,14 @@
 <template name="signup">
  <!--defines structure for signup page-->
+  
+{{#if currentUser}}
   <p><!--back to home-->
-    <a href="/">Back</a> <br/>
+      You have sucessfully signed up, {{firstName}} {{lastName}}.
+    <a href="/">Back</a> <br>
   </p>
-
- <div id="application-signup">
+{{else}}
+<a href="/">Back</a> <br>
+<div id="application-signup">
     
     <div class="row">
       <form class="signup">
@@ -259,4 +263,6 @@
       </form>
     </div>
   </div>
+{{/if}}
+
 </template>

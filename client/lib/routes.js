@@ -14,6 +14,7 @@ Home/
 
 FlowRouter.route('/', {
   action: function() {
+    name: 'home',
     BlazeLayout.render("view", {content: "home"});
   }
 });
@@ -28,6 +29,7 @@ FlowRouter.route('/', {
     }
   });
   FlowRouter.route('/profile', {
+    name: "profile",
     action: function() {
       BlazeLayout.render("view", {content: "profile"});
     }

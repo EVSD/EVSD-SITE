@@ -44,12 +44,6 @@ if(Meteor.isClient){
 		//parent2
 
 	});  
-
-	Template.adminView.helpers({
-		users: function (){
-			return Meteor.users.find({}); 
-		}
-	});
 }
 /*
 

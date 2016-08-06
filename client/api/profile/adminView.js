@@ -1,5 +1,9 @@
 if (Meteor.isClient){
-
+	Template.adminView.helpers({
+		users: function (){
+			return Meteor.users.find({}); 
+		}
+	});
 	Template.adminView.events({
 	   	//change user roles
 		'change [name="userRole"]': function( event) {
