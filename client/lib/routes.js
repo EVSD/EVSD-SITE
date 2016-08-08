@@ -55,3 +55,8 @@ FlowRouter.route('/payContribution', {
     BlazeLayout.render("view", {content: "payContribution"});
   }
 });
+FlowRouter.notFound = {
+  action: function() {
+    BlazeLayout.render("view", {content: "404"})
+  }
+};
