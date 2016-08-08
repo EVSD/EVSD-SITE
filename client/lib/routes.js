@@ -3,7 +3,7 @@ Home/
 	~~Sign Up
 		~~Account Sign Up
 	~~Login
-	
+
 	{{if logged in}}
 	Member Specific Content
 	~Profile
@@ -50,8 +50,8 @@ FlowRouter.route('/tournaments/signup', {
     BlazeLayout.render("view", {content: "tSignup"});
   }
 });
-FlowRouter.notFound = {
+FlowRouter.route('/payContribution', {
   action: function() {
-    BlazeLayout.render("view", {content: "404"})
+    BlazeLayout.render("view", {content: "payContribution"});
   }
-};
+});
