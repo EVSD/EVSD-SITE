@@ -1,5 +1,5 @@
 if(Meteor.isServer){
-	
+
 	//publish tournament data for user
 	Meteor.publish('tournamentUser',function(){
 
@@ -32,10 +32,10 @@ if(Meteor.isServer){
 
 //*******************************************//
 	/* also works, but alot more code and selective returning
-		return Meteor.users.find({},{ 
+		return Meteor.users.find({},{
 			fields: {
 				'username': 1,
-				'profile.firstName': 1, 
+				'profile.firstName': 1,
 				'profile.lastName':1,
 				'this.email[0].address': 1,
 				'profile.studentGrade': 1,

@@ -50,3 +50,8 @@ FlowRouter.route('/tournaments/signup', {
     BlazeLayout.render("view", {content: "tSignup"});
   }
 });
+FlowRouter.notFound = {
+  action: function() {
+    BlazeLayout.render("view", {content: "404"})
+  }
+};
