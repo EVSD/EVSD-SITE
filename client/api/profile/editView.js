@@ -3,13 +3,13 @@ Template.editView.events({
 	
 	'submit .editView': function(event) {
 	    if (confirm('Are you sure?')) {
-	        var firstName = event.target.firstName.value
-			var lastName = event.target.lastName.value;
-			var grade = event.target.grade.value;
-			//
-			var birthdate = event.target.birthdate.value;
-			var studentPhone = event.target.studentPhone.value;
-			var studentId = event.target.studentId.value;
+	        let firstName = event.target.firstName.value,
+	        	lastName = event.target.lastName.value,
+	        	grade = event.target.grade.value,
+	        	//email = event.target.email.value,
+	        	birthdate = event.target.birthdate.value,
+	        	studentPhone = event.target.studentPhone.value,
+	        	studentId = event.target.studentId.value;
 			FlowRouter.go("/profile");
 
 			//THIS SHOULD BE A METHOD 'Changes'
@@ -42,12 +42,20 @@ Template.editView.events({
 				Meteor.users.update(Meteor.userId(), {
 					$set: {"profile.studentPhoneNo": studentPhone}
 				});
-			};				
+			};
+		/*	if (email != ''){
+				Meteor.users.update(Meteor.userId(), {
+					$set: {	"emails[0].address": email,
+							"emails[0].verified":false
+					}
+				});
+			};*/				
 			//passwords
 			var oldPassword = event.target.old.value;
 			var newPassword = event.target.new.value;
 			var confirmPassword = event.target.confirm.value;
-			if (confirmPassword == newPassword){
+			
+			if (oldPassword != '' && confirmPassword == newPassword){
 				Accounts.changePassword(oldPassword, newPassword);
 			};
 		}	    
