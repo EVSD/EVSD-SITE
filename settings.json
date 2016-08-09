@@ -1,12 +1,12 @@
 {
   "public": {
     "stripe": {
-      "testPublishableKey": "pk_test_0aiE07z5Mf1yDmYgZIu3RY7K"
+      "testPublishableKey": "pk_test_kBN4genuUfI6CgYJc7Dk72rq"
     }
   },
   "private": {
     "stripe": {
-      "testSecretKey": "sk_test_QudD3MKcJaWbAmkFV9ICudkX"
+      "testSecretKey": "sk_test_ASfhwQABGmN73bvSlXh3p1Fp"
     }
   }
 }

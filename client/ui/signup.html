@@ -1,6 +1,6 @@
 <template name="signup">
  <!--defines structure for signup page-->
-  
+
 {{#if currentUser}}
   <p><!--back to home-->
       You have sucessfully signed up, {{firstName}} {{lastName}}.
@@ -9,7 +9,7 @@
 {{else}}
 <a href="/">Back</a> <br>
 <div id="application-signup">
-    
+
     <div class="row">
       <form class="signup">
 
@@ -25,7 +25,7 @@
                   <input type="text" name="username" class="validate" autofocus required>
                 </div>
             </div>
-            <div class="row"> 
+            <div class="row">
               <div class="input-field col s4">
                 <!--<i class="material-icons prefix">account_circle</i>-->
                 <label for="firstName">Student First Name</label>
@@ -242,7 +242,7 @@
                 </div>
 
                 <br>
-
+<!--
                 <h4 class="page-header">Payment Information</h4>
                 <blockquote>EVSD Annual Contribution: $250
                 <br>
@@ -251,7 +251,7 @@
                         We use Paypal and Stripe software to power our payment process, which means our platform is verified and 100% safe. Because we are a registered 501c3 under California State Government and an ESUHSD Booster, your contribution is tax-deductible.
                 </blockquote>
                 <br>
-
+-->
                 <!--{{> Template.dynamic template="creditCard" data="signup"}}-->
 
 
