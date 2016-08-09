@@ -8,7 +8,9 @@
       Stripe.charges.create({
         source: stripeToken,
         amount: 25000, // this is equivalent to $250
-        currency: 'usd'
+        currency: 'usd',
+        // change this to customer email after debugging is finished
+        receipt_email: 'michellecarolynclark@gmail.com'
       }, function(err, charge) {
         console.log(err, charge);
       });
