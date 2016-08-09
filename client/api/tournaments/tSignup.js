@@ -29,16 +29,29 @@ if(Meteor.isClient){
 				partnerFirst = partner.profile.firstName,
 				partnerLast = partner.profile.lastName,
 				partnerEmail = partner.emails[0].address;
+			let	judgeFirst= event.target.judgeFirst.value,
+			 	judgeLast= event.target.judgeLast.value,
+				judgeEmail= event.target.judgeEmail.value,
+				judgePhone= event.target.judgePhone.value
 
 			if(parentConsent == "yes" && studentConsent == "yes"){
 					var entry ={
 						 tournament : event.target.tournament.value,
-						 userFirst : Meteor.user().profile.firstName,
-						 userLast : Meteor.user().profile.lastName,
-						 userEmail : Meteor.user().emails[0].address,
+						 userFirst : userFirst,
+						 userLast : userLast,
+						 userEmail : userEmail,
+						 
 						 partnerFirst : partnerFirst,
 						 partnerLast : partnerLast,
-						 partnerEmail : partnerEmail
+						 partnerEmail : partnerEmail,
+						 
+						 studentConsent: studentConsent,
+						 parentConsent: parentConsent,
+
+						 judgeFirst: judgeFirst,
+						 judgeLast: judgeLast,
+						 judgeEmail: judgeEmail,
+						 judgePhone: judgePhone,
 					};
 					Meteor.call('addTournament',entry);
 					//send some confirmation alert

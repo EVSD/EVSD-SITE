@@ -1,14 +1,6 @@
 Meteor.methods({
 	addTournament( entry ){
-		check( entry, {
-	      tournament : String,
-	      userFirst : String,
-	      userLast : String,
-	      userEmail : String,
-	      partnerFirst : String,
-	      partnerLast : String,
-	      partnerEmail : String
-	    });
+
 	    if(!Meteor.userId()){
 				throw new Meteor.Error('No access');
 			} //esentially a break
@@ -22,12 +14,17 @@ Meteor.methods({
 				p2FirstName: entry.partnerFirst,
 				p2LastName: entry.partnerLast,
 				p2Email: entry.partnerEmail,
+				studentConsent: entry.studentConsent,
+				parentConsent: entry.parentConsent,
+				judgeFirst: entry.judgeFirst,
+				judgeLast: entry.judgeLast,
+			 	judgeEmail: entry.judgeEmail,
+				judgePhone: entry.judgePhone,
+				approved: false, //admin has to validate them
 				createdAt: new Date()
 				//need to test how getting different ones of these works
 			});
-			event.target.email.value = '';
-			event.target.lastName.value ='';
-			event.target.firstName.value ='';
+
 			return false;
 	},
 	removeTournament (id){
