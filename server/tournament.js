@@ -40,7 +40,12 @@ Meteor.methods({
 			TournamentList.insert({
 				tournament: newOne
 			});
-			event.target.tournament.value = '';
+			/*event.target.tournament.value = '';
+			event.target.cost.value = '';
+			event.target.signUpDeadline.value = '';
+			event.target.paymentDeadline.value ='';
+			event.target.partner.value = '';
+			event.target.judges.value = '';*/
 			return false;
 		}//return error if not admin
 	},

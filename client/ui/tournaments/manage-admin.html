@@ -2,9 +2,23 @@
 	<!--create new Tournaments-->
 	<form class="create-tournament">
 
-		<label for="tournament">Create Tournament</label>
-			<input type="text" name="tournament" placeholder= "insert new tournament"><br>
+		<h3>Create a New Tournament</h3>
 
+		<ol><label for="name">Name: </label>
+				<input type="text" name="name" placeholder= "i.e. ToC - Open Parli"></ol>
+		<ol><label for="cost">Cost: </label>
+				<input type="number" name="cost" placeholder="i.e. $200" min="0"></ol>
+		<ol><label for="signUpDeadline">Sign-Up By:</label>
+				<input type="date" name="signUpDeadline" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
+		<ol><label for="paymentDeadline">Payment Due By:</label>
+				<input type="date" name="paymentDeadline" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>				
+		<ol><label for="partner">Partner event? </label>
+				<input type="radio" name="partner" value="yes"> Yes
+	  			<input type="radio" name="partner" value="no"> No</ol>				
+		<ol><label for="judges">Judges? </label>
+				<input type="radio" name="judges" value="yes"> Yes
+	  			<input type="radio" name="judges" value="no"> No</ol>
+			
 		<input type="submit" value="create tournament" >
 		<!--have confirmation-->
 	</form>

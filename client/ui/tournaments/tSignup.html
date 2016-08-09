@@ -3,16 +3,27 @@
 	<h1>Add Tournament</h1>
 		{{#if currentUser}}
 			<form class ="add-tournament"> <!--used to create a form like something to input things-->
-				
+
+				<p>Your name is already set for the tournament, enter your partners.</p>
+
 				Tournament(s):<select name="tournament">
 					{{#each tournamentList}}
-						<option value="{{tournament}}">{{tournament}}</option>
+						<option value="{{tournament.name}}">{{tournament.name}}</option>
 					{{/each}}<!--set it so that only admin shows admin option-->
 				</select><br>
 				<!--<input type = "text" name="tournament" placeholder="tournament"/><br>  -->				
 				<input type = "text" name="firstName" placeholder="Add partner first name"/><br>  
 				<input type = "text" name="lastName" placeholder="Add partner last name"/><br>  
-				<input type = "email" name="email" placeholder="Add email" class="validate"/><br>  
+				<input type = "email" name="email" placeholder="Add email" class="validate"/>
+				<h3> Terms of Conditions </h3> <!--implement later-->
+					<p>This is where the terms of conditions will go</p>
+
+					<p>I, the student of this account, fully agree to the above terms of conditions.</p>
+			  			<input type="radio" name="studentConsent" value="yes"> Yes, I agree
+			  			<input type="radio" name="studentConsent" value="no"> No, I do not <br> 	
+		  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
+		  				<input type="radio" name="parentConsent" value="yes"> Yes, I agree 
+		  				<input type="radio" name="parentConsent" value="no"> No, I do not <br> 		
 				<input type="submit" value="Submit" />
 			</form>
 			{{else}}
@@ -23,17 +34,19 @@
 		{{#each tournaments}}
  
 			<h2>{{tournament}} Entry
-				{{#if currentUser}}
-					<a href="#" class="delete-tournament">x</a><br>
+			</h2>				
+			{{#if currentUser}}
+					<a href="#" class="delete-tournament">x</a>
 				{{/if}}
-			</h2>
+
 			<p>created at: {{createdAt}}</p>
 				<h4>Partner 1</h4>
 				<li> {{p1FirstName}} {{p1LastName}}</li>
 				<li> {{p1Email}}</li>
 				<h4>Partner 2</h4>
 				<li> {{p2FirstName}} {{p2LastName}}</li>
-				<li> {{p2Email}}</li><br><br>			
+				<li> {{p2Email}}</li><br><br>
+
 		{{/each}}
 
 
