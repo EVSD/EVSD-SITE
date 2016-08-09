@@ -6,15 +6,18 @@
 
 				<p>Your name is already set for the tournament, enter your partners.</p>
 
-				Tournament(s):<select name="tournament">
+				Tournament(s):<select name="tournament" required>
 					{{#each tournamentList}}
 						<option value="{{tournament.name}}">{{tournament.name}}</option>
-					{{/each}}<!--set it so that only admin shows admin option-->
+					{{/each}}
 				</select><br>
-				<!--<input type = "text" name="tournament" placeholder="tournament"/><br>  -->				
-				<input type = "text" name="firstName" placeholder="Add partner first name"/><br>  
-				<input type = "text" name="lastName" placeholder="Add partner last name"/><br>  
-				<input type = "email" name="email" placeholder="Add email" class="validate"/>
+
+				Choose a Partner:<select name="partner" required>
+					{{#each users}}
+						<option value="{{username}}">{{username}}</option>
+					{{/each}}
+				</select><br>
+
 				<h3> Terms of Conditions </h3> <!--implement later-->
 					<p>This is where the terms of conditions will go</p>
 
@@ -22,8 +25,8 @@
 			  			<input type="radio" name="studentConsent" value="yes"> Yes, I agree
 			  			<input type="radio" name="studentConsent" value="no"> No, I do not <br> 	
 		  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
-		  				<input type="radio" name="parentConsent" value="yes"> Yes, I agree 
-		  				<input type="radio" name="parentConsent" value="no"> No, I do not <br> 		
+		  				<input type="radio" name="parentConsent" value="yes"> Yes, We(I) agree 
+		  				<input type="radio" name="parentConsent" value="no"> No, We(I) do not <br> 		
 				<input type="submit" value="Submit" />
 			</form>
 			{{else}}

@@ -9,15 +9,6 @@ if(Meteor.isServer){
 	/*Meteor.publish('tournamentAdmin',function(){
 			return Tournaments.find({});
 	});*/
-
-
-
-
-
-
-
-
-
 	//publish all the user data
 	Meteor.publish('allUsers', function(){
 	    return Meteor.users.find({});
