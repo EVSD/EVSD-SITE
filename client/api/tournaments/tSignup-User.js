@@ -3,9 +3,6 @@ if(Meteor.isClient){
 
 	//functions
 	Template.tSignup.helpers({
-		tournaments: function (){
-			return Tournaments.find({}); 
-		},
 		users: function(){
 			return Meteor.users.find({}); //only return certain fields
 		},
@@ -53,12 +50,9 @@ if(Meteor.isClient){
 						 judgeEmail: judgeEmail,
 						 judgePhone: judgePhone,
 					};
-					Meteor.call('addTournament',entry);
+					Meteor.call('createEntry',entry);
 					//send some confirmation alert
 				};
-		},
-		"click .delete-tournament": function(event){
-			Meteor.call('removeTournament', this._id);
 		},
 	});
 }

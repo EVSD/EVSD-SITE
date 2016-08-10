@@ -1,5 +1,5 @@
 Meteor.methods({
-	addTournament( entry ){
+	createEntry( entry ){
 
 	    if(!Meteor.userId()){
 				throw new Meteor.Error('No access');

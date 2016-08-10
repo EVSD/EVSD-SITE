@@ -1,5 +1,5 @@
 if (Meteor.isClient){
-	Template.manageAdmin.events({
+	Template.createTournament.events({
 		'submit .create-tournament':function(event){
 			let tournament ={
 					name: event.target.name.value,
