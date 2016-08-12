@@ -1,35 +1,51 @@
 if(Meteor.isClient){
 
-
 	//functions
 	Template.tSignup.helpers({
 		users: function(){
 			return Meteor.users.find({}); //only return certain fields
-		},
+			},
 		tournamentList: function (){
-			return TournamentList.find({});
-		}
+			return TournamentList.find({},{
+				sort: {"tournament.signUpDeadline": -1},
+			});
+		},	
 	});
 	Template.tSignup.events({
 		//submit is a type of HTML input
 		"submit .add-tournament": function(event){
-				//consent information (NEEDS TO BE IMPLEMENTED)
+		//use find one to find the tournament
+			var e = document.getElementById("tournament");
+			var selected = String(e.options[e.selectedIndex].value);
+			let theOne = TournamentList.findOne({
+				"tournament.name": selected
+				});
+				//consent information
 			let studentConsent = event.target.studentConsent.value,
 				parentConsent = event.target.parentConsent.value;
 				//partner 1
 			let userFirst = Meteor.user().profile.firstName,
 				userLast = Meteor.user().profile.lastName,
 				userEmail = Meteor.user().emails[0].address;
-				//selected partner
-			let username = event.target.partner.value, //this gets the partner's username
-				partner = Meteor.users.findOne({username:username}),
-				partnerFirst = partner.profile.firstName,
-				partnerLast = partner.profile.lastName,
-				partnerEmail = partner.emails[0].address;
-			let	judgeFirst= event.target.judgeFirst.value,
+
+			//selected partner
+			let partnerFirst ='', partnerLast ='', partnerEmail ='';
+
+			if (theOne.tournament.partner == "yes"){
+				let username = event.target.partner.value, //this gets the partner's username
+					partner = Meteor.users.findOne({username:username}),
+					partnerFirst = partner.profile.firstName,
+					partnerLast = partner.profile.lastName,
+					partnerEmail = partner.emails[0].address;
+			}
+
+			let judgeFirst =' ',judgeLast =' ', judgeEmail =' ', judgePhone =' '
+			if (theOne.tournament.judges == "yes"){
+				judgeFirst= event.target.judgeFirst.value,
 			 	judgeLast= event.target.judgeLast.value,
 				judgeEmail= event.target.judgeEmail.value,
 				judgePhone= event.target.judgePhone.value
+			}
 
 			if(parentConsent == "yes" && studentConsent == "yes"){
 					var entry ={
@@ -44,15 +60,52 @@ if(Meteor.isClient){
 						 
 						 studentConsent: studentConsent,
 						 parentConsent: parentConsent,
-
 						 judgeFirst: judgeFirst,
 						 judgeLast: judgeLast,
 						 judgeEmail: judgeEmail,
 						 judgePhone: judgePhone,
-					};
-					Meteor.call('createEntry',entry);
-					//send some confirmation alert
+						}
+						//in the display determine it based off of tournament
 				};
+			Meteor.call('createEntry',entry);
+					//FlowRouter.go('/tournaments/myTournaments');
+
+					//send some confirmation alert
+		},
+		"change #tournament": function(event){
+			//gets the selected value
+			var e = document.getElementById("tournament");
+				var selected = String(e.options[e.selectedIndex].value);
+				let theOne = TournamentList.findOne({
+					"tournament.name": selected
+				});
+			
+			if (selected == "default"){
+					alert ("Select a Tournament");
+				};		
+			if (selected != 'default'){
+				//check if it has a partner or not
+				if (theOne.tournament.partner == "no"){
+		    		document.getElementById("partnerToggle").style.display = "none";
+				}else if (theOne.tournament.partner == "yes"){
+		    		document.getElementById("partnerToggle").style.display = "block";
+				}
+				//" " judges or not
+				if (theOne.tournament.judges == "no"){
+		    		document.getElementById("judgesToggle").style.display = "none";
+				}else if (theOne.tournament.judges == "yes"){
+		    		document.getElementById("judgesToggle").style.display = "block";
+				}
+			};
+			//check if it has a deadline or not
 		},
 	});
+	Template.registerHelper( 'disableIfPassDue', ( tournamentId ) => {
+		var theOne = TournamentList.findOne({"_id": tournamentId});
+		var deadline = new Date(theOne.tournament.signUpDeadline),
+			today = new Date();
+		if (today > deadline){
+		  	return "disabled";
+		}
+  	});
 }

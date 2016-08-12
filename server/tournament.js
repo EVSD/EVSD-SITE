@@ -3,29 +3,28 @@ Meteor.methods({
 
 	    if(!Meteor.userId()){
 				throw new Meteor.Error('No access');
+				return "I failed";
 			} //esentially a break
-
-			Tournaments.insert({
-				
-				tournament: entry.tournament,
-				p1FirstName: entry.userFirst,
-				p1LastName: entry.userLast,
-				p1Email: entry.userEmail,
-				p2FirstName: entry.partnerFirst,
-				p2LastName: entry.partnerLast,
-				p2Email: entry.partnerEmail,
-				studentConsent: entry.studentConsent,
-				parentConsent: entry.parentConsent,
-				judgeFirst: entry.judgeFirst,
-				judgeLast: entry.judgeLast,
-			 	judgeEmail: entry.judgeEmail,
-				judgePhone: entry.judgePhone,
-				approved: false, //admin has to validate them
-				createdAt: new Date()
-				//need to test how getting different ones of these works
-			});
-
-			return false;
+				Tournaments.insert({
+					
+					tournament: entry.tournament,
+					p1FirstName: entry.userFirst,
+					p1LastName: entry.userLast,
+					p1Email: entry.userEmail,
+					p2FirstName: entry.partnerFirst,
+					p2LastName: entry.partnerLast,
+					p2Email: entry.partnerEmail,
+					studentConsent: entry.studentConsent,
+					parentConsent: entry.parentConsent,
+					judgeFirst: entry.judgeFirst,
+					judgeLast: entry.judgeLast,
+				 	judgeEmail: entry.judgeEmail,
+					judgePhone: entry.judgePhone,
+					approved: false, //admin has to validate them
+					createdAt: new Date()
+					//need to test how getting different ones of these works
+				});
+				return "success";
 	},
 	removeTournament (id){
     	Tournaments.remove(id);

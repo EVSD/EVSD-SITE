@@ -1,26 +1,29 @@
 <template name= "myTournaments">
 	{{#if currentUser}}
 	<h2> My Entries </h2>
-	{{#each tournaments}}
-		
-
-		<h3>{{tournament}} <a href="#" class="delete-tournament">x</a>
-		</h3>				
-		<a href={{pathForEntry}}>edit</a>
-		<p>created at: {{createdAt}}</p>
-			<h4>Partner 1</h4>
-			<li> {{p1FirstName}} {{p1LastName}}</li>
-			<li> {{p1Email}}</li>
-			<h4>Partner 2</h4>
-			<li> {{p2FirstName}} {{p2LastName}}</li>
-			<li> {{p2Email}}</li><br>
-			<h4>Judge</h4>
-			<li> {{judgeFirst}} {{judgeLast}}</li>
-			<li> {{judgeEmail}}</li>
-			<li> {{judgePhone}}</li><br>
-			
-	{{/each}}
+		{{#each tournaments}}
+			{{togglePartnersJudges}}
+				<h3>{{tournament}} <a href="#" class="delete-tournament">x</a>
+				</h3>				
+				<a href={{pathForEntry}}>edit</a>
+				<p>created at: {{createdAt}}</p>
+				<h4>Partner 1</h4>
+					<li> {{p1FirstName}} {{p1LastName}}</li>
+					<li> {{p1Email}}</li>
+				<div id="partnerToggle">
+					<h4>Partner 2</h4>
+					<li> {{p2FirstName}} {{p2LastName}}</li>
+					<li> {{p2Email}}</li><br>
+				</div>
+				<div id="judgesToggle">	
+					<h4>Judge</h4>
+					<li> {{judgeFirst}} {{judgeLast}}</li>
+					<li> {{judgeEmail}}</li>
+					<li> {{judgePhone}}</li><br>
+				</div>
+		{{/each}}
 	{{/if}}
+
 </template>
 <!--displays all the tournaments the user is signed up for
 	edit tournament links go here

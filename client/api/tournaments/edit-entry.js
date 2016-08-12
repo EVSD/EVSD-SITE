@@ -8,9 +8,7 @@ if(Meteor.isClient){
 		    let entryId = FlowRouter.getParam('entryId');
 		    
 		    return Tournaments.findOne({_id: entryId});
-			},     
-
-
+			},     	
 	});
 	Template.editEntry.events({
 		"click .delete-tournament": function(event){

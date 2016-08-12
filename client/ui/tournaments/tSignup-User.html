@@ -1,31 +1,43 @@
 <template name="tSignup">
+
 {{#if currentUser}}
-	<h1>Add Tournament</h1>
-			<form class ="add-tournament"> <!--used to create a form like something to input things-->
-
-				<p>Choose a partner and tournament.</p>
-
-				Tournament(s):<select name="tournament" required>
+	<h1>Add Tournament entry</h1>
+			<form class ="add-tournament" novalidate> <!--used to create a form like something to input things-->
+				<p>Choose a tournament.</p>
+				
+				Tournament(s):<select name="tournament" id="tournament" required>
+					<option value="default" selected>Select your option</option>
 					{{#each tournamentList}}
-						<option value="{{tournament.name}}">{{tournament.name}}</option>
+						<option value='{{tournament.name}}' {{disableIfPassDue _id}}>
+							{{tournament.name}} - Due: {{tournament.signUpDeadline}}
+							<!--disable based off deadline-->
+						</option>
 					{{/each}}
 				</select><br>
 
-				Choose a Partner:<select name="partner" required>
-					{{#each users}}
-						<option value="{{username}}">{{username}}</option>
-					{{/each}}
-				</select><br>
-				<div><h3>Insert Your Judge:</h3>
-					<label for="judgeFirst">First Name</label>
-	                  <input type="text" name="judgeFirst" autofocus required><br>
-	                <label for="judgeLast">Last Name</label>
-	                  <input type="text" name="judgeLast" autofocus required><br>
-	                <label for="judgeEmail">Email</label>
-	                  <input type="email" name="judgeEmail" autofocus required><br>
-	                <label for="judgePhone">Phone number</label>
-	                  <input type="tel" name="judgePhone" autofocus required>
+				<div id="partnerToggle">
+					Choose a Partner:<select name="partner" required>
+						{{#each users}}
+							<option value="{{username}}">{{username}}</option>
+						{{/each}}
+					</select><br>
 				</div>
+
+				<div id="judgesToggle" required>
+					<h3>Insert Your Judge:</h3>
+					<!--type="hidden" - make this the conditional-->
+						<label for="judgeFirst">First Name</label>
+		                  <input type="text" name="judgeFirst" autofocus required><br>
+		                <label for="judgeLast">Last Name</label>
+		                  <input type="text" name="judgeLast" autofocus required><br>
+		                <label for="judgeEmail">Email</label>
+		                  <input type="email" name="judgeEmail" autofocus required><br>
+		                <label for="judgePhone">Phone number</label>
+		                  <input type="tel" name="judgePhone" autofocus required>
+	                  <!--if has no value still put it in the tournament list so that chance for
+	                  		admin to add back later-->
+				</div>
+
 				<h3> Terms of Conditions </h3> <!--implement later-->
 					<p>This is where the terms of conditions will go</p>
 
