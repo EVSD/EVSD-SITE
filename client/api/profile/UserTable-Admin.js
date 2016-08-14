@@ -1,10 +1,10 @@
 if (Meteor.isClient){
-	Template.adminView.helpers({
+	Template.userTable.helpers({
 		users: function (){
 			return Meteor.users.find({}); 
 		}
 	});
-	Template.adminView.events({
+	Template.userTable.events({
 	   	//change user roles
 		'change [name="userRole"]': function( event) {
 			if (confirm('Are you sure?')){
@@ -23,7 +23,7 @@ if (Meteor.isClient){
 			}
 		}
 
-	});	
+	});
 	Template.registerHelper( 'isCurrentUser', ( currentUser ) => {
 	  return currentUser === Meteor.userId() ? true : false;
 	});
@@ -35,10 +35,5 @@ if (Meteor.isClient){
 	});
 	Template.registerHelper( 'selected', ( v1, v2 ) => {
 	  return v1 === v2 ? true : false;
-	});
-	/*Template.registerHelper( 'displayTournament', ( v1, v2 ) => {
-	  
-	  return v1 === v2 ? true : false;
-	});*/
-
+	});	
 }

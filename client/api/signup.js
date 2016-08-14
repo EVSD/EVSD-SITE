@@ -7,6 +7,9 @@ if (Meteor.isClient){
 		lastName: function() {
 		    return Meteor.user().profile.lastName;
 		  },
+	    currentUpload: function () {
+    		return Template.instance().currentUpload.get();
+	      },
 	});
 	Template.signup.events({
 
@@ -44,7 +47,6 @@ if (Meteor.isClient){
 		        whyjoin: $('[name="whyjoin"]').val(),
 		        concerns: $('[name="concerns"]').val()
 		    };
-
 		    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 			    if (err){
 			      alert('reg user error');
@@ -53,6 +55,29 @@ if (Meteor.isClient){
 						FlowRouter.path("/payContribution");
 		    	}
 		    });
+		    //upload file to server
+		    if (event.target.waiver.files && event.target.waiver.files[0]) {
+		        //if there is a files target and there is a current file
+		          // We upload only one file, in case 
+		          // multiple files were selected
+		        var upload = Waivers.insert({
+		          file: event.target.waiver.files[0],
+		          streams: 'dynamic',
+		          chunkSize: 'dynamic'
+		        }, false);//we upload the waiver 1 at a time
+
+
+		        upload.on('end', function (error, fileObj) {
+		          if (error) {
+		            alert('Error during upload: ' + error);
+		          } else {
+		            alert('Successfully Uploaded: \n' + fileObj.name + ' \nYou can now sign up');
+		          }
+		          template.currentUpload.set(false);
+		        });//checks for error, and resets the upload button and sends a successful upload message
+		        upload.start();
+	      	}
+
 		},//end of signup
 	});
 }

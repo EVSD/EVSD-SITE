@@ -7,7 +7,7 @@ if(Meteor.isClient){
 			},
 		tournamentList: function (){
 			return TournamentList.find({},{
-				sort: {"tournament.signUpDeadline": -1},
+				sort: {"signUpDeadline": -1},
 			});
 		},	
 	});
@@ -18,7 +18,7 @@ if(Meteor.isClient){
 			var e = document.getElementById("tournament");
 			var selected = String(e.options[e.selectedIndex].value);
 			let theOne = TournamentList.findOne({
-				"tournament.name": selected
+				"name": selected
 				});
 				//consent information
 			let studentConsent = event.target.studentConsent.value,
@@ -31,7 +31,7 @@ if(Meteor.isClient){
 			//selected partner
 			let partnerFirst ='', partnerLast ='', partnerEmail ='';
 
-			if (theOne.tournament.partner == "yes"){
+			if (theOne.partner == "yes"){
 				let username = event.target.partner.value, //this gets the partner's username
 					partner = Meteor.users.findOne({username:username}),
 					partnerFirst = partner.profile.firstName,
@@ -40,7 +40,7 @@ if(Meteor.isClient){
 			}
 
 			let judgeFirst =' ',judgeLast =' ', judgeEmail =' ', judgePhone =' '
-			if (theOne.tournament.judges == "yes"){
+			if (theOne.judges == "yes"){
 				judgeFirst= event.target.judgeFirst.value,
 			 	judgeLast= event.target.judgeLast.value,
 				judgeEmail= event.target.judgeEmail.value,
@@ -77,7 +77,7 @@ if(Meteor.isClient){
 			var e = document.getElementById("tournament");
 				var selected = String(e.options[e.selectedIndex].value);
 				let theOne = TournamentList.findOne({
-					"tournament.name": selected
+					"name": selected
 				});
 			
 			if (selected == "default"){
@@ -85,27 +85,21 @@ if(Meteor.isClient){
 				};		
 			if (selected != 'default'){
 				//check if it has a partner or not
-				if (theOne.tournament.partner == "no"){
+				if (theOne.partner == "no"){
 		    		document.getElementById("partnerToggle").style.display = "none";
-				}else if (theOne.tournament.partner == "yes"){
+				}else if (theOne.partner == "yes"){
 		    		document.getElementById("partnerToggle").style.display = "block";
 				}
 				//" " judges or not
-				if (theOne.tournament.judges == "no"){
+				if (theOne.judges == "no"){
 		    		document.getElementById("judgesToggle").style.display = "none";
-				}else if (theOne.tournament.judges == "yes"){
+				}else if (theOne.judges == "yes"){
 		    		document.getElementById("judgesToggle").style.display = "block";
 				}
 			};
 			//check if it has a deadline or not
 		},
 	});
-	Template.registerHelper( 'disableIfPassDue', ( tournamentId ) => {
-		var theOne = TournamentList.findOne({"_id": tournamentId});
-		var deadline = new Date(theOne.tournament.signUpDeadline),
-			today = new Date();
-		if (today > deadline){
-		  	return "disabled";
-		}
-  	});
-}
+}//end of isClient
+
+  	

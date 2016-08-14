@@ -233,19 +233,6 @@
                 <iframe src="https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/preview" style="width:640px; height:480px;" frameborder="0"></iframe>
 
                 <br>
-                <br>
-
-                <div class="file-field input-field">
-                  <div class="btn">
-                    <span>File</span>
-                    <input type="file" required>
-                  </div>
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload Signed Waiver">
-                  </div>
-                </div>
-
-                <br>
 <!--
                 <h4 class="page-header">Payment Information</h4>
                 <blockquote>EVSD Annual Contribution: $250
@@ -257,7 +244,13 @@
                 <br>
 -->
                 <!--{{> Template.dynamic template="creditCard" data="signup"}}-->
-
+        <!--Upload Form-->
+          <label for="waiver">
+            <p>Please format file name like: "email@site"<br>
+              <i>i.e. "yourname@gmail.pdf"</i>
+            </p>
+          </label>
+            <input name="waiver" type="file" /><br>
 
         <input type="submit" value="Sign Up">
             <br>

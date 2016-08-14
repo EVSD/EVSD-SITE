@@ -1,21 +1,19 @@
 if(Meteor.isServer){
-
+	Waivers.denyClient();
 	//publish tournament data for user
 	Meteor.publish('tournamentUser',function(){
 
 			return Tournaments.find({});
 	});
-	//publish tournament data for admin
-	/*Meteor.publish('tournamentAdmin',function(){
-			return Tournaments.find({});
-	});*/
-	//publish all the user data
 	Meteor.publish('allUsers', function(){
 	    return Meteor.users.find({});
 		});
 
 	Meteor.publish('tournamentList', function(){
 		return TournamentList.find({});
+	});
+	Meteor.publish('files.waivers.all', function () {
+		return Waivers.find().cursor; //what is the cursor for
 	});
 };
 

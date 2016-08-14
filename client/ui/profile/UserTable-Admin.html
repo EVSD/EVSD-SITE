@@ -1,8 +1,4 @@
-
-<!--MARK: set so that admin can only see this-->
-<template name="adminView">
-  
-{{#if isInRole 'admin'}}
+<template name ="userTable">
 	<h3>Site Users</h3>
 
 <!--Users and their roles-->
@@ -41,7 +37,4 @@
 		  {{/each}}
 		</tbody>
 	</table>
-
-{{/if}}
 </template>
-

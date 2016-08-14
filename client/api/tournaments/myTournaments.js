@@ -22,7 +22,7 @@ if(Meteor.isClient){
 				tournament = entry.tournament;
 			
 			//gets partner and judge info on tournament in question
-			let tournamentInfo = TournamentList.findOne({"tournament.name": tournament}),
+			let tournamentInfo = TournamentList.findOne({"name": tournament}),
 				partner = tournamentInfo.tournament.partner,
 				judges 	= tournamentInfo.tournament.judges;
 			
@@ -42,8 +42,8 @@ if(Meteor.isClient){
 
 	});
 	Template.myTournaments.events({
-		"click .delete-tournament": function(event){
-			Meteor.call('removeTournament', this._id);
+		"click .delete-entry": function(event){
+			Meteor.call('removeEntry', this._id);
 		},
 	});
 }

@@ -52,6 +52,19 @@ var tournamentRoutes = FlowRouter.group({
       BlazeLayout.render('view', {content: 'createTournament'});
     }
   });
+  //list of exisiting tournaments
+  tournamentRoutes.route('/admin_tournament_view', {
+    action: function() {
+      BlazeLayout.render('view', {content: 'tournaments'});
+    }
+  });
+  //edit a tournament
+  tournamentRoutes.route('/admin_tournament_view/edit/:tournamentId', {
+    name: 'editTournament',
+    action: function() {
+      BlazeLayout.render('view', {content: 'editTournament'});
+    }
+  });
   //for /tournaments/entries route
     //list of all the tournaments ppl have signed up for
   tournamentRoutes.route('/entries', {

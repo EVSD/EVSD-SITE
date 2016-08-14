@@ -5,9 +5,10 @@
 		<a href="/tournaments/myTournaments">My Tournaments</a> <br>
 		<a href="/tournaments/signup">Sign Up for Tournament</a><br><br>
 		{{#if isInRole 'admin'}}
-		<a href="/tournaments/create-tournament">Create New Tournament</a><br>
-		<a href="/tournaments/entries">See Current Signups</a>
+			<a href="/tournaments/create-tournament">Create New Tournament</a><br>
+			<a href="/tournaments/admin_tournament_view">Edit a current tournament</a><br>
+			<a href="/tournaments/entries">See Current Signups</a>
 
-	{{/if}}
+		{{/if}}
 	</p>
 </template>

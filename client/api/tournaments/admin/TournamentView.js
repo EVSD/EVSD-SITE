@@ -1,0 +1,23 @@
+if (Meteor.isClient){
+	Template.tournaments.helpers({
+		inTournamentList: function (){
+			return TournamentList.find({}); 
+			},//end
+	 	pathForEntry: function() {
+		    var params = {
+		        tournamentId: this._id, //why? tournamentId works
+		    };
+		    var routeName = "editTournament";
+		    var path = FlowRouter.path(routeName, params);
+	        
+	        return path;
+			},//end
+	});
+	Template.tournaments.events({
+		"click .delete-tournament": function(event){    
+			if (confirm('Are you sure?')) {
+				Meteor.call('removeTournament', this._id);
+			}else alert('you did not delete it');
+		},
+	});
+}

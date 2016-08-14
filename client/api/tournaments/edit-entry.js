@@ -3,19 +3,13 @@ if(Meteor.isClient){
 	//functions
 	Template.editEntry.helpers({
 		entry: function (){
-			/*var entryId = FlowRouter.getParam('entryId');
-		    return Tournaments.findOne({_id: entryId});*/
 		    let entryId = FlowRouter.getParam('entryId');
 		    
 		    return Tournaments.findOne({_id: entryId});
 			},     	
 	});
 	Template.editEntry.events({
-		"click .delete-tournament": function(event){
-		    let entryId = FlowRouter.getParam('entryId');
-			Meteor.call('removeTournament', entryId);
-		},
-		'submit .edit-tournament': function(event) {
+		'submit .edit-entry': function(event) {
 		    if (confirm('Are you sure?')) {
 		    let entryId = FlowRouter.getParam('entryId');
 		    	console.log(entryId);

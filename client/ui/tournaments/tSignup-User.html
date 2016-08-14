@@ -8,8 +8,8 @@
 				Tournament(s):<select name="tournament" id="tournament" required>
 					<option value="default" selected>Select your option</option>
 					{{#each tournamentList}}
-						<option value='{{tournament.name}}' {{disableIfPassDue _id}}>
-							{{tournament.name}} - Due: {{tournament.signUpDeadline}}
+						<option value='{{name}}' {{disableIfPassDue _id}}>
+							{{name}} - Due: {{signUpDeadline}}
 							<!--disable based off deadline-->
 						</option>
 					{{/each}}

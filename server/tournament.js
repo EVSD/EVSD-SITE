@@ -1,4 +1,4 @@
-Meteor.methods({
+ Meteor.methods({
 	createEntry( entry ){
 
 	    if(!Meteor.userId()){
@@ -20,29 +20,32 @@ Meteor.methods({
 					judgeLast: entry.judgeLast,
 				 	judgeEmail: entry.judgeEmail,
 					judgePhone: entry.judgePhone,
-					approved: false, //admin has to validate them
+					approved: 'no', //admin has to validate them. is either 'yes' or 'no'
 					createdAt: new Date()
 					//need to test how getting different ones of these works
 				});
 				return "success";
 	},
-	removeTournament (id){
+	removeEntry (id){
     	Tournaments.remove(id);
   	},
+  	//Tournament List
 	createTournament (newOne){
 		let isAdmin = Roles.userIsInRole( this.userId, 'admin' );
 
 		if(isAdmin){
 			TournamentList.insert({
-				tournament: newOne
+				name: newOne.name,
+				cost: newOne.cost,
+				signUpDeadline: newOne.signUpDeadline,
+				paymentDeadline: newOne.paymentDeadline,
+				partner: newOne.partner,
+				judges: newOne.judges
 			});
-			/*event.target.tournament.value = '';
-			event.target.cost.value = '';
-			event.target.signUpDeadline.value = '';
-			event.target.paymentDeadline.value ='';
-			event.target.partner.value = '';
-			event.target.judges.value = '';*/
 			return false;
 		}//return error if not admin
 	},
+	removeTournament(id){
+		TournamentList.remove(id);
+	}
 });
