@@ -3,6 +3,7 @@
 	<p><!--back to home-->
     	<a href="/">Back</a> <br/>
  	</p>
+
  	{{#if currentUser}}
 		{{#if isInRole 'frozen'}}
 			<p>Ask admin for permission</p>
@@ -18,9 +19,15 @@
 				<li>Student Phone #: {{studentPhone}}</li>
 				<li>Student Id: {{studentId}}</li>
 			</ul>
-
+			
 			<a href="/profile/edit">edit info</a><br>
-		{{> adminView}}
+
+			{{> file}}
+
+			
+			{{#if isInRole 'admin'}}
+				{{> userTable}}
+			{{/if}}
 		{{/if}}
 	{{/if}}
 

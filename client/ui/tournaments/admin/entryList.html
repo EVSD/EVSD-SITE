@@ -1,0 +1,38 @@
+<template name="entries">
+{{#if isInRole 'admin'}}
+	<h2>Tournaments People Have Signed Up For</h2>
+	<p>To approve people, simiply click Yes. You can click No to unapprove them.</p>
+	<!--can put notification popups in the corner later on for feedback on approval-->
+
+<!--for each touranment entry-->
+	{{#each entry}}
+		<h3>{{tournament}} Entry
+			{{#if currentUser}}
+				<a href="#" class="delete-entry">x</a><br>
+			{{/if}}
+		</h3>
+<!--approve tournament-->
+		<form class="approve-tournament">
+			<label for="approved">Approved?</label>
+		    	<input type="radio" name="approved" id="approvedYes" checked="{{checked approved 'yes'}}"> Yes
+	  			<input type="radio" name="approved" value="no" id="approvedNo" checked ="{{checked approved 'no'}}"> No <br>
+		</form>
+<!--rest of the tournament entry information-->
+		<p>created at: {{createdAt}}</p>
+		<h4>Partner 1</h4>
+			<li> {{p1FirstName}} {{p1LastName}}</li>
+			<li> {{p1Email}}</li>
+		<div {{hidePartner tournament}}>
+			<h4>Partner 2</h4>
+			<li> {{p2FirstName}} {{p2LastName}}</li>
+			<li> {{p2Email}}</li><br>
+		</div>
+		<div {{hideJudges tournament}}>	
+			<h4>Judge</h4>
+			<li> {{judgeFirst}} {{judgeLast}}</li>
+			<li> {{judgeEmail}}</li>
+			<li> {{judgePhone}}</li><br>
+		</div>
+	{{/each}}
+{{/if}}	
+</template>

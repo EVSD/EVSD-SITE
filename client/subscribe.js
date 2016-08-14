@@ -5,5 +5,6 @@ if (Meteor.isClient){
 	Meteor.subscribe('allUsers'); //find a way to make this more private and selective
 	Meteor.subscribe('tournamentUser');
 	Meteor.subscribe('tournamentList');
-
+	//waivers/registration form
+	Meteor.subscribe('files.waivers.all');
 }

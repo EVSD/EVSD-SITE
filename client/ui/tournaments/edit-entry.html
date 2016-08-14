@@ -1,0 +1,36 @@
+<template name= "editEntry">
+
+	<h3>Editing {{entry.tournament}} Entry for: {{entry.p1LastName}} and {{entry.p2LastName}}</h3>
+
+	<p> Can only edit judging information </p>
+<form class="edit-entry">
+	<div><h3>Judge</h3>
+		<label for="judgeFirstName">First Name</label>
+	      <input type="text" name="judgeFirstName" value="{{entry.judgeFirst}}" autofocus><br>
+	    <label for="judgeLastName">Last Name</label>
+	      <input type="text" name="judgeLastName" value="{{entry.judgeLast}}" autofocus><br>
+	    <label for="judgeEmail">Email</label>
+	      <input type="email" name="judgeEmail" value="{{entry.judgeEmail}}" autofocus><br>
+	  	<label for="judgePhone">Phone number</label>
+	      <input type="tel" name="judgePhone" value="{{entry.judgePhone}}" autofocus>
+	</div>
+
+
+	<h3> Terms of Conditions </h3> <!--implement later-->
+		<p>You have already consented, both parent(s) and student(s), to them.<br>
+			If you wish to make a change, create a new entry. </p>
+
+	<input type="submit" value="Submit" />
+</form>
+
+</template>
+<!--for editing individual tournament entries
+
+//for /tournaments/editEntry route
+    //tournaments signed up for (in order)
+  tournamentRoutes.route('/editEntry', {
+    action: function() {
+      BlazeLayout.render('view', {content: 'editEntry'});
+    }
+  });
+-->

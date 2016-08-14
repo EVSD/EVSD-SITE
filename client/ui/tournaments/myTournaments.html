@@ -1,0 +1,39 @@
+<template name= "myTournaments">
+	{{#if currentUser}}
+
+	<p>If you want to change your partner, delete your entry and reneter with a new one.
+		Contact your debate coach for a refund if you already payed.
+	</p>
+	
+	<h2> My Entries </h2>
+		{{#each tournaments}}
+
+				<h3>{{tournament}} <a href="#" class="delete-entry">x</a>
+				</h3>				
+				<a href={{pathForEntry}}>edit</a>
+				<!--put the verified value here-->
+				<p style="color:green" {{hideApproved approved 'yes'}} > Approved </p>
+				<p style="color:red" {{hideApproved approved 'no'}} > Unapproved </p>
+
+				<p>created at: {{createdAt}}</p>
+				<h4>Partner 1</h4>
+					<li> {{p1FirstName}} {{p1LastName}}</li>
+					<li> {{p1Email}}</li>
+				<div {{hidePartner tournament}}>
+					<h4>Partner 2</h4>
+					<li> {{p2FirstName}} {{p2LastName}}</li>
+					<li> {{p2Email}}</li><br>
+				</div>
+				<div {{hideJudges tournament}}>	
+					<h4>Judge</h4>
+					<li> {{judgeFirst}} {{judgeLast}}</li>
+					<li> {{judgeEmail}}</li>
+					<li> {{judgePhone}}</li><br>
+				</div>
+		{{/each}}
+	{{/if}}
+
+</template>
+<!--displays all the tournaments the user is signed up for
+	edit tournament links go here
+--> 

@@ -22,9 +22,11 @@ ecmascript@0.5.7              # Enable ECMAScript2015+ syntax in app code
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 accounts-ui@1.1.9
 accounts-password@1.2.12
+accounts-base
 check@1.2.3
 alanning:roles			#Allows authorization (Admin, Officers, Members)
 kadira:flow-router
 kadira:blaze-layout
 themeteorchef:bert
 mrgalaxy:stripe
+ostrio:files

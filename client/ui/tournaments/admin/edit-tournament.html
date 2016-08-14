@@ -1,0 +1,23 @@
+<template name ='editTournament'>
+
+	<h3>Editing {{editing.name}}</h3>
+
+	<form class="edit-tournament">
+		<div><h3>Judge</h3>
+			<label for="signUpDeadline">Signup Deadline</label>
+		      <input type="date" name="signUpDeadline" value="{{editing.signUpDeadline}}" autofocus><br>
+		    <label for="paymentDeadline">Payment Deadline</label>
+		      <input type="date" name="paymentDeadline" value="{{editing.paymentDeadline}}" autofocus><br>
+		    <label for="cost">Cost</label>
+		      <input type="number" name="cost" value="{{editing.cost}}" autofocus><br>
+		  	<label for="partner">Partner event?</label>
+		    	<input type="radio" name="partner" value="yes" checked="{{checked editing.partner 'yes'}}"> Yes
+	  			<input type="radio" name="partner" value="no" checked ="{{checked editing.partner 'no'}}"> No<br>
+	  	  	<label for="judges">Judges required/requested?</label>
+		    	<input type="radio" name="judges" value="yes"  checked="{{checked editing.judges 'yes'}}"> Yes
+	  			<input type="radio" name="judges" value="no" checked ="{{checked editing.judges 'no'}}"> No<br>
+		</div>
+
+		<input type="submit" value="Submit" />
+	</form>
+</template>

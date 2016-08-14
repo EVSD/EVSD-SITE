@@ -1,4 +1,5 @@
-<template name ="manageAdmin">
+<template name ="createTournament">
+{{#if isInRole 'admin'}}
 	<!--create new Tournaments-->
 	<form class="create-tournament">
 
@@ -15,11 +16,12 @@
 		<ol><label for="partner">Partner event? </label>
 				<input type="radio" name="partner" value="yes"> Yes
 	  			<input type="radio" name="partner" value="no"> No</ol>				
-		<ol><label for="judges">Judges? </label>
+		<ol><label for="judges">Judges required/requested? </label>
 				<input type="radio" name="judges" value="yes"> Yes
 	  			<input type="radio" name="judges" value="no"> No</ol>
 			
 		<input type="submit" value="create tournament" >
 		<!--have confirmation-->
 	</form>
+{{/if}}
 </template>
