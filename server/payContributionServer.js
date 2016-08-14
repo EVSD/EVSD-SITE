@@ -12,7 +12,7 @@
       }, function(err, charge) {
         console.log(err, charge);
         if (charge.status == 'succeeded') {
-          Router.route('signupSuccess');
+          FlowRouter.path('signupSuccess');
         } else {
           // TODO: display payment failed message
         }
