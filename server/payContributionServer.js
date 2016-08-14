@@ -1,9 +1,7 @@
   Meteor.methods({
     'chargeCard': function(stripeToken) {
       check(stripeToken, String);
-      // also change this to the Meteor.settings.private.stripe.testSecretKey reference later
-      // right now it doesn't work
-      var Stripe = StripeAPI("sk_test_QudD3MKcJaWbAmkFV9ICudkX");
+      var Stripe = StripeAPI(Meteor.settings.private.stripe.testSecretKey);
 
       Stripe.charges.create({
         source: stripeToken,
