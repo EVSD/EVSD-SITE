@@ -7,8 +7,7 @@
         source: stripeToken,
         amount: 25000, // this is equivalent to $250
         currency: 'usd',
-        // change this to customer email after debugging is finished
-        receipt_email: 'michellecarolynclark@gmail.com'
+        receipt_email: {{email}}
       }, function(err, charge) {
         console.log(err, charge);
         if (charge.status == 'succeeded') {
