@@ -1,15 +1,14 @@
 if(Meteor.isServer){
 	Waivers.denyClient();
 	//publish tournament data for user
-	Meteor.publish('tournamentUser',function(){
-
+	Meteor.publish('tournament_entries',function(){
 			return Tournaments.find({});
 	});
-	Meteor.publish('allUsers', function(){
+	Meteor.publish('users', function(){
 	    return Meteor.users.find({});
 		});
 
-	Meteor.publish('tournamentList', function(){
+	Meteor.publish('tournament_list', function(){
 		return TournamentList.find({});
 	});
 	Meteor.publish('files.waivers.all', function () {

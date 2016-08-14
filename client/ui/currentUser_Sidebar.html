@@ -1,0 +1,17 @@
+<template name="cu_sidebar">
+{{#if currentUser}}
+	{{> logout}}
+	<a href = "/profile">Your Profile</a><br>
+
+	<h3> Tournaments</h3>
+	<a href="/tournaments/myTournaments">My Tournaments</a><br>
+	<a href="/tournaments/signup">Sign Up for Tournament</a>
+	{{#if isInRole 'admin'}}
+		<h4> Admin Options</h4>
+		<a href="/tournaments/create-tournament">Create a New Tournament</a><br>
+		<a href="/tournaments/admin_tournament_view"> See/Edit Current Tournaments</a><br>
+		<a href="/tournaments/entries">See Current Signups</a>
+
+	{{/if}}
+{{/if}}
+</template>

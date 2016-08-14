@@ -15,74 +15,64 @@ Home/
 FlowRouter.route('/', {
   action: function() {
     name: 'home',
-    BlazeLayout.render("view", {content: "home"});
+    BlazeLayout.render("view", {main: "home", sidebar: "cu_sidebar"});
   }
 });
   FlowRouter.route('/signup', {
+    name: "signup",
     action: function() {
-      BlazeLayout.render("view", {content: "signup"});
+      BlazeLayout.render("applicationLayout", {main: "signup"});
     }
   });
   FlowRouter.route('/login', {
+    
     action: function() {
-      BlazeLayout.render("view", {content: "login"});
+      BlazeLayout.render("view", {main: "login"});
     }
   });
 
 
 var tournamentRoutes = FlowRouter.group({
   prefix: '/tournaments',
-  name: 'tournament',
-  triggersEnter: [function(context, redirect) {
-    console.log('running tournament group triggers');
-  }]
-  });
-  // for /tournaments route
-  tournamentRoutes.route('/', {
-    action: function() {
-      BlazeLayout.render('view', {content: 'tHome'});
-    },
-    triggersEnter: [function(context, redirect) {
-      console.log('running /admin trigger');
-    }]
+    name: 'tournament',
   });
   // for /tournaments/create-tournament route
   tournamentRoutes.route('/create-tournament', {
     action: function() {
-      BlazeLayout.render('view', {content: 'createTournament'});
+      BlazeLayout.render('view', {main: 'createTournament', sidebar: "cu_sidebar"});
     }
   });
   //list of exisiting tournaments
   tournamentRoutes.route('/admin_tournament_view', {
     action: function() {
-      BlazeLayout.render('view', {content: 'tournaments'});
+      BlazeLayout.render('view', {main: 'tournaments', sidebar: "cu_sidebar"});
     }
   });
   //edit a tournament
   tournamentRoutes.route('/admin_tournament_view/edit/:tournamentId', {
     name: 'editTournament',
     action: function() {
-      BlazeLayout.render('view', {content: 'editTournament'});
+      BlazeLayout.render('view', {main: 'editTournament', sidebar: "cu_sidebar"});
     }
   });
   //for /tournaments/entries route
     //list of all the tournaments ppl have signed up for
   tournamentRoutes.route('/entries', {
     action: function() {
-      BlazeLayout.render('view', {content: 'entries'});
+      BlazeLayout.render('view', {main: 'entries', sidebar: "cu_sidebar"});
     }
   });
   // for /tournaments/signup route
   tournamentRoutes.route('/signup', {
     action: function() {
-      BlazeLayout.render('view', {content: 'tSignup'});
+      BlazeLayout.render('view', {main: 'tSignup', sidebar: "cu_sidebar"});
     }
   });
   //for /tournaments/myTournaments route
     //tournaments signed up for (in order)
   tournamentRoutes.route('/myTournaments', {
     action: function() {
-      BlazeLayout.render('view', {content: 'myTournaments'});
+      BlazeLayout.render('view', {main: 'myTournaments', sidebar: "cu_sidebar"});
     }
   }); 
   //for /tournaments/editEntry route
@@ -90,7 +80,7 @@ var tournamentRoutes = FlowRouter.group({
   tournamentRoutes.route('/myTournaments/edit/:entryId', {
     name: "editEntry",
     action: function() {
-      BlazeLayout.render('view', {content: 'editEntry'});
+      BlazeLayout.render('view', {main: 'editEntry', sidebar: "cu_sidebar"});
     }
   });
 
@@ -98,23 +88,23 @@ var tournamentRoutes = FlowRouter.group({
 FlowRouter.route('/profile', {
   name: "profile",
   action: function() {
-    BlazeLayout.render("view", {content: "profile"});
+    BlazeLayout.render("view", {main: "profile", sidebar: "cu_sidebar"});
   }
   });
   FlowRouter.route('/profile/edit', {
     action: function() {
-      BlazeLayout.render("view", {content: "editView"});
+      BlazeLayout.render("view", {main: "editView", sidebar: "cu_sidebar"});
     }
   });
 
 FlowRouter.route('/payContribution', {
   action: function() {
-    BlazeLayout.render("view", {content: "payContribution"});
+    BlazeLayout.render("view", {main: "payContribution"});
   }
 });
 
 FlowRouter.notFound = {
   action: function() {
-    BlazeLayout.render("view", {content: "404"})
+    BlazeLayout.render("view", {main: "404"})
   }
 };

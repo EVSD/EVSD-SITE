@@ -4,11 +4,7 @@
 
     <!--if the user is logged in-->
     {{#if currentUser}}
-        {{> logout}}
-
-    	<a href="/profile">User Profile</a> <br>
-    		<!--need to add id-->
-    	<a href="/tournaments">Tournaments</a> <br><br>
+        Welcome {{currentUser.username}}, to your debate page.
 
 	  	{{else}}
     		<a href="/signup">Sign up</a> <br>

@@ -1,10 +1,9 @@
 Meteor.methods({
-	editProfile( changes, userId){
+	editProfile ( changes, userId ){
 		
 	    if(!userId){
 				throw new Meteor.Error('No access');
 			} //esentially a break
-
 		if (firstName != ''){
 			Meteor.users.update(userId, {
 				$set: {"profile.firstName": changes.firstName}

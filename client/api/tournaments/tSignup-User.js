@@ -7,6 +7,14 @@ if(Meteor.isClient){
 			},
 		tournamentList: function (){
 			return TournamentList.find({},{
+				fields:{
+					'cost': 1,
+					'judges': 1,
+					'name': 1,
+					'partner': 1,
+					'paymentDeadline': 1,
+					'signUpDeadline': 1
+				},
 				sort: {"signUpDeadline": -1},
 			});
 		},	
@@ -14,17 +22,16 @@ if(Meteor.isClient){
 	Template.tSignup.events({
 		//submit is a type of HTML input
 		"submit .add-tournament": function(event){
-		//use find one to find the tournament
-			var e = document.getElementById("tournament");
+			//use find one to find the tournament
+			let e = document.getElementById("tournament");
 			var selected = String(e.options[e.selectedIndex].value);
 			let theOne = TournamentList.findOne({
 				"name": selected
 				});
-				//consent information
+
 			let studentConsent = event.target.studentConsent.value,
-				parentConsent = event.target.parentConsent.value;
-				//partner 1
-			let userFirst = Meteor.user().profile.firstName,
+				parentConsent = event.target.parentConsent.value,
+				userFirst = Meteor.user().profile.firstName,
 				userLast = Meteor.user().profile.lastName,
 				userEmail = Meteor.user().emails[0].address;
 
@@ -71,34 +78,7 @@ if(Meteor.isClient){
 					//FlowRouter.go('/tournaments/myTournaments');
 
 					//send some confirmation alert
-		},
-		"change #tournament": function(event){
-			//gets the selected value
-			var e = document.getElementById("tournament");
-				var selected = String(e.options[e.selectedIndex].value);
-				let theOne = TournamentList.findOne({
-					"name": selected
-				});
-			
-			if (selected == "default"){
-					alert ("Select a Tournament");
-				};		
-			if (selected != 'default'){
-				//check if it has a partner or not
-				if (theOne.partner == "no"){
-		    		document.getElementById("partnerToggle").style.display = "none";
-				}else if (theOne.partner == "yes"){
-		    		document.getElementById("partnerToggle").style.display = "block";
-				}
-				//" " judges or not
-				if (theOne.judges == "no"){
-		    		document.getElementById("judgesToggle").style.display = "none";
-				}else if (theOne.judges == "yes"){
-		    		document.getElementById("judgesToggle").style.display = "block";
-				}
-			};
-			//check if it has a deadline or not
-		},
+			},
 	});
 }//end of isClient
 

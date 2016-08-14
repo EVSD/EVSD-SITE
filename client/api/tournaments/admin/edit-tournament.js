@@ -12,15 +12,17 @@ if(Meteor.isClient){
 	Template.editTournament.events({
 		'submit .edit-tournament': function(event) {
 		    if (confirm('Are you sure?')) {
-		    let tournamentId = FlowRouter.getParam('tournamentId');
-		    //sets the edits
-			let	signUpDeadline= event.target.signUpDeadline.value,
+
+		    let tournamentId = FlowRouter.getParam('tournamentId'),
+				signUpDeadline= event.target.signUpDeadline.value,
 			 	paymentDeadline= event.target.paymentDeadline.value,
 				cost= event.target.cost.value,
 				partner= event.target.partner.value,
 				judges = event.target.judges.value;
+				
 				//sends back to the previous page so you can see the edits
 				FlowRouter.go('/tournaments/admin_tournament_view/');
+				
 				//updates the values
 				TournamentList.update(tournamentId, {
 					$set: {

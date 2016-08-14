@@ -4,10 +4,10 @@ if (Meteor.isClient){
 			return TournamentList.find({}); 
 			},//end
 	 	pathForEntry: function() {
-		    var params = {
+		    let params = {
 		        tournamentId: this._id, //why? tournamentId works
 		    };
-		    var routeName = "editTournament";
+		    let routeName = "editTournament";
 		    var path = FlowRouter.path(routeName, params);
 	        
 	        return path;

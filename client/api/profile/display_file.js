@@ -4,8 +4,6 @@ Template.file.helpers({
   	let email = Meteor.user().emails[0].address;
   		email = email.substring(0, email.length - 4);
 		
-	console.log(email);
-
     return Waivers.findOne({"name" : {$regex : ".*"+email+".*"}});
   },
 });

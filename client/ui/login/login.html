@@ -1,15 +1,18 @@
 <template name="login">
     <form class="login">
-        <label for="loginEmail">Email</label>
-        	<input type="email" name="loginEmail"><br>
-        <label for="loginPassword">Password</label>
-        	<input type="password" name="loginPassword"><br>
-        <input type="submit" value="Login">
+
         {{#if currentUser}}
     	<p><!--back to home-->
+            You're logged in.<br>
     		<a href="/">Home</a> <br/>
-  		</p>
-        {{/if}}
-
+        </p>
+        {{else}}
+            <label for="loginEmail">Email</label>
+                <input type="email" name="loginEmail"><br>
+            <label for="loginPassword">Password</label>
+                <input type="password" name="loginPassword"><br>
+            <input type="submit" value="Login">
+  		{{/if}}
+        <!--should just redirect you back home on successful login-->
     </form>
 </template>

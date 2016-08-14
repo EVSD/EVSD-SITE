@@ -1,11 +1,12 @@
 <template name= "myTournaments">
 	{{#if currentUser}}
 
-	<p>If you want to change your partner, delete your entry and reneter with a new one.
-		Contact your debate coach for a refund if you already payed.
-	</p>
+
 	
 	<h2> My Entries </h2>
+		<p>If you want to change your partner, delete your entry and reenter with a new one.<br>
+		Contact your debate coach for a refund if you already payed.
+		</p>
 		{{#each tournaments}}
 
 				<h3>{{tournament}} <a href="#" class="delete-entry">x</a>
@@ -32,7 +33,6 @@
 				</div>
 		{{/each}}
 	{{/if}}
-
 </template>
 <!--displays all the tournaments the user is signed up for
 	edit tournament links go here

@@ -1,6 +1,6 @@
 //this is the new file system that uses https://github.com/VeliovGroup/Meteor-Files
 
-this.Waivers = new Meteor.Files({
+this.Waivers = new FilesCollection({
   collectionName: 'Waivers',
   allowClientCode: false, // Disallow remove files from Client
   onBeforeUpload: function (file) {

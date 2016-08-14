@@ -16,17 +16,13 @@ if(Meteor.isClient){
 			}else alert('you did not delete it');
 		},
 		'change #approvedYes' : function (){
-   			let entryId = this._id,
-				approved = "yes";
-			//set the value to 'yes' for approved
-			Tournaments.update(entryId, {$set: { "approved": approved }})					
+   			let entryId = this._id;
+			Tournaments.update(entryId, {$set: { "approved": "yes" }});					
 		},
 
 		'change #approvedNo' : function (){
-		   let entryId = this._id,
-				approved = "no";
-			//set the value to 'no' for approved
-			Tournaments.update(entryId, {$set: { "approved": approved }})					
+			let entryId = this._id;
+			Tournaments.update(entryId, {$set: { "approved": "no" }});					
 		},		
 	});//end of the events of the template
 }

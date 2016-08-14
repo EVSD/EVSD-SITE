@@ -1,4 +1,5 @@
 <template name ="createTournament">
+
 {{#if isInRole 'admin'}}
 	<!--create new Tournaments-->
 	<form class="create-tournament">
@@ -23,5 +24,6 @@
 		<input type="submit" value="create tournament" >
 		<!--have confirmation-->
 	</form>
+
 {{/if}}
 </template>

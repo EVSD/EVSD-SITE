@@ -1,1 +1,16 @@
-/* CSS declarations go here */
+body {
+  font-family: Helvetica;
+  top: auto;
+  width: auto;
+  padding: 10px;
+}
+.sidebar {
+	overflow: auto;
+	position: fixed;
+	right: 0;
+	top: auto;
+	width: auto;
+	text-align: right;
+	padding: 10px;
+}
+	/* CSS declarations go here */

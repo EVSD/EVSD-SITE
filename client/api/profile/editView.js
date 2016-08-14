@@ -3,53 +3,60 @@ Template.editView.events({
 	
 	'submit .editView': function(event) {
 	    if (confirm('Are you sure?')) {
-	        let firstName = event.target.firstName.value,
-	        	lastName = event.target.lastName.value,
-	        	grade = event.target.grade.value,
-	        	//email = event.target.email.value,
-	        	birthdate = event.target.birthdate.value,
-	        	studentPhone = event.target.studentPhone.value,
-	        	studentId = event.target.studentId.value;
+	        let changes ={
+		        	firstName: event.target.firstName.value,
+		        	lastName: event.target.lastName.value,
+		        	grade: event.target.grade.value,
+		        	//email = event.target.email.value,
+		        	birthdate: event.target.birthdate.value,
+		        	studentPhone: event.target.studentPhone.value,
+		        	studentId: event.target.studentId.value
+	        		};
+			let userId = Meteor.userId();
+		
 			FlowRouter.go("/profile");
 
-			//THIS SHOULD BE A METHOD 'Changes'
-			if (firstName != ''){
-				Meteor.users.update(Meteor.userId(), {
-					$set: {"profile.firstName": firstName}
+		    if(!userId){
+					throw new Meteor.Error('No access');
+				} //esentially a break
+			if (changes.firstName != ''){
+				Meteor.users.update(userId, {
+					$set: {"profile.firstName": changes.firstName}
 				});
 			};
-			if (lastName != ''){
-				Meteor.users.update(Meteor.userId(), {
-					$set: {"profile.lastName": lastName}
+			if (changes.lastName != ''){
+				Meteor.users.update(userId, {
+					$set: {"profile.lastName": changes.lastName}
 				});
 			};
-			if (grade != ''){
-				Meteor.users.update(Meteor.userId(), {
-					$set: {"profile.studentGrade": grade}
+			if (changes.grade != ''){
+				Meteor.users.update(userId, {
+					$set: {"profile.studentGrade": changes.grade}
 				});
 			};
-			if (birthdate != ''){
-				Meteor.users.update(Meteor.userId(), {
-					$set: {"profile.birthdate": birthdate}
+			if (changes.birthdate != ''){
+				Meteor.users.update(userId, {
+					$set: {"profile.birthdate": changes.birthdate}
 				});
 			};
-			if (studentId != ''){
-				Meteor.users.update(Meteor.userId(), {
-					$set: {"profile.studentId": studentId}
+			if (changes.studentId != ''){
+				Meteor.users.update(userId, {
+					$set: {"profile.studentId": changes.studentId}
 				});
 			};
-			if (studentPhone != ''){
-				Meteor.users.update(Meteor.userId(), {
-					$set: {"profile.studentPhoneNo": studentPhone}
+			if (changes.studentPhone != ''){
+				Meteor.users.update(Meteor.users._id, {
+					$set: {"profile.studentPhoneNo": changes.studentPhone}
 				});
-			};
-		/*	if (email != ''){
-				Meteor.users.update(Meteor.userId(), {
-					$set: {	"emails[0].address": email,
-							"emails[0].verified":false
-					}
-				});
-			};*/				
+			};				
+
+			if (changes.confirmPassword == changes.newPassword){
+				Accounts.changePassword(changes.oldPassword, changes.newPassword);
+			}else {
+		       return false;
+		   		}
+	    
+			Meteor.call('editProfile', changes, Meteor.userId());
 			//passwords
 			var oldPassword = event.target.old.value;
 			var newPassword = event.target.new.value;
@@ -58,11 +65,10 @@ Template.editView.events({
 			if (oldPassword != '' && confirmPassword == newPassword){
 				Accounts.changePassword(oldPassword, newPassword);
 			};
-		}	    
-		else {
+		} else {
 			alert("You did not save any changes. Click back to go to main profile");
 	        }
-		}
+	},
 });
 
 //can edit everything but the email, password, and username 
