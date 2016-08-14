@@ -25,7 +25,7 @@ FlowRouter.route('/', {
     }
   });
   FlowRouter.route('/login', {
-    
+
     action: function() {
       BlazeLayout.render("view", {main: "login"});
     }
@@ -74,7 +74,7 @@ var tournamentRoutes = FlowRouter.group({
     action: function() {
       BlazeLayout.render('view', {main: 'myTournaments', sidebar: "cu_sidebar"});
     }
-  }); 
+  });
   //for /tournaments/editEntry route
     //to edit your own tournament entries
   tournamentRoutes.route('/myTournaments/edit/:entryId', {
@@ -100,6 +100,12 @@ FlowRouter.route('/profile', {
 FlowRouter.route('/payContribution', {
   action: function() {
     BlazeLayout.render("view", {main: "payContribution"});
+  }
+});
+
+FlowRouter.route('/signupSuccess', {
+  action: function() {
+    BlazeLayout.render("view", {main: "signupSuccess"});
   }
 });
 

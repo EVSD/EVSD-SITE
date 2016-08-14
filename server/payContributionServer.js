@@ -11,6 +11,11 @@
         receipt_email: 'michellecarolynclark@gmail.com'
       }, function(err, charge) {
         console.log(err, charge);
+        if (charge.status == 'succeeded') {
+          Router.route('signupSuccess');
+        } else {
+          // TODO: display payment failed message
+        }
       });
     }
   });
