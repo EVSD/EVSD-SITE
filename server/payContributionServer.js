@@ -1,6 +1,6 @@
   Meteor.methods({
     'chargeCard': function(stripeToken, userEmail) {
-      
+
       check(stripeToken, String);
       var Stripe = StripeAPI(Meteor.settings.private.stripe.testSecretKey);
 
@@ -14,7 +14,8 @@
         if (charge.status == 'succeeded') {
           FlowRouter.path('signupSuccess');
         } else {
-          // TODO: display payment failed message
+          // display payment failed message
+          Bert.alert('Payment transaction failed.');
         }
       });
     }
