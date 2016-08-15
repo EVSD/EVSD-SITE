@@ -35,7 +35,7 @@ if (Meteor.isClient){
 		        });//checks for error, and resets the upload button and sends a successful upload message
 		        upload.start();
 	      	}	
-		}
+		},
 		'submit .signup':function(event){
 			//set values for the students
 			var student = {
