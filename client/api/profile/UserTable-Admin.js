@@ -10,14 +10,16 @@ if (Meteor.isClient){
 			if (confirm('Are you sure?')){
 				let role = $( event.target ).find( 'option:selected' ).val();
 			    //console.log(role);
-			    Meteor.call( "setRoleOnUser", {
-			      user: this._id,
-			      role: role
-			    }, ( error, response ) => {
-			      if ( error ) {
-			        Bert.alert( error.reason, "warning" );
-			      }
-			    	});
+				if (role != 'admin'){	
+				    Meteor.call( "setRoleOnUser", {
+				      user: this._id,
+				      role: role
+				    }, ( error, response ) => {
+				      if ( error ) {
+				        Bert.alert( error.reason, "warning" );
+				      }
+				    	});
+				}
 			}else {
 				return false;
 			}
