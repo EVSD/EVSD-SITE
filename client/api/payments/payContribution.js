@@ -12,8 +12,6 @@ if (Meteor.isClient) {
         //get user email
         token: function(response) {
           stripeToken = response.id;
-          // let userEmail = Meteor.user().emails[0].address;
-          //console.log("userEmail");
           // console.info('response: ' + response);
           // Meteor.call('chargeCard', stripeToken);
           // prevents multiple charges if client disconnects and reconnects

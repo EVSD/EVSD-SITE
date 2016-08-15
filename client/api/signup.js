@@ -13,6 +13,29 @@ if (Meteor.isClient){
 	});
 	Template.signup.events({
 
+		'change #fileInput': function(event){
+		let studentWaiver = event.target.waiver.files[0];
+		    //uploads waiver to server
+		    if (event.target.waiver.files[0]) {
+		    	console.log("uploading");
+
+		        var upload = Waivers.insert({
+		          file: studentWaiver,
+		          streams: 'dynamic',
+		          chunkSize: 'dynamic'
+		        }, false);//we upload the waiver 1 at a time
+
+
+		        upload.on('end', function (error, fileObj) {
+		          if (error) {
+		            alert('Error during upload: ' + error);
+		          } else {
+		            alert('Successfully Uploaded: \n' + fileObj.name + ' \nYou can now sign up');
+		          }
+		        });//checks for error, and resets the upload button and sends a successful upload message
+		        upload.start();
+	      	}	
+		}
 		'submit .signup':function(event){
 			//set values for the students
 			var student = {
@@ -47,26 +70,7 @@ if (Meteor.isClient){
 		        whyjoin: $('[name="whyjoin"]').val(),
 		        concerns: $('[name="concerns"]').val()
 		    };
-		    //uploads waiver to server
-		    if (event.target.waiver.files && event.target.waiver.files[0]) {
-		    	console.log("uploading");
-
-		        var upload = Waivers.insert({
-		          file: event.target.waiver.files[0],
-		          streams: 'dynamic',
-		          chunkSize: 'dynamic'
-		        }, false);//we upload the waiver 1 at a time
-
-
-		        upload.on('end', function (error, fileObj) {
-		          if (error) {
-		            alert('Error during upload: ' + error);
-		          } else {
-		            alert('Successfully Uploaded: \n' + fileObj.name + ' \nYou can now sign up');
-		          }
-		        });//checks for error, and resets the upload button and sends a successful upload message
-		        upload.start();
-	      	}
+		    
 		    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 			    if (err){
 			      alert('reg user error');
@@ -75,7 +79,6 @@ if (Meteor.isClient){
 						FlowRouter.path("/payContribution");
 		    	}
 		    });
-		    
 		},//end of signup
 	});
 }
