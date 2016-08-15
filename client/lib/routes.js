@@ -21,7 +21,7 @@ FlowRouter.route('/', {
   FlowRouter.route('/signup', {
     name: "signup",
     action: function() {
-      BlazeLayout.render("applicationLayout", {main: "signup"});
+      BlazeLayout.render("view", {main: "signup"});
     }
   });
   FlowRouter.route('/login', {

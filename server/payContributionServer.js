@@ -1,5 +1,5 @@
   Meteor.methods({
-    'chargeCard': function(stripeToken, userEmail) {
+    'chargeCard': function(stripeToken) {
 
       check(stripeToken, String);
       var Stripe = StripeAPI(Meteor.settings.private.stripe.testSecretKey);
@@ -8,7 +8,7 @@
         source: stripeToken,
         amount: 25000, // this is equivalent to $250
         currency: 'usd',
-        receipt_email: userEmail
+        receipt_email: Meteor.user().emails[0].address
       }, function(err, charge) {
         console.log(err, charge);
         if (charge.status == 'succeeded') {
