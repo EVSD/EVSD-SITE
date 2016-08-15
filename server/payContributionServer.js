@@ -9,7 +9,6 @@
         amount: 25000, // this is equivalent to $250
         currency: 'usd',
         receipt_email: userEmail
-
       }, function(err, charge) {
         console.log(err, charge);
         if (charge.status == 'succeeded') {
