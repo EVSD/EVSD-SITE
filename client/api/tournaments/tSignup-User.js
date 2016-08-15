@@ -36,23 +36,19 @@ if(Meteor.isClient){
 				userEmail = Meteor.user().emails[0].address;
 
 			//selected partner
-			let partnerFirst ='', partnerLast ='', partnerEmail ='';
 
-			if (theOne.partner == "yes"){
 				let username = event.target.partner.value, //this gets the partner's username
 					partner = Meteor.users.findOne({username:username}),
 					partnerFirst = partner.profile.firstName,
 					partnerLast = partner.profile.lastName,
 					partnerEmail = partner.emails[0].address;
-			}
 
-			let judgeFirst =' ',judgeLast =' ', judgeEmail =' ', judgePhone =' '
-			if (theOne.judges == "yes"){
-				judgeFirst= event.target.judgeFirst.value,
-			 	judgeLast= event.target.judgeLast.value,
-				judgeEmail= event.target.judgeEmail.value,
-				judgePhone= event.target.judgePhone.value
-			}
+				let judgeFirst= event.target.judgeFirst.value,
+				 	judgeLast= event.target.judgeLast.value,
+					judgeEmail= event.target.judgeEmail.value,
+					judgePhone= event.target.judgePhone.value
+
+
 
 			if(parentConsent == "yes" && studentConsent == "yes"){
 					var entry ={
