@@ -63,7 +63,8 @@
 
         findOut: misc.findOut,
         whyjoin: misc.whyjoin,
-        concerns: misc.concerns
+        concerns: misc.concerns,
+        paymentContribution: "no"
 
       /*stripeId: "Null",
         Donation: "free"*/
