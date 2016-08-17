@@ -6,7 +6,7 @@
 				return "I failed";
 			} //esentially a break
 				Tournaments.insert({
-					
+
 					tournament: entry.tournament,
 					p1FirstName: entry.userFirst,
 					p1LastName: entry.userLast,
@@ -20,6 +20,10 @@
 					judgeLast: entry.judgeLast,
 				 	judgeEmail: entry.judgeEmail,
 					judgePhone: entry.judgePhone,
+          // first partner should have already paid to create the entry, so default to yes
+          p1Paid: 'yes',
+          // second partner hasn't paid yet, needs to pay after entry created
+          p2Paid: 'no',
 					approved: 'no', //admin has to validate them. is either 'yes' or 'no'
 					createdAt: new Date()
 					//need to test how getting different ones of these works

@@ -15,7 +15,7 @@ if (Meteor.isClient) {
           // console.info('response: ' + response);
           // Meteor.call('chargeCard', stripeToken);
           // prevents multiple charges if client disconnects and reconnects
-          Meteor.apply('chargeCard', [stripeToken], {noRetry: true});
+          Meteor.apply('paySignup', [stripeToken], {noRetry: true});
         }
       });
     }
