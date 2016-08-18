@@ -17,7 +17,11 @@ if(Meteor.isClient){
 	});
 	Template.myTournaments.events({
 		"click .delete-entry": function(event){
-			Meteor.call('removeEntry', this._id);
+			Meteor.call('removeEntry', this._id, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		});
 		},
 		"submit .partnerPay": function(event){
 			event.preventDefault();

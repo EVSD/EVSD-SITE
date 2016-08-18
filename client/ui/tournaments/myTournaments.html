@@ -14,7 +14,11 @@
 				<a style="color:red" {{hideApproved approved 'no'}} > Unapproved </a>
 
 				 </h3>
-
+				 <p>					
+				 	<a href="#" class="delete-entry">Delete</a> 
+					<a href={{pathForEntry}}>Edit</a>
+				</p>
+				
 				<!--if the current user's email matches p2 user name and p2 hasn't payed-->
 				<form class="partnerPay" id="partnerPay" {{showPartnerPay p2Paid p2Email}} >
 					<h3> Terms of Conditions </h3>
@@ -29,9 +33,6 @@
 
 					<input type="submit" value="Pay for Tournament">
 				</form>
-
-				<a href="#" class="delete-entry">Delete</a> 
-				<a href={{pathForEntry}}>Edit</a>
 
 				<p>Created At: {{createdAt}}</p>
 				<h4>Partner 1</h4>

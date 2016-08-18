@@ -27,7 +27,7 @@ if (Meteor.isClient){
 	//hides the partner payed section if the partner has already payed
 	Template.registerHelper( 'showPartnerPay', (p2Paid, email)=>{
 		if (p2Paid == "no" && email == Meteor.user().emails[0].address){
-			console.log("satisfied");
+			console.log('showPartnerPay');
 			return "show";
 		}else return "hidden";
 	});

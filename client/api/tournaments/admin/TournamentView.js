@@ -16,7 +16,11 @@ if (Meteor.isClient){
 	Template.tournaments.events({
 		"click .delete-tournament": function(event){    
 			if (confirm('Are you sure?')) {
-				Meteor.call('removeTournament', this._id);
+				Meteor.call('removeTournament', this._id, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		});
 			}else alert('you did not delete it');
 		},
 	});

@@ -9,7 +9,11 @@ if (Meteor.isClient){
 					partner: event.target.partner.value,
 					judges: event.target.judges.value
 				};
-			Meteor.call('createTournament', tournament);
+			Meteor.call('createTournament', tournament, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		});
 		},
 	});
 }

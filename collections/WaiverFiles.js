@@ -18,3 +18,5 @@ this.Waivers = new FilesCollection({
   meta: {}
 });
 */
+
+//TODO: need to deny uploads that are not from the upload page

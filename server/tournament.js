@@ -1,6 +1,22 @@
  Meteor.methods({
 	createEntry( entry ){
+		check(entry, {
+			 tournament : String,
+			 userFirst : String,
+			 userLast : String,
+			 userEmail : String,
 
+			 partnerFirst : String,
+			 partnerLast : String,
+			 partnerEmail : String,
+
+			 studentConsent: String,
+			 parentConsent: String,
+			 judgeFirst: String,
+			 judgeLast: String,
+			 judgeEmail: String,
+			 judgePhone: String,
+		})
 	    if(!Meteor.userId()){
 				throw new Meteor.Error('No access');
 				return "I failed";
@@ -31,26 +47,84 @@
 				});
 				return "success";
 	},
+	editEntry (edits, entryId){
+		check( 
+			entryId, String,
+			edits, {
+				judgeFirst: String,
+			 	judgeLast: String,
+				judgeEmail: String,
+				judgePhone: String
+			});
+
+		Tournaments.update(entryId, {
+			$set: {
+				"judgeFirst": edits.judgeFirst,
+				"judgeLast": edits.judgeLast,
+				"judgeEmail": edits.judgeEmail,
+				"judgePhone": edits.judgePhone			
+			}
+		});		
+	},
 	removeEntry (id){
+		check(id, String);
     	Tournaments.remove(id);
   	},
-  	//Tournament List
-	createTournament (newOne){
+	createTournament (tournament){
+		check(tournament, {
+			name: String,
+			cost: String, //lol it's saving it as a String
+			signUpDeadline: String,
+			paymentDeadline: String,
+			partner: String,
+			judges: String
+		})
+	
 		let isAdmin = Roles.userIsInRole( this.userId, 'admin' );
 
 		if(isAdmin){
 			TournamentList.insert({
-				name: newOne.name,
-				cost: newOne.cost,
-				signUpDeadline: newOne.signUpDeadline,
-				paymentDeadline: newOne.paymentDeadline,
-				partner: newOne.partner,
-				judges: newOne.judges
+				name: tournament.name,
+				cost: tournament.cost,
+				signUpDeadline: tournament.signUpDeadline,
+				paymentDeadline: tournament.paymentDeadline,
+				partner: tournament.partner,
+				judges: tournament.judges
 			});
 			return false;
 		}//return error if not admin
 	},
+	editTournament (edits, tournamentId){
+		check( 
+			tournamentId, String,
+			edits ,{
+				tournamentId: String,
+				signUpDeadline: String,
+			 	paymentDeadline: String,
+				cost: String,
+				partner: String,
+				judges: String
+			});
+
+		TournamentList.update(tournamentId, {
+			$set: {
+				"signUpDeadline": edits.signUpDeadline,
+				"paymentDeadline": edits.paymentDeadline,
+				"cost": edits.cost,
+				"partner": edits.partner,
+				"judges": edits.judges
+			}
+		})		
+	},
 	removeTournament(id){
+		check(id, String);
 		TournamentList.remove(id);
-	}
+	},
+	changeApproved(approved, entryId){
+		check(	
+			approved, String,
+			entryId, String,
+		)
+		Tournaments.update(entryId, {$set: { "approved": approved }});					
+	},
 });
