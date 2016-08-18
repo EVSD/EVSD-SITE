@@ -9,28 +9,48 @@
 		</p>
 		{{#each tournaments}}
 
-				<h3>{{tournament}} <a href="#" class="delete-entry">x</a>
-				</h3>				
-				<a href={{pathForEntry}}>edit</a>
-				<!--put the verified value here-->
-				<p style="color:green" {{hideApproved approved 'yes'}} > Approved </p>
-				<p style="color:red" {{hideApproved approved 'no'}} > Unapproved </p>
+				<h3>{{tournament}} - 				<!--put the verified value here-->
+				<a style="color:green" {{hideApproved approved 'yes'}} > Approved </a>
+				<a style="color:red" {{hideApproved approved 'no'}} > Unapproved </a>
 
-				<p>created at: {{createdAt}}</p>
+				 </h3>
+
+				<!--if the current user's email matches p2 user name and p2 hasn't payed-->
+				<form class="partnerPay" id="partnerPay" {{showPartnerPay p2Paid p2Email}} >
+					<h3> Terms of Conditions </h3>
+						<p>This is where the terms of conditions will go</p>
+
+						<p>I, the student of this account, fully agree to the above terms of conditions.</p>
+				  			<input type="radio" name="studentConsent" value="yes"> Yes, I agree
+				  			<input type="radio" name="studentConsent" value="no"> No, I do not <br> 	
+			  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
+			  				<input type="radio" name="parentConsent" value="yes"> Yes, we(I) agree 
+			  				<input type="radio" name="parentConsent" value="no"> No, we(I) do not <br> 	
+
+					<input type="submit" value="Pay for Tournament">
+				</form>
+
+				<a href="#" class="delete-entry">Delete</a> 
+				<a href={{pathForEntry}}>Edit</a>
+
+				<p>Created At: {{createdAt}}</p>
 				<h4>Partner 1</h4>
-					<li> {{p1FirstName}} {{p1LastName}}</li>
-					<li> {{p1Email}}</li>
+					<li> Name: {{p1FirstName}} {{p1LastName}}</li>
+					<li> Email: {{p1Email}}</li>
+					<li>Payed? {{p1Paid}}</li>
 				<div {{hidePartner tournament}}>
-					<h4>Partner 2</h4>
-					<li> {{p2FirstName}} {{p2LastName}}</li>
-					<li> {{p2Email}}</li><br>
+				<h4>Partner 2</h4>
+					<li> Name: {{p2FirstName}} {{p2LastName}}</li>
+					<li> Email: {{p2Email}}</li>
+					<li>Payed? {{p2Paid}}</li>
 				</div>
 				<div {{hideJudges tournament}}>	
-					<h4>Judge</h4>
-					<li> {{judgeFirst}} {{judgeLast}}</li>
-					<li> {{judgeEmail}}</li>
-					<li> {{judgePhone}}</li><br>
+				<h4>Judge</h4>
+					<li> Name: {{judgeFirst}} {{judgeLast}}</li>
+					<li> Email: {{judgeEmail}}</li>
+					<li> Phone #: {{judgePhone}}</li>
 				</div>
+
 		{{/each}}
 	{{/if}}
 </template>

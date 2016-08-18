@@ -24,6 +24,13 @@ if (Meteor.isClient){
 		  	return "hidden";
 		}
 	});
+	//hides the partner payed section if the partner has already payed
+	Template.registerHelper( 'showPartnerPay', (p2Paid, email)=>{
+		if (p2Paid == "no" && email == Meteor.user().emails[0].address){
+			console.log("satisfied");
+			return "show";
+		}else return "hidden";
+	});
 	//disables tournament from being selected if you are past the deadline	
 	Template.registerHelper( 'disableIfPassDue', ( tournamentId ) => {
 		let theOne = TournamentList.findOne({"_id": tournamentId});
