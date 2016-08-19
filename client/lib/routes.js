@@ -109,6 +109,12 @@ FlowRouter.route('/signupSuccess', {
   }
 });
 
+FlowRouter.route('/accountBalance', {
+  action: function() {
+    BlazeLayout.render("view", {main: "accountBalance"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
