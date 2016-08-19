@@ -29,8 +29,6 @@ Meteor.methods({
               {name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date()}}
           });//end of account update
 
-          //edit the account balance
-          Meteor.user().profile.balance += amount;
           //console.log(Meteor.user().profile.accountBalanceLog);
 
         } else {
@@ -72,8 +70,6 @@ Meteor.methods({
             $addToSet: {"profile.accountBalanceLog": 
               {name: 'tournament - '+entry.tournament+'_p2', amount: price, date: new Date()}}
           });//end of account update
-          //edit the account balance
-          Meteor.user().profile.balance += amount;
           
           //FlowRouter.path('signupSuccess');
         } else {

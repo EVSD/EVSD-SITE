@@ -1,6 +1,8 @@
 <template name = "accountBalance">
 {{#if isInRole 'admin'}}
+{{#if currentUser}}
   <h2> Account balance for username: {{currentUser.username}} </h2>
+  <h3> Your Balance: {{currentUser.profile.balance}}</h3>
 <table class="table table-bordered">
 		<thead>
 			<th class="text-center">Name</th>
@@ -20,5 +22,6 @@
 		  {{/each}}
 		</tbody>
 	</table>
+{{/if}}
 {{/if}}
 </template>
