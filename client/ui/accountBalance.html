@@ -1,12 +1,12 @@
 <template name = "accountBalance">
 {{#if currentUser}}
-  <h2> Account balance for username: {{currentUser.username}} </h2>
+  <h2> Transaction history for username: {{currentUser.username}} </h2>
   <h3> Your Balance: ${{currentUser.profile.balance}}</h3>
 <table class="table table-bordered" border="1">
 		<thead>
-			<th class="text-center">Name</th>
-			<th class="text-center">Amount </th>
-		    <th class="text-center">Date</th>
+			<th class="text-center">Transaction Name</th>
+			<th class="text-center">Amount</th>
+		    <th class="text-center">Timestamp</th>
 		</thead>
 		<tbody>
 		  {{#each balanceLog}}
@@ -15,7 +15,6 @@
 		  		<td >{{name}}</td>
 		  		<!--transaction amount-->
 		  		<td>{{amount}}</td>
-
 		    	<td>{{date}}</td> <!--should use moment.js and a helper-->
 		    </tr>
 		  {{/each}}
