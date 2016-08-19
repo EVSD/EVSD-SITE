@@ -1,8 +1,10 @@
 <template name = "accountBalance">
   <h2> Account balance for {{currentUser.username}} </h2>
-  {{#each accountBalanceLog}}
-    {{name}}
-    {{amount}}
-    {{date}}
-  {{/each}}
+  {{#if currentUser}}
+    {{#each currentUser.profile.accountBalanceLog}}
+      {{name}}
+      {{amount}}
+      {{date}}
+    {{/each}}
+  {{/if}}
 </template>
