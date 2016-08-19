@@ -4,11 +4,11 @@
 };*/ //thisworks
 
 Template.accountBalance.helpers({
-  /*returnUserBalance = function(){
+  returnUserBalance(){
     if (Meteor.user())
-      return Meteor.user().profile.accountBalanceLog;
-  },*/
+      accountBalanceLog: Meteor.user().profile.accountBalanceLog;
+  }
   // this returns an error: Blaze._globalHelpers.returnUserBalance is not a function
-  accountBalanceLog: Blaze._globalHelpers.returnUserBalance()
+  //accountBalanceLog: Blaze._globalHelpers.returnUserBalance()
   //accountBalanceLog: [{name: 'hi', amount: 100, date: 'hi'}]
 });
