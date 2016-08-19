@@ -12,17 +12,29 @@ if(Meteor.isClient){
 	Template.entries.events({
 		"click .delete-entry": function(event){
 			if (confirm('Are you sure?')) {
-				Meteor.call('removeEntry', this._id);
+				Meteor.call('removeEntry', this._id, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		});
 			}else alert('you did not delete it');
 		},
 		'change #approvedYes' : function (){
    			let entryId = this._id;
-			Tournaments.update(entryId, {$set: { "approved": "yes" }});					
+			Meteor.call("changeApproved",'yes', entryId, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		});					
 		},
 
 		'change #approvedNo' : function (){
 			let entryId = this._id;
-			Tournaments.update(entryId, {$set: { "approved": "no" }});					
+			Meteor.call("changeApproved",'no', entryId, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		})					
 		},		
 	});//end of the events of the template
 }

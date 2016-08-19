@@ -10,61 +10,34 @@ Template.editView.events({
 		        	//email = event.target.email.value,
 		        	birthdate: event.target.birthdate.value,
 		        	studentPhone: event.target.studentPhone.value,
-		        	studentId: event.target.studentId.value
+		        	studentId: event.target.studentId.value,
+		        	//password stuff
+		        	//oldPassword: event.target.old.value,
+					//newPassword: event.target.new.value,
+					//confirmPassword: event.target.confirm.value
 	        		};
 			let userId = Meteor.userId();
 		
-			FlowRouter.go("/profile");
 
-		    if(!userId){
-					throw new Meteor.Error('No access');
-				} //esentially a break
-			if (changes.firstName != ''){
-				Meteor.users.update(userId, {
-					$set: {"profile.firstName": changes.firstName}
-				});
-			};
-			if (changes.lastName != ''){
-				Meteor.users.update(userId, {
-					$set: {"profile.lastName": changes.lastName}
-				});
-			};
-			if (changes.grade != ''){
-				Meteor.users.update(userId, {
-					$set: {"profile.studentGrade": changes.grade}
-				});
-			};
-			if (changes.birthdate != ''){
-				Meteor.users.update(userId, {
-					$set: {"profile.birthdate": changes.birthdate}
-				});
-			};
-			if (changes.studentId != ''){
-				Meteor.users.update(userId, {
-					$set: {"profile.studentId": changes.studentId}
-				});
-			};
-			if (changes.studentPhone != ''){
-				Meteor.users.update(Meteor.users._id, {
-					$set: {"profile.studentPhoneNo": changes.studentPhone}
-				});
-			};				
+			Meteor.call('editProfile', changes, userId, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		});
+	        
+	        let oldPassword = event.target.old.value,
+				newPassword = event.target.new.value,
+				confirmPassword = event.target.confirm.value;
 
-			if (changes.confirmPassword == changes.newPassword){
-				Accounts.changePassword(changes.oldPassword, changes.newPassword);
-			}else {
-		       return false;
-		   		}
-	    
-			Meteor.call('editProfile', changes, Meteor.userId());
-			//passwords
-			var oldPassword = event.target.old.value;
-			var newPassword = event.target.new.value;
-			var confirmPassword = event.target.confirm.value;
-			
-			if (oldPassword != '' && confirmPassword == newPassword){
-				Accounts.changePassword(oldPassword, newPassword);
-			};
+			if (confirmPassword == newPassword){
+				Accounts.changePassword(oldPassword, newPassword, function(err){
+	            	if(err){
+	                	console.log(err);
+	            	}
+           		});
+				FlowRouter.go('/');
+			}//send an error callback
+
 		} else {
 			alert("You did not save any changes. Click back to go to main profile");
 	        }
@@ -83,6 +56,7 @@ Template.editView.events({
 
 	i.e. Meteor.users.update({_id:Meteor.user()._id}, {$set:{"emails":[{address:"newemail@newemail.com"}]}); //1 email
 	Meteor.users.update({_id:Meteor.user()._id}, {$addToSet:{"emails":{address:"newemail@newemail.com","verified":false}}}); //multiple verified
-
+	
+	***of course, now this has to be done server-sided***
 
 */

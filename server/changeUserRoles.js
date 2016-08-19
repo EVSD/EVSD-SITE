@@ -4,10 +4,12 @@ Meteor.methods({
 	      user: String,
 	      role: String
 	    });
-	    try {
-	      Roles.setUserRoles( options.user, [ options.role ] );
-	    } catch( exception ) {
-	      return exception;
-	    }
+	    if (options.role != 'admin'){
+		    try {
+		      Roles.setUserRoles( options.user, [ options.role ] );
+		    } catch( exception ) {
+		      return exception;
+		    }
+		}
 	},
 });
