@@ -111,7 +111,7 @@ FlowRouter.route('/signupSuccess', {
 
 FlowRouter.route('/accountBalance', {
   action: function() {
-    BlazeLayout.render("view", {main: "accountBalance"});
+    BlazeLayout.render("view", {main: "accountBalance", sidebar: "cu_sidebar"});
   }
 });
 

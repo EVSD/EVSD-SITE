@@ -1,8 +1,24 @@
 <template name = "accountBalance">
-  <h2> Account balance for {{currentUser.username}} </h2>
-  {{#each accountBalanceLog}}
-    {{name}}
-    {{amount}}
-    {{date}}
-  {{/each}}
+{{#if isInRole 'admin'}}
+  <h2> Account balance for username: {{currentUser.username}} </h2>
+<table class="table table-bordered">
+		<thead>
+			<th class="text-center">Name</th>
+			<th class="text-center">Amount </th>
+		    <th class="text-center">Date</th>
+		</thead>
+		<tbody>
+		  {{#each balanceLog}}
+		    <tr>
+		  		<!--First/Last Name-->
+		  		<td >{{name}}</td>
+		  		<!--transaction amount-->
+		  		<td>{{amount}}</td>
+            
+		    	<td>{{date}}</td> <!--should use moment.js and a helper-->
+		    </tr>
+		  {{/each}}
+		</tbody>
+	</table>
+{{/if}}
 </template>
