@@ -49,9 +49,9 @@ if (Meteor.isClient){
 		    password: $('[name="password"]').val(),
 		    studentPhoneNo: $('[name="studentPhoneNo"]').val(),
 		    studentId: $('[name="studentId"]').val(),
-		    facebookAccount: $('[name="facebookAccount"]').val(),
-		    facebook: $('[name="facebook"]').val(),
-		    schoolloop: $('[name="schoolloop"]').val()
+		    facebookAccount: $('input[name="facebookAccount"]:checked').val(),
+		    facebook: $('input[name="facebook"]:checked').val(),
+		    schoolloop: $('input[name="schoolloop"]:checked').val()
 		    };
 		    //" " for the parent
 		    var parent = {
