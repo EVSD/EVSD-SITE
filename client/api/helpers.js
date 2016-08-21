@@ -31,7 +31,7 @@ if (Meteor.isClient){
 			return "show";
 		}else return "hidden";
 	});
-	//disables tournament from being selected if you are past the deadline	
+	//disables tournament from being selected if you are past the deadline
 	Template.registerHelper( 'disableIfPassDue', ( tournamentId ) => {
 		let theOne = TournamentList.findOne({"_id": tournamentId});
 		let deadline = new Date(theOne.signUpDeadline),
@@ -58,5 +58,9 @@ if (Meteor.isClient){
 	//default checks the selected element
 	Template.registerHelper( 'selected', ( v1, v2 ) => {
 	  return v1 === v2 ? true : false;
-	});	
+	});
+	Template.registerHelper('returnUserBalance', () => {
+		if (Meteor.user())
+      return Meteor.user().profile.accountBalanceLog;
+	});
 }//end of isClient

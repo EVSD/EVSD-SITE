@@ -42,8 +42,8 @@ if(Meteor.isClient){
 				});
 			let price = theOne.cost; //cost of tournament
 			
-			let studentConsent = event.target.studentConsent.value,
-				parentConsent = event.target.parentConsent.value;
+			let studentConsent = $('input[name="studentConsent"]:checked').val(),
+				parentConsent = $('input[name="parentConsent"]:checked').val();
 
 	
 			//gets all the tournament data and prompts user to pay before account created
@@ -102,7 +102,7 @@ if(Meteor.isClient){
 
 						//in the display determine it based off of tournament
 				} else{
-				alert ("You and/or your parent have not consneted yet.");
+				alert ("You and/or your parent have not consented yet.");
 				}
 			//send some confirmation alert
 			},

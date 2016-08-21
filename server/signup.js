@@ -35,12 +35,12 @@
 
     //creates the user
     var user = Accounts.createUser({
-        //MARK: give the ability to change all of this
+      // MARK: give the ability to change all of this
       username: student.username,
       password: student.password,
       email: student.emailAddress,
       profile: {
-        
+
         firstName: student.firstName,
         middleName: student.middleName,
         lastName: student.lastName,
@@ -64,13 +64,16 @@
         findOut: misc.findOut,
         whyjoin: misc.whyjoin,
         concerns: misc.concerns,
-        paymentContribution: "no"
 
+        // keeps track of account balance
+        balance: 0,
+        paymentContribution: "no",
+        accountBalanceLog: [],
       /*stripeId: "Null",
         Donation: "free"*/
       }
     });
-    
+
     if (student.emailAddress == 'test@gmail.com'){
       Roles.addUsersToRoles(user, 'admin');
     }else{
