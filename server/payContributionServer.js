@@ -21,7 +21,7 @@
               $set: {"profile.balance": Meteor.user().profile.balance + 250}
             })
             Meteor.users.update(Meteor.userId(), {
-              $addToSet: {"profile.accountBalanceLog": {amount: 250, name: 'EVSD Annual Contribution', date: new Date()}}
+              $addToSet: {"profile.accountBalanceLog": {cc: true, amount: 250, name: 'EVSD Annual Contribution', date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
             })
             FlowRouter.path('signupSuccess');
           } else {
