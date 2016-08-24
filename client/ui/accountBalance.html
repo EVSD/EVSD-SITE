@@ -6,11 +6,13 @@
   {{#each balanceLog}}
   {{#if cc}}
     <p>Name: {{name}}</p>
+    <p>Payment method: {{paymentMethod}}</p>
     <p>Transaction amount: {{amount}}</p>
     <p>Timestamp: {{date}}</p>
     <br>
   {{else}}
   <p>Name: {{name}}</p>
+  <p>Payment method: {{paymentMethod}}</p>
   <p>Transaction amount: {{amount}}</p>
   <p>Date written: {{dateWritten}}</p>
   <p>Date deposited: {{dateDeposited}}</p>

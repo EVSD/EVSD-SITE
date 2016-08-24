@@ -26,7 +26,7 @@ Meteor.methods({
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
-              {cc: true, name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+              {cc: true, paymentMethod: "stripe", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });//end of account update
 
           //console.log(Meteor.user().profile.accountBalanceLog);
@@ -68,7 +68,7 @@ Meteor.methods({
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
-              {cc: true, name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+              {cc: true, paymentMethod: "stripe", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });//end of account update
 
           //FlowRouter.path('signupSuccess');

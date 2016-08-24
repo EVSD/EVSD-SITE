@@ -15,7 +15,7 @@ if (Meteor.isClient){
         $set: {"profile.balance": (Meteor.user().profile.balance + Number(checkAmount))}
       })
 			Meteor.users.update(Meteor.userId(), {
-				$addToSet: {"profile.accountBalanceLog": {cc: false, amount: checkAmount, name: checkName, date: new Date(), dateWritten: written, dateDeposited: deposited, memo: checkMemo}}
+				$addToSet: {"profile.accountBalanceLog": {cc: false, paymentMethod: "check", amount: checkAmount, name: checkName, date: new Date(), dateWritten: written, dateDeposited: deposited, memo: checkMemo}}
 			})
 		},
 	});
