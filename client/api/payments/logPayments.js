@@ -7,6 +7,7 @@ if (Meteor.isClient){
 	Template.logPayments.events({
 		'submit .log-payment':function(event){
       let checkName = event.target.name.value;
+			let checkNumber = event.target.checkNumber.value;
 			let checkAmount = event.target.amount.value;
 			let written = event.target.dateWritten.value;
 			let deposited = event.target.dateDeposited.value;
@@ -15,7 +16,7 @@ if (Meteor.isClient){
         $set: {"profile.balance": (Meteor.user().profile.balance + Number(checkAmount))}
       })
 			Meteor.users.update(Meteor.userId(), {
-				$addToSet: {"profile.accountBalanceLog": {cc: false, paymentMethod: "check", amount: checkAmount, name: checkName, date: new Date(), dateWritten: written, dateDeposited: deposited, memo: checkMemo}}
+				$addToSet: {"profile.accountBalanceLog": {cc: false, checkNo: checkNumber, paymentMethod: "check", amount: checkAmount, name: checkName, date: new Date(), dateWritten: written, dateDeposited: deposited, memo: checkMemo}}
 			})
 		},
 	});
