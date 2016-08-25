@@ -127,6 +127,12 @@ FlowRouter.route('/addMoney', {
   }
 });
 
+FlowRouter.route('/changeUserBalance', {
+  action: function() {
+    BlazeLayout.render("view", {main: "changeUserBalance", sidebar: "cu_sidebar"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})

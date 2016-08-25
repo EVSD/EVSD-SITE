@@ -26,12 +26,12 @@ Meteor.methods({
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
-              {cc: true, checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'Paid for tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'Paid for tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
-              {cc: true, checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'Balance deducted for tournament - '+entry.tournament+'_p1', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'Balance deducted for tournament - '+entry.tournament+'_p1', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });
 
           //console.log(Meteor.user().profile.accountBalanceLog);
@@ -73,7 +73,7 @@ Meteor.methods({
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
-              {cc: true, checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });//end of account update
 
           //FlowRouter.path('signupSuccess');
