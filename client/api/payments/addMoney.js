@@ -23,7 +23,7 @@ if (Meteor.isClient) {
         $set: {"profile.balance": (Meteor.user().profile.balance + Number(paymentAmount))}
       });
 			Meteor.users.update(Meteor.userId(), {
-				$addToSet: {"profile.accountBalanceLog": {cc: false, checkNo: 0, paymentMethod: "stripe (added to account balance)", amount: paymentAmount, name: "Increase account balance", date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+				$addToSet: {"profile.accountBalanceLog": {cc: true, checkNo: 0, paymentMethod: "stripe (added to account balance)", amount: paymentAmount, name: "Increase account balance", date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
 			});
 		},
 	});
