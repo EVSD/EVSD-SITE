@@ -121,6 +121,11 @@ FlowRouter.route('/logPayments', {
   }
 });
 
+FlowRouter.route('/addMoney', {
+  action: function() {
+    BlazeLayout.render("view", {main: "addMoney", sidebar: "cu_sidebar"});
+  }
+});
 
 FlowRouter.notFound = {
   action: function() {

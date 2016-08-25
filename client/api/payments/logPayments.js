@@ -6,6 +6,7 @@ if (Meteor.isClient){
 		});
 	Template.logPayments.events({
 		'submit .log-payment':function(event){
+			event.preventDefault();
       let checkName = event.target.name.value;
 			let checkNumber = event.target.checkNumber.value;
 			let checkAmount = event.target.amount.value;

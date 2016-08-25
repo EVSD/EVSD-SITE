@@ -3,16 +3,17 @@
 	{{> logout}}
 	<a href = "/profile">Your Profile</a><br>
 	<a href = "/accountBalance">Account Balance</a><br>
+	<a href="/addMoney">Add Money to Account Balance</a>
 
 	<h3> Tournaments</h3>
 	<a href="/tournaments/myTournaments">My Tournaments</a><br>
-	<a href="/tournaments/signup">Sign Up for Tournament</a>
+	<a href="/tournaments/signup">Sign Up for Tournament</a><br>
 	{{#if isInRole 'admin'}}
 		<h4> Admin Options</h4>
 		<a href="/tournaments/create-tournament">Create a New Tournament</a><br>
 		<a href="/tournaments/admin_tournament_view"> See/Edit Current Tournaments</a><br>
 		<a href="/tournaments/entries">See Current Signups</a><br>
-		<a href="/logPayments">Manually Log Payments for Users</a>
+		<a href="/logPayments">Manually Log Checks for Users</a>
 
 	{{/if}}
 {{/if}}

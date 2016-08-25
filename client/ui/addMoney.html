@@ -1,26 +1,15 @@
 <template name = "addMoney">
-  <form class="log-payment">
+  <form class="pay-now">
 
 		<h3>Add Money To Account Balance</h3>
-    <ol>Select a User: <select name="user" required>
-      {{#each users}}
-        <option value="{{username}}">{{username}}</option>
-      {{/each}}
-    </select></ol>
-		<ol><label for="name">Name of Transaction: </label>
-				<input type="text" name="name" placeholder= "i.e. Drop fee"></ol>
-		<ol><label for="amount">Amount (Negative value for deductions, positive for additions): </label>
-				<input type="number" name="amount" placeholder="i.e. $200"></ol>
-		<ol><label for="checkNumber">Check number: </label>
-				<input type="number" name="checkNumber" placeholder="i.e. 1234"></ol>
-		<ol><label for="dateWritten">Date Check was Written: </label>
-				<input type="date" name="dateWritten" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
-    <ol><label for="dateDeposited">Date Check was Deposited: </label>
-    		<input type="date" name="dateDeposited" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
-    <ol><label for="memo">Memo: </label>
-        <input type="text" name="memo" placeholder="i.e. Drop fee for UOP tournament"></ol>
 
-		<input type="submit" value="log-payment">
+    <p>This is for either making your account balance non-negative (if you have been charged a fine),<br>
+      or for adding money into your account balance as credits (can be used to pay for future tournaments).</p>
+
+		<ol><label for="amount">Amount: </label>
+				<input type="number" name="amount" placeholder="i.e. 200"></ol>
+
+		<input type="submit" value="pay-now">
 
 	</form>
 
