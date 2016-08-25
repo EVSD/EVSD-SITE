@@ -25,8 +25,8 @@ Meteor.methods({
           //FlowRouter.path('signupSuccess');
 
           Meteor.users.update(Meteor.userId(), {
-            $addToSet: {"profile.accountBalanceLog": 
-              {name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date()}}
+            $addToSet: {"profile.accountBalanceLog":
+              {cc: true, checkNo: 0, paymentMethod: "stripe", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });//end of account update
 
           //console.log(Meteor.user().profile.accountBalanceLog);
@@ -65,12 +65,12 @@ Meteor.methods({
               "p2parentConsent": "yes"
             }
           });//end of tournament update
-          
+
           Meteor.users.update(Meteor.userId(), {
-            $addToSet: {"profile.accountBalanceLog": 
-              {name: 'tournament - '+entry.tournament+'_p2', amount: price, date: new Date()}}
+            $addToSet: {"profile.accountBalanceLog":
+              {cc: true, checkNo: 0, paymentMethod: "stripe", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });//end of account update
-          
+
           //FlowRouter.path('signupSuccess');
         } else {
           // display payment failed message

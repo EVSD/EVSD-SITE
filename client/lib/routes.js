@@ -115,6 +115,13 @@ FlowRouter.route('/accountBalance', {
   }
 });
 
+FlowRouter.route('/logPayments', {
+  action: function() {
+    BlazeLayout.render("view", {main: "logPayments", sidebar: "cu_sidebar"});
+  }
+});
+
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
