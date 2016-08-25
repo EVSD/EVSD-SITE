@@ -18,11 +18,24 @@ Meteor.methods({
       currency: 'usd',
       receipt_email: Meteor.user().emails[0].address
     }, Meteor.bindEnvironment(function(err, charge) {
-      console.log(entry);
+        //console.log(entry);
         console.log(err, charge);
         if (charge.status == 'succeeded') {
           Meteor.call('createEntry', entry);
           //FlowRouter.path('signupSuccess');
+
+          Meteor.users.update(Meteor.userId(), {
+            $addToSet: {"profile.accountBalanceLog":
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'Paid for tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+          });
+
+          Meteor.users.update(Meteor.userId(), {
+            $addToSet: {"profile.accountBalanceLog":
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'Balance deducted for tournament - '+entry.tournament+'_p1', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+          });
+
+          //console.log(Meteor.user().profile.accountBalanceLog);
+
         } else {
           // display payment failed message
           Bert.alert('Payment transaction failed.');
@@ -56,7 +69,13 @@ Meteor.methods({
               "p2studentConsent": "yes",
               "p2parentConsent": "yes"
             }
-          });        
+          });//end of tournament update
+
+          Meteor.users.update(Meteor.userId(), {
+            $addToSet: {"profile.accountBalanceLog":
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+          });//end of account update
+
           //FlowRouter.path('signupSuccess');
         } else {
           // display payment failed message

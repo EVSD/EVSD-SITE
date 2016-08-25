@@ -6,14 +6,16 @@ if (Meteor.isClient){
 					cost: event.target.cost.value,
 					signUpDeadline: event.target.signUpDeadline.value,
 					paymentDeadline: event.target.paymentDeadline.value,
-					partner: event.target.partner.value,
-					judges: event.target.judges.value
+					partner: $('input[name="partner"]:checked').val(),
+					judges: $('input[name="judges"]:checked').val()
 				};
-			Meteor.call('createTournament', tournament, function(err){
-	            	if(err){
-	                	console.log(err);
-	            	}
-           		});
+			//if there are actual values
+			if (tournament.name != '' && tournament.cost != '' && tournament.signUpDeadline != '' && tournament.paymentDeadline != '' &&tournament.partner != '' && tournament.judges != '')
+				Meteor.call('createTournament', tournament);
+			else {
+				event.preventDefault();
+				alert ("Fill out all the fields");
+			}
 		},
 	});
 }

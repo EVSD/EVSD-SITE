@@ -109,6 +109,30 @@ FlowRouter.route('/signupSuccess', {
   }
 });
 
+FlowRouter.route('/accountBalance', {
+  action: function() {
+    BlazeLayout.render("view", {main: "accountBalance", sidebar: "cu_sidebar"});
+  }
+});
+
+FlowRouter.route('/logPayments', {
+  action: function() {
+    BlazeLayout.render("view", {main: "logPayments", sidebar: "cu_sidebar"});
+  }
+});
+
+FlowRouter.route('/addMoney', {
+  action: function() {
+    BlazeLayout.render("view", {main: "addMoney", sidebar: "cu_sidebar"});
+  }
+});
+
+FlowRouter.route('/changeUserBalance', {
+  action: function() {
+    BlazeLayout.render("view", {main: "changeUserBalance", sidebar: "cu_sidebar"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})

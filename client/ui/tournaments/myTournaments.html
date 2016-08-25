@@ -2,10 +2,10 @@
 	{{#if currentUser}}
 
 
-	
+
 	<h2> My Entries </h2>
 		<p>If you want to change your partner, delete your entry and reenter with a new one.<br>
-		Contact your debate coach for a refund if you already payed.
+			If you have signed up for a tournament and dropped before the deadline, your account balance has been increased accordingly.
 		</p>
 		{{#each tournaments}}
 
@@ -14,11 +14,11 @@
 				<a style="color:red" {{hideApproved approved 'no'}} > Unapproved </a>
 
 				 </h3>
-				 <p>					
-				 	<a href="#" class="delete-entry">Delete</a> 
+				 <p>
+				 	<a href="#" class="delete-entry">Delete</a>
 					<a href={{pathForEntry}}>Edit</a>
 				</p>
-				
+
 				<!--if the current user's email matches p2 user name and p2 hasn't payed-->
 				<form class="partnerPay" id="partnerPay" {{showPartnerPay p2Paid p2Email}} >
 					<h3> Terms of Conditions </h3>
@@ -26,10 +26,10 @@
 
 						<p>I, the student of this account, fully agree to the above terms of conditions.</p>
 				  			<input type="radio" name="studentConsent" value="yes"> Yes, I agree
-				  			<input type="radio" name="studentConsent" value="no"> No, I do not <br> 	
+				  			<input type="radio" name="studentConsent" value="no"> No, I do not <br>
 			  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
-			  				<input type="radio" name="parentConsent" value="yes"> Yes, we(I) agree 
-			  				<input type="radio" name="parentConsent" value="no"> No, we(I) do not <br> 	
+			  				<input type="radio" name="parentConsent" value="yes"> Yes, we(I) agree
+			  				<input type="radio" name="parentConsent" value="no"> No, we(I) do not <br>
 
 					<input type="submit" value="Pay for Tournament">
 				</form>
@@ -45,7 +45,7 @@
 					<li> Email: {{p2Email}}</li>
 					<li>Payed? {{p2Paid}}</li>
 				</div>
-				<div {{hideJudges tournament}}>	
+				<div {{hideJudges tournament}}>
 				<h4>Judge</h4>
 					<li> Name: {{judgeFirst}} {{judgeLast}}</li>
 					<li> Email: {{judgeEmail}}</li>
@@ -57,4 +57,4 @@
 </template>
 <!--displays all the tournaments the user is signed up for
 	edit tournament links go here
---> 
+-->

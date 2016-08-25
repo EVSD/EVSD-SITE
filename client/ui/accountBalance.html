@@ -1,0 +1,26 @@
+<template name = "accountBalance">
+{{#if currentUser}}
+  <h2> Transaction history for username: {{currentUser.username}} </h2>
+  <p> Your Balance: ${{currentUser.profile.balance}}</p>
+
+  {{#each balanceLog}}
+  {{#if cc}}
+    <p>Name: {{name}}</p>
+    <p>Payment method: {{paymentMethod}}</p>
+    <p>Transaction amount: {{amount}}</p>
+    <p>Additional details (if any): {{description}}</p>
+    <p>Timestamp: {{date}}</p>
+    <br>
+  {{else}}
+  <p>Name: {{name}}</p>
+  <p>Payment method: {{paymentMethod}}</p>
+  <p>Transaction amount: {{amount}}</p>
+  <p>Check number: {{checkNo}}</p>
+  <p>Date written: {{dateWritten}}</p>
+  <p>Date deposited: {{dateDeposited}}</p>
+  <p>Memo: {{memo}}</p>
+<br>
+{{/if}}
+{{/each}}
+{{/if}}
+</template>
