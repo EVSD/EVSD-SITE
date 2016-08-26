@@ -2,7 +2,7 @@ body {
   font-family: Helvetica;
   top: auto;
   width: auto;
-  padding: 15px;
+  margin: 15px;
 }
 .sidebar {
 	overflow: auto;
@@ -18,5 +18,5 @@ blockquote{
   opacity:.75;
 }
 .navbar-fixed {
-  padding: 0px;
+  margin: 0px;
 }
