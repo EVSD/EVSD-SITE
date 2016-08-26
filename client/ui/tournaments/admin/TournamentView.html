@@ -4,10 +4,9 @@
 	<h2> Tournaments </h2>
 		{{#each inTournamentList}}
 				<h3>{{name}} <a href="#" class="delete-tournament">x</a>
-				</h3>				
+				</h3>
 				<a href={{pathForEntry}}>edit</a>
 				<p>Signup Deadline: {{signUpDeadline}}</p>
-				<p>Payment Deadline: {{paymentDeadline}}</p>
 				<p>Cost: ${{cost}}</p>
 				<p>Partner Tournament? {{partner}}</p>
 				<p>Judges required/requested? {{judges}}</p>
@@ -15,5 +14,3 @@
 		{{/each}}
 {{/if}}
 </template>
-
-

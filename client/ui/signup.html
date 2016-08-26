@@ -1,6 +1,19 @@
 <template name="signup">
  <!--defines structure for signup page-->
-
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>jQuery UI Datepicker - DOB functionality</title>
+     <script>
+     $( function() {
+       $( "#datepicker" ).datepicker({
+         changeMonth: true,
+         changeYear: true,
+         yearRange: "-19:-12"
+       });
+     } );
+     </script>
+ </head>
 {{#if currentUser}}
   <p><!--back to home-->
       You have sucessfully signed up, {{firstName}} {{lastName}}.
@@ -17,24 +30,12 @@
 
           <h4 class="page-header">STUDENT INFORMATION</h4>
 
-            <!--row for the first,middle, and last names-->
-            <div class="row">
-              <div class="input-field col s4">
-                  <!--<i class="material-icons prefix">account_circle</i>-->
-                  <label for="username">Username</label>
-                  <input type="text" name="username" class="validate" autofocus required>
-                </div>
-            </div>
+            <!--row for the first and last names-->
             <div class="row">
               <div class="input-field col s4">
                 <!--<i class="material-icons prefix">account_circle</i>-->
                 <label for="firstName">Student First Name</label>
                 <input type="text" name="firstName" class="validate" autofocus required>
-              </div>
-
-              <div class="input-field col s4">
-                <label for="middleName">Student Middle Name</label>
-                <input type="text" name="middleName" class="validate">
               </div>
 
               <div class="input-field col s4">
@@ -56,8 +57,8 @@
               </div>
               <div class="input-field col s6">
                 <!--<i class="material-icons prefix">today</i>-->
-                <label for="DOB">Student Date of Birth</label>
-                <input type="date" name="DOB" placeholder="MM-DD-YYYY" max= "08-03-2003" required>
+                <label for="DOB">Date:</label>
+                <input type="text" name="DOB" id="datepicker" >
               </div>
             </div>
 
@@ -130,7 +131,7 @@
           <h4 class="page-header">PARENT/GUARDIAN INFORMATION</h4>
 
 
-            <h5 class="page-header">First Parent Guardian Information</h5>
+            <h5 class="page-header">First Parent Guardian Information (required)</h5>
                 <div class="row">
                   <div class="input-field col s12">
                     <!--<i class="material-icons prefix">account_circle</i>-->
@@ -164,12 +165,12 @@
                   </div>
                 </div>
 
-            <h5 class="page-header">Second Parent Guardian Information</h5>
+            <h5 class="page-header">Second Parent/Guardian Information (optional)</h5>
                 <div class="row">
                   <div class="input-field col s12">
                     <!--<i class="material-icons prefix">account_circle</i>-->
                     <label for="secondParent">Name (First and Last)</label>
-                    <input type="text" name="secondParent" class="validate" required>
+                    <input type="text" name="secondParent" class="validate">
                   </div>
                 </div>
 
@@ -177,7 +178,7 @@
                   <div class="input-field col s12">
                     <!--<i class="material-icons prefix">email</i>-->
                     <label for="secondParentEmailAddress">Email</label>
-                    <input type="email" name="secondParentEmailAddress" class="validate" required>
+                    <input type="email" name="secondParentEmailAddress" class="validate">
                   </div>
                 </div>
 
@@ -185,7 +186,7 @@
                   <div class="input-field col s12">
                     <!--<i class="material-icons prefix">phone</i>-->
                     <label for="secondParentPhoneNo">Phone Number</label>
-                    <input type="tel" name="secondParentPhoneNo" class="validate" required>
+                    <input type="tel" name="secondParentPhoneNo" class="validate">
                   </div>
                 </div>
 
@@ -193,7 +194,7 @@
                   <div class="input-field col s12">
                     <!--<i class="material-icons prefix">work</i>-->
                     <label for="secondParentEmployer">Employer</label>
-                    <input type="text" name="secondParentEmployer" class="validate" required>
+                    <input type="text" name="secondParentEmployer" class="validate">
                     <blockquote>We will use this information for the sole purpose of sending you your company’s donation matching policy so that it is easier for you to pursue a corporate donation matching, which is a key source of funding for EVSD. Without this donation matching, more costs will have to be shared by the students and parents.</blockquote>
                   </div>
                 </div>
@@ -261,5 +262,4 @@
     </div>
   </div>
 {{/if}}
-
 </template>

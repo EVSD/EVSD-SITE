@@ -34,14 +34,13 @@ if (Meteor.isClient){
 		          }
 		        });//checks for error, and resets the upload button and sends a successful upload message
 		        upload.start();
-	      	}	
+	      	}
 		},
 		'submit .signup':function(event){
 			//set values for the students
 			var student = {
 			username: $('[name="username"]').val(),
 		    firstName: $('[name="firstName"]').val(),
-		    middleName: $('[name="middleName"]').val(),
 		    lastName: $('[name="lastName"]').val(),
 		    DOB: $('[name="DOB"]').val(),
 		    studentGrade: $('[name="studentGrade"]').val(),
@@ -70,7 +69,7 @@ if (Meteor.isClient){
 		        whyjoin: $('[name="whyjoin"]').val(),
 		        concerns: $('[name="concerns"]').val()
 		    };
-		    
+
 		    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 			    if (err){
 			      alert('reg user error');

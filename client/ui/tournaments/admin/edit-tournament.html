@@ -1,21 +1,34 @@
 <template name ='editTournament'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>jQuery UI Datepicker - Deadline functionality</title>
+			<script>
+			/*let date = '{{editing.signUpDeadline}}';
+			console.log(date);*/
+			$( function() {
+				$( "#datepicker" ).datepicker({
+					changeMonth: true,
+					changeYear: true,
+					yearRange: "0:+2",
+					monthRange: "0:+12"
+				});
+			} );
+			</script>
+	</head>
 	<h3>Editing {{editing.name}}</h3>
 
 	<form class="edit-tournament">
-		<div><h3>Judge</h3>
 			<label for="signUpDeadline">Signup Deadline</label>
-		      <input type="date" name="signUpDeadline" value="{{editing.signUpDeadline}}" autofocus><br>
-		    <label for="paymentDeadline">Payment Deadline</label>
-		      <input type="date" name="paymentDeadline" value="{{editing.paymentDeadline}}" autofocus><br>
+		      <input type="text" name="signUpDeadline" id="datepicker"><br>
 		    <label for="cost">Cost</label>
-		      <input type="number" name="cost" value="{{editing.cost}}" autofocus><br>
+		      <input type="number" name="cost" value="{{editing.cost}}"><br>
 		  	<label for="partner">Partner event?</label>
 		    	<input type="radio" name="partner" value="yes" checked="{{checked editing.partner 'yes'}}"> Yes
 	  			<input type="radio" name="partner" value="no" checked ="{{checked editing.partner 'no'}}"> No<br>
-	  	  	<label for="judges">Judges required/requested?</label>
+  	  	<label for="judges">Judges required/requested?</label>
 		    	<input type="radio" name="judges" value="yes"  checked="{{checked editing.judges 'yes'}}"> Yes
 	  			<input type="radio" name="judges" value="no" checked ="{{checked editing.judges 'no'}}"> No<br>
-		</div>
 
 		<input type="submit" value="Submit" />
 	</form>

@@ -2,9 +2,7 @@
   createreguser: function(student, parent, misc){
     // Checks Student, parent, and misc for pattern
     check(student, {
-      username: String,
       firstName: String,
-      middleName: String,
       lastName: String,
       DOB: String,
       studentGrade: String,
@@ -32,17 +30,17 @@
         concerns: String
     });
 
-
+    let x = Math.floor((Math.random() * 100000));
+    let name = student.firstName+student.lastName+x;
     //creates the user
     var user = Accounts.createUser({
       // MARK: give the ability to change all of this
-      username: student.username,
+      username: name,
       password: student.password,
       email: student.emailAddress,
       profile: {
 
         firstName: student.firstName,
-        middleName: student.middleName,
         lastName: student.lastName,
         birthdate: student.DOB,
         studentGrade: student.studentGrade,
@@ -77,7 +75,7 @@
     if (student.emailAddress == 'test@gmail.com'){
       Roles.addUsersToRoles(user, 'admin');
     }else{
-      Roles.addUsersToRoles(user, 'member');
+      Roles.addUsersToRoles(user, 'frozen');
     }
 
 

@@ -12,7 +12,6 @@ if(Meteor.isClient){
 					'judges': 1,
 					'name': 1,
 					'partner': 1,
-					'paymentDeadline': 1,
 					'signUpDeadline': 1
 				},
 				sort: {"signUpDeadline": -1},
@@ -81,6 +80,8 @@ if(Meteor.isClient){
 					 judgeLast: judgeLast,
 					 judgeEmail: judgeEmail,
 					 judgePhone: judgePhone,
+
+					 notes: event.target.notes.value,
 					}
 				//payment and account creation
 				StripeCheckout.open({
