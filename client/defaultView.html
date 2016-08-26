@@ -1,38 +1,54 @@
 <template name="view">
 	<link rel='stylesheet' href='client/stylesheets/main.css' type='text/css' media='screen' charset='utf-8'>
-<div class="navbar-fixed">
-	<nav>
-		 <div class="nav-wrapper">
-			 <a href="#" class="logo">EVSD</a>
-			 <ul id="nav-mobile" class="right hide-on-med-and-down">
-				 <li class="active"><a href="/">Home</a></li>
-				 {{#if currentUser}}
-				 	<li class="active"><a href="/profile">Profile</a></li>
-					<li class="active"><a href="/accountBalance">Balance</a></li>
-					<li class="active"><a href="/tournaments/myTournaments">My Tournaments</a></li>
-					<li class="active"><a href="/tournaments/signup">Tournament Sign Up</a></li>
-					{{else}}
-					<li class="active"><a href="/login">Login</a></li>
-					<li class="active"><a href="/signup">Sign Up</a></li>
-					{{/if}}
-			 </ul>
-		 </div>
-	 </nav>
- </div>
-	<header><h1>Evergreen Speech and Debate Test Website</h1></header>
+<body>
+	<div class="head-nav">
+	        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav hide-on-large-only"><i class="material-icons medium mdi-navigation-menu white-text text-accent-2">menu</i></a></div>
+	        <ul id="nav-mobile" class="side-nav fixed">
+	            <li class="logo">
+	                <a href="/" class="brand-logo">
+	                    <img id="front-page-logo" class="responsive-img hover" src="https://raw.githubusercontent.com/EVSD/evsd-landing/afce3e68128c968e9c2093b10dcbfb865261d47e/evsdlogo.png" height="70%" width="70%" background-color="#4acaa8"/></a>
+	            </li>
+							<li class = "active"><a href="/">Home</a></li>
+							{{#if currentUser}}
+							<li><a href="/profile">Profile</a></li>
+  						<li><a href="/accountBalance">Balance</a></li>
+  						<li><a href="/tournaments/myTournaments">My Tournaments</a></li>
+ 						<li><a href="/tournaments/signup">Tournament Sign Up</a></li>
 
-	<main>
-	  <!--{{> Template.dynamic template=header}}-->
+ 					{{else}}
+ 					<li><a href="/login">Login</a></li>
+ 					<li><a href="/signup">Sign Up</a></li>
+  					{{/if}}
+	        </ul>
+	    </div>
+	<header>
+		 <h1>EVERGREEN VALLEY SPEECH AND DEBATE</h1></header>
+
+		<main>
   	<div class='sidebar'>
 	  {{> Template.dynamic template=sidebar}}
   	</div>
+		<br><br><br>
 	  {{> Template.dynamic template=main}}
-	  <!--{{> Template.dynamic template=footer}}-->
-	  </main>
+	</main>
+
 	 <!--this is up to club discretion on how they want to organize the elements
 	 	remember to change the necessary routes and <a> html elements -->
 
+		<footer class="page-footer">
+	          <div class="container">
+	            <div class="row">
+	              <div class="col l6 s12">
+	                <h5 class="white-text">Footer Content</h5>
+	              </div>
 
-	<footer><br>*default footer*</footer>
-
+	            </div>
+	          </div>
+	          <div class="footer-copyright">
+	            <div class="container">
+	            © 2016 EVSD
+	            </div>
+	          </div>
+	        </footer>
+</body>
 </template>

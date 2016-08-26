@@ -18,5 +18,76 @@ blockquote{
   opacity:.75;
 }
 .navbar-fixed {
-  margin: 0px;
+
+}
+footer.page-footer {
+    background-color: #4acaa8;
+    padding-top: 0;
+    margin-top: 0;
+}
+.brand-logo:hover {
+    background-color: transparent !important;
+}
+@media only screen and (min-width: 992px) {
+    header, main, footer {
+        padding-left: 240px;
+    }
+}
+.logo {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #4acaa8 !important;
+    height: 200px;
+    -moz-transition: background-color 0.3s ease 0s;
+    -o-transition: background-color 0.3s ease 0s;
+    -webkit-transition: background-color 0.3s ease 0s;
+}
+.logo:hover {
+    -moz-transition: background-color 0.3s ease 0s;
+    -o-transition: background-color 0.3s ease 0s;
+    -webkit-transition: background-color 0.3s ease 0s;
+    background-color: white !important;
+}
+#nav-mobile {
+    background-color: #cfd8dc;
+}
+.side-nav {
+  width: 240px;
+}
+.side-nav li {
+    -moz-transition: background-color 0.3s ease 0s;
+    -o-transition: background-color 0.3s ease 0s;
+    -webkit-transition: background-color 0.3s ease 0s;
+    background-color: #cfd8dc;
+}
+.side-nav li p {
+  font-size: 18px;
+}
+.side-nav li:hover {
+    -moz-transition: background-color 0.3s ease 0s;
+    -o-transition: background-color 0.3s ease 0s;
+    -webkit-transition: background-color 0.3s ease 0s;
+    background-color: white;
+}
+.side-nav li.active {
+    background-color: white;
+}
+main {
+    flex: 1 0 auto;
+}
+ul#icons li {
+    display: inline;
+    padding-right: 20px;
+}
+h1 {
+    color: #4acaa8;
+    font-weight: 600;
+    font-size: 600%;
+}
+i {
+    color: #4acaa8;
+}
+h4 {
+    color: #4acaa8;
 }
