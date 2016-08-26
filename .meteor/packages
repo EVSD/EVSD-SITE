@@ -30,8 +30,7 @@ kadira:blaze-layout
 themeteorchef:bert
 mrgalaxy:stripe
 ostrio:files
-<<<<<<< HEAD
+
+#For the Server
 npm-bcrypt
-=======
 shell-server
->>>>>>> 81fedd814e34a107e73ff34372fb18acf5ca0f3b
