@@ -1,4 +1,6 @@
  <template name ="userTable">
+   <link rel='stylesheet' href='client/stylesheets/main.css' type='text/css' media='screen' charset='utf-8'>
+
 	<h3>Site Users</h3>
 
 <!--Users and their roles-->
@@ -20,10 +22,10 @@
 			  		{{/if}}
 			  		{{emails.[0].address}}
 		  		</td>
-            
+
 		    	<!--Role-->
 		    	<td>
-		    	
+
 				<select {{disableIfAdmin _id}} name="userRole" class="form-control">
 					<!--set it so that only admin shows admin option-->
 					<option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
@@ -32,7 +34,7 @@
 		            <option selected="{{selected roles.[0] 'frozen'}}" value="frozen">Frozen</option>
 
 				</select>
-		        </td> 
+		        </td>
 		    </tr>
 		  {{/each}}
 		</tbody>

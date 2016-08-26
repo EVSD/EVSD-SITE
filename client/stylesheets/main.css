@@ -3,6 +3,7 @@ body {
   top: auto;
   width: auto;
   padding: 10px;
+  margin: 5px 15px;
 }
 .sidebar {
 	overflow: auto;
@@ -13,4 +14,7 @@ body {
 	text-align: right;
 	padding: 10px;
 }
-	/* CSS declarations go here */
+blockquote{
+  font-size:11px;
+  opacity:.75;
+}

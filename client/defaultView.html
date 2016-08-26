@@ -1,14 +1,15 @@
 <template name="view">
+	<link rel='stylesheet' href='client/stylesheets/main.css' type='text/css' media='screen' charset='utf-8'>
 
 	<header><h1>Evergreen Speech and Debate Test Website</h1></header>
-	
+
 	<main>
 	  <!--{{> Template.dynamic template=header}}-->
-  	<div class='sidebar'>	
+  	<div class='sidebar'>
 	  {{> Template.dynamic template=sidebar}}
   	</div>
 	  {{> Template.dynamic template=main}}
-	  <!--{{> Template.dynamic template=footer}}-->	
+	  <!--{{> Template.dynamic template=footer}}-->
 	  </main>
 	 <!--this is up to club discretion on how they want to organize the elements
 	 	remember to change the necessary routes and <a> html elements -->

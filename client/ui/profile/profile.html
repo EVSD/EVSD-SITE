@@ -1,11 +1,12 @@
 <template name="profile">
+  <link rel='stylesheet' href='client/stylesheets/main.css' type='text/css' media='screen' charset='utf-8'>
 
  	{{#if currentUser}}
 		{{#if isInRole 'frozen'}}
 			<p>Ask admin for permission</p>
 		{{else}}
 			<h2>{{username}}'s Profile</h2>
- 
+
 			<ul style="list-style-type:circle">
 				<li>Name: {{firstName}} {{lastName}}</li>
 				<li>Email: {{email}}</li>
@@ -15,23 +16,22 @@
 				<li>Student Phone #: {{studentPhone}}</li>
 				<li>Student Id: {{studentId}}</li>
 			</ul>
-			
+
 			<a href="/profile/edit">edit info</a><br>
 
 			{{> file}}
 
-			
+
 			{{#if isInRole 'admin'}}
 				{{> userTable}}
 			{{/if}}
 		{{/if}}
 	{{/if}}
 
-		
+
 	<!--testing the roles
 	<form class="takeRoles">
 		<a href="#">add roles</a>
 	</form>-->
 
 </template>
-
