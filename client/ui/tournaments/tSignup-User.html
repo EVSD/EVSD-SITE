@@ -4,7 +4,7 @@
 	<h1>Add Tournament entry</h1>
 			<form class ="add-tournament" novalidate> <!--used to create a form like something to input things-->
 				<p>Choose a tournament.</p>
-				
+
 				Tournament(s):<select name="tournament" id="tournament" required>
 					<option value="default" selected>Select your option</option>
 					{{#each tournamentList}}
@@ -37,16 +37,18 @@
 	                  <!--if has no value still put it in the tournament list so that chance for
 	                  		admin to add back later-->
 				</div>
+				<h3> Notes for the Admin </h3>
+					<textarea name="notes" class="materialize-textarea" placeholder="i.e. event"></textarea>
 
-				<h3> Terms of Conditions </h3> <!--implement later-->
+				<h3> Terms of Conditions </h3> <!--implement later more explicitly-->
 					<p>This is where the terms of conditions will go</p>
 
 					<p>I, the student of this account, fully agree to the above terms of conditions.</p>
 			  			<input type="radio" name="studentConsent" value="yes"> Yes, I agree
-			  			<input type="radio" name="studentConsent" value="no"> No, I do not <br> 	
+			  			<input type="radio" name="studentConsent" value="no"> No, I do not <br>
 		  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
-		  				<input type="radio" name="parentConsent" value="yes"> Yes, we(I) agree 
-		  				<input type="radio" name="parentConsent" value="no"> No, we(I) do not <br> 		
+		  				<input type="radio" name="parentConsent" value="yes"> Yes, we(I) agree
+		  				<input type="radio" name="parentConsent" value="no"> No, we(I) do not <br>
 				<input type="submit" value="Pay Now to Sign Up" />
 			</form>
 			{{else}}

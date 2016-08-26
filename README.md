@@ -1,7 +1,6 @@
 # EVSD-SITE
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b7443713e2ba45cb8a23f607173c7da8)](https://www.codacy.com/app/aeolyus/EVSD-SITE?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EVSD/EVSD-SITE&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/EVSD/EVSD-SITE.svg?branch=master)](https://travis-ci.org/EVSD/EVSD-SITE)
 [![Stories in Ready](https://badge.waffle.io/EVSD/EVSD-SITE.svg?label=ready&title=Ready)](http://waffle.io/EVSD/EVSD-SITE)
 
 Revamp of evsd site for new meteor structure and general improved organization

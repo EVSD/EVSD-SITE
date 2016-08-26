@@ -3,7 +3,9 @@ if(Meteor.isClient){
 
 	Template.myTournaments.helpers({
 		tournaments: function (){
-			return Tournaments.find({}); 
+			return Tournaments.find({},{
+	        	sort: {"tournament":1, "createdAt": -1},
+    		})
 			},
 		//this create the path to get to the entry
 	 	pathForEntry: function() {
