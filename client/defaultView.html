@@ -1,5 +1,6 @@
 <template name="view">
 	<link rel='stylesheet' href='client/stylesheets/main.css' type='text/css' media='screen' charset='utf-8'>
+<div class="navbar-fixed">
 	<nav>
 		 <div class="nav-wrapper">
 			 <a href="#" class="logo">Logo</a>
@@ -9,10 +10,16 @@
 				 	<li class="active"><a href="/profile">Profile</a></li>
 					<li class="active"><a href="/accountBalance">Balance</a></li>
 					<li class="active"><a href="/tournaments/myTournaments">My Tournaments</a></li>
+					<li class="active"><a href="/tournaments/signup">Tournament Sign Up</a></li>
+					
+					{{else}}
+					<li class="active"><a href="/login">Login</a></li>
+					<li class="active"><a href="/signup">Sign Up</a></li>
 					{{/if}}
 			 </ul>
 		 </div>
 	 </nav>
+ </div>
 	<header><h1>Evergreen Speech and Debate Test Website</h1></header>
 
 	<main>
