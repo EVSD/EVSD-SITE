@@ -137,6 +137,30 @@ FlowRouter.route('/changeUserBalance', {
   }
 });
 
+FlowRouter.route('/events', {
+  action: function() {
+    BlazeLayout.render("view", {main: "events"});
+  }
+});
+
+FlowRouter.route('/whyJoin', {
+  action: function() {
+    BlazeLayout.render("view", {main: "whyjoin"});
+  }
+});
+
+FlowRouter.route('/coaches', {
+  action: function() {
+    BlazeLayout.render("view", {main: "coaches"});
+  }
+});
+
+FlowRouter.route('/officers', {
+  action: function() {
+    BlazeLayout.render("view", {main: "officers"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})

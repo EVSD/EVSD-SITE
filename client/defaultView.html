@@ -1,6 +1,25 @@
 <template name="view">
 	<link rel='stylesheet' href='client/stylesheets/main.css' type='text/css' media='screen' charset='utf-8'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<script>
+	// $(document).ready(function() {
+	// 	$(".button-collapse").sideNav();
+	// 	$(".dropdown-button").dropdown();
+	// });
+	Template.view.onRendered(function(){
+		$('.dropdown-button').dropdown();
+  });
+});
+	</script>
 <header>
+	<ul id="aboutDropdown" class="dropdown-content">
+  <li><a href="/events">Events</a></li>
+  <li><a href="/whyJoin">Why Join?</a></li>
+  <li><a href="/coaches">Coaches</a></li>
+	<li><a href="/ipace">IPACE</a></li>
+	<li><a href="/officers">Student Officers</a></li>
+</ul>
 	<div class="head-nav">
 	        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav hide-on-large-only"><i class="material-icons medium mdi-navigation-menu white-text text-accent-2">menu</i></a></div>
 	        <ul id="nav-mobile" class="side-nav fixed">
@@ -9,6 +28,7 @@
 	                    <img id="front-page-logo" class="responsive-img hover" src="https://raw.githubusercontent.com/EVSD/evsd-landing/afce3e68128c968e9c2093b10dcbfb865261d47e/evsdlogo.png" height="70%" width="70%" background-color="#4acaa8"/></a>
 	            </li>
 							<li class = "active"><a href="/">Home</a></li>
+							<li><a class="dropdown-button" href="#" data-activates="aboutDropdown">About EVSD<i class="material-icons right">arrow_drop_down</i></a></li>
 							{{#if currentUser}}
 							<li><a href="/profile">Profile</a></li>
 							<li><a href="/logout">Logout</a></li>
