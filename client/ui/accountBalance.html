@@ -1,10 +1,12 @@
 <template name = "accountBalance">
-  
+
 
 {{#if currentUser}}
   <h2> Transaction history for username: {{currentUser.username}} </h2>
   <p> Your Balance: ${{currentUser.profile.balance}}</p>
-
+  <br>
+{{> addMoney}}
+<br><br>
   {{#each balanceLog}}
   {{#if cc}}
     <p>Name: {{name}}</p>

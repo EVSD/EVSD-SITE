@@ -11,10 +11,16 @@
 							<li class = "active"><a href="/">Home</a></li>
 							{{#if currentUser}}
 							<li><a href="/profile">Profile</a></li>
-  						<li><a href="/accountBalance">Balance</a></li>
+  						<li><a href="/accountBalance">Account Balance</a></li>
   						<li><a href="/tournaments/myTournaments">My Tournaments</a></li>
  						<li><a href="/tournaments/signup">Tournament Sign Up</a></li>
-
+						{{# if isInRole 'admin'}}
+						<li><a href="/tournaments/create-tournament">Create a New Tournament</a></li>
+						<li><a href="/tournaments/admin_tournament_view">Current Tournaments</a></li>
+						<li><a href="/tournaments/entries">See Current Signups</a></li>
+						<li><a href="/logPayments">Log Checks for Users</a></li>
+						<li><a href="/changeUserBalance">Change User Balance</a></li>
+						{{/if}}
  					{{else}}
  					<li><a href="/login">Login</a></li>
  					<li><a href="/signup">Sign Up</a></li>
