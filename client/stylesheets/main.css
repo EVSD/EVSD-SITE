@@ -24,6 +24,12 @@ footer.page-footer {
     background-color: #4acaa8;
     padding-top: 0;
     margin-top: 0;
+    overflow: hidden;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
 }
 .brand-logo:hover {
     background-color: transparent !important;
