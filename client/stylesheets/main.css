@@ -3,6 +3,9 @@ body {
   top: auto;
   width: auto;
   margin: 15px;
+  display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 .sidebar {
 	overflow: auto;
@@ -17,9 +20,6 @@ blockquote{
   font-size:11px;
   opacity:.75;
 }
-.navbar-fixed {
-
-}
 footer.page-footer {
     background-color: #4acaa8;
     padding-top: 0;
@@ -27,7 +27,9 @@ footer.page-footer {
     overflow: hidden;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    position: fixed;
+    margin-right: 0px;
+    padding-right: 0px; 
+    /*position: fixed;*/
     bottom: 0px;
     width: 100%;
 }
