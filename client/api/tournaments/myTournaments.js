@@ -13,7 +13,7 @@ if(Meteor.isClient){
 		        entryId: this._id //entry ID
 		    };
 		    let routeName = "editEntry";
-		    return path = FlowRouter.path(routeName, params);
+		    return path = FlowRouter.go(routeName, params);
 			},
 
 	});

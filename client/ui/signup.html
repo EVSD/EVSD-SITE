@@ -2,269 +2,258 @@
  <!--defines structure for signup page-->
  <head>
    <meta charset="utf-8">
-
-
    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <title>jQuery UI Datepicker - DOB functionality</title>
      <script>
-     $( function() {
-       $( "#datepicker" ).datepicker({
-         changeMonth: true,
-         changeYear: true,
-         yearRange: "-19:-12"
-       });
-     } );
-     Materialize.updateTextFields();
+    //  $( function() {
+    //    $( "#datepicker" ).datepicker({
+    //      changeMonth: true,
+    //      changeYear: true,
+    //      yearRange: "-19:-12"
+    //    });
+    //  } );
+    $('.datepicker').pickadate({
+   selectMonths: true, // Creates a dropdown to control month
+   selectYears: 40
+ });
      </script>
  </head>
 {{#if currentUser}}
-  <p><!--back to home-->
+  <p>
       You have sucessfully signed up, {{firstName}} {{lastName}}.
-    <a href="/">Back</a> <br>
   </p>
 {{else}}
-<a href="/">Back</a> <br>
 <div id="application-signup">
-  <div class="row">
-    <form class="col s12">
-      <h3 class = "page-header">Evergreen Valley High School Speech and Debate <br> Sign Up Form </h3>
-      <h4 class="page-header">STUDENT INFORMATION</h4>
 
-      <div class="row">
-        <div class="input-field col s4">
-          <i class="material-icons prefix">account_circle</i>
-          <input type="text" name="firstName" class="validate" required>
-          <label for="firstName">Student First Name</label>
-        </div>
-        <div class="input-field col s4">
-          <input type="text" name="middleName" class="validate">
-          <label for="middleName">Student Middle Name</label>
-        </div>
-        <div class="input-field col s4">
-          <input type="text" name="lastName" class="validate" required>
-          <label for="lastName">Student Last Name</label>
-        </div>
-      </div>
+    <div class="row">
+      <form class="signup">
 
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">grade</i>
-          <input type="text" name="studentGrade"  placeholder="Freshman/Sophomore/Junior/Senior" class="validate" required>
-          <label for="studentGrade">Student Grade</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">today</i>
-          <input type="text" name="DOB" placeholder="MM/DD/YYYY" class="validate" required>
-          <label for="DOB">Student Date of Birth</label>
-        </div>
-      </div>
+        <h3 class = "page-header">Evergreen Valley High School Speech and Debate <br> Sign Up Form </h3>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">email</i>
-          <input type="email" name="emailAddress" class="validate" required>
-          <label for="emailAddress">Student Email Address</label>
-        </div>
-      </div>
+          <h4 class="page-header">STUDENT INFORMATION</h4>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">lock_outline</i>
-          <input type="password" name="password" class="validate" required>
-          <label for="password">Password</label>
-        </div>
-      </div>
+            <!--row for the first and last names-->
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <label for="firstName">Student First Name</label>
+                <input type="text" name="firstName" class="validate" autofocus required>
+              </div>
 
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">phone</i>
-          <input type="text" name="studentPhoneNo" class="validate" required>
-          <label for="studentPhoneNo">Student Phone Number</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">assignment_ind</i>
-          <input type="text" name="studentId" class="validate" required>
-          <label for="studentId">Student ID Number</label>
-        </div>
-      </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <label for="lastName">Student Last Name</label>
+                <input type="text" name="lastName" class="validate" required>
+              </div>
+            </div>
 
-      <div class="row">
-        <div class="input-field col s4">
-          <p>Does the student have a Facebook account?</p>
-          <p>
-            <input name="facebookAccount" type="radio" value = "yes" id = "facebookAccounty" required/>
-            <label for="facebookAccounty">Yes</label>
-          </p>
-          <p>
-            <input name="facebookAccount" type="radio" value = "no" id = "facebookAccountn" required/>
-            <label for = "facebookAccountn">No</label>
-          </p>
-        </div>
-        <div class="input-field col s4">
-          <p>Is he/she in the <a href="http://on.fb.me/1EcE7oz" target="_blank">Speech & Debate Facebook group</a>?</p>
-          <p>
-            <input name="facebookEvsd" type="radio" id="facebookEvsdy" value = "yes" required>
-            <label for="facebookEvsdy">Yes</label>
-          </p>
-          <p>
-            <input name="facebookEvsd" type="radio" id="facebookEvsdn" value = "no" required/>
-            <label for="facebookEvsdn">No</label>
-          </p>
-        </div>
-        <div class="input-field col s4">
-          <p>Is the student a part of the Speech & Debate Schoolloop group?</p>
-          <p>
-            <input name="schoolloopEvsd" type="radio" id="schoolloopEvsdy" value = "yes" required/>
-            <label for="schoolloopEvsdy">Yes</label>
-          </p>
-          <p>
-            <input name="schoolloopEvsd" type="radio" id="schoolloopEvsdn" value = "no" required/>
-            <label for="schoolloopEvsdn">No</label>
-          </p>
-        </div>
-      </div>
-<br>
-      <h4 class="page-header">PARENT/GUARDIAN INFORMATION</h4>
+            <!--row for grade and DoB-->
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">grade</i>
+                  <select name="studentGrade" required>
+                  <option value="" disabled selected>Grade</option>
+                  <option value="9">9-Freshman</option>
+                  <option value="10">10-Sophmore</option>
+                  <option value="11">11-Junior</option>
+                  <option value="12">12-Senior</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">today</i>
+                <label for="DOB">Date:</label>
+                <input type="text" name="DOB" class="datepicker" >
+              </div>
+            </div>
+
+            <!--Student Email,Phone #, ID-->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <label for="emailAddress">Student Email Address</label>
+                <input type="email" name="emailAddress" class="validate" required>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <label for="studentPhoneNo">Student Phone Number</label>
+                <input type="tel" name="studentPhoneNo" class="validate" required>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">assignment_ind</i>
+                <label for="studentId">Student ID Number</label>
+                <input type="number" name="studentId" class="validate" required>
+              </div>
+            </div>
+
+            <!--Account Password-->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock_outline</i>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="validate" required>
+              </div>
+            </div>
+
+            <!--Facebook and Schoolloop questions-->
+            <div class="row">
+              <div class="input-field col s4">
+                <p>Does the student have a Facebook account?</p>
+                <p>
+                  <label for="facebookAccounty">Yes</label>
+                  <input name="facebookAccount" type="radio" value = "yes" id = "facebookAccounty" required/>
+                </p>
+                <p>
+                  <label for = "facebookAccountn">No</label>
+                  <input name="facebookAccount" type="radio" value = "no" id = "facebookAccountn" required/>
+                </p>
+              </div>
+              <div class="input-field col s4">
+                <p>Is the student in the <a href="http://on.fb.me/1EcE7oz" target="_blank">Speech & Debate Facebook Group</a>?</p>
+                <p>
+                  <label for="facebooky">Yes</label>
+                  <input name="facebook" type="radio" id="facebooky" value = "yes" required>
+                </p>
+                <p>
+                  <label for="facebookn">No</label>
+                  <input name="facebook" type="radio" id="facebookn" value = "no" required/>
+                </p>
+              </div>
+              <div class="input-field col s4">
+                <p> Is the student part of the Speech & Debate Schoolloop group?</p>
+                <p>
+                  <label for="schoolloopy">Yes</label>
+                  <input name="schoolloop" type="radio" id="schoolloopy" value = "yes" required/>
+                </p>
+                <p>
+                  <label for="schoolloopn">No</label>
+                  <input name="schoolloop" type="radio" id="schoolloopn" value = "no" required/>
+                </p>
+              </div>
+            </div>
 
 
-      <h5 class="page-header">First Parent Guardian Information</h5>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-          <input type="text" name="firstParent" class="validate" required>
-          <label for="firstParent">Name (First and Last)</label>
-        </div>
-      </div>
+          <h4 class="page-header">PARENT/GUARDIAN INFORMATION</h4>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">email</i>
-          <input type="email" name="firstParentEmailAddress" class="validate" required>
-          <label for="firstParentEmailAddress">Email</label>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">phone</i>
-          <input type="text" name="firstParentPhoneNo" class="validate" required>
-          <label for="firstParentPhoneNo">Phone Number</label>
-        </div>
-      </div>
+            <h5 class="page-header">First Parent Guardian Information (required)</h5>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <label for="firstParent">Name (First and Last)</label>
+                    <input type="text" name="firstParent" class="validate" required>
+                  </div>
+                </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">work</i>
-          <input type="text" name="firstParentEmployer" class="validate" required>
-          <label for="firstParentEmployer">Employer</label>
-          <blockquote>We will use this information for the sole purpose of sending you your company’s donation matching policy so that it is easier for you to pursue a corporate donation matching, which is a key source of funding for EVSD. Without this donation matching, more costs will have to be shared by the students and parents.</blockquote>
-        </div>
-      </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <label for="firstParentEmailAddress">Email</label>
+                    <input type="email" name="firstParentEmailAddress" class="validate" required>
+                  </div>
+                </div>
 
-      <h5 class="page-header">Second Parent Guardian Information</h5>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-          <input type="text" name="secondParent" class="validate" required>
-          <label for="secondParent">Name (First and Last)</label>
-        </div>
-      </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">phone</i>
+                    <label for="firstParentPhoneNo">Phone Number</label>
+                    <input type="tel" name="firstParentPhoneNo" class="validate" required>
+                  </div>
+                </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">email</i>
-          <input type="email" name="secondParentEmailAddress" class="validate" required>
-          <label for="secondParentEmailAddress">Email</label>
-        </div>
-      </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">work</i>
+                    <label for="firstParentEmployer">Employer</label>
+                    <input type="text" name="firstParentEmployer" class="validate" required>
+                    <blockquote>We will use this information for the sole purpose of sending you your company’s donation matching policy so that it is easier for you to pursue a corporate donation matching, which is a key source of funding for EVSD. Without this donation matching, more costs will have to be shared by the students and parents.</blockquote>
+                  </div>
+                </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">phone</i>
-          <input type="text" name="secondParentPhoneNo" class="validate" required>
-          <label for="secondParentPhoneNo">Phone Number</label>
-        </div>
-      </div>
+            <h5 class="page-header">Second Parent/Guardian Information (optional)</h5>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <label for="secondParent">Name (First and Last)</label>
+                    <input type="text" name="secondParent" class="validate">
+                  </div>
+                </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">work</i>
-          <input type="text" name="secondParentEmployer" class="validate" required>
-          <label for="secondParentEmployer">Employer</label>
-          <blockquote>We will use this information for the sole purpose of sending you your company’s donation matching policy so that it is easier for you to pursue a corporate donation matching, which is a key source of funding for EVSD. Without this donation matching, more costs will have to be shared by the students and parents.</blockquote>
-        </div>
-      </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <label for="secondParentEmailAddress">Email</label>
+                    <input type="email" name="secondParentEmailAddress" class="validate">
+                  </div>
+                </div>
 
-      <h4 class="page-header">MISCELLANEOUS</h4>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">phone</i>
+                    <label for="secondParentPhoneNo">Phone Number</label>
+                    <input type="tel" name="secondParentPhoneNo" class="validate">
+                  </div>
+                </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">location_on</i>
-          <textarea name="findOut" class="materialize-textarea"></textarea>
-          <label for="findOut">How did the student find out about EVHS Speech and Debate?</label>
-        </div>
-      </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">work</i>
+                    <label for="secondParentEmployer">Employer</label>
+                    <input type="text" name="secondParentEmployer" class="validate">
+                    <blockquote>We will use this information for the sole purpose of sending you your company’s donation matching policy so that it is easier for you to pursue a corporate donation matching, which is a key source of funding for EVSD. Without this donation matching, more costs will have to be shared by the students and parents.</blockquote>
+                  </div>
+                </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">help</i>
-          <textarea name="whyjoin" class="materialize-textarea"></textarea>
-          <label for="whyjoin">Why does the student want to join EVHS Speech and Debate?</label>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">warning</i>
-          <textarea name="concerns" class="materialize-textarea"></textarea>
-          <label for="concerns">Are there any concerns (including allergies, medical needs, or anything else) that we should be aware of?</label>
-        </div>
-      </div>
+          <h4 class="page-header">MISCELLANEOUS</h4>
 
-      <h4 class="page-header">Waiver</h4>
-      <p>
-        <input type="checkbox" class="filled-in" id="filled-in-box" required>
-        <label for="filled-in-box" class="input-label">We, the student registering and the parent/guardian registering, will fill out, sign, and submit through this website the following <a href= "https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/view" target= "_blank">form</a>.</label>
-      </p>
-      <iframe src="https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/preview" style="width:640px; height:480px;" frameborder="0"></iframe>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">location_on</i>
+                    <label for="findOut">How did the student find out about EVHS Speech and Debate?</label>
+                    <textarea name="findOut" class="materialize-textarea"></textarea>
+                  </div>
+                </div>
 
-      <br>
-      <br>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">help</i>
+                    <label for="whyjoin">Why does the student want to join EVHS Speech and Debate?</label>
+                    <textarea name="whyjoin" class="materialize-textarea"></textarea>
+                  </div>
+                </div>
 
-      <div class="file-field input-field">
-        <div class="btn">
-          <span>File</span>
-          <input type="file" required>
-        </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder="Upload Signed Waiver">
-        </div>
-      </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">warning</i>
+                    <label for="concerns">Are there any concerns (including allergies, medical needs, or anything else) that we should be aware of?</label>
+                    <textarea name="concerns" class="materialize-textarea"></textarea>
+                  </div>
+                </div>
 
-      <br>
+                <h4 class="page-header">Waiver</h4>
+                <p>
+                  <label for="filled-in-box" class="input-label">We, the student registering and the parent/guardian registering, will fill out, sign, and submit through this website the following <a href= "https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/view" target= "_blank">form</a>.</label>
+                  <input type="checkbox" class="filled-in" id="filled-in-box" required>
+                </p>
+                <iframe src="https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/preview" style="width:640px; height:480px;" frameborder="0"></iframe>
 
-      <h4 class="page-header">Payment Information</h4>
-      <blockquote>EVSD Annual Contribution: $250
-      <br>
-              As reviewed in the Parent Orientation, this is the bare minimum we need to cover coaching expenses and salaries, facilities, school tournament fees, club events, financial aid & subsidies to students, league fees, professional material, and much more.
-              Most schools ask for around $400-$600, so we are trying our best to do with as little aid as possible. Please contact team administration at evhs.sd@gmail.com for questions or concerns.
-              We use Paypal and Stripe software to power our payment process, which means our platform is verified and 100% safe. Because we are a registered 501c3 under California State Government and an ESUHSD Booster, your contribution is tax-deductible.
-      </blockquote>
-      <br>
+                <br>
 
-      <button type="submit" id="submitBtn" class="btn waves-effect waves-light" data-loading-text="Setting up your membership..">
-        Sign me up
-        <i class="material-icons right">send</i>
-      </button>
-      <br>
-      <br>
-      <img src="https://raw.githubusercontent.com/EVSD/EVSDWebsite/master/project/public/img/stripelogo.png">
-      <p style="color:white">Hey look more hidden text</p>
-    </form>
+        <!--Upload Form-->
+          <label for="waiver">
+            <p>Please format file name like: "email@site"<br>
+              <i>i.e. "yourname@gmail.pdf"</i>
+            </p>
+          </label>
+            <input id="fileInput" name="waiver" type="file" /><br>
+
+        <input type="submit" value="Sign Up">
+            <br>
+            <br>
+            <img src="https://raw.githubusercontent.com/EVSD/EVSDWebsite/master/project/public/img/stripelogo.png">
+      </form>
+    </div>
   </div>
-</div>
 {{/if}}
-<script>
-  Materialize.updateTextFields();
-</script>
 </template>

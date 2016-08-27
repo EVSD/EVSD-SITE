@@ -1,5 +1,7 @@
 if (Meteor.isClient){
-
+	Template.signup.onRendered(function() {
+	  $('select').material_select();
+	});
 	Template.signup.helpers({
 		firstName: function() {
 		    return Meteor.user().profile.firstName;
@@ -75,7 +77,7 @@ if (Meteor.isClient){
 			      alert('reg user error');
 			    }else{
 			    	//redirects you to pay contribution if successfully signed up
-						FlowRouter.path("/payContribution");
+						FlowRouter.go("/payContribution");
 		    	}
 		    });
 		},//end of signup

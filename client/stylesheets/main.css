@@ -61,9 +61,6 @@ footer.page-footer {
     -webkit-transition: background-color 0.3s ease 0s;
     background-color: #cfd8dc;
 }
-.side-nav li p {
-  font-size: 18px;
-}
 .side-nav li:hover {
     -moz-transition: background-color 0.3s ease 0s;
     -o-transition: background-color 0.3s ease 0s;
@@ -75,6 +72,7 @@ footer.page-footer {
 }
 main {
     flex: 1 0 auto;
+    padding-bottom: 0px;
 }
 ul#icons li {
     display: inline;

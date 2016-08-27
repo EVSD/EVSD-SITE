@@ -17,7 +17,7 @@
             Meteor.users.update(Meteor.userId(),{
               $set: {"profile.paymentContribution": "yes"}
             });
-            FlowRouter.path('signupSuccess');
+            FlowRouter.go('signupSuccess');
           } else {
             // display payment failed message
             Bert.alert('Payment transaction failed.');

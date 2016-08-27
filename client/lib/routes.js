@@ -96,7 +96,11 @@ FlowRouter.route('/profile', {
       BlazeLayout.render("view", {main: "editView"});
     }
   });
-
+  FlowRouter.route('/logout', {
+    action: function() {
+      BlazeLayout.render("view", {main: "logout"});
+    }
+  });
 FlowRouter.route('/payContribution', {
   action: function() {
     BlazeLayout.render("view", {main: "payContribution"});

@@ -18,13 +18,6 @@ if (Meteor.isClient) {
               Meteor.apply('addMoney', [stripeToken, paymentAmount], {noRetry: true});
             }
           });
-
-      Meteor.users.update(Meteor.userId(), {
-        $set: {"profile.balance": (Meteor.user().profile.balance + Number(paymentAmount))}
-      });
-			Meteor.users.update(Meteor.userId(), {
-				$addToSet: {"profile.accountBalanceLog": {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (added to account balance)", amount: paymentAmount, name: "Increase account balance", date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
-			});
 		},
 	});
 }

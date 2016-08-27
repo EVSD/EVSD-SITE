@@ -1,30 +1,36 @@
 <template name = "accountBalance">
 
-
 {{#if currentUser}}
-  <h2> Transaction history for username: {{currentUser.username}} </h2>
-  <p> Your Balance: ${{currentUser.profile.balance}}</p>
+  <h2> Your Balance: ${{currentUser.profile.balance}}</h2>
   <br>
 {{> addMoney}}
 <br><br>
+<h2> Transaction history</h2>
+
+<ul class="collapsible" data-collapsible="accordion">
   {{#each balanceLog}}
   {{#if cc}}
-    <p>Name: {{name}}</p>
-    <p>Payment method: {{paymentMethod}}</p>
+  <li>
+    <div class="collapsible-header">{{name}}</div>
+    <div class="collapsible-body">
+      <p>Payment method: {{paymentMethod}}</p>
     <p>Transaction amount: {{amount}}</p>
     <p>Additional details (if any): {{description}}</p>
-    <p>Timestamp: {{date}}</p>
-    <br>
+    <p>Timestamp: {{date}}</p></div>
+  </li>
   {{else}}
-  <p>Name: {{name}}</p>
+  <li>
+    <div class="collapsible-header">{{name}}</div>
+    <div class="collapsible-body">
   <p>Payment method: {{paymentMethod}}</p>
   <p>Transaction amount: {{amount}}</p>
   <p>Check number: {{checkNo}}</p>
   <p>Date written: {{dateWritten}}</p>
   <p>Date deposited: {{dateDeposited}}</p>
-  <p>Memo: {{memo}}</p>
-<br>
+  <p>Memo: {{memo}}</p></div>
+</li>
 {{/if}}
 {{/each}}
+</ul>
 {{/if}}
 </template>
