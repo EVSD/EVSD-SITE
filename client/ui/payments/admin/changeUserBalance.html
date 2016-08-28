@@ -5,11 +5,14 @@
 	<form class="change-balance">
 
 		<h3>Manually Change User Balance</h3>
-    <ol>Select a User: <select name="user" required>
-      {{#each users}}
-        <option value="{{username}}">{{username}}</option>
-      {{/each}}
-    </select></ol>
+		<div class="input-field col s6">
+				<select name="user" required>
+				<option value="" disabled selected>Select a User: </option>
+				{{#each users}}
+	        <option value="{{username}}">{{username}}</option>
+	      {{/each}}
+			</select>
+		</div>
 		<ol><label for="name">Name of Transaction or Event: </label>
 				<input type="text" name="name" placeholder= "i.e. Drop fee"></ol>
 		<ol><label for="amount">Amount (Negative value for deductions, positive for additions): </label>

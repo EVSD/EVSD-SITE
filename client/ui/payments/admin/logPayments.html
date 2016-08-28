@@ -1,31 +1,50 @@
 <template name ="logPayments">
+	<head>
+	<script>
+	$('.datepicker').pickadate({
+	selectMonths: true, // Creates a dropdown to control month
+	selectYears: 40
+	});
+
+	</script>
+</head>
 
 {{#if isInRole 'admin'}}
-
+<div class="row">
 	<form class="log-payment">
 
 		<h3>Manually Log Checks for Users</h3>
-    <ol>Select a User: <select name="user" required>
-      {{#each users}}
-        <option value="{{username}}">{{username}}</option>
-      {{/each}}
-    </select></ol>
+		<div class="input-field col s6">
+				<select name="user">
+				<option value="" disabled selected>Select a User: </option>
+				{{#each users}}
+	        <option value="{{username}}">{{username}}</option>
+	      {{/each}}
+			</select>
+		</div>
+
 		<ol><label for="name">Name of Transaction: </label>
-				<input type="text" name="name" placeholder= "i.e. Drop fee"></ol>
+				<input type="text" name="name" placeholder= "i.e. Drop fee" required></ol>
 		<ol><label for="amount">Amount (Negative value for deductions, positive for additions): </label>
-				<input type="number" name="amount" placeholder="i.e. $200"></ol>
+				<input type="number" name="amount" placeholder="i.e. $200" required></ol>
 		<ol><label for="checkNumber">Check number: </label>
-				<input type="number" name="checkNumber" placeholder="i.e. 1234"></ol>
-		<ol><label for="dateWritten">Date Check was Written: </label>
-				<input type="date" name="dateWritten" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
-    <ol><label for="dateDeposited">Date Check was Deposited: </label>
-    		<input type="date" name="dateDeposited" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
+				<input type="number" name="checkNumber" placeholder="i.e. 1234" required></ol>
+				<div class="input-field col s6">
+					<i class="material-icons prefix">today</i>
+					<label for="dateWritten" required>Date Check Was Written: </label>
+					<input type="date" name="dateWritten" class="datepicker">
+				</div>
+				<div class="input-field col s6">
+					<i class="material-icons prefix">today</i>
+					<label for="dateDeposited">Date Check Was Deposited: </label>
+					<input type="date" name="dateDeposited" class="datepicker" required>
+				</div>
     <ol><label for="memo">Memo: </label>
         <input type="text" name="memo" placeholder="i.e. Drop fee for UOP tournament"></ol>
 
-		<input type="submit" value="log-payment">
 
 	</form>
 
+</div>
 {{/if}}
 </template>
