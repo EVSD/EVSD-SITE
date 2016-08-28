@@ -6,13 +6,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <title>jQuery UI Datepicker - DOB functionality</title>
      <script>
-    //  $( function() {
-    //    $( "#datepicker" ).datepicker({
-    //      changeMonth: true,
-    //      changeYear: true,
-    //      yearRange: "-19:-12"
-    //    });
-    //  } );
+     $( function() {
+       $( "#datepicker" ).datepicker({
+         changeMonth: true,
+         changeYear: true,
+         yearRange: "-19:-12"
+       });
+     } );
     $('.datepicker').pickadate({
    selectMonths: true, // Creates a dropdown to control month
    selectYears: 40
@@ -63,7 +63,7 @@
               <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
                 <label for="DOB">Date:</label>
-                <input type="text" name="DOB" class="datepicker" >
+                <input type="date" name="DOB" class="datepicker" >
               </div>
             </div>
 
