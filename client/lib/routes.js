@@ -12,6 +12,11 @@ Home/
 		Tournaments (Signed Up)
 */
 
+FlowRouter.route('/export', {
+  action: function() {
+    BlazeLayout.render("view", {main: "export", sidebar: "cu_sidebar"});
+  }
+});
 FlowRouter.route('/', {
   action: function() {
     name: 'home',
