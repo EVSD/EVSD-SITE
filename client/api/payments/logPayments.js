@@ -1,12 +1,12 @@
 if (Meteor.isClient){
 	Template.logPayments.onRendered(function () {
-$('select').material_select();
-});
+		$('select').material_select();
+	});
 
-$('.datepicker').pickadate({
-selectMonths: true, // Creates a dropdown to control month
-selectYears: 40
-});
+	$('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 40
+	});
 	Template.logPayments.helpers({
 		users: function(){
 			return Meteor.users.find({}); //only return certain fields
