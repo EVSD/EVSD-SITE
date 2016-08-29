@@ -1,20 +1,39 @@
 <template name="login">
-
-  
-    <form class="login">
-
-        {{#if currentUser}}
-    	<p><!--back to home-->
-            You're logged in.<br>
-    		<a href="/">Home</a> <br/>
-        </p>
-        {{else}}
-            <label for="loginEmail">Email</label>
+  <img src="https://github.com/EVSD/evsd-landing/raw/master/project/public/img/microphone.jpg" style="min-height:100%;width:100%;height:auto;position:fixed;top:0;left:0;">
+  <body>
+    {{#if currentUser}}
+    <p>You're already logged in, {{username}}.
+      <a href="/">Home</a> <br/>
+    </p>
+    {{else}}
+  <a href="/">Back</a> <br>
+  <div class="row">
+   <div class="col s12 m6">
+     <div class="card blue-grey lighten-3" style="position:absolute;top:50%;left:50%;transform:translateX(-50%)translateY(-50%);">
+       <div class="card-content white-text">
+         <center><span class="card-title">User Login</span></center>
+         <form class="login">
+           <div class="row">
+             <div class="input-field col s12">
+               <i class="fa fa-envelope-o prefix"></i>
+               <label for="loginEmail">Email</label>
                 <input type="email" name="loginEmail"><br>
-            <label for="loginPassword">Password</label>
+             </div>
+           </div>
+
+           <div class="row">
+             <div class="input-field col s12">
+               <i class="fa fa-unlock prefix"></i>
+               <label for="loginPassword">Password</label>
                 <input type="password" name="loginPassword"><br>
-            <input type="submit" value="Login">
-  		{{/if}}
-        <!--should just redirect you back home on successful login-->
-    </form>
+             </div>
+           </div>
+             <center><button id="login-btn" class="btn" type="submit">Login</button></center>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
+ {{/if}}
+  </body>
 </template>

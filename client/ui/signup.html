@@ -4,6 +4,23 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
+=======
+   <title>jQuery UI Datepicker - DOB functionality</title>
+     <script>
+     $( function() {
+       $( "#datepicker" ).datepicker({
+         changeMonth: true,
+         changeYear: true,
+         yearRange: "-19:-12"
+       });
+     });
+    $('.datepicker').pickadate({
+   selectMonths: true, // Creates a dropdown to control month
+   selectYears: 40
+ });
+     </script>
+>>>>>>> 9c1af8e02ef331aa142a69ed4295646cd2a520dc
  </head>
 {{#if currentUser}}
   <p>
@@ -49,7 +66,7 @@
               <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
                 <label for="DOB">Date:</label>
-                <input type="text" name="DOB" class="datepicker" >
+                <input type="date" name="DOB" class="datepicker">
               </div>
             </div>
 

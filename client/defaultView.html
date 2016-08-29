@@ -3,10 +3,6 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<script>
-	// $(document).ready(function() {
-	// 	$(".button-collapse").sideNav();
-	// 	$(".dropdown-button").dropdown();
-	// });
 	Template.view.onRendered(function(){
 		$('.dropdown-button').dropdown();
   });
@@ -53,7 +49,6 @@
   	<div class='sidebar'>
 	  {{> Template.dynamic template=sidebar}}
   	</div>
-		<br><br><br>
 	  {{> Template.dynamic template=main}}
 	</main>
 

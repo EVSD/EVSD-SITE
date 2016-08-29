@@ -4,24 +4,27 @@
 {{#if currentUser}}
 	<h2>Add Tournament entry</h2>
 			<form class ="add-tournament" novalidate> <!--used to create a form like something to input things-->
-				<p>Choose a tournament</p>
 
-				Tournament(s):<select name="tournament" id="tournament" required>
-					<option value="default" selected>Select your option</option>
-					{{#each tournamentList}}
+				<div class="input-field col s6">
+						<select name="tournament" id="tournament" required>
+						<option value="" disabled selected>Choose a Tournament: </option>
+						{{#each tournament}}
 						<option value='{{name}}' {{disableIfPassDue _id}}>
 							{{name}} - Due: {{signUpDeadline}}
 							<!--disable based off deadline-->
 						</option>
-					{{/each}}
-				</select><br>
-
-				<div id="partnerToggle">
-					Choose a Partner:<select name="partner" required>
-						{{#each users}}
-							<option value="{{username}}">{{username}}</option>
-						{{/each}}
+			      {{/each}}
 					</select><br>
+				</div>
+				<div id="partnerToggle">
+					<div class="input-field col s6">
+							<select name="partner" required>
+							<option value="" disabled selected>Select a User: </option>
+							{{#each users}}
+				        <option value="{{username}}">{{username}}</option>
+				      {{/each}}
+						</select>
+					</div><br>
 				</div>
 
 				<div id="judgesToggle" required>
