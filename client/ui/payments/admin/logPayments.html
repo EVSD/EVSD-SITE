@@ -1,11 +1,11 @@
 <template name ="logPayments">
 	<head>
-		<!-- <script>
+		<script>
 		$('.datepicker').pickadate({
 			selectMonths: true, // Creates a dropdown to control month
 			selectYears: 40
 		});
-		</script> -->
+		</script>
 	</head>
 
 	{{#if isInRole 'admin'}}
@@ -34,12 +34,12 @@
 		<div class="input-field col s6">
 			<i class="material-icons prefix">today</i>
 			<label for="dateWritten" required>Date Check Was Written: </label>
-			<input type="date" name="dateWritten" required>
+			<input type="date" name="dateWritten" class="datepicker" required>
 		</div>
 		<div class="input-field col s6">
 			<i class="material-icons prefix">today</i>
 			<label for="dateDeposited">Date Check Was Deposited: </label>
-			<input type="date" name="dateDeposited" required>
+			<input type="date" name="dateDeposited" class="datepicker" required>
 		</div>
 		<div class="input-field col s6">
 			<label for="memo">Memo: </label>

@@ -1,5 +1,8 @@
 if(Meteor.isClient){
-
+	Template.tSignup-User.onRendered(function () {
+		$('select').material_select();
+    Materialize.updateTextFields();
+	});
 	//functions
 	Template.tSignup.helpers({
 		users: function(){

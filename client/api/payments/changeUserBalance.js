@@ -1,4 +1,8 @@
 if (Meteor.isClient){
+	Template.changeUserBalance.onRendered(function () {
+		$('select').material_select();
+		Materialize.updateTextFields();
+	});
 	Template.changeUserBalance.helpers({
 		users: function(){
 			return Meteor.users.find({}); //only return certain fields

@@ -1,4 +1,8 @@
 if (Meteor.isClient){
+	Template.createTournament.onRendered(function () {
+		$('select').material_select();
+		Materialize.updateTextFields();
+	});
 	Template.createTournament.events({
 		'submit .create-tournament':function(event){
 			let tournament ={

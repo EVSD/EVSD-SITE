@@ -16,6 +16,10 @@
 				});
 				$("#datepicker").datepicker('setDate', new Date());
 			} );
+			$('.datepicker').pickadate({
+	   selectMonths: true, // Creates a dropdown to control month
+	   selectYears: 40
+	 });
 			</script>
 	</head>
 {{#if isInRole 'admin'}}
@@ -29,7 +33,7 @@
 		<ol><label for="cost">Cost: </label>
 				<input type="number" name="cost" placeholder="i.e. $200" min="0"></ol>
 		<ol><label for="signUpDeadline">Sign-Up By:</label>
-				<input type="text" name="signUpDeadline" id= "datepicker"></ol>
+				<input type="date" name="signUpDeadline" class= "datepicker"></ol>
 		<ol><label for="partner">Partner event? </label>
 				<input type="radio" name="partner" value="yes"> Yes
 	  			<input type="radio" name="partner" value="no"> No</ol>
