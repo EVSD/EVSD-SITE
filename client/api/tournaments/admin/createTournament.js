@@ -4,7 +4,7 @@ if (Meteor.isClient){
 		$('select').material_select();
 	});
 	Template.createTournament.events({
-		'submit .create-tournament':function(event){
+		'click .btn': function(){
 			let tournament ={
 					name: event.target.name.value,
 					cost: event.target.cost.value,
@@ -21,4 +21,5 @@ if (Meteor.isClient){
 			}
 		},
 	});
+
 }
