@@ -3,14 +3,9 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<script>
-	// $(document).ready(function() {
-	// 	$(".button-collapse").sideNav();
-	// 	$(".dropdown-button").dropdown();
-	// });
 	Template.view.onRendered(function(){
 		$('.dropdown-button').dropdown();
   });
-});
 	</script>
 <header>
 	<ul id="aboutDropdown" class="dropdown-content">
@@ -19,6 +14,12 @@
   <li><a href="/coaches">Coaches</a></li>
 	<li><a href="/ipace">IPACE</a></li>
 	<li><a href="/officers">Student Officers</a></li>
+</ul>
+<ul id="memberDropdown" class="dropdown-content">
+<li><a href="/reimburse">Reimbursements</a></li>
+<li><a href="/judge">Judge Rules</a></li>
+<li><a href="/nuisanceFee">Nuisance Fees</a></li>
+<li><a href="/tournamentProcedure">Tournament Procedure</a></li>
 </ul>
 	<div class="head-nav">
 	        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav hide-on-large-only"><i class="material-icons medium mdi-navigation-menu white-text text-accent-2">menu</i></a></div>
@@ -30,6 +31,7 @@
 							<li class = "active"><a href="/">Home</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="aboutDropdown">About EVSD<i class="material-icons right">arrow_drop_down</i></a></li>
 							{{#if currentUser}}
+							<li><a class="dropdown-button" href="#" data-activates="memberDropdown">Member Resources<i class="material-icons right">arrow_drop_down</i></a></li>
 							<li><a href="/profile">Profile</a></li>
 							<li><a href="/logout">Logout</a></li>
   						<li><a href="/accountBalance">Account Balance</a></li>
@@ -54,7 +56,6 @@
   	<div class='sidebar'>
 	  {{> Template.dynamic template=sidebar}}
   	</div>
-		<br><br><br>
 	  {{> Template.dynamic template=main}}
 	</main>
 

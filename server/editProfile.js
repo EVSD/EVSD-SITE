@@ -50,9 +50,10 @@ Meteor.methods({
 					});
 				};
 				if (changes.studentPhone != ''){
-					Meteor.users.update(Meteor.users._id, {
+					Meteor.users.update(userId, {
 						$set: {"profile.studentPhoneNo": changes.studentPhone}
 					});
+					console.log("successful");
 				};
 			}//sets the values if there's a change
     }, //end of edit profile

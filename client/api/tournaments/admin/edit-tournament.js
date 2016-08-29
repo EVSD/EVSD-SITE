@@ -1,5 +1,13 @@
 if(Meteor.isClient){
-
+	Template.editTournament.onRendered(function() {
+		$( "#datepicker" ).pickadate({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "0:+2",
+			monthRange: "0:+12"
+		});
+		$("#datepicker").pickadate('setDate', new Date());
+	});
 	//functions
 	Template.editTournament.helpers({
 		editing: function (){

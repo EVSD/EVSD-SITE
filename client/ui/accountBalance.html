@@ -2,35 +2,35 @@
 
 {{#if currentUser}}
   <h2> Your Balance: ${{currentUser.profile.balance}}</h2>
-  <br>
-{{> addMoney}}
-<br><br>
-<h2> Transaction history</h2>
+    <br>
+  {{> addMoney}}
+  <br><br>
+  <h3> Transaction history</h3>
 
-<ul class="collapsible" data-collapsible="accordion">
-  {{#each balanceLog}}
-  {{#if cc}}
-  <li>
-    <div class="collapsible-header">{{name}}</div>
-    <div class="collapsible-body">
-      <p>Payment method: {{paymentMethod}}</p>
+  <ul class="collapsible" data-collapsible="accordion">
+    {{#each balanceLog}}
+    {{#if cc}}
+    <li>
+      <div class="collapsible-header">{{name}}</div>
+      <div class="collapsible-body">
+        <p>Payment method: {{paymentMethod}}</p>
+      <p>Transaction amount: {{amount}}</p>
+      <p>Additional details (if any): {{description}}</p>
+      <p>Timestamp: {{date}}</p></div>
+    </li>
+    {{else}}
+    <li>
+      <div class="collapsible-header">{{name}}</div>
+      <div class="collapsible-body">
+    <p>Payment method: {{paymentMethod}}</p>
     <p>Transaction amount: {{amount}}</p>
-    <p>Additional details (if any): {{description}}</p>
-    <p>Timestamp: {{date}}</p></div>
+    <p>Check number: {{checkNo}}</p>
+    <p>Date written: {{dateWritten}}</p>
+    <p>Date deposited: {{dateDeposited}}</p>
+    <p>Memo: {{memo}}</p></div>
   </li>
-  {{else}}
-  <li>
-    <div class="collapsible-header">{{name}}</div>
-    <div class="collapsible-body">
-  <p>Payment method: {{paymentMethod}}</p>
-  <p>Transaction amount: {{amount}}</p>
-  <p>Check number: {{checkNo}}</p>
-  <p>Date written: {{dateWritten}}</p>
-  <p>Date deposited: {{dateDeposited}}</p>
-  <p>Memo: {{memo}}</p></div>
-</li>
-{{/if}}
-{{/each}}
+  {{/if}}
+  {{/each}}
 </ul>
 {{/if}}
 </template>
