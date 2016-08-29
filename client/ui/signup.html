@@ -4,20 +4,6 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <title>jQuery UI Datepicker - DOB functionality</title>
-     <script>
-    //  $( function() {
-    //    $( "#datepicker" ).datepicker({
-    //      changeMonth: true,
-    //      changeYear: true,
-    //      yearRange: "-19:-12"
-    //    });
-    //  } );
-    $('.datepicker').pickadate({
-   selectMonths: true, // Creates a dropdown to control month
-   selectYears: 40
- });
-     </script>
  </head>
 {{#if currentUser}}
   <p>
@@ -248,7 +234,9 @@
           </label>
             <input id="fileInput" name="waiver" type="file" /><br>
 
-        <input type="submit" value="Sign Up">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                Submit
+            </button>
             <br>
             <br>
             <img src="https://raw.githubusercontent.com/EVSD/EVSDWebsite/master/project/public/img/stripelogo.png">

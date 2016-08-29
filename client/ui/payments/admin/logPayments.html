@@ -17,14 +17,13 @@
 		<ol><label for="checkNumber">Check number: </label>
 				<input type="number" name="checkNumber" placeholder="i.e. 1234"></ol>
 		<ol><label for="dateWritten">Date Check was Written: </label>
-				<input type="date" name="dateWritten" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
+				<input type="date" name="dateWritten" class="datepicker" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
     <ol><label for="dateDeposited">Date Check was Deposited: </label>
-    		<input type="date" name="dateDeposited" class="validate" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
+    		<input type="date" name="dateDeposited" class="datepicker" placeholder="MM-DD-YYYY" min="2016-08-01"></ol>
     <ol><label for="memo">Memo: </label>
         <input type="text" name="memo" placeholder="i.e. Drop fee for UOP tournament"></ol>
 
-		<input type="submit" value="log-payment">
-
+				<button class="btn waves-effect waves-light" type="submit" name="action">Log Payment</button>
 	</form>
 
 {{/if}}

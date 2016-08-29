@@ -1,19 +1,5 @@
 <template name="editView">
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>jQuery UI Datepicker - DOB functionality</title>
-			<script>
-			$( function() {
-				$( "#datepicker" ).datepicker({
-					changeMonth: true,
-					changeYear: true,
-					yearRange: "-19:-12"
-				});
-			} );
-			</script>
-	</head>
 <h3>Editing user info</h3>
 
 	<form class="editView">
@@ -33,9 +19,12 @@
 		</select><br>
 
 		<label for="birthdate">Birthdate</label>
-			<input type="text" name="birthdate" class="validate" id="datepicker"><br>
-		<label for="studentPhone">Student Phone #</label>
-			<input type="tel" name="studentPhone" class="validate" ><br>
+			<input type="date" name="birthdate" class="birthdate"><br>
+		<div class="input-field col s6">
+        <i class="material-icons prefix">phone</i>
+        <input name="studentPhone" type="tel" class="validate">
+        <label for="studentPhone">Telephone</label>
+    </div>
 		<label for="studentId">Student Id</label>
 			<input type="number" name="studentId" class="validate"><br>
 		<!--changing passwords-->
@@ -47,7 +36,7 @@
 		<label for="confirm">Confirm New Password</label>
 		<input type="password" name="confirm" class="validate"><br>
 
-	    <input type="submit" value="save changes" >
+		<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes</button>
 
     </form>
 

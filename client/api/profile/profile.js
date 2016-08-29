@@ -1,7 +1,9 @@
 if(Meteor.isClient){
-	
+	Template.profile.onRendered(function() {
+    $('select').material_select();	
+	});
 	Template.profile.helpers({
-		
+
 		//student info, broken up so that we can use spacebars
 		firstName: function() {
 		    return Meteor.user().profile.firstName;
@@ -43,10 +45,10 @@ if(Meteor.isClient){
 		//parent1
 		//parent2
 
-	});  
+	});
 }
 /*
 
-	needs modificaitons as an object. Right now it is being treated like a string. 
+	needs modificaitons as an object. Right now it is being treated like a string.
 	Cannot be returned b/c it is inherently an array or obj (idk rn).
 */

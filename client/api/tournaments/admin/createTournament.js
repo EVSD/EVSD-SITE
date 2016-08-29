@@ -1,4 +1,13 @@
 if (Meteor.isClient){
+	Template.createTournament.onRendered(function() {
+		$( "#datepicker" ).pickadate({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "0:+2",
+			monthRange: "0:+12"
+		});
+		$("#datepicker").pickadate('setDate', new Date());
+	});
 	Template.createTournament.events({
 		'submit .create-tournament':function(event){
 			let tournament ={
