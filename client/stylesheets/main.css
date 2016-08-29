@@ -1,8 +1,9 @@
 body {
-  font-family: Helvetica;
+  margin:0;
+  padding:20px;
+  height:100%;
   top: auto;
   width: auto;
-  margin: 15px;
   display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -28,8 +29,8 @@ footer.page-footer {
     margin-bottom: 0px;
     padding-bottom: 0px;
     margin-right: 0px;
-    padding-right: 0px; 
-    /*position: fixed;*/
+    padding-right: 0px;
+    position: fixed;
     bottom: 0px;
     width: 100%;
 }
