@@ -155,7 +155,6 @@ FlowRouter.route('/whyJoin', {
   }
 });
 
-<<<<<<< HEAD
 FlowRouter.route('/coaches', {
   action: function() {
     BlazeLayout.render("view", {main: "coaches"});
@@ -191,14 +190,7 @@ FlowRouter.route('/tournamentProcedure', {
     BlazeLayout.render("view", {main: "tournamentProcedure"});
   }
 });
-=======
-FlowRouter.route('/initialLogin', {
-  action: function() {
-    BlazeLayout.render("view", {main: "initialLogin", sidebar: "cu_sidebar"});
-  }
-});
 
->>>>>>> 896a30015f0585fae0a43ac7ae78ea875ea4121b
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
