@@ -8,7 +8,7 @@ if (Meteor.isClient){
 		        tournamentId: this._id, //why? tournamentId works
 		    };
 		    let routeName = "editTournament";
-		    var path = FlowRouter.path(routeName, params);
+		    var path = FlowRouter.go(routeName, params);
 	        
 	        return path;
 			},//end

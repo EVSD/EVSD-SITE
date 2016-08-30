@@ -22,7 +22,7 @@ Meteor.methods({
         console.log(err, charge);
         if (charge.status == 'succeeded') {
           Meteor.call('createEntry', entry);
-          //FlowRouter.path('signupSuccess');
+          //FlowRouter.go('signupSuccess');
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
@@ -76,7 +76,7 @@ Meteor.methods({
               {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'tournament - '+entry.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });//end of account update
 
-          //FlowRouter.path('signupSuccess');
+          //FlowRouter.go('signupSuccess');
         } else {
           // display payment failed message
           Bert.alert('Payment transaction failed.');

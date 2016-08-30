@@ -65,7 +65,7 @@
 
         // keeps track of account balance
         balance: 0,
-        paymentContribution: "no",
+        payContribution: "no",
         accountBalanceLog: [],
       /*stripeId: "Null",
         Donation: "free"*/
@@ -78,7 +78,7 @@
       Roles.addUsersToRoles(user, 'frozen');
     }
 
-
+     console.log('successfully created user');
 
   }
 });

@@ -138,6 +138,12 @@ FlowRouter.route('/changeUserBalance', {
   }
 });
 
+FlowRouter.route('/initialLogin', {
+  action: function() {
+    BlazeLayout.render("view", {main: "initialLogin", sidebar: "cu_sidebar"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
