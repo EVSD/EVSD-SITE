@@ -1,5 +1,5 @@
 if (Meteor.isClient){
-	Template.login.events({
+	Template.initialLogin.events({
 		'submit .login': function(event) {
 			event.preventDefault();
 	        var emailVar = event.target.loginEmail.value;
@@ -9,8 +9,7 @@ if (Meteor.isClient){
 	            	if(err){
 	                	alert(err);
 	            	}else{
-									if (Meteor.user().profile.payContribution == "no") FlowRouter.go('/payContribution');
-									else FlowRouter.go('/');
+									FlowRouter.go('/payContribution');
 								}
            		});
 		}

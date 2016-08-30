@@ -39,7 +39,7 @@ if (Meteor.isClient){
 		'submit .signup':function(event){
 			//set values for the students
 			var student = {
-			username: $('[name="username"]').val(),
+			//username: $('[name="username"]').val(),
 		    firstName: $('[name="firstName"]').val(),
 		    lastName: $('[name="lastName"]').val(),
 		    DOB: $('[name="DOB"]').val(),
@@ -69,15 +69,25 @@ if (Meteor.isClient){
 		        whyjoin: $('[name="whyjoin"]').val(),
 		        concerns: $('[name="concerns"]').val()
 		    };
-
 		    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 			    if (err){
+						console.log('reg user error');
 			      alert('reg user error');
 			    }else{
 			    	//redirects you to pay contribution if successfully signed up
-						FlowRouter.path("/payContribution");
+						//FlowRouter.go("/payContribution");
 		    	}
 		    });
+				// Meteor.loginWithPassword(student.emailAddress, student.password, function(err){
+				// if(err){
+				// 						console.log(err);
+		    //             	alert(err);
+		    //         	}else {
+				// 						FlowRouter.go('/payContribution');
+	      //      		}});
+				//FlowRouter.go("/payContribution");
+				// console.log('rip');
+				FlowRouter.go('/initialLogin');
 		},//end of signup
 	});
 }
