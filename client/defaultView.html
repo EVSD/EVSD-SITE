@@ -15,6 +15,12 @@
 	<li><a href="/ipace">IPACE</a></li>
 	<li><a href="/officers">Student Officers</a></li>
 </ul>
+<ul id="memberDropdown" class="dropdown-content">
+<li><a href="/reimburse">Reimbursements</a></li>
+<li><a href="/judge">Judge Rules</a></li>
+<li><a href="/nuisanceFee">Nuisance Fees</a></li>
+<li><a href="/tournamentProcedure">Tournament Procedure</a></li>
+</ul>
 	<div class="head-nav">
 	        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav hide-on-large-only"><i class="material-icons medium mdi-navigation-menu white-text text-accent-2">menu</i></a></div>
 	        <ul id="nav-mobile" class="side-nav fixed">
@@ -25,6 +31,7 @@
 							<li class = "active"><a href="/">Home</a></li>
 							<li><a class="dropdown-button" href="#" data-activates="aboutDropdown">About EVSD<i class="material-icons right">arrow_drop_down</i></a></li>
 							{{#if currentUser}}
+							<li><a class="dropdown-button" href="#" data-activates="memberDropdown">Member Resources<i class="material-icons right">arrow_drop_down</i></a></li>
 							<li><a href="/profile">Profile</a></li>
 							<li><a href="/logout">Logout</a></li>
   						<li><a href="/accountBalance">Account Balance</a></li>
@@ -43,7 +50,7 @@
   					{{/if}}
 	        </ul>
 	    </div>
-		 <h1>EVERGREEN VALLEY SPEECH AND DEBATE</h1></header>
+		 <h1 align="center">EVERGREEN VALLEY SPEECH AND DEBATE</h1></header>
 
 		<main>
   	<div class='sidebar'>
@@ -56,19 +63,29 @@
 	 	remember to change the necessary routes and <a> html elements -->
 		<br><br><br>
 
-		<footer class="page-footer">
-	          <div class="container">
-	            <div class="row">
-	              <div class="col l6 s12">
-	                <h5 class="white-text">Footer Content</h5>
-	              </div>
+		<footer class="footer teal page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6">
+					<h5 class="white-text">EVSD</h5>
+					<p class="grey-text text-lighten-4">An elite training ground for the art of the spoken word.</p>
+				</div>
+				<div class="col l6">
+					<h5 class="white-text">Contact</h5>
+					<ul id="icons">
+						<li style="display: inline"><a class="fa fa-facebook fa-2x white-text" href="http://on.fb.me/1EcE7oz" target="_blank"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+						<li style="display: inline"><a class="fa fa-github fa-2x white-text" href="https://github.com/EVSD/evsd-landing" target="_blank"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+						<li style="display: inline"><a class="fa fa-envelope fa-2x white-text" href="mailto:evhs.sd@gmail.com" target="_blank"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-	            </div>
-	          </div>
-	          <div class="footer-copyright">
-	            <div class="container">
-	            © 2016 EVSD
-	            </div>
-	          </div>
-	        </footer>
+		<div class="footer-copyright">
+			<div class="container">
+				&copy; EVSD Webmasters
+				<a class="grey-text text-lighten-2 right" href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>
+			</div>
+		</div>
+	</footer>
 </template>

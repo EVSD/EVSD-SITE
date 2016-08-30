@@ -1,10 +1,9 @@
-<template name="home">
-  
+<!-- <template name="home">
+
 
   <h2>Home</h2>
 
 
-    <!--if the user is logged in-->
     {{#if currentUser}}
         Welcome {{currentUser.username}}, to your debate page.
 
@@ -13,4 +12,91 @@
             <a href="/login">Login</a><br>
 	{{/if}}
 
+</template> -->
+
+<template name="home">
+<head>
+  <link rel='stylesheet' href='client/stylesheets/main.css' type='text/css' media='screen' charset='utf-8'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script>
+  Template.home.ready(function(){
+    $('.parallax').parallax();
+  });
+  </script>
+</head>
+
+  <div style="background: url(http://static1.squarespace.com/static/5778195e37c581dd7dee1ac6/t/577b3df3ff7c50a2a386a1bb/1467694592578/Microphone.jpg?format=1500w) no-repeat center center fixed; background-size: cover;">
+    <div id="index-banner" style="background: rgba(0, 0, 0, 0.12)">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <br><br>
+            <h5 class="header col s12 light white-text">An elite training ground for the art of the spoken word</h5>
+          </div>
+          <h2 style="font-size:85px" class="header center teal-text">THIS IS WHAT<br> WE DO</h2>
+
+          <div class="row center">
+
+            <br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="section white">
+    <h5 class="center">Throughout the course of history, words have been some of the most powerful agents of change. Words have the power to change people's thoughts, actions, and most importantly, their hearts.</h5>
+<h6 class="center"><img src="http://afriendlyletter.com/wp-content/uploads/horizontal-line-blue.jpg" width="10%" height="10%"></h6>
+              <h5 class="center">Welcome to Evergreen Valley High School Speech & Debate, one of the most successful Speech & Debate programs in the nation.</h5>
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="medium material-icons">book</i></h2>
+          <h5 class="center">Learn about the world</h5>
+
+          <p class="light">From current news to old philosophy, speech and debate is a unique platform for
+          high school students to learn to think critically about the world around them. Forensics also teaches
+        students to collaborate with their peers, stay composed in the face of failure, and to be patient on the road to success. </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="medium material-icons">group</i></h2>
+          <h5 class="center">Meet amazing people</h5>
+
+          <p class="light">In speech and debate, you will have the opportunity to meet people and make friends
+            from all over the world, bond with your teammates, explore new ideas, and create memories you'll cherish forever. </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="medium material-icons">speaker_notes</i></h2>
+          <h5 class="center">Find your voice</h5>
+
+          <p class="light">Whether it's a job interview, class presentation, or just everyday communication,
+            speech and debate will teach you how to speak with confidence and eloquence. Effective communication is
+             an essential tool for success in the exceedingly competitive 21st century.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background: url(https://hd.unsplash.com/photo-1440965185352-15fcce00e477) no-repeat center center fixed; background-size: cover;">
+  <div id="index-banner" style="background: rgba(0, 0, 0, 0.12)">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br>
+        <div class="row center">
+          <h5 class="header col s12 light white-text">“I think debating in high school and college is most valuable training. . . . The give and take of debating, the testing of ideas, is essential to democracy. I wish we had a good deal more debating in our educational institutions than we do now.” - President John F. Kennedy</h5>
+        </div>
+        <br><br>
+      </div>
+    </div>
+  </div>
+</div>
 </template>

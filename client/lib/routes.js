@@ -161,6 +161,29 @@ FlowRouter.route('/officers', {
   }
 });
 
+FlowRouter.route('/reimburse', {
+  action: function() {
+    BlazeLayout.render("view", {main: "reimburse"});
+  }
+});
+
+FlowRouter.route('/judge', {
+  action: function() {
+    BlazeLayout.render("view", {main: "judge"});
+  }
+});
+
+FlowRouter.route('/nuisanceFee', {
+  action: function() {
+    BlazeLayout.render("view", {main: "nuisanceFee"});
+  }
+});
+
+FlowRouter.route('/tournamentProcedure', {
+  action: function() {
+    BlazeLayout.render("view", {main: "tournamentProcedure"});
+  }
+});
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
