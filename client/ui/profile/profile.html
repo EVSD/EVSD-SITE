@@ -17,9 +17,8 @@
 			</ul>
 
 			<a href="/profile/edit">edit info</a><br>
-
-			{{> file}}
-
+      <h3>Your Waiver</h3>
+      <iframe src="{{waiverFile}}" style="width:640px; height:480px;" frameborder="0"></iframe>
 
 			{{#if isInRole 'admin'}}
 				{{> userTable}}

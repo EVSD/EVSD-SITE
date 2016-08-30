@@ -48,8 +48,8 @@
               </div>
               <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
-                <label for="DOB">Date:</label>
-                <input type="date" name="DOB" class="datepicker">
+                <label for="DOB">birthdate</label>
+                  <input type="date" name="DOB" class="birthdate"><br>
               </div>
             </div>
 
@@ -84,41 +84,33 @@
             <!--Facebook and Schoolloop questions-->
             <div class="row">
               <div class="input-field col s4">
-                <p>Does the student have a Facebook account?</p>
+                <p>Is the student on Facebook?</p>
                 <p>
-                  <label for="facebookAccounty">Yes</label>
-                  <input name="facebookAccount" type="radio" value = "yes" id = "facebookAccounty" required/>
-                </p>
-                <p>
-                  <label for = "facebookAccountn">No</label>
-                  <input name="facebookAccount" type="radio" value = "no" id = "facebookAccountn" required/>
+                  <input name="facebookAccount" type="radio" value = "yes" id = "facebookAccounty" class="with-gap" required/>
+                    <label for="facebookAccounty">Yes</label>
+                  <input name="facebookAccount" type="radio" value = "no" id = "facebookAccountn" class="with-gap" required/>
+                    <label for = "facebookAccountn">No</label>
                 </p>
               </div>
               <div class="input-field col s4">
-                <p>Is the student in the <a href="http://on.fb.me/1EcE7oz" target="_blank">Speech & Debate Facebook Group</a>?</p>
+                <p>Is the student in the <a href="http://on.fb.me/1EcE7oz" target="_blank">EVSD Facebook Group</a>?</p>
                 <p>
-                  <label for="facebooky">Yes</label>
-                  <input name="facebook" type="radio" id="facebooky" value = "yes" required>
-                </p>
-                <p>
-                  <label for="facebookn">No</label>
-                  <input name="facebook" type="radio" id="facebookn" value = "no" required/>
+                  <input name="facebook" type="radio" id="facebooky" value = "yes" class="with-gap" required>
+                    <label for="facebooky">Yes</label>
+                  <input name="facebook" type="radio" id="facebookn" value = "no" class="with-gap" required/>
+                    <label for="facebookn">No</label>
                 </p>
               </div>
               <div class="input-field col s4">
-                <p> Is the student part of the Speech & Debate Schoolloop group?</p>
+                <p> Is the student part of the EVSD Schoolloop group?</p>
                 <p>
-                  <label for="schoolloopy">Yes</label>
-                  <input name="schoolloop" type="radio" id="schoolloopy" value = "yes" required/>
-                </p>
-                <p>
-                  <label for="schoolloopn">No</label>
-                  <input name="schoolloop" type="radio" id="schoolloopn" value = "no" required/>
+                  <input name="schoolloop" type="radio" id="schoolloopy" value = "yes" class="with-gap" required/>
+                    <label for="schoolloopy">Yes</label>
+                  <input name="schoolloop" type="radio" id="schoolloopn" value = "no" class="with-gap" required/>
+                    <label for="schoolloopn">No</label>
                 </p>
               </div>
             </div>
-
-
           <h4 class="page-header">PARENT/GUARDIAN INFORMATION</h4>
 
 
@@ -219,20 +211,15 @@
 
                 <h4 class="page-header">Waiver</h4>
                 <p>
-                  <label for="filled-in-box" class="input-label">We, the student registering and the parent/guardian registering, will fill out, sign, and submit through this website the following <a href= "https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/view" target= "_blank">form</a>.</label>
                   <input type="checkbox" class="filled-in" id="filled-in-box" required>
+                    <label for="filled-in-box" class="input-label">We, the student registering and the parent/guardian registering, will fill out, sign, and submit through this website the following <a href= "https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/view" target= "_blank">form</a>.</label>
                 </p>
                 <iframe src="https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/preview" style="width:640px; height:480px;" frameborder="0"></iframe>
 
                 <br>
 
         <!--Upload Form-->
-          <label for="waiver">
-            <p>Please format file name like: "email@site"<br>
-              <i>i.e. "yourname@gmail.pdf"</i>
-            </p>
-          </label>
-            <input id="fileInput" name="waiver" type="file" /><br>
+          {{> uploader}}
 
             <button class="btn waves-effect waves-light" type="submit" name="action">
                 Submit

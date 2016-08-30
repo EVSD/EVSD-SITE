@@ -1,9 +1,12 @@
 if(Meteor.isClient){
 	Template.profile.onRendered(function() {
-    $('select').material_select();	
+    $('select').material_select();
 	});
 	Template.profile.helpers({
-
+		waiverFile: function () {
+			//do something to find the name of the person, and then display it
+			return Meteor.user().profile.waiverUrl;
+		},
 		//student info, broken up so that we can use spacebars
 		firstName: function() {
 		    return Meteor.user().profile.firstName;

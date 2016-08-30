@@ -1,5 +1,4 @@
 if(Meteor.isServer){
-	Waivers.denyClient();
 	//publish tournament data for user
 	Meteor.publish('tournament_entries',function(){
 			return Tournaments.find({});
@@ -10,9 +9,6 @@ if(Meteor.isServer){
 
 	Meteor.publish('tournament_list', function(){
 		return TournamentList.find({});
-	});
-	Meteor.publish('files.waivers.all', function () {
-		return Waivers.find().cursor; //what is the cursor for
 	});
 };
 
