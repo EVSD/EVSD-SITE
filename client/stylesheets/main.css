@@ -20,6 +20,7 @@ body {
 blockquote{
   font-size:11px;
   opacity:.75;
+  border-left: 5px solid teal;
 }
 footer.page-footer {
     background-color: #4acaa8;
@@ -90,11 +91,38 @@ ul#icons li {
 h1 {
     color: #4acaa8;
     font-weight: 600;
-    font-size: 600%;
+    font-size: 500%;
 }
 i {
-    color: #4acaa8;
+    color: #009688;
 }
 h4 {
     color: #4acaa8;
+}
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+
+.parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.parallax img {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
