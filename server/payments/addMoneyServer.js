@@ -3,7 +3,7 @@ Meteor.methods({
 
     check(stripeToken, String);
 
-    var Stripe = StripeAPI(Meteor.settings.private.stripe.testSecretKey);
+    var Stripe = StripeAPI(Meteor.settings.private.stripe.liveSecretKey);
     Stripe.charges.create({
       source: stripeToken,
       amount: paymentAmount * 100,

@@ -10,7 +10,7 @@ Meteor.methods({
 
     let entry = tournamentEntry;
     let price = tournamentPrice;
-    var Stripe = StripeAPI(Meteor.settings.private.stripe.testSecretKey);
+    var Stripe = StripeAPI(Meteor.settings.private.stripe.liveSecretKey);
 
     Stripe.charges.create({
       source: stripeToken,
@@ -52,7 +52,7 @@ Meteor.methods({
       entryId, String //idk if it actually has to be a string
       );
 
-    let Stripe = StripeAPI(Meteor.settings.private.stripe.testSecretKey);
+    let Stripe = StripeAPI(Meteor.settings.private.stripe.liveSecretKey);
 
     Stripe.charges.create({
       source: stripeToken,
