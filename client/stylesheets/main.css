@@ -35,7 +35,7 @@ footer.page-footer {
     padding-bottom: 0px;
     margin-right: 0px;
     padding-right: 0px;
-    /*position: fixed;*/
+    position: relative;
     right: 0px;
     bottom: 0px;
     width: 100%;
