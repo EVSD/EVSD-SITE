@@ -13,9 +13,9 @@
           console.log(err, charge);
           dateObj = new Date();
           if (charge.status == 'succeeded') {
-            // note: the profile updates for paymentContribution and balance must be in separate update statements
+            // note: the profile updates for payContribution and balance must be in separate update statements
             Meteor.users.update(Meteor.userId(),{
-              $set: {"profile.paymentContribution": "yes"}
+              $set: {"profile.payContribution": "yes"}
             });
             FlowRouter.go('signupSuccess');
           } else {

@@ -27,10 +27,11 @@ if (Meteor.isClient){
 			let written = event.target.dateWritten.value;
 			let deposited = event.target.dateDeposited.value;
 			let checkMemo = event.target.memo.value;
-      Meteor.users.update(user, {
+
+      Meteor.users.update(user._id, {
         $set: {"profile.balance": (user.profile.balance + Number(checkAmount))}
       })
-			Meteor.users.update(user, {
+			Meteor.users.update(user._id, {
 				$addToSet: {"profile.accountBalanceLog": {cc: false, description: "N/A", checkNo: checkNumber, paymentMethod: "check", amount: checkAmount, name: checkName, date: new Date(), dateWritten: written, dateDeposited: deposited, memo: checkMemo}}
 			})
 		},

@@ -66,7 +66,7 @@
 
         // keeps track of account balance
         balance: 0,
-        paymentContribution: "no",
+        payContribution: "no",
         accountBalanceLog: [],
         waiverUrl: waiver,
       /*stripeId: "Null",
@@ -80,7 +80,7 @@
       Roles.addUsersToRoles(user, 'frozen');
     }
 
-
+     console.log('successfully created user');
 
   }
 });
