@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
 	Template.addMoney.events({
 		'submit .pay-now':function(event){
-      event.preventDefault(); //so it doesn't refresh
+			event.preventDefault();
       let paymentAmount = event.target.amount.value;
       StripeCheckout.open({
           key: Meteor.settings.public.stripe.testPublishableKey,

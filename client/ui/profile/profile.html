@@ -6,20 +6,37 @@
 		{{else}}
 			<h3>{{username}}'s Profile</h3>
 
-			<ul style="list-style-type:circle">
-				<li>Name: {{firstName}} {{lastName}}</li>
-				<li>Email: {{email}}</li>
-				<li>Grade: {{studentGrade}}</li>
-				<li>Club Role: {{clubRole}}</li>
-				<li>Birthdate: {{birthdate}}</li>
-				<li>Student Phone #: {{studentPhone}}</li>
-				<li>Student Id: {{studentId}}</li>
-			</ul>
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>Account Info</h5>
+              Username: {{username}}<br>
+              Name: {{firstName}} {{lastName}}<br>
+              Email: {{email}}<br><br>
+              Grade: {{studentGrade}}<br>
+              Birthdate: {{birthdate}}<br>
+              Student Id: {{studentId}}<br>
+              Student Phone #: {{studentPhone}}<br><br>
+        			<a class="yellow-text" href="/profile/edit">edit info</a><br>
+            </span>
+          </div>
+        </div>
+      </div>
 
-			<a href="/profile/edit">edit info</a><br>
-      <h3>Your Waiver</h3>
-      <iframe src="{{waiverFile}}" style="width:640px; height:480px;" frameborder="0"></iframe>
-
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card z-depth-2">
+            <center><iframe class="z-depth-2" src="{{waiverFile}}" frameborder="0" height ="350" style="margin-top:25px"></iframe></center>
+            <div class="card-content">
+              <h4>Your Waiver</h4>
+            </div>
+            <div class="card-action">
+              <a href="#">Download Your Waiver (pending)</a>
+            </div>
+          </div>
+        </div>
+      </div><br>
 			{{#if isInRole 'admin'}}
 				{{> userTable}}
 			{{/if}}

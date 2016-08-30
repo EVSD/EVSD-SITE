@@ -2,8 +2,11 @@ if (Meteor.isClient){
 
 	Template.logPayments.onRendered(function () {
 		$('select').material_select();
-    Materialize.updateTextFields();
-	});
+		$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: true,
+		});
+		});
 
 	$('.datepicker').pickadate({
 		selectMonths: true, // Creates a dropdown to control month

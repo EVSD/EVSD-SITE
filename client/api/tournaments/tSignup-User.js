@@ -1,5 +1,6 @@
 if(Meteor.isClient){
 	Template.tSignup.onRendered(function() {
+		//$('select').material_select('destroy');
 		$('select').material_select();
 	});
 	//functions

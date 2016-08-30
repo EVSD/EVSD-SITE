@@ -44,7 +44,9 @@ if(Meteor.isClient){
 		studentId:function(){
 			return Meteor.user().profile.studentId;
 		 },
-
+		 waiver: function() {
+		 		return Meteor.user().profile.waiverUrl;
+		 	},
 		//parent1
 		//parent2
 

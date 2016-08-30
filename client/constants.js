@@ -1,1 +1,2 @@
 waiverUrl = '';
+touranamentSelected = '';

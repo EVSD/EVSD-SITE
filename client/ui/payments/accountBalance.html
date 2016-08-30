@@ -1,36 +1,44 @@
 <template name = "accountBalance">
 
 {{#if currentUser}}
-  <h2> Your Balance: ${{currentUser.profile.balance}}</h2>
+  <h3> Your Balance: ${{currentUser.profile.balance}}</h3>
     <br>
   {{> addMoney}}
   <br><br>
-  <h3> Transaction history</h3>
 
-  <ul class="collapsible" data-collapsible="accordion">
-    {{#each balanceLog}}
-    {{#if cc}}
+  <h4> Transaction history</h4>
+
+<ul class="collapsible" data-collapsible="expandable">
+  {{#each balanceLog}}
+  {{#if cc}}
     <li>
-      <div class="collapsible-header">{{name}}</div>
+      <div class="collapsible-header">{{name}}: ${{amount}}</div>
       <div class="collapsible-body">
-        <p>Payment method: {{paymentMethod}}</p>
-      <p>Transaction amount: {{amount}}</p>
-      <p>Additional details (if any): {{description}}</p>
-      <p>Timestamp: {{date}}</p></div>
+        <div style="margin-left: 25px">
+          <li>Payment method: {{paymentMethod}}</li><br>
+          <li>Transaction amount: ${{amount}}</li><br>
+          <li>Additional details (if any): {{description}}</li><br>
+          <li>Timestamp: {{date}}</li><br>
+        </div>
+      </div>
     </li>
-    {{else}}
+  {{else}}
     <li>
-      <div class="collapsible-header">{{name}}</div>
+      <div class="collapsible-header">{{name}}: ${{amount}}</div>
       <div class="collapsible-body">
-    <p>Payment method: {{paymentMethod}}</p>
-    <p>Transaction amount: {{amount}}</p>
-    <p>Check number: {{checkNo}}</p>
-    <p>Date written: {{dateWritten}}</p>
-    <p>Date deposited: {{dateDeposited}}</p>
-    <p>Memo: {{memo}}</p></div>
-  </li>
-  {{/if}}
-  {{/each}}
-</ul>
+        <div>
+          <li>Payment method: {{paymentMethod}}</li><br>
+          <li>Transaction amount: ${{amount}}</li><br>
+          <li>Check number: {{checkNo}}</li><br>
+          <li>Date written: {{dateWritten}}</li><br>
+          <li>Date deposited: {{dateDeposited}}</li><br>
+          <li>Memo: {{memo}}</li>
+        </div>
+      </div>
+    </li>
+{{/if}}
+{{/each}}
+ </ul>
+
 {{/if}}
 </template>

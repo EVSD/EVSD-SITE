@@ -5,7 +5,7 @@ Meteor.methods({
 
     try {
       waiverUrl = url;
-      console.log(waiverUrl);
+      //console.log(waiverUrl);
     } catch( exception ) {
       return exception;
     }

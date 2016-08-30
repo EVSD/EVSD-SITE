@@ -27,7 +27,7 @@ if(Meteor.isClient){
 						judges: event.target.judges.value
 					}
 				//sends back to the previous page so you can see the edits (client-side routing so cannot put in function)
-				FlowRouter.go('/tournaments/admin_tournament_view/');
+				FlowRouter.go('/tournaments/admin_tournament_view');
 
 				//updates the values
 				Meteor.call('editTournament', edits, tournamentId, function(err){

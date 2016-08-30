@@ -1,20 +1,16 @@
 if (Meteor.isClient){
+	Template.tournaments.onRendered(function(){
+		$('.collapsible').collapsible({
+			accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+		});
+	});
 	Template.tournaments.helpers({
 		inTournamentList: function (){
-			return TournamentList.find({}); 
-			},//end
-	 	pathForEntry: function() {
-		    let params = {
-		        tournamentId: this._id, //why? tournamentId works
-		    };
-		    let routeName = "editTournament";
-		    var path = FlowRouter.go(routeName, params);
-	        
-	        return path;
+			return TournamentList.find({});
 			},//end
 	});
 	Template.tournaments.events({
-		"click .delete-tournament": function(event){    
+		"click .delete-tournament": function(event){
 			if (confirm('Are you sure?')) {
 				Meteor.call('removeTournament', this._id, function(err){
 	            	if(err){
@@ -23,5 +19,12 @@ if (Meteor.isClient){
            		});
 			}else alert('you did not delete it');
 		},
+		"click .edit-tournament": function(event){
+			let params = {
+				tournamentId: this._id, //why? tournamentId works
+			};
+			let routeName = "editTournament";
+			FlowRouter.go(routeName, params);
+		}
 	});
 }

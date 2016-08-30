@@ -2,13 +2,14 @@
 
 
 {{#if currentUser}}
-	<h2>Add Tournament entry</h2>
-			<form class ="add-tournament" novalidate> <!--used to create a form like something to input things-->
+	<h3>Add Tournament Entry</h3>
+			<form class ="add-tournament"> <!--used to create a form like something to input things-->
 
 				<div class="input-field col s6">
+					<i class="material-icons prefix small">polymer</i>
 						<select name="tournament" id="tournament" required>
 						<option value="" disabled selected>Choose a Tournament: </option>
-						{{#each tournament}}
+						{{#each tournamentList}}
 						<option value='{{name}}' {{disableIfPassDue _id}}>
 							{{name}} - Due: {{signUpDeadline}}
 							<!--disable based off deadline-->
@@ -18,6 +19,7 @@
 				</div>
 				<div id="partnerToggle">
 					<div class="input-field col s6">
+						<i class="material-icons prefix small">perm_identity</i>
 							<select name="partner" required>
 							<option value="" disabled selected>Select a User: </option>
 							{{#each users}}
@@ -26,7 +28,6 @@
 						</select>
 					</div><br>
 				</div>
-
 				<div id="judgesToggle" required>
 					<h3>Insert Your Judge:</h3>
 					<!--type="hidden" - make this the conditional-->

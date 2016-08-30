@@ -1,16 +1,15 @@
 /*
-  CSS (c) Richard Huang
-  https://github.com/aeolyus/aeolyus.github.io
+Giving Proper Credits:
+© 2014-2016 Materialize, All rights reserved.
+http://materializecss.com/about.html
 */
-body {
-  margin:0;
-  padding:20px;
-  height:100%;
-  top: auto;
-  width: auto;
-  display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  min-height: 100%;
+  height: 100%;
 }
 .sidebar {
 	overflow: auto;
@@ -21,6 +20,10 @@ body {
 	text-align: right;
 	padding: 10px;
 }
+#main-content {
+  margin: 20px;
+}
+
 blockquote{
   font-size:11px;
   opacity:.75;
@@ -28,25 +31,15 @@ blockquote{
 }
 footer.page-footer {
     background-color: #4acaa8;
-    padding-top: 0;
-    margin-top: 0;
-    overflow: hidden;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    margin-right: 0px;
-    padding-right: 0px;
-    position: relative;
-    right: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: auto;
-    border-right: 0px;
+    height: 200px;
+
 }
+
 .brand-logo:hover {
     background-color: transparent !important;
 }
 @media only screen and (min-width: 992px) {
-    header, main, footer {
+    header, main,footer {
         padding-left: 240px;
     }
 }
@@ -132,4 +125,7 @@ h4 {
   transform: translate3d(0, 0, 0);
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+i.icon-white {
+    color: white;
 }
