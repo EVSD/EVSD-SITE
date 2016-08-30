@@ -1,3 +1,7 @@
+/*
+  CSS (c) Richard Huang
+  https://github.com/aeolyus/aeolyus.github.io
+*/
 body {
   margin:0;
   padding:20px;
@@ -31,9 +35,12 @@ footer.page-footer {
     padding-bottom: 0px;
     margin-right: 0px;
     padding-right: 0px;
-    position: fixed;
+    /*position: fixed;*/
+    right: 0px;
     bottom: 0px;
     width: 100%;
+    height: auto;
+    border-right: 0px;
 }
 .brand-logo:hover {
     background-color: transparent !important;
