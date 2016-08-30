@@ -11,7 +11,12 @@ Home/
 		Sign Up
 		Tournaments (Signed Up)
 */
-
+FlowRouter.route('/upload',{
+  action: function() {
+    name: 'upload',
+    BlazeLayout.render("view", {main: "upload"});
+  }
+});
 FlowRouter.route('/', {
   action: function() {
     name: 'home',

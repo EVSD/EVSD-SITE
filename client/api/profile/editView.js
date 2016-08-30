@@ -8,7 +8,6 @@ Template.editView.onRendered(function() {
 		closeOnSelect: true,
     closeOnClear: true,
 	});
-	$(".birthdate").pickadate('setDate', '01/01/01');
 });
 Template.editView.events({
 

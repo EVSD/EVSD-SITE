@@ -1,5 +1,5 @@
  Meteor.methods({
-  createreguser: function(student, parent, misc){
+  createreguser: function(student, parent, misc, waiver){
     // Checks Student, parent, and misc for pattern
     check(student, {
       firstName: String,
@@ -29,6 +29,7 @@
         whyjoin: String,
         concerns: String
     });
+    check(waiver, String);
 
     let x = Math.floor((Math.random() * 100000));
     let name = student.firstName+student.lastName+x;
@@ -67,6 +68,7 @@
         balance: 0,
         paymentContribution: "no",
         accountBalanceLog: [],
+        waiverUrl: waiver,
       /*stripeId: "Null",
         Donation: "free"*/
       }

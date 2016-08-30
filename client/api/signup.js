@@ -1,9 +1,13 @@
 if (Meteor.isClient){
 	Template.signup.onRendered(function() {
 	  $('select').material_select();
-		$('.datepicker').pickadate({
+		$('.birthdate').pickadate({
 			selectMonths: true, // Creates a dropdown to control month
-			selectYears: 15 // Creates a dropdown of 15 years to control year
+			selectYears: true,
+			min: new Date(1998,9,1),
+	  	max: new Date(2003,12,31),
+			closeOnSelect: true,
+	    closeOnClear: true,
 		});
 	});
 	Template.signup.helpers({
@@ -13,35 +17,9 @@ if (Meteor.isClient){
 		lastName: function() {
 		    return Meteor.user().profile.lastName;
 		  },
-	    currentUpload: function () {
-    		return Template.instance().currentUpload.get();
-	      },
 	});
 	Template.signup.events({
 
-		'change #fileInput': function(event){
-		let studentWaiver = event.target.waiver.files[0];
-		    //uploads waiver to server
-		    if (event.target.waiver.files[0]) {
-		    	console.log("uploading");
-
-		        var upload = Waivers.insert({
-		          file: studentWaiver,
-		          streams: 'dynamic',
-		          chunkSize: 'dynamic'
-		        }, false);//we upload the waiver 1 at a time
-
-
-		        upload.on('end', function (error, fileObj) {
-		          if (error) {
-		            alert('Error during upload: ' + error);
-		          } else {
-		            alert('Successfully Uploaded: \n' + fileObj.name + ' \nYou can now sign up');
-		          }
-		        });//checks for error, and resets the upload button and sends a successful upload message
-		        upload.start();
-	      	}
-		},
 		'submit .signup':function(event){
 			//set values for the students
 			var student = {
@@ -75,8 +53,9 @@ if (Meteor.isClient){
 		        whyjoin: $('[name="whyjoin"]').val(),
 		        concerns: $('[name="concerns"]').val()
 		    };
+				var waiver = waiverUrl;
 
-		    Meteor.call('createreguser', student, parent, misc, function(err,res) {
+		    Meteor.call('createreguser', student, parent, misc, waiver, function(err,res) {
 			    if (err){
 			      alert('reg user error');
 			    }else{
