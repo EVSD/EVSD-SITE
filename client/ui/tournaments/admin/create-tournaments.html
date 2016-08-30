@@ -1,22 +1,5 @@
 <template name ="createTournament">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>jQuery UI Datepicker - Deadline functionality</title>
-			<script>
-			/*let date = '{{editing.signUpDeadline}}';
-			console.log(date);*/
-			$( function() {
-				$( "#datepicker" ).datepicker({
-					changeMonth: true,
-					changeYear: true,
-					yearRange: "0:+2",
-					monthRange: "0:+12"
-				});
-				$("#datepicker").datepicker('setDate', new Date());
-			} );
-			</script>
-	</head>
+
 {{#if isInRole 'admin'}}
 	<!--create new Tournaments-->
 	<form class="create-tournament">
@@ -28,16 +11,34 @@
 		<ol><label for="cost">Cost: </label>
 				<input type="number" name="cost" placeholder="i.e. $200" min="0"></ol>
 		<ol><label for="signUpDeadline">Sign-Up By:</label>
-				<input type="text" name="signUpDeadline" id= "datepicker"></ol>
-		<ol><label for="partner">Partner event? </label>
-				<input type="radio" name="partner" value="yes"> Yes
-	  			<input type="radio" name="partner" value="no"> No</ol>
-		<ol><label for="judges">Judges required/requested? </label>
-				<input type="radio" name="judges" value="yes"> Yes
-	  			<input type="radio" name="judges" value="no"> No</ol>
+				<input type="text" name="signUpDeadline" class= "datepicker" placeholder="Select date"></ol>
+		<!--partner required-->
+		<div class="row">
+			<div class="input-field col s6">
+				<p>
+					<p>Partner event?</p>
+					<input type="radio" name="partner" id='pyes' value="yes" class="with-gap">
+						<label for="pyes">Yes</label>
+					<input  type="radio" name="partner" id='pno' value="no" class="with-gap">
+						<label for="pno">No</label><br>
+				</p>
+			</div>
+		<!--judges required-->
+			<div class="input-field col s6">
+				<p>
+					<p>Judges required/requested?</p>
+							<input type="radio" name="judges" id='jyes' value="yes" class="with-gap">
+								<label for="jyes">Yes</label>
+							<input  type="radio" name="judges" id='jno' value="no" class="with-gap">
+								<label for="jno">No</label><br>
+				</p>
+			</div>
+		</div>
 
-		<input type="submit" value="create tournament" >
-		<!--have confirmation-->
+
+
+			<br><button class="btn waves-effect waves-light" type="submit">Create Tournament</button>
+	<!--have confirmation-->
 	</form>
 
 {{/if}}

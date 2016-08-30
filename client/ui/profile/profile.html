@@ -2,36 +2,51 @@
 
  	{{#if currentUser}}
 		{{#if isInRole 'frozen'}}
-			<p>Ask admin for permission</p>
+			<p>You are frozen. Ask admin for permission</p>
 		{{else}}
-			<h2>{{username}}'s Profile</h2>
- 
-			<ul style="list-style-type:circle">
-				<li>Name: {{firstName}} {{lastName}}</li>
-				<li>Email: {{email}}</li>
-				<li>Grade: {{studentGrade}}</li>
-				<li>Club Role: {{clubRole}}</li>
-				<li>Birthdate: {{birthdate}}</li>
-				<li>Student Phone #: {{studentPhone}}</li>
-				<li>Student Id: {{studentId}}</li>
-			</ul>
-			
-			<a href="/profile/edit">edit info</a><br>
+			<h3>{{username}}'s Profile</h3>
 
-			{{> file}}
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>Account Info</h5>
+              Username: {{username}}<br>
+              Name: {{firstName}} {{lastName}}<br>
+              Email: {{email}}<br><br>
+              Grade: {{studentGrade}}<br>
+              Birthdate: {{birthdate}}<br>
+              Student Id: {{studentId}}<br>
+              Student Phone #: {{studentPhone}}<br><br>
+        			<a class="yellow-text" href="/profile/edit">edit info</a><br>
+            </span>
+          </div>
+        </div>
+      </div>
 
-			
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card z-depth-2">
+            <center><iframe class="z-depth-2" src="{{waiverFile}}" frameborder="0" height ="350" style="margin-top:25px"></iframe></center>
+            <div class="card-content">
+              <h4>Your Waiver</h4>
+            </div>
+            <div class="card-action">
+              <a href="#">Download Your Waiver (pending)</a>
+            </div>
+          </div>
+        </div>
+      </div><br>
 			{{#if isInRole 'admin'}}
 				{{> userTable}}
 			{{/if}}
 		{{/if}}
 	{{/if}}
 
-		
+
 	<!--testing the roles
 	<form class="takeRoles">
 		<a href="#">add roles</a>
 	</form>-->
 
 </template>
-

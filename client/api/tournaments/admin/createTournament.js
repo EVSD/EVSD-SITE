@@ -1,6 +1,18 @@
 if (Meteor.isClient){
+
+	Template.createTournament.onRendered(function () {
+		$('select').material_select();
+		$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: true,
+			min: new Date(),
+	  	max: new Date(2017,12,31),
+			closeOnSelect: true,
+	    closeOnClear: true,
+		});
+	});
 	Template.createTournament.events({
-		'submit .create-tournament':function(event){
+		'submit .create-tournament': function(){
 			let tournament ={
 					name: event.target.name.value,
 					cost: event.target.cost.value,
@@ -8,6 +20,7 @@ if (Meteor.isClient){
 					partner: $('input[name="partner"]:checked').val(),
 					judges: $('input[name="judges"]:checked').val()
 				};
+				console.log(tournament.name+" "+tournament.cost);
 			//if there are actual values
 			if (tournament.name != '' && tournament.cost != '' && tournament.signUpDeadline != '' && tournament.partner != '' && tournament.judges != '')
 				Meteor.call('createTournament', tournament);
@@ -17,4 +30,5 @@ if (Meteor.isClient){
 			}
 		},
 	});
+
 }

@@ -1,28 +1,33 @@
 <template name="tSignup">
 
-{{#if currentUser}}
-	<h1>Add Tournament entry</h1>
-			<form class ="add-tournament" novalidate> <!--used to create a form like something to input things-->
-				<p>Choose a tournament.</p>
 
-				Tournament(s):<select name="tournament" id="tournament" required>
-					<option value="default" selected>Select your option</option>
-					{{#each tournamentList}}
+{{#if currentUser}}
+	<h3>Add Tournament Entry</h3>
+			<form class ="add-tournament"> <!--used to create a form like something to input things-->
+
+				<div class="input-field col s6">
+					<i class="material-icons prefix small">polymer</i>
+						<select name="tournament" id="tournament" required>
+						<option value="" disabled selected>Choose a Tournament: </option>
+						{{#each tournamentList}}
 						<option value='{{name}}' {{disableIfPassDue _id}}>
 							{{name}} - Due: {{signUpDeadline}}
 							<!--disable based off deadline-->
 						</option>
-					{{/each}}
-				</select><br>
-
-				<div id="partnerToggle">
-					Choose a Partner:<select name="partner" required>
-						{{#each users}}
-							<option value="{{username}}">{{username}}</option>
-						{{/each}}
+			      {{/each}}
 					</select><br>
 				</div>
-
+				<div id="partnerToggle">
+					<div class="input-field col s6">
+						<i class="material-icons prefix small">perm_identity</i>
+							<select name="partner" required>
+							<option value="" disabled selected>Select a User: </option>
+							{{#each users}}
+				        <option value="{{username}}">{{username}}</option>
+				      {{/each}}
+						</select>
+					</div><br>
+				</div>
 				<div id="judgesToggle" required>
 					<h3>Insert Your Judge:</h3>
 					<!--type="hidden" - make this the conditional-->
@@ -31,7 +36,7 @@
 		                <label for="judgeLast">Last Name</label>
 		                  <input type="text" name="judgeLast" autofocus required><br>
 		                <label for="judgeEmail">Email</label>
-		                  <input type="email" name="judgeEmail" autofocus required><br>
+		                  <input type="email" name="judgeEmail" class="validate" autofocus required><br>
 		                <label for="judgePhone">Phone number</label>
 		                  <input type="tel" name="judgePhone" autofocus required>
 	                  <!--if has no value still put it in the tournament list so that chance for
@@ -44,12 +49,18 @@
 					<p>This is where the terms of conditions will go</p>
 
 					<p>I, the student of this account, fully agree to the above terms of conditions.</p>
-			  			<input type="radio" name="studentConsent" value="yes"> Yes, I agree
-			  			<input type="radio" name="studentConsent" value="no"> No, I do not <br>
+			  			<input type="radio" name="studentConsent" value="yes" id='scyes' class="with-gap">
+								<label for="scyes">Yes, we(I) agree</label>
+			  			<input type="radio" name="studentConsent" value="no" id='scno' class="with-gap">
+							<label for="scno">No, we(I) do not</label>
 		  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
-		  				<input type="radio" name="parentConsent" value="yes"> Yes, we(I) agree
-		  				<input type="radio" name="parentConsent" value="no"> No, we(I) do not <br>
-				<input type="submit" value="Pay Now to Sign Up" />
+		  				<input type="radio" name="parentConsent" id='pcyes' value="yes" class="with-gap">
+								<label for="pcyes">Yes, we(I) agree</label>
+		  				<input  type="radio" name="parentConsent" id='pcno' value="no" class="with-gap">
+								<label for="pcno">No, we(I) do not</label>
+								<br>
+				<button class="btn waves-effect waves-light" type="submit" name="action">Pay Now to Sign Up</button>
+
 			</form>
 			{{else}}
 				<p>Please login to add tournaments</p>

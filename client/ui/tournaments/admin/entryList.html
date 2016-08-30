@@ -1,5 +1,6 @@
 <template name="entries">
 
+
 {{#if isInRole 'admin'}}
 	<h2>Tournaments People Have Signed Up For</h2>
 	<p>To approve people, simiply click Yes. You can click No to unapprove them.</p>
@@ -15,8 +16,10 @@
 <!--approve tournament-->
 		<form class="approve-tournament">
 			<label for="approved">Approved?</label>
-		    	<input type="radio" name="approved" id="approvedYes" checked="{{checked approved 'yes'}}"> Yes
-	  			<input type="radio" name="approved" value="no" id="approvedNo" checked ="{{checked approved 'no'}}"> No <br>
+		    	<input type="radio" name="approved" id="approvedYes" checked="{{checked approved 'yes'}}" class="with-gap">
+						<label for="approvedYes">Yes</label>
+	  			<input type="radio" name="approved" value="no" id="approvedNo" checked ="{{checked approved 'no'}}" class="with-gap">
+						<label for="approvedNo">No</label><br>
 		</form>
 <!--rest of the tournament entry information-->
 		<p>created at: {{createdAt}}</p>
@@ -28,12 +31,12 @@
 			<li> {{p2FirstName}} {{p2LastName}}</li>
 			<li> {{p2Email}}</li><br>
 		</div>
-		<div {{hideJudges tournament}}>	
+		<div {{hideJudges tournament}}>
 			<h4>Judge</h4>
 			<li> {{judgeFirst}} {{judgeLast}}</li>
 			<li> {{judgeEmail}}</li>
 			<li> {{judgePhone}}</li><br>
 		</div>
 	{{/each}}
-{{/if}}	
+{{/if}}
 </template>

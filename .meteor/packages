@@ -34,3 +34,5 @@ ostrio:files
 #For the Server
 npm-bcrypt
 shell-server
+materialize:materialize
+edgee:slingshot

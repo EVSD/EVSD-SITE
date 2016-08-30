@@ -1,5 +1,13 @@
 if(Meteor.isClient){
-
+	Template.editTournament.onRendered(function() {
+		$( "#datepicker" ).pickadate({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "0:+2",
+			monthRange: "0:+12"
+		});
+		$("#datepicker").pickadate('setDate', new Date());
+	});
 	//functions
 	Template.editTournament.helpers({
 		editing: function (){
@@ -19,7 +27,7 @@ if(Meteor.isClient){
 						judges: event.target.judges.value
 					}
 				//sends back to the previous page so you can see the edits (client-side routing so cannot put in function)
-				FlowRouter.go('/tournaments/admin_tournament_view/');
+				FlowRouter.go('/tournaments/admin_tournament_view');
 
 				//updates the values
 				Meteor.call('editTournament', edits, tournamentId, function(err){

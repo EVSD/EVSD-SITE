@@ -1,4 +1,12 @@
 if (Meteor.isClient){
+	Template.accountBalance.onRendered(function(){
+		$('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+	});
+	Template.changeUserBalance.onRendered(function () {
+		$('select').material_select();
+	});
 	Template.changeUserBalance.helpers({
 		users: function(){
 			return Meteor.users.find({}); //only return certain fields
