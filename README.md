@@ -32,6 +32,10 @@ Admin specific content:
 - Change User Balance: admin can change user balances manually to add or deduct a specified amount.
 - Profile: admin can see site users and change their roles here (unfreeze their account after signup, etc). 
 
+###Features To Be Added
+- Mass emailing for communication
+- UI Improvements
+
 ###Sources (Packages and Frameworks Used)<br />
 Project: Meteor JS Framework
 UI: Materialize CSS Framework
