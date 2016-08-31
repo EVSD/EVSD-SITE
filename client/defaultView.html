@@ -4,7 +4,7 @@
 
 	<header>
 
-			<ul id="aboutDropdown" class="dropdown-content" data-activates= "yo">
+			<ul id="aboutDropdown" class="dropdown-content">
 			  <li><a href="/events">Events</a></li>
 			  <li><a href="/whyJoin">Why Join?</a></li>
 			  <li><a href="/coaches">Coaches</a></li>
@@ -25,13 +25,11 @@
 			                    <img id="front-page-logo" class="responsive-img hover" src="https://raw.githubusercontent.com/EVSD/evsd-landing/afce3e68128c968e9c2093b10dcbfb865261d47e/evsdlogo.png" height="70%" width="70%" background-color="#4acaa8"/></a>
 			            </li>
 									<li class = "active"><a href="/">Home</a></li>
-									{{#if currentUser}}
-										<li><a href="/logout">Logout</a></li>
-									{{/if}}
-									<li><a class="dropdown-button" href="#" data-activates="aboutDropdown" data-beloworigin="true">About EVSD
+									<li><a class="dropdown-button" id="about" href="#" data-activates="aboutDropdown" data-beloworigin="true">About EVSD
 											<i class="material-icons right">arrow_drop_down</i></a></li>
 									{{#if currentUser}}
-									<li><a class="dropdown-button" href="#" data-activates="memberDropdown" data-beloworigin="true">Member Resources
+										<li><a href="/logout">Logout</a></li>
+									<li><a class="dropdown-button" id="member" href="#" data-activates="memberDropdown" data-beloworigin="true">Member Resources
 											<i class="material-icons right">arrow_drop_down</i></a></li>
 									<li><a href="/profile">Profile</a></li>
 									<li><a href="/logout">Logout</a></li>

@@ -4,7 +4,7 @@ if (Meteor.isClient) {
 			event.preventDefault();
       let paymentAmount = event.target.amount.value;
       StripeCheckout.open({
-          key: Meteor.settings.public.stripe.testPublishableKey,
+          key: Meteor.settings.public.stripe.livePublishableKey,
             amount: paymentAmount * 100,
             name: 'Increase Account Balance',
             description: '',
