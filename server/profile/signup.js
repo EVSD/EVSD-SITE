@@ -69,8 +69,7 @@
         payContribution: "no",
         accountBalanceLog: [],
         waiverUrl: waiver,
-      /*stripeId: "Null",
-        Donation: "free"*/
+      
       }
     });
 
