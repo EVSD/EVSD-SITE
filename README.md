@@ -65,6 +65,7 @@ Packages:
 - edgee:slingshot
 
 ###Code Credits
+- Project Oversight and Guidance: Artem Raskin
 - Website Structure (Navbar, Icon): Michelle Li, Richard Huang
 - Homepage Content: Connie Lu, Michelle Li
 - Footer: Jackson Chui, Richard Huang, Michelle Li
