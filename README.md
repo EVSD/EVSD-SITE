@@ -65,4 +65,24 @@ Packages:
 - edgee:slingshot
 
 ###Code Credits
-- To be added
+- Website Structure (Navbar, Icon): Michelle Li, Richard Huang
+- Homepage Content: Connie Lu, Michelle Li
+- Footer: Jackson Chui, Richard Huang, Michelle Li
+- User Profile: Jackson Chui
+- Account Balance: Michelle Li
+- Tournament Signup: Jackson Chui
+- My Tournaments: Jackson Chui
+- Create Tournament: Jackson Chui
+- Current Tournaments: Jackson Chui
+- Log Checks for Users: Michelle Li
+- Change User Balance: Michelle Li
+- General Stripe Checkout implementations: Michelle Li
+- About Pages: Joshua Qin, Michelle Li
+- Member Resources Pages: Joshua Qin, Michelle Li
+- Login: Jackson Chui, Richard Huang, Michelle Li
+- Logout: Richard Huang, Jackson Chui
+- Signup: Jackson Chui, Michelle Li, Richard Huang
+- General UI: Jackson Chui, Michelle Li, Richard Huang, Connie Lu
+- Deployment / AWS: Jackson Chui
+- Google Analytics: Richard Huang
+- Readme Documentation: Michelle Li
