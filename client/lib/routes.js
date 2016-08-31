@@ -179,6 +179,18 @@ FlowRouter.route('/judge', {
   }
 });
 
+FlowRouter.route('/ipace', {
+  action: function() {
+    BlazeLayout.render("view", {main: "ipace"});
+  }
+});
+
+FlowRouter.route('/initialLogin', {
+  action: function() {
+    BlazeLayout.render("view", {main: "initialLogin"});
+  }
+});
+
 FlowRouter.route('/nuisanceFee', {
   action: function() {
     BlazeLayout.render("view", {main: "nuisanceFee"});
