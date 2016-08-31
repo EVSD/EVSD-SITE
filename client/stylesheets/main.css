@@ -25,14 +25,13 @@ html, body {
 }
 
 blockquote{
-  font-size:11px;
+  font-size:15px;
   opacity:.75;
   border-left: 5px solid teal;
 }
 footer.page-footer {
     background-color: #4acaa8;
     height: 200px;
-
 }
 
 .brand-logo:hover {
