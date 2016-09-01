@@ -1,42 +1,5 @@
-if (Meteor.isClient) {
-	//$('#firstName, #lastName, #DOB, #studentGrade, #emailAddress, #password, #studentPhoneNo, #studentId, #firstParent, #firstParentPhoneNo, #firstParentEmployer, #findOut, #whyjoin, #concerns, #filled-in-box').bind('keyup', function() {
-// $('#signup').removeAttr('disabled');
-// 	$('#firstName').bind('keyup', function() {
-// 		if(true) $('#signup').removeAttr('disabled');
-// });
-//
-// function allFilled() {
-//     var filled = true;
-//     $('form input').each(function() {
-//         if($(this).val() == '') filled = false;
-//     });
-//     return filled;
-// }
+if (Meteor.isClient){
 	Template.signup.onRendered(function() {
-
-		$('#concerns').bind('keyup', function() {
-			var filled = true, radio1 = false, radio2 = false, radio3 = false;
-			$("form:first :input").each(function() {
-					// if mandatory field
-					if ($(this).attr("name") != "secondParent" && $(this).attr("name") != "secondParentPhoneNo" && $(this).attr("name") != "secondParentEmployer" && $(this).attr("name") != "secondParentEmailAddress") {
-						// if radio input
-						if ($(this).attr("id") == "facebooky" || $(this).attr("id") == "facebookn") {
-							if($(this).val() != '') radio1 = true;
-						}
-						else if ($(this).attr("id") == "facebookAccounty" || $(this).attr("id") == "facebookAccountn") {
-							if($(this).val() != '') radio2 = true;
-						}
-						else if ($(this).attr("id") == "schoolloopy" || $(this).attr("id") == "schoolloopn") {
-							if($(this).val() != '') radio3 = true;
-						}
-						else if($(this).val() == '' && $(this).attr("name") != null && $(this).attr("name") != '') {
-							filled = false;
-							console.log($(this).attr("name"));
-						}
-					}
-				if (filled && radio1 && radio2 && radio3) $('#signup').removeAttr('disabled');
-	});
-});
 	  $('select').material_select();
 		$('.birthdate').pickadate({
 			selectMonths: true, // Creates a dropdown to control month
@@ -46,6 +9,7 @@ if (Meteor.isClient) {
 			closeOnSelect: true,
 	    closeOnClear: true,
 		});
+	});
 	Template.signup.helpers({
 		firstName: function() {
 		    return Meteor.user().profile.firstName;
@@ -112,8 +76,5 @@ if (Meteor.isClient) {
 				FlowRouter.go('/initialLogin');
 		},//end of signup
 	});
-});
 }
-
-
 //put a conditional around all fields but name(s), email, and password if no pay?

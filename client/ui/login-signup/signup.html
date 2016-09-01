@@ -5,13 +5,11 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  </head>
- <body>
 {{#if currentUser}}
   <p>
       You have sucessfully signed up, {{firstName}} {{lastName}}.
   </p>
 {{else}}
-
 <div id="application-signup">
 
     <div class="row">
@@ -25,12 +23,12 @@
             <div class="row">
               <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input type="text" id="firstName" name="firstName" class="validate" placeholder="Student First Name" autofocus required>
+                <input type="text" name="firstName" class="validate" placeholder="Student First Name" autofocus required>
               </div>
 
               <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input type="text" id="lastName" name="lastName" class="validate" placeholder="Student Last Name" required>
+                <input type="text" name="lastName" class="validate" placeholder="Student Last Name" required>
               </div>
             </div>
 
@@ -38,7 +36,7 @@
             <div class="row">
               <div class="input-field col s6">
                 <i class="material-icons prefix">grade</i>
-                  <select name="studentGrade" id="studentGrade" required>
+                  <select name="studentGrade" required>
                   <option value="" disabled selected>Grade</option>
                   <option value="9">9-Freshman</option>
                   <option value="10">10-Sophmore</option>
@@ -48,7 +46,7 @@
               </div>
               <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
-                <input type="date" id="DOB" name="DOB" class="birthdate" placeholder="birthdate" required><br>
+                <input type="date" name="DOB" class="birthdate" placeholder="birthdate" required><br>
               </div>
             </div>
 
@@ -56,18 +54,18 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">email</i>
-                <input type="email" id="emailAddress" name="emailAddress" class="validate" placeholder="Student Email Address" required>
+                <input type="email" name="emailAddress" class="validate" placeholder="Student Email Address" required>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s6">
                 <i class="material-icons prefix">phone</i>
-                <input type="tel" id="studentPhoneNo" pattern="^\d{3}-\d{3}-\d{4}$" name="studentPhoneNo" class="validate" placeholder="Student Phone (format: xxx-xxx-xxxx)" required>
+                <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="studentPhoneNo" class="validate" placeholder="Student Phone (format: xxx-xxx-xxxx)" required>
               </div>
               <div class="input-field col s6">
                 <i class="material-icons prefix">assignment_ind</i>
-                <input type="number" id="studentId" name="studentId" class="validate" placeholder="Student ID Number" required>
+                <input type="number" name="studentId" class="validate" placeholder="Student ID Number" required>
               </div>
             </div>
 
@@ -75,7 +73,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">lock_outline</i>
-                <input type="password" id="password" name="password" class="validate" placeholder="Password" required>
+                <input type="password" name="password" class="validate" placeholder="Password" required>
               </div>
             </div>
 
@@ -116,26 +114,26 @@
                 <div class="row">
                   <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input type="text" name="firstParent" id="firstParent" class="validate" placeholder="Name (First Last)" required>
+                    <input type="text" name="firstParent" class="validate" placeholder="Name (First Last)" required>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                    <input type="email" name="firstParentEmailAddress" id="firstParentEmailAddress" class="validate" placeholder="Email" required>
+                    <input type="email" name="firstParentEmailAddress" class="validate" placeholder="Email" required>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="input-field col s6">
                     <i class="material-icons prefix">phone</i>
-                    <input type="tel" name="firstParentPhoneNo" id="firstParentPhoneNo" pattern="^\d{3}-\d{3}-\d{4}$" class="validate" placeholder="Phone Number" required>
+                    <input type="tel" name="firstParentPhoneNo" pattern="^\d{3}-\d{3}-\d{4}$" class="validate" placeholder="Phone Number" required>
                   </div>
 
                   <div class="input-field col s6">
                     <i class="material-icons prefix">work</i>
-                    <input type="text" name="firstParentEmployer" id="firstParentEmployer" class="validate" placeholder="Employer" required>
+                    <input type="text" name="firstParentEmployer" class="validate" placeholder="Employer" required>
                   </div>
                 </div>
                 <blockquote>We will use this information for the sole purpose of sending you your company’s donation matching policy so that it is easier for you to pursue a corporate donation matching, which is a key source of funding for EVSD. Without this donation matching, more costs will have to be shared by the students and parents.</blockquote>
@@ -174,7 +172,7 @@
                   <div class="input-field col s12">
                     <i class="material-icons prefix">location_on</i>
                     <label for="findOut">How did the student find out about EVHS Speech and Debate?</label>
-                    <textarea name="findOut" class="materialize-textarea" id="findOut" required></textarea>
+                    <textarea name="findOut" class="materialize-textarea" required></textarea>
                   </div>
                 </div>
 
@@ -182,7 +180,7 @@
                   <div class="input-field col s12">
                     <i class="material-icons prefix">help</i>
                     <label for="whyjoin">Why does the student want to join EVHS Speech and Debate?</label>
-                    <textarea name="whyjoin" class="materialize-textarea" id="whyjoin" required></textarea>
+                    <textarea name="whyjoin" class="materialize-textarea" required></textarea>
                   </div>
                 </div>
 
@@ -190,12 +188,12 @@
                   <div class="input-field col s12">
                     <i class="material-icons prefix">warning</i>
                     <label for="concerns">Are there any concerns (including allergies, medical needs, or anything else) that we should be aware of?</label>
-                    <textarea name="concerns" class="materialize-textarea" id="concerns" required></textarea>
+                    <textarea name="concerns" class="materialize-textarea" required></textarea>
                   </div>
                 </div>
 
                 <h4 class="page-header">Waiver</h4>
- 
+
                   <div class="input-field col s12 row">
                     <input type="checkbox" class="filled-in" id="filled-in-box" required>
                       <label for="filled-in-box" class="input-label">We, the student registering and the parent/guardian registering, will fill out, sign, and submit through this website the following form</label>
@@ -209,7 +207,7 @@
 
                 {{> uploader}}
 
-            <button id="signup" class="col s2 btn waves-effect waves-light" type="submit" name="action" disabled>Submit</button>
+            <button class="col s2 btn waves-effect waves-light" type="submit" name="action">Submit</button>
             <br>
             <br>
             <img src="https://raw.githubusercontent.com/EVSD/EVSDWebsite/master/project/public/img/stripelogo.png">
@@ -217,5 +215,4 @@
     </div>
   </div>
 {{/if}}
-</body>
 </template>
