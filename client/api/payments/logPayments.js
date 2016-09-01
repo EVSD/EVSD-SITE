@@ -6,17 +6,13 @@ if (Meteor.isClient){
 			selectMonths: true, // Creates a dropdown to control month
 			selectYears: true,
 		});
-		});
-
-	$('.datepicker').pickadate({
-		selectMonths: true, // Creates a dropdown to control month
-		selectYears: 40
 	});
+
 	Template.logPayments.helpers({
 		users: function(){
 			return Meteor.users.find({}); //only return certain fields
-			}
-		});
+		}
+	});
 	Template.logPayments.events({
 		'submit .log-payment':function(event){
 			event.preventDefault();

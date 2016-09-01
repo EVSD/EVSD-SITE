@@ -1,15 +1,16 @@
 if (Meteor.isClient){
-	Template.signup.onRendered(function() {
+	Template.signup.rendered = function() {
 	  $('select').material_select();
 		$('.birthdate').pickadate({
 			selectMonths: true, // Creates a dropdown to control month
 			selectYears: true,
-			min: new Date(1998,9,1),
-	  	max: new Date(2003,12,31),
+			min: new Date(1997,1,1),
+	  	max: new Date(2004,11,30),
 			closeOnSelect: true,
 	    closeOnClear: true,
 		});
-	});
+	};
+
 	Template.signup.helpers({
 		firstName: function() {
 		    return Meteor.user().profile.firstName;
