@@ -8,7 +8,7 @@ Template.view.onRendered (function() {
   //          gutter: 0,
   //          belowOrigin: false
   //          }
-  //     ); 
+  //     );
       $('#member').dropdown({
                inDuration: 300,
                outDuration: 225,
@@ -27,4 +27,6 @@ Template.view.onRendered (function() {
                    belowOrigin: false
                    }
               );
+              $(".button-collapse").sideNav();
+$('.collapsible').collapsible();
 });
