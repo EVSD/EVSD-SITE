@@ -3,54 +3,70 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<header>
+		<!-- <div class="head-nav">
+						<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav hide-on-large-only"><i class="material-icons medium mdi-navigation-menu white-text text-accent-2">menu</i></a></div> -->
 
-			<ul id="aboutDropdown" class="dropdown-content">
-			  <li><a href="/events">Events</a></li>
-			  <li><a href="/whyJoin">Why Join?</a></li>
-			  <li><a href="/coaches">Coaches</a></li>
-				<li><a href="/ipace">IPACE</a></li>
-				<li><a href="/officers">Student Officers</a></li>
+		<ul id="nav-mobile" class="side-nav fixed">
+			<!-- <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav hide-on-large-only"><i class="material-icons medium mdi-navigation-menu white-text text-accent-2">menu</i></a></div> -->
+			<!-- <ul id="nav-mobile" class="side-nav fixed"> -->
+					<li class="logo">
+							<a href="/" class="brand-logo">
+									<img id="front-page-logo" class="responsive-img hover" src="https://raw.githubusercontent.com/EVSD/evsd-landing/afce3e68128c968e9c2093b10dcbfb865261d47e/evsdlogo.png" height="70%" width="70%" background-color="#4acaa8"/></a>
+					</li>
+					<li class = "active"><a href="/">Home</a></li>
+					{{#if currentUser}}
+					<li><a href="/logout">Logout</a></li>
+					{{/if}}
+					<li class="no-padding">
+		        <ul class="collapsible collapsible-accordion">
+		          <li>
+		            <a class="collapsible-header">About EVSD<i class="material-icons right">arrow_drop_down</i></a>
+		            <div class="collapsible-body">
+		              <ul>
+										<li><a href="/events">Events</a></li>
+										<li><a href="/whyJoin">Why Join?</a></li>
+										<li><a href="/coaches">Coaches</a></li>
+										<li><a href="/ipace">IPACE</a></li>
+										<li><a href="/officers">Student Officers</a></li>
+		              </ul>
+		            </div>
+		          </li>
+		        </ul>
+		      </li>
+					<li class="no-padding">
+		        <ul class="collapsible collapsible-accordion">
+		          <li>
+		            <a class="collapsible-header">Member Resources<i class="material-icons right">arrow_drop_down</i></a>
+		            <div class="collapsible-body">
+		              <ul>
+										<li><a href="/reimburse">Reimbursements</a></li>
+										<li><a href="/judge">Judge Rules</a></li>
+										<li><a href="/nuisanceFee">Nuisance Fees</a></li>
+										<li><a href="/tournamentProcedure">Tournament Procedure</a></li>
+		              </ul>
+		            </div>
+		          </li>
+		        </ul>
+		      </li>
+					{{#if currentUser}}
+					<li><a href="/profile">Profile</a></li>
+					<li><a href="/accountBalance">Account Balance</a></li>
+					<li><a href="/tournaments/myTournaments">My Tournaments</a></li>
+				<li><a href="/tournaments/signup">Tournament Sign Up</a></li>
+				<li class="divider"></li>
+				{{# if isInRole 'admin'}}
+					<li><a href="/tournaments/create-tournament">Create a New Tournament</a></li>
+					<li><a href="/tournaments/admin_tournament_view">Current Tournaments</a></li>
+					<li><a href="/tournaments/entries">See Current Signups</a></li>
+					<li><a href="/logPayments">Log Checks for Users</a></li>
+					<li><a href="/changeUserBalance">Change User Balance</a></li>
+				{{/if}}
+			{{else}}
+			<li><a href="/login">Login</a></li>
+			<li><a href="/signup">Sign Up</a></li>
+				{{/if}}
 			</ul>
-			<ul id="memberDropdown" class="dropdown-content">
-			<li><a href="/reimburse">Reimbursements</a></li>
-			<li><a href="/judge">Judge Rules</a></li>
-			<li><a href="/nuisanceFee">Nuisance Fees</a></li>
-			<li><a href="/tournamentProcedure">Tournament Procedure</a></li>
-			</ul>
-			<div class="head-nav">
-			        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav hide-on-large-only"><i class="material-icons medium mdi-navigation-menu white-text text-accent-2">menu</i></a></div>
-			        <ul id="nav-mobile" class="side-nav fixed">
-			            <li class="logo">
-			                <a href="/" class="brand-logo">
-			                    <img id="front-page-logo" class="responsive-img hover" src="https://raw.githubusercontent.com/EVSD/evsd-landing/afce3e68128c968e9c2093b10dcbfb865261d47e/evsdlogo.png" height="70%" width="70%" background-color="#4acaa8"/></a>
-			            </li>
-									<li class = "active"><a href="/">Home</a></li>
-									<li><a class="dropdown-button" id="about" href="#" data-activates="aboutDropdown" data-beloworigin="true">About EVSD
-											<i class="material-icons right">arrow_drop_down</i></a></li>
-									{{#if currentUser}}
-										<li><a href="/logout">Logout</a></li>
-									<li><a class="dropdown-button" id="member" href="#" data-activates="memberDropdown" data-beloworigin="true">Member Resources
-											<i class="material-icons right">arrow_drop_down</i></a></li>
-									<li><a href="/profile">Profile</a></li>
-									<li><a href="/logout">Logout</a></li>
-		  						<li><a href="/accountBalance">Account Balance</a></li>
-		  						<li><a href="/tournaments/myTournaments">My Tournaments</a></li>
-		 						<li><a href="/tournaments/signup">Tournament Sign Up</a></li>
-								<li class="divider"></li>
-								{{# if isInRole 'admin'}}
-									<li><a href="/tournaments/create-tournament">Create a New Tournament</a></li>
-									<li><a href="/tournaments/admin_tournament_view">Current Tournaments</a></li>
-									<li><a href="/tournaments/entries">See Current Signups</a></li>
-									<li><a href="/logPayments">Log Checks for Users</a></li>
-									<li><a href="/changeUserBalance">Change User Balance</a></li>
-								{{/if}}
-		 					{{else}}
-		 					<li><a href="/login">Login</a></li>
-		 					<li><a href="/signup">Sign Up</a></li>
-		  					{{/if}}
-			        </ul>
 
-			    </div>
 				 <h1 align="center">EVERGREEN VALLEY SPEECH AND DEBATE</h1>
  </header>
  	<main>
