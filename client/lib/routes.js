@@ -203,6 +203,18 @@ FlowRouter.route('/tournamentProcedure', {
   }
 });
 
+FlowRouter.route('/contactevsd', {
+  action: function() {
+    BlazeLayout.render("view", {main: "contactevsd"});
+  }
+});
+
+FlowRouter.route('/contactipace', {
+  action: function() {
+    BlazeLayout.render("view", {main: "contactipace"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
