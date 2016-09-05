@@ -3,6 +3,10 @@
 
       check(stripeToken, String);
 
+      Meteor.users.update(userId, {
+        $set: {"profile.waiverUrl": waiverUrl}
+      });
+
       var Stripe = StripeAPI(Meteor.settings.private.stripe.liveSecretKey);
       Stripe.charges.create({
         source: stripeToken,
