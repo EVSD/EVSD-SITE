@@ -9,7 +9,7 @@ if (Meteor.isClient){
 	            	if(err){
 	                	alert(err);
 	            	}else{
-									FlowRouter.go('/payContribution');
+									FlowRouter.go('/waiver');
 								}
            		});
 		}

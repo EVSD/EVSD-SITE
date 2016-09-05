@@ -12,6 +12,13 @@ Home/
 		Tournaments (Signed Up)
 */
 
+FlowRouter.route('/waivers', {
+  action: function() {
+    name: 'waivers',
+    BlazeLayout.render("view", {main: "waivers"});
+  }
+});
+
 FlowRouter.route('/', {
   action: function() {
     name: 'home',
@@ -113,9 +120,9 @@ FlowRouter.route('/profile', {
       BlazeLayout.render("view", {main: "logout"});
     }
   });
-FlowRouter.route('/payContribution', {
+FlowRouter.route('/waiver', {
   action: function() {
-    BlazeLayout.render("view", {main: "payContribution"});
+    BlazeLayout.render("view", {main: "waiver"});
   }
 });
 
@@ -218,6 +225,12 @@ FlowRouter.route('/contactevsd', {
 FlowRouter.route('/contactipace', {
   action: function() {
     BlazeLayout.render("view", {main: "contactipace"});
+  }
+});
+
+FlowRouter.route('/googleanalytics', {
+  action: function() {
+    BlazeLayout.render("view", {main: "googleanalytics"});
   }
 });
 

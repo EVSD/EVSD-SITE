@@ -73,6 +73,18 @@
 					<li><a href="/tournaments/entries">See Current Signups</a></li>
 					<li><a href="/logPayments">Log Checks for Users</a></li>
 					<li><a href="/changeUserBalance">Change User Balance</a></li>
+					<li class ="divider"></li>
+					<li><a href="/googleanalytics">Google Analytics</a></li>
+					<li><a href="/export">Export Data</a></li>
+				{{/if}}
+				{{# if isInRole 'officer'}}
+					<li><a href="/tournaments/create-tournament">Create a New Tournament</a></li>
+					<li><a href="/tournaments/admin_tournament_view">Current Tournaments</a></li>
+					<li><a href="/tournaments/entries">See Current Signups</a></li>
+					<li><a href="/logPayments">Log Checks for Users</a></li>
+					<li><a href="/changeUserBalance">Change User Balance</a></li>
+					<li class ="divider"></li>
+					<li><a href="/googleanalytics">Google Analytics</a></li>
 					<li><a href="/export">Export Data</a></li>
 				{{/if}}
 			{{else}}

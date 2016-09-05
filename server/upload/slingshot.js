@@ -11,7 +11,9 @@ Slingshot.createDirective( "uploadWaiversToAmazonS3", Slingshot.S3Storage, {
     return userFileCount < 3 ? true : false;
   },
   key: function ( file ) {
-    //var email = Meteor.user().emails[0].address;
-    return 'waivers' + "/" + file.name;
+    if (Meteor.user()){
+      var user = Meteor.user().profile.firstName + '_'+ Meteor.user().profile.lastName;
+    }
+    return 'waivers' + "/" + user + "/" + file.name;
   }
 });

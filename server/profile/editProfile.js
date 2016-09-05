@@ -1,4 +1,10 @@
 Meteor.methods({
+	editProfileFileUrl (url){
+		var userId = Meteor.userId();
+		Meteor.users.update(userId,{
+			$set: {"profile.waiverUrl": url}
+		});
+	},
 	editProfile ( changes, userId ){
 
 		check(changes, {

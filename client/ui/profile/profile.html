@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-
+      {{> uploader}}
       <div class="row">
         <div class="col s12 m6">
           <div class="card z-depth-2">
@@ -40,6 +40,7 @@
 			{{#if isInRole 'admin'}}
 				{{> userTable}}
 			{{/if}}
+      
 		{{/if}}
 	{{/if}}
 

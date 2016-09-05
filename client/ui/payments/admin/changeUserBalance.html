@@ -26,4 +26,31 @@
 	</form>
 
 {{/if}}
+
+{{#if isInRole 'officer'}}
+
+	<form class="change-balance">
+
+		<h3>Manually Change User Balance</h3>
+		<div class="input-field col s6">
+				<select name="user" required>
+				<option value="" disabled selected>Select a User: </option>
+				{{#each users}}
+	        <option value="{{username}}">{{username}}</option>
+	      {{/each}}
+			</select>
+		</div>
+		<ol><label for="name">Name of Transaction or Event: </label>
+				<input type="text" name="name" placeholder= "i.e. Drop fee"></ol>
+		<ol><label for="amount">Amount (Negative value for deductions, positive for additions): </label>
+				<input type="number" name="amount" placeholder="i.e. $200"></ol>
+    <ol><label for="description">Description: </label>
+        <input type="text" name="description" placeholder="i.e. Broke a chair 8/25"></ol>
+
+		<button class="btn waves-effect waves-light" type="submit" name="action">Change Balance</button>
+
+
+	</form>
+
+{{/if}}
 </template>

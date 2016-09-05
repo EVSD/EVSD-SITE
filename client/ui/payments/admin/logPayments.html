@@ -51,4 +51,48 @@
 		<button class="col s2 btn waves-effect waves-light" type="submit" name="action">Log Payment</button>
 	</form>
 	{{/if}}
+
+	{{#if isInRole 'officer'}}
+	<form class="log-payment">
+		<h3>Manually Log Checks for Users</h3>
+
+		<div class="select-field col s6">
+			<select name="user" required>
+				<option value="" disabled selected>Select a User: </option>
+				{{#each users}}
+				<option value="{{username}}">{{username}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="input-field col s6">
+			<i class="material-icons prefix">label</i>
+			<input type="text" name="name" placeholder= "Name of Transaction: (i.e. Drop fee)" required>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<i class="material-icons prefix">payment</i>
+				<input type="number" name="amount" placeholder="Amount: (deduction or addition)" required>
+			</div>
+			<div class="input-field col s6">
+				<i class="material-icons prefix">receipt</i>
+				<input type="number" name="checkNumber" placeholder="Check Number" required>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<i class="material-icons prefix">today</i>
+				<input type="date" name="dateWritten" class="datepicker" placeholder="Date Check Was Written" required>
+			</div>
+			<div class="input-field col s6">
+				<i class="material-icons prefix">today</i>
+				<input type="date" name="dateDeposited" class="datepicker" placeholder="Date Check Was Deposited" required>
+			</div>
+		</div>
+		<div class="input-field col s6">
+			<i class="material-icons prefix">assignment</i>
+			<input type="text" name="memo" placeholder="Memo: i.e. Drop fee for UOP tournament">
+		</div>
+		<button class="col s2 btn waves-effect waves-light" type="submit" name="action">Log Payment</button>
+	</form>
+	{{/if}}
 </template>
