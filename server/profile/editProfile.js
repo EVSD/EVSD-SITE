@@ -3,7 +3,7 @@ Meteor.methods({
 		Meteor.users.update(userId, {
 			$set: {"profile.waiverUrl": url}
 		});
-	}
+	},
 	editProfile ( changes, userId ){
 
 		check(changes, {
