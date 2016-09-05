@@ -1,0 +1,17 @@
+<template name="waiversView">
+{{#each waivers}}
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card z-depth-2">
+      <center><iframe class="z-depth-2" src="{{waiverFile}}" frameborder="0" height ="350" style="margin-top:25px"></iframe></center>
+      <div class="card-content">
+        <h4>Your Waiver</h4>
+      </div>
+      <div class="card-action">
+        <a href="#">Download Your Waiver (pending)</a>
+      </div>
+    </div>
+  </div>
+</div><br>
+{{/each}}
+</template>

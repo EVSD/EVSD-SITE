@@ -12,6 +12,13 @@ Home/
 		Tournaments (Signed Up)
 */
 
+FlowRouter.route('/waivers', {
+  action: function() {
+    name: 'waivers',
+    BlazeLayout.render("view", {main: "waivers"});
+  }
+});
+
 FlowRouter.route('/', {
   action: function() {
     name: 'home',
