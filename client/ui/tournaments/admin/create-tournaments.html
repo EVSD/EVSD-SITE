@@ -42,4 +42,47 @@
 	</form>
 
 {{/if}}
+
+{{#if isInRole 'officer'}}
+	<!--create new Tournaments-->
+	<form class="create-tournament">
+
+		<h3>Create a New Tournament</h3>
+
+		<ol><label for="name">Name: </label>
+				<input type="text" name="name" placeholder= "i.e. ToC - Open Parli"></ol>
+		<ol><label for="cost">Cost: </label>
+				<input type="number" name="cost" placeholder="i.e. $200" min="0"></ol>
+		<ol><label for="signUpDeadline">Sign-Up By:</label>
+				<input type="text" name="signUpDeadline" class= "datepicker" placeholder="Select date"></ol>
+		<!--partner required-->
+		<div class="row">
+			<div class="input-field col s6">
+				<p>
+					<p>Partner event?</p>
+					<input type="radio" name="partner" id='pyes' value="yes" class="with-gap">
+						<label for="pyes">Yes</label>
+					<input  type="radio" name="partner" id='pno' value="no" class="with-gap">
+						<label for="pno">No</label><br>
+				</p>
+			</div>
+		<!--judges required-->
+			<div class="input-field col s6">
+				<p>
+					<p>Judges required/requested?</p>
+							<input type="radio" name="judges" id='jyes' value="yes" class="with-gap">
+								<label for="jyes">Yes</label>
+							<input  type="radio" name="judges" id='jno' value="no" class="with-gap">
+								<label for="jno">No</label><br>
+				</p>
+			</div>
+		</div>
+
+
+
+			<br><button class="btn waves-effect waves-light" type="submit">Create Tournament</button>
+	<!--have confirmation-->
+	</form>
+
+{{/if}}
 </template>

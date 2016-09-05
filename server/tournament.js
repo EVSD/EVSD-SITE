@@ -83,8 +83,9 @@
 		})
 
 		let isAdmin = Roles.userIsInRole( this.userId, 'admin' );
+    let isOfficer = Roles.userIsInRole(this.userId, 'officer');
 
-		if(isAdmin){
+		if(isAdmin || isOfficer){
 			TournamentList.insert({
 				name: tournament.name,
 				cost: tournament.cost,

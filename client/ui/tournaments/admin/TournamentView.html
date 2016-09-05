@@ -20,4 +20,24 @@
 {{/each}}
 </ul>
 {{/if}}
+{{#if isInRole 'officer'}}
+<h2> Tournaments </h2>
+<ul class="collapsible" data-collapsible="expandable">
+	{{#each inTournamentList}}
+    <li>
+      <div class="collapsible-header">{{name}} <a href="#" class="delete-tournament">x</a></div>
+      <div class="collapsible-body">
+        <div style="margin: 10px">
+					<a href=# class="edit-tournament">edit</a>
+					<li>Signup Deadline: {{signUpDeadline}}</li>
+					<li>Cost: ${{cost}}</li>
+					<li>Partner Tournament? {{partner}}</li>
+					<li>Judges required/requested? {{judges}}</li>
+        </div>
+      </div>
+    </li>
+
+{{/each}}
+</ul>
+{{/if}}
 </template>
