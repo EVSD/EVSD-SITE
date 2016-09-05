@@ -1,5 +1,4 @@
 <template name = "payContribution">
-{{#if currentUser}}
   <div class="col s12 row">
     <a href= "https://drive.google.com/file/d/0B-virn0M0SiJenVGdG1TZUFFNEU/view" target= "_blank">Download Form Here</a>
   </div>
@@ -19,7 +18,5 @@
   <br>
 
   <button class='stripeCheckout'> Pay with Stripe Checkout </button>
-    {{else}}
     <h3> <a href="/initialLogin">Sign in to upload form and login </a></h3>
-{{/if}}
 </template>
