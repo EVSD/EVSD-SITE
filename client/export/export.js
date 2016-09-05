@@ -14,6 +14,18 @@ if (Meteor.isClient){
         window.open("data:text/csv;charset=utf-8," + escape(csv));
         $("#csv").val(csv);
     },
+    'click #downloadTournaments': function(event) {
+        var tournament = TournamentList.find().fetch();;
+        var csv = Collection2CSV(tournament);
+        window.open("data:text/csv;charset=utf-8," + escape(csv));
+        $("#csv").val(csv);
+    },
+    'click #downloadTournamentEntries': function(event) {
+        var users = Tournaments.find().fetch();;
+        var csv = Collection2CSV(entries);
+        window.open("data:text/csv;charset=utf-8," + escape(csv));
+        $("#csv").val(csv);
+    },
   });
   function Collection2CSV(objArray) {
     var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
