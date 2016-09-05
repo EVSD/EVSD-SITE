@@ -1,9 +1,13 @@
 
 <template name='export'>
+{{#if currentUser}}
+{{#if isInRole 'admin'}}
     <h3>Export Data as CSV(Excel)</h3>
     <button id="downloadUsers">Download Users as CSV</button>
     <button id="downloadTournaments">Download Tournaments as CSV </button>
     <button id="downloadTournamentEntries">Download Tournament Entries as CSV </button>
-    
+
     <textarea id="csv" class="text"></textarea>
+{{/if}}
+{{/if}}
 </template>
