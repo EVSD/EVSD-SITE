@@ -128,3 +128,7 @@ h4 {
 i.icon-white {
     color: white;
 }
+
+.parallax-container{
+    height: 400px;
+}
