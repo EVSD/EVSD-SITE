@@ -228,6 +228,12 @@ FlowRouter.route('/contactipace', {
   }
 });
 
+FlowRouter.route('/googleanalytics', {
+  action: function() {
+    BlazeLayout.render("view", {main: "googleanalytics"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
