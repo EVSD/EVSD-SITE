@@ -120,9 +120,9 @@ FlowRouter.route('/profile', {
       BlazeLayout.render("view", {main: "logout"});
     }
   });
-FlowRouter.route('/payContribution', {
+FlowRouter.route('/waiver', {
   action: function() {
-    BlazeLayout.render("view", {main: "payContribution"});
+    BlazeLayout.render("view", {main: "waiver"});
   }
 });
 
