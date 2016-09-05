@@ -12,12 +12,6 @@ Home/
 		Tournaments (Signed Up)
 */
 
-FlowRouter.route('/upload',{
-  action: function() {
-    name: 'upload',
-    BlazeLayout.render("view", {main: "upload"});
-  }
-});
 FlowRouter.route('/', {
   action: function() {
     name: 'home',
@@ -37,6 +31,18 @@ FlowRouter.route('/', {
     }
   });
 
+  FlowRouter.route('/upload',{
+    action: function() {
+      name: 'upload',
+      BlazeLayout.render("view", {main: "upload"});
+    }
+  });
+  FlowRouter.route('/export',{
+    action: function() {
+      name: 'export',
+      BlazeLayout.render("view", {main: "export"});
+    }
+  });
 
 var tournamentRoutes = FlowRouter.group({
   prefix: '/tournaments',
