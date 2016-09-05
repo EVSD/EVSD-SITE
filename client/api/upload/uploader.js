@@ -5,5 +5,11 @@ Template.uploader.events({
       }else{
         Bert.alert("file did not upload");
       }
+      Meteor.call('editProfileFileUrl', waiverUrl, function(err) {
+        if (err){
+          console.log('could not append file');
+          Bert.alert('reg user error','danger');
+        }
+      });
   }//end of change
 });
