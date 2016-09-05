@@ -73,7 +73,13 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">lock_outline</i>
-                <input type="password" name="password" class="validate" placeholder="Password" required>
+                <input type="password" name="password" id="password" class="validate" placeholder="Password" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">done</i>
+                <input type="password" id="confirmPassword" class="validate" placeholder="Confirm Password" required>
               </div>
             </div>
 
@@ -98,7 +104,7 @@
                 </p>
               </div>
               <div class="input-field col s4">
-                <p> Is the student part of the EVSD Schoolloop group?</p>
+                <p> Is the student in the EVSD Schoolloop group?</p>
                 <p>
                   <input name="schoolloop" type="radio" id="schoolloopy" value = "yes" class="with-gap" required/>
                     <label for="schoolloopy">Yes</label>
@@ -199,15 +205,15 @@
                       <label for="filled-in-box" class="input-label">We, the student registering and the parent/guardian registering, will fill out, sign, and submit through this website the following form</label>
                   </div>
                   <div class="col s12 row">
-                    <a href= "https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/view" target= "_blank">Download Form Here</a>
+                    <a href= "https://drive.google.com/file/d/0B-virn0M0SiJenVGdG1TZUFFNEU/view" target= "_blank">Download Form Here</a>
                   </div>
                   <div class="col s12 row">
-                    <iframe src="https://drive.google.com/file/d/0B0GF5CUxnsQPRE5Yb2NZZGV3Zmc/preview" style="width:640px; height:480px;" frameborder="0"></iframe>
+                    <iframe src="https://drive.google.com/file/d/0B-virn0M0SiJenVGdG1TZUFFNEU/preview" style="width:640px; height:480px;" frameborder="0"></iframe>
                   </div>
                   <label>*WAIVER IS MANDATORY AND NEEDS TO BE A SINGLE PDF FILE. FAILURE TO UPLOAD A VALID WAIVER AND SUBMITTING THE FORM WILL RELOAD THE PAGE AND NOT SAVE YOUR PROGRESS. NAME IT [FIRST NAME].[LAST NAME].pdf*</label>
                 {{> uploader}}
 
-            <button class="col s2 btn waves-effect waves-light" type="submit" name="action">Submit</button>
+            <button class="col s2 btn waves-effect waves-light" type="submit" name="action" >Submit</button>
             <br>
             <br>
             <img src="https://raw.githubusercontent.com/EVSD/EVSDWebsite/master/project/public/img/stripelogo.png">

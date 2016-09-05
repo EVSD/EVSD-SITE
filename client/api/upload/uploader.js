@@ -3,7 +3,7 @@ Template.uploader.events({
     if (confirm("Are you sure that you want to upload this file?")){
       Modules.client.uploadWaiversToAmazonS3( { event: event, template: template } );
       }else{
-        alert("file did not upload");
+        Bert.alert("file did not upload");
       }
   }//end of change
 });
