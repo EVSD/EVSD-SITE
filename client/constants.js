@@ -1,2 +1,3 @@
 waiverUrl = '';
 touranamentSelected = '';
+submitOkay = '';
