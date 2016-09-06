@@ -18,7 +18,7 @@ if (Meteor.isClient) {
           Meteor.apply('paySignup', [stripeToken], {noRetry: true});
         }
       });
-      FlowRouter.go('/');
+    //  FlowRouter.go('/signupSuccess');
     }
   });
 }
