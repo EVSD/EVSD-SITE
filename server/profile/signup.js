@@ -19,6 +19,10 @@
       firstParentPhoneNo: String,
       firstParentEmailAddress: String,
       firstParentEmployer: String,
+      secondParent: String,
+      secondParentPhoneNo: String,
+      secondParentEmailAddress: String,
+      secondParentEmployer: String
     });
     check(misc, {
         findOut: String,
@@ -63,6 +67,7 @@
         balance: 0,
         waiver: "no",
         accountBalanceLog: [],
+        payContribution: "no"
 
       }
     });

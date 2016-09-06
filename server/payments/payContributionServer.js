@@ -15,9 +15,9 @@
           if (charge.status == 'succeeded') {
             // note: the profile updates for waiver and balance must be in separate update statements
             Meteor.users.update(Meteor.userId(),{
-              $set: {"profile.waiver": "yes"}
+              $set: {"profile.payContribution": "yes"}
             });
-            FlowRouter.go('signupSuccess');
+            //FlowRouter.go('/signupSuccess');
           } else {
             // display payment failed message
             Bert.alert('Payment transaction failed.');

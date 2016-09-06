@@ -69,10 +69,10 @@ if (Meteor.isClient){
 		        firstParentPhoneNo: $('[name="firstParentPhoneNo"]').val(),
 		        firstParentEmailAddress: $('[name="firstParentEmailAddress"]').val(),
 		        firstParentEmployer: $('[name="firstParentEmployer"]').val(),
-		        secondParent: $('[name="secondParent"]').val(),
-		        secondParentPhoneNo: $('[name="secondParentPhoneNo"]').val(),
-		        secondParentEmailAddress: $('[name="secondParentEmailAddress"]').val(),
-		        secondParentEmployer: $('[name="secondParentEmployer"]').val()
+		        secondParent: $('[name="secondParent"]').val()+"",
+		        secondParentPhoneNo: $('[name="secondParentPhoneNo"]').val()+"",
+		        secondParentEmailAddress: $('[name="secondParentEmailAddress"]').val()+"",
+		        secondParentEmployer: $('[name="secondParentEmployer"]').val()+""
 		    	};
 			    //" " for other fields
 			    var misc = {
@@ -80,9 +80,9 @@ if (Meteor.isClient){
 			        whyjoin: $('[name="whyjoin"]').val(),
 			        concerns: $('[name="concerns"]').val()
 			    };
-					var waiver = waiverUrl;
+				//	var waiver = waiverUrl;
 
-			    Meteor.call('createreguser', student, parent, misc, waiver, function(err,res) {
+			    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 				    if (err){
 							console.log('reg user error');
 				      alert('reg user error');
