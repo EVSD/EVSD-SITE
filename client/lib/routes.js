@@ -234,6 +234,12 @@ FlowRouter.route('/contactipace', {
   }
 });
 
+FlowRouter.route('/contacttech', {
+  action: function() {
+    BlazeLayout.render("view", {main: "contacttech"});
+  }
+});
+
 FlowRouter.route('/googleanalytics', {
   action: function() {
     BlazeLayout.render("view", {main: "googleanalytics"});

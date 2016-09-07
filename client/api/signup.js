@@ -88,18 +88,10 @@ if (Meteor.isClient){
 				      alert('reg user error');
 				    }else{
 				    	//redirects you to pay contribution if successfully signed up
-					FlowRouter.go("/payContribution");
+							FlowRouter.go("/payContribution");
 			    	}
 			    });
-					// Meteor.loginWithPassword(student.emailAddress, student.password, function(err){
-					// if(err){
-					// 						console.log(err);
-			    //             	alert(err);
-			    //         	}else {
-					// 						FlowRouter.go('/payContribution');
-		      //      		}});
-					//FlowRouter.go("/payContribution");
-					// console.log('rip');
+
 					FlowRouter.go('/initialLogin');
 				}else{
 					event.preventDefault();
