@@ -246,6 +246,12 @@ FlowRouter.route('/googleanalytics', {
   }
 });
 
+FlowRouter.route('/ForgotPassword', {
+  action: function() {
+    BlazeLayout.render("view", {main: "ForgotPassword"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
