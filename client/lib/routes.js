@@ -126,6 +126,12 @@ FlowRouter.route('/payContribution', {
   }
 });
 
+FlowRouter.route('/waiver', {
+  action: function() {
+    BlazeLayout.render("view", {main: "waiver"});
+  }
+});
+
 FlowRouter.route('/signupSuccess', {
   action: function() {
     BlazeLayout.render("view", {main: "signupSuccess"});

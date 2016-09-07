@@ -9,7 +9,9 @@ if (Meteor.isClient){
 	            	if(err){
 	                	alert(err);
 	            	}else{
-									FlowRouter.go('/payContribution');
+									if (Meteor.user().profile.payContribution == "no" || Meteor.user().profile.paidContribution == "no") FlowRouter.go('/payContribution');
+									else if (Meteor.user().profile.waiver == "no") FlowRouter.go('/waiver');
+									else FlowRouter.go('/profile');
 								}
            		});
 		}
