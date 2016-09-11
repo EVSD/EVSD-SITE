@@ -2,7 +2,7 @@
 	Meteor.startup(function() {
 		smtp = {
 			username: "evhs.sd6",					//Mailgun Settings //username: "postmaster@sandbox4_your_username_XXXXXXXXXXXXXXXX.mailgun.org",
-			password: "SDwebteam",					//password: "your_password_XXXXXXXXXXXXXXXXXXXX", 
+			password: "SDwebteam",					//password: "your_password_XXXXXXXXXXXXXXXXXXXX",
 			server: "smtp.gmail.com",				//server: "smtp.mailgun.org",
 			port: 465								//port: 587
 
@@ -31,6 +31,3 @@
 		+ "<p> To <strong> verify your account </strong>, follow the link below:</p>"
 		+ url;
 	};
-	Accounts.config({
-        sendVerificationEmail: true
-    });
