@@ -31,8 +31,7 @@ if(Meteor.isClient){
 			if (theOne.judges == "no") {judgesToggle.style.display = "none";}
 			if (theOne.partner == "no") {partnerToggle.style.display = "none";}
 		},
-		//submit is a type of HTML input
-		"submit .add-tournament": function(event){
+		"click #pay": function(event){
 
 			event.preventDefault(); //so it doesn't refresh
 
