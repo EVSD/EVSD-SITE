@@ -8,10 +8,12 @@ if (Meteor.isClient){
 		$('select').material_select();
 	});
 	Template.changeUserBalance.helpers({
-		users: function(){
-			return Meteor.users.find({}); //only return certain fields
-			}
-		});
+		users: function () {
+	    return Meteor.users.find({}, {
+	      sort: { "profile.lastName": 1 }
+	    });
+	  }
+	});
 	Template.changeUserBalance.events({
 		'submit .change-balance':function(event){
 			event.preventDefault();

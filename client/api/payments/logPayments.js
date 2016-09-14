@@ -9,9 +9,11 @@ if (Meteor.isClient){
 	});
 
 	Template.logPayments.helpers({
-		users: function(){
-			return Meteor.users.find({}); //only return certain fields
-		}
+		users: function () {
+	    return Meteor.users.find({}, {
+	      sort: { "profile.lastName": 1 }
+	    });
+	  }
 	});
 	Template.logPayments.events({
 		'submit .log-payment':function(event){

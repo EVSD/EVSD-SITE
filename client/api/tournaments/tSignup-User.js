@@ -5,9 +5,11 @@ if(Meteor.isClient){
 	});
 	//functions
 	Template.tSignup.helpers({
-		users: function(){
-			return Meteor.users.find({}); //only return certain fields
-			},
+		users: function () {
+	    return Meteor.users.find({}, {
+	      sort: { "profile.lastName": 1 }
+	    });
+	  },
 		tournamentList: function (){
 			return TournamentList.find({},{
 				fields:{
