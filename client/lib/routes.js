@@ -246,6 +246,12 @@ FlowRouter.route('/googleanalytics', {
   }
 });
 
+FlowRouter.route('/practiceCalendar', {
+  action: function() {
+    BlazeLayout.render("view", {main: "practiceCalendar"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
