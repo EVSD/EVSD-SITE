@@ -15,12 +15,12 @@ Template.ForgotPassword.events({
       Accounts.forgotPassword({email: email}, function(err) {
         if (err) {
           if (err.message === 'User not found [403]') {
-            console.log('This email does not exist.');
+            alert('This account does not exist.');
           } else {
-            console.log('We are sorry but something went wrong.');
+            alert('We are sorry but something went wrong.');
           }
         } else {
-          console.log('Email Sent. Check your mailbox.');
+          alert('Email Sent. Check your mailbox.');
         }
       });
 
