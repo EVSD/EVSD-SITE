@@ -249,6 +249,10 @@ FlowRouter.route('/googleanalytics', {
 FlowRouter.route('/practiceCalendar', {
   action: function() {
     BlazeLayout.render("view", {main: "practiceCalendar"});
+
+FlowRouter.route('/ForgotPassword', {
+  action: function() {
+    BlazeLayout.render("view", {main: "ForgotPassword"});
   }
 });
 
