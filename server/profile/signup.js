@@ -202,9 +202,11 @@
                         balance: 0,
                         waiver: "no",
                         accountBalanceLog: [],
-
+                        /*stripeId: "Null",
+                        Donation: "free"*/
                       }
                     });
+<<<<<<< HEAD
 			
 				if ((ccNum == null || ccNum == "") && (cvcNum == null || cvcNum == "") && (expMonth == null || expMonth == "") && (expYear == null || expYear == "") && (name == null || name == "") && (address_line1 == null || address_line1 == "")
          			 && (address_line2 == null || address_line2 == "") && (address_city == null || address_city == "") && (address_state == null || address_state == "") && (address_zip == null || address_zip == "") && (address_country == null || address_country == "")) {
@@ -243,13 +245,24 @@
 					    }
 
 				}
+=======
+                    /*if (student.emailAddress == 'test@gmail.com'){
+                      Roles.addUsersToRoles(user, 'admin');
+                    }else{
+                      Roles.addUsersToRoles(user, 'frozen');
+                    }*/
+                	 let userId= user;
+                	 Meteor.call('sendVerificationLink', user);
+                	 console.log('successfully created user');
+                  },
+                  sendVerificationLink (userId) {
+                     
+                	 console.log('verifying');
+                	 return Accounts.sendVerificationEmail(user);
+                	 console.log(process.env.MAIL_URL);
+                  }
+>>>>>>> origin/mail
 
-            //   console.log("new Accounts.createuser");
-                // Before we return our user to the client, we need to perform a Meteor.users.update
-                // on our user. This is done because we need to add our subscription data to our
-                // customer, however, we don't want to store it in our customer's profile object.
-                // Unfortunately, the only way to do this is to wait until the user exists and
-                // *then* add the subscription data.
 
 
 
