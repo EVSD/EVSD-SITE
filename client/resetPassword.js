@@ -12,7 +12,7 @@ Template.ForgotPassword.events({
 
     // if (isNotEmpty(email) && isEmail(email)) {
 
-      Accounts.forgotPassword({email: email}, function(err) {
+      Accounts.forgotPassword({email:email}, function(err) {
         if (err) {
           if (err.message === 'User not found [403]') {
             alert('This account does not exist.');
