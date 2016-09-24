@@ -205,6 +205,10 @@
 
                       }
                     });
+			
+				if ((ccNum == null || ccNum == "") && (cvcNum == null || cvcNum == "") && (expMonth == null || expMonth == "") && (expYear == null || expYear == "") && (name == null || name == "") && (address_line1 == null || address_line1 == "")
+         			 && (address_line2 == null || address_line2 == "") && (address_city == null || address_city == "") && (address_state == null || address_state == "") && (address_zip == null || address_zip == "") && (address_country == null || address_country == "")) {
+
 
                     if (student.emailAddress == 'test@gmail.com'){
                       Roles.addUsersToRoles(user, 'admin');
@@ -213,7 +217,32 @@
                     }
 
                      console.log('successfully created user');
+				}
+				else {
+					console.log('stripe');
+					//Stripe Validation
+					    // Validate the number
+					    if (!Stripe.card.validateCardNumber(ccNum)) {
+					        error = true;
+					        //INPUTERROR.report('The credit card number appears to be invalid.');
+					        window.alert('The credit card number appears to be invalid. Please verify that the credit card number entered is correct.');
+					    }
+					
+					    // Validate the CVC:
+					    if (!Stripe.card.validateCVC(cvcNum)) {
+					        error = true;
+					        //INPUTERROR.report('The CVC number appears to be invalid.');
+					        window.alert('The CVC number appears to be invalid. Please verify that the CVC number entered is correct.');
+					    }
+					
+					    // Validate the expiration:
+					    if (!Stripe.card.validateExpiry(expMonth, expYear)) {
+					        error = true;
+					        window.alert('The expiration date appears to be invalid. Please verify that the expiration date entered is correct.');
+					        //INPUTERROR.report('The expiration date appears to be invalid.');
+					    }
 
+				}
 
             //   console.log("new Accounts.createuser");
                 // Before we return our user to the client, we need to perform a Meteor.users.update
