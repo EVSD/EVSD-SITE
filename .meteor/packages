@@ -32,9 +32,8 @@ mrgalaxy:stripe
 ostrio:files
 
 #For the Server
-shell-server@0.2.1
 materialize:materialize
 edgee:slingshot
-npm-bcrypt
-shell-server
-email
+npm-bcrypt@0.9.1
+shell-server@0.2.1
+email@1.1.17
