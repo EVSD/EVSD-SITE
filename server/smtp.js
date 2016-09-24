@@ -10,10 +10,4 @@ Meteor.startup(function () {
 
   Accounts.emailTemplates.siteName = "EVSD";
 	Accounts.emailTemplates.from = "EVSD <evhs.sd@gmail.com>";
-	Accounts.emailTemplates.verifyEmail.subject  = function (user) {
-		return "Reset Password";
-		};
-	Accounts.emailTemplates.verifyEmail.text = function (user, url) {
-		return  "Test";
-		};
 });
