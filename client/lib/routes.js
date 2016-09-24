@@ -258,6 +258,12 @@ FlowRouter.route('/ForgotPassword', {
   }
 });
 
+FlowRouter.route('/ResetPassword', {
+  action: function() {
+    BlazeLayout.render("view", {main: "ResetPassword"});
+  }
+});
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
