@@ -129,6 +129,66 @@
     if ( !lookupCustomer ) {
       // Create a Future that we can use to confirm successful account creation.
       var newCustomer = new Future();
+		//Check if they actually put stuff where they're supposed to put stuff
+		if ((ccNum == null || ccNum == "") && (cvcNum == null || cvcNum == "") && (expMonth == null || expMonth == "") && (expYear == null || expYear == "") && (name == null || name == "") && (address_line1 == null || address_line1 == "")
+         			 && (address_line2 == null || address_line2 == "") && (address_city == null || address_city == "") && (address_state == null || address_state == "") && (address_zip == null || address_zip == "") && (address_country == null || address_country == ""))
+        {
+        	//If not, just go straight to the user-making part
+        	console.log('No Pay');
+        }
+        else {
+        		//Charge Stripe
+				console.log('chargin stripe (1/3)');
+				//Stripe Validation
+			    // Validate the number
+			    if (!Stripe.card.validateCardNumber(ccNum)) {
+			        error = true;
+			        //INPUTERROR.report('The credit card number appears to be invalid.');
+			        window.alert('The credit card number appears to be invalid. Please verify that the credit card number entered is correct.');
+			    }
+				
+			    // Validate the CVC:
+			    if (!Stripe.card.validateCVC(cvcNum)) {
+			        error = true;
+			        //INPUTERROR.report('The CVC number appears to be invalid.');
+			        window.alert('The CVC number appears to be invalid. Please verify that the CVC number entered is correct.');
+			    }
+					
+			    // Validate the expiration:
+			    if (!Stripe.card.validateExpiry(expMonth, expYear)) {
+			        error = true;
+			        window.alert('The expiration date appears to be invalid. Please verify that the expiration date entered is correct.');
+			        //INPUTERROR.report('The expiration date appears to be invalid.');
+			    }
+			    console.log('charging stripe (2/3)');
+			    /***I'm not too sure myself what this code does specifically from here on... Just a test****//*
+			       // Take our card data and create a Stripe token from the client. This
+			       // ensures that our code is PCI compliant to keep the man from knocking
+			       // on our door.
+			      if (!error) {
+			       STRIPE.getToken( '#application-signup', {
+			         number: $('[data-stripe="cardNumber"]').val(),
+			         exp_month: $('[data-stripe="expMo"]').val(),
+			         exp_year: $('[data-stripe="expYr"]').val(),
+			         cvc: $('[data-stripe="cvc"]').val(),
+			         name: $('[data-stripe="cardholder_name"]').val(),
+			         address_line1: $('[data-stripe="address_line1"]').val(),
+			         address_line2: $('[data-stripe="address_line2"]').val(),
+			         address_city: $('[data-stripe="address_city"]').val(),
+			         address_state: $('[data-stripe="address_state"]').val(),
+			         address_zip: $('[data-stripe="address_zip"]').val(),
+			         address_country: $('[data-stripe="address_country"]').val()
+			       }, function() {
+			
+			         // Grab the customer's details.
+			         var token = {
+			           token: $('[name="stripeToken"]').val()
+			         };*/
+			     Meteor.call('todos.updateText',{});
+			     console.log('charing stripe... (3/3)');
+
+
+	}
 
       // Create our customer.
       Meteor.call('stripeCreateCustomer', token.token, student.emailAddress, function(err, stripeCustomer){
@@ -202,16 +262,11 @@
                         balance: 0,
                         waiver: "no",
                         accountBalanceLog: [],
-                        /*stripeId: "Null",
-                        Donation: "free"*/
+
                       }
                     });
-<<<<<<< HEAD
 			
-				if ((ccNum == null || ccNum == "") && (cvcNum == null || cvcNum == "") && (expMonth == null || expMonth == "") && (expYear == null || expYear == "") && (name == null || name == "") && (address_line1 == null || address_line1 == "")
-         			 && (address_line2 == null || address_line2 == "") && (address_city == null || address_city == "") && (address_state == null || address_state == "") && (address_zip == null || address_zip == "") && (address_country == null || address_country == "")) {
-
-
+				
                     if (student.emailAddress == 'test@gmail.com'){
                       Roles.addUsersToRoles(user, 'admin');
                     }else{
@@ -219,50 +274,14 @@
                     }
 
                      console.log('successfully created user');
-				}
-				else {
-					console.log('stripe');
-					//Stripe Validation
-					    // Validate the number
-					    if (!Stripe.card.validateCardNumber(ccNum)) {
-					        error = true;
-					        //INPUTERROR.report('The credit card number appears to be invalid.');
-					        window.alert('The credit card number appears to be invalid. Please verify that the credit card number entered is correct.');
-					    }
-					
-					    // Validate the CVC:
-					    if (!Stripe.card.validateCVC(cvcNum)) {
-					        error = true;
-					        //INPUTERROR.report('The CVC number appears to be invalid.');
-					        window.alert('The CVC number appears to be invalid. Please verify that the CVC number entered is correct.');
-					    }
-					
-					    // Validate the expiration:
-					    if (!Stripe.card.validateExpiry(expMonth, expYear)) {
-					        error = true;
-					        window.alert('The expiration date appears to be invalid. Please verify that the expiration date entered is correct.');
-					        //INPUTERROR.report('The expiration date appears to be invalid.');
-					    }
+				
 
-				}
-=======
-                    /*if (student.emailAddress == 'test@gmail.com'){
-                      Roles.addUsersToRoles(user, 'admin');
-                    }else{
-                      Roles.addUsersToRoles(user, 'frozen');
-                    }*/
-                	 let userId= user;
-                	 Meteor.call('sendVerificationLink', user);
-                	 console.log('successfully created user');
-                  },
-                  sendVerificationLink (userId) {
-                     
-                	 console.log('verifying');
-                	 return Accounts.sendVerificationEmail(user);
-                	 console.log(process.env.MAIL_URL);
-                  }
->>>>>>> origin/mail
-
+            //   console.log("new Accounts.createuser");
+                // Before we return our user to the client, we need to perform a Meteor.users.update
+                // on our user. This is done because we need to add our subscription data to our
+                // customer, however, we don't want to store it in our customer's profile object.
+                // Unfortunately, the only way to do this is to wait until the user exists and
+                // *then* add the subscription data.
 
 
 
