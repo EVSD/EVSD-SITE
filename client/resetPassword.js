@@ -15,12 +15,12 @@ Template.ForgotPassword.events({
       Accounts.forgotPassword({email:email}, function(err) {
         if (err) {
           if (err.message === 'User not found [403]') {
-            Bert.alert('This account does not exist.','danger','grow-top-right');
+            Bert.alert('This account does not exist.','danger','growl-top-right');
           } else {
-            Bert.alert('We are sorry but something went wrong.','danger','grow-top-right');
+            Bert.alert('We are sorry but something went wrong.','danger','growl-top-right');
           }
         } else {
-          Bert.alert('Email Sent. Check your mailbox.','danger','grow-top-right');
+          Bert.alert('Email Sent. Check your mailbox.','danger','growl-top-right');
         }
       });
 
@@ -51,9 +51,9 @@ Template.ResetPassword.events({
     // if (isNotEmpty(password) && areValidPasswords(password, passwordConfirm)) {
       Accounts.resetPassword(Session.get('resetPassword'), password, function(err) {
         if (err) {
-          Bert.alert('We are sorry but something went wrong.','danger','grow-top-right');
+          Bert.alert('We are sorry but something went wrong.','danger','growl-top-right');
         } else {
-          Bert.alert('Your password has been changed. Welcome back!','danger','grow-top-right');
+          Bert.alert('Your password has been changed. Welcome back!','danger','growl-top-right');
           Session.set('resetPassword', null);
         }
       });
