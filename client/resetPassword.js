@@ -3,7 +3,7 @@ Template.ForgotPassword.events({
     e.preventDefault();
 
     var trimInput = function (val) {
-            return val.replace(/^\s*|\s*$/g, "");
+            return val.replace(/^\s*|\s*$/g, '');
         }
     var forgotPasswordForm = $(e.currentTarget),
         email = trimInput(forgotPasswordForm.find('#forgotPasswordEmail').val().toLowerCase());
@@ -15,12 +15,12 @@ Template.ForgotPassword.events({
       Accounts.forgotPassword({email:email}, function(err) {
         if (err) {
           if (err.message === 'User not found [403]') {
-            alert('This account does not exist.');
+            Bert.alert('This account does not exist.','danger','grow-top-right');
           } else {
-            alert('We are sorry but something went wrong.');
+            Bert.alert('We are sorry but something went wrong.','danger','grow-top-right');
           }
         } else {
-          alert('Email Sent. Check your mailbox.');
+          Bert.alert('Email Sent. Check your mailbox.','danger','grow-top-right');
         }
       });
 
@@ -51,9 +51,9 @@ Template.ResetPassword.events({
     // if (isNotEmpty(password) && areValidPasswords(password, passwordConfirm)) {
       Accounts.resetPassword(Session.get('resetPassword'), password, function(err) {
         if (err) {
-          console.log('We are sorry but something went wrong.');
+          Bert.alert('We are sorry but something went wrong.','danger','grow-top-right');
         } else {
-          console.log('Your password has been changed. Welcome back!');
+          Bert.alert('Your password has been changed. Welcome back!','danger','grow-top-right');
           Session.set('resetPassword', null);
         }
       });
