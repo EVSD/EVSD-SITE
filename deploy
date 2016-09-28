@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#update local git repo
+git pull
+
 #update meteor packages and possibly patches
 meteor update --all-packages && meteor update --patch
 
