@@ -55,7 +55,7 @@ if(Meteor.isClient){
 			        	Meteor.apply('payEntryPartner', [stripeToken, price, entryId], {noRetry: true});
 			        }
 			    });
-			}else alert("agree to the terms for both parent and student");
+			}else Bert.alert("Agree to the terms for both parent and student.");
 		},//end of partnerPay
 	});
 }

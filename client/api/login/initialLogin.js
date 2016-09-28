@@ -7,7 +7,7 @@ if (Meteor.isClient){
 
 			Meteor.loginWithPassword(emailVar, passwordVar, function(err){
 	            	if(err){
-	                	alert(err);
+	                	Bert.alert(err);
 	            	}else{
 									if (Meteor.user().profile.payContribution == "no" || Meteor.user().profile.paidContribution == "no") FlowRouter.go('/payContribution');
 									else if (Meteor.user().profile.waiver == "no") FlowRouter.go('/waiver');

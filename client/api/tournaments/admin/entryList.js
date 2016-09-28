@@ -17,7 +17,7 @@ if(Meteor.isClient){
 	                	console.log(err);
 	            	}
            		});
-			}else alert('you did not delete it');
+			}else Bert.alert('You did not delete it');
 		},
 		'change #approvedYes' : function (){
    			let entryId = this._id;
@@ -25,7 +25,7 @@ if(Meteor.isClient){
 	            	if(err){
 	                	console.log(err);
 	            	}
-           		});					
+           		});
 		},
 
 		'change #approvedNo' : function (){
@@ -34,7 +34,7 @@ if(Meteor.isClient){
 	            	if(err){
 	                	console.log(err);
 	            	}
-           		})					
-		},		
+           		})
+		},
 	});//end of the events of the template
 }

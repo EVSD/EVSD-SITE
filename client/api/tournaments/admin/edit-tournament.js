@@ -36,7 +36,7 @@ if(Meteor.isClient){
 	            	}
            		});
 			}else {
-				alert("You did not save any changes. click to go back");
+				Bert.alert("You did not save any changes. click to go back");
 				FlowRouter.go('/tournaments/admin_tournament_view/');
 		        };
 

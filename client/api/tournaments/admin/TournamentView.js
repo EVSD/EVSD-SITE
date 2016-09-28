@@ -17,7 +17,7 @@ if (Meteor.isClient){
 	                	console.log(err);
 	            	}
            		});
-			}else alert('you did not delete it');
+			}else Bert.alert('You did not delete it.');
 		},
 		"click .edit-tournament": function(event){
 			let params = {

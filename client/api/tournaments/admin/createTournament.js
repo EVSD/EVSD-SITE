@@ -26,7 +26,7 @@ if (Meteor.isClient){
 				Meteor.call('createTournament', tournament);
 			else {
 				event.preventDefault();
-				alert ("Fill out all the fields");
+				Bert.alert ("Fill out all the fields");
 			}
 		},
 	});

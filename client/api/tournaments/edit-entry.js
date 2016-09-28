@@ -1,12 +1,12 @@
 if(Meteor.isClient){
-	
+
 	//functions
 	Template.editEntry.helpers({
 		entry: function (){
 		    let entryId = FlowRouter.getParam('entryId');
-		    
+
 		    return Tournaments.findOne({_id: entryId});
-			},     	
+			},
 	});
 	Template.editEntry.events({
 		'submit .edit-entry': function(event) {
@@ -20,12 +20,12 @@ if(Meteor.isClient){
 					}
 
 				FlowRouter.go('/tournaments/myTournaments/');
-				
+
 				Meteor.call('editEntry', judgeEdits, entryId);
 			}else {
-				alert("You did not save any changes. Click back to go to main profile");
+				Bert.alert("You did not save any changes. Click back to go to main profile");
 		        };
-				
+
 		},//end of edit-tournament
 	});
 }

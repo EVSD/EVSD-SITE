@@ -47,7 +47,7 @@ Template.editView.events({
 			}//send an error callback
 
 		} else {
-			alert("You did not save any changes. Click back to go to main profile");
+			Bert.alert("You did not save any changes. Click back to go to main profile");
 	        }
 	},
 });

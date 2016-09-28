@@ -84,8 +84,8 @@ if (Meteor.isClient){
 
 			    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 				    if (err){
-							console.log('reg user error');
-				      alert('reg user error');
+							console.log(err);
+				      Bert.alert(err);
 				    }else{
 				    	//redirects you to pay contribution if successfully signed up
 							FlowRouter.go("/payContribution");
@@ -95,7 +95,7 @@ if (Meteor.isClient){
 					FlowRouter.go('/initialLogin');
 				}else{
 					event.preventDefault();
-					Bert.alert('form is not uploaded or password is not validated','warning');
+					Bert.alert('Form is not uploaded or password is not validated','warning');
 				}
 		},//end of signup
 	});

@@ -21,7 +21,7 @@ if (Meteor.isClient){
 				        Bert.alert( error.reason, "warning" );
 				      }
 				    	});
-				} else alert ("You cannot make this user an admin");
+				} else Bert.alert ("You cannot make this user an admin");
 			} else return false;
 		},
 	});
