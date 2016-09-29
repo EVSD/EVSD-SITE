@@ -46,7 +46,8 @@ if (Meteor.isClient){
 				Bert.alert( 'Password is Good!', 'success', 'growl-top-right' );
 			}
 		},
-		'submit .signup':function(event){
+		'submit form':function(event){
+			event.preventDefault();
 			//set values for the students
 			if(submitOkay == "yes"){
 				var student = {
@@ -88,7 +89,7 @@ if (Meteor.isClient){
 				      Bert.alert(err);
 				    }else{
 				    	//redirects you to pay contribution if successfully signed up
-							FlowRouter.go("/payContribution");
+							//FlowRouter.go("/payContribution");
 			    	}
 			    });
 
