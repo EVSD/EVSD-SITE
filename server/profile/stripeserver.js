@@ -6,15 +6,7 @@
 * once, while reusing them multiple times in our application. Sweet!
 */
 
-// Grab our testSecretKey from /settings.json. Note: we're using our TEST secret
-// because we're in TEST mode in the Stripe dashboard (that little LIVE <=> TEST
-// toggle at the top left). Note: this is a bit confusing. Toggling this switch
-// the first time activates "Live" mode on your account, however, this does NOT
-// disable TEST mode. Further, toggling back to TEST once you're in production
-// does NOT disable LIVE mode. Rather, each side (LIVE or TEST) shows the data
-// generated associated with your test and/or live keys. So, you can still do
-// tests locally and see that data in the dashboard before going into production.
-var secret = Meteor.settings.private.stripe.testSecretKey;
+var secret = Meteor.settings.private.stripe.liveSecretKey;
 var Stripe = StripeAPI(secret);
 var Future = Npm.require('fibers/future');
 var Fiber  = Npm.require('fibers');
