@@ -82,6 +82,18 @@ if (Meteor.isClient){
 			        concerns: $('[name="concerns"]').val()
 			    };
 				//	var waiver = waiverUrl;
+				
+				var ccNum = $('[data-stripe="cardNumber"]').val(),
+        cvcNum =$('[data-stripe="cvc"]').val(),
+        expMonth = $('[data-stripe="expMo"]').val(),
+        expYear = $('[data-stripe="expYr"]').val(),
+        name = $('[data-stripe="cardholder_name"]').val(),
+        address_line1 = $('[data-stripe="address_line1"]').val(),
+        address_line2 = $('[data-stripe="address_line2"]').val(),
+        address_city = $('[data-stripe="address_city"]').val(),
+        address_state = $('[data-stripe="address_state"]').val(),
+        address_zip = $('[data-stripe="address_zip"]').val(),
+        address_country = $('[data-stripe="address_country"]').val();
 
 			    Meteor.call('createreguser', student, parent, misc, function(err,res) {
 				    if (err){
