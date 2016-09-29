@@ -94,7 +94,7 @@ if (Meteor.isClient){
 				address_state = $('[data-stripe="address_state"]').val(),
 				address_zip = $('[data-stripe="address_zip"]').val(),
 				address_country = $('[data-stripe="address_country"]').val();
-
+				var error = false;
 				if ((ccNum == null || ccNum == "") && (cvcNum == null || cvcNum == "") && (expMonth == null || expMonth == "") && (expYear == null || expYear == "") && (name == null || name == "") && (address_line1 == null || address_line1 == "")
 				&& (address_line2 == null || address_line2 == "") && (address_city == null || address_city == "") && (address_state == null || address_state == "") && (address_zip == null || address_zip == "") && (address_country == null || address_country == "")) {
 
@@ -164,7 +164,7 @@ if (Meteor.isClient){
 							if (err) {
 								//INPUTERROR.report('There was a problem with your signup. Please try again');
 								alert(error.reason);
-								Bert.alert("Error");
+								Bert.alert("Error 1");
 								// If creation fails, make sure to "reset" our signup interface.
 								//submitButton.button('reset');
 								//Router.go('error')
@@ -177,7 +177,7 @@ if (Meteor.isClient){
 								// in our response before continuing.
 								if ( response.error ) {
 									alert(response.message);
-									Bert.alert("Error");
+									Bert.alert("Error 2");
 									Router.go('error')
 									// If creation fails, make sure to "reset" our signup interface.
 									//submitButton.button('reset');
@@ -185,7 +185,7 @@ if (Meteor.isClient){
 									// Our user exists, so now we can log them in! Note: because we know
 									// that we created our user using the emailAddress and password values
 									// above, we can simply login with these Hot dog, indeed.
-									Router.go('/initialLogin');
+									FlowRouter.go('/initialLogin');
 									console.log("login with password");
 									/* Meteor.loginWithPassword(customer.emailAddress, customer.password, function(error){
 									if (error) {

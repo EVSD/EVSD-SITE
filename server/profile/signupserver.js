@@ -16,7 +16,6 @@ Meteor.methods({
   //  });
     check(student, {
       firstName: String,
-      middleName: String,
       lastName: String,
       DOB: String,
       studentGrade: String,
@@ -25,8 +24,8 @@ Meteor.methods({
       studentPhoneNo: String,
       studentId: String,
       facebookAccount: String,
-      facebookEvsd: String,
-      schoolloopEvsd: String
+      facebook: String,
+      schoolloop: String
     });
 
     check(parent, {
