@@ -113,120 +113,88 @@ if (Meteor.isClient){
 
 					});
 				} else {
-				// Validate the number
+					// Validate the number
 
-				if (!Stripe.card.validateCardNumber(ccNum)) {
-					error = true;
-					//INPUTERROR.report('The credit card number appears to be invalid.');
-					Bert.alert("The credit card number appears to be invalid.");
-				}
+					if (!Stripe.card.validateCardNumber(ccNum)) {
+						error = true;
+						//INPUTERROR.report('The credit card number appears to be invalid.');
+						Bert.alert("The credit card number appears to be invalid.");
+					}
 
-				// Validate the CVC:
-				if (!Stripe.card.validateCVC(cvcNum)) {
-					error = true;
-					//INPUTERROR.report('The CVC number appears to be invalid.');
-					Bert.alert("The CVC number appears to be invalid.");
-				}
+					// Validate the CVC:
+					if (!Stripe.card.validateCVC(cvcNum)) {
+						error = true;
+						//INPUTERROR.report('The CVC number appears to be invalid.');
+						Bert.alert("The CVC number appears to be invalid.");
+					}
 
-				// Validate the expiration:
-				if (!Stripe.card.validateExpiry(expMonth, expYear)) {
-					error = true;
-					//INPUTERROR.report('The expiration date appears to be invalid.');
-					Bert.alert("The expiration date appears to be invalid");
-				}
-				// Take our card data and create a Stripe token from the client. This
-				// ensures that our code is PCI compliant to keep the man from knocking
-				// on our door.
-				if (!error) {
-					STRIPE.getToken( '#application-signup', {
-						number: $('[data-stripe="cardNumber"]').val(),
-						exp_month: $('[data-stripe="expMo"]').val(),
-						exp_year: $('[data-stripe="expYr"]').val(),
-						cvc: $('[data-stripe="cvc"]').val(),
-						name: $('[data-stripe="cardholder_name"]').val(),
-						address_line1: $('[data-stripe="address_line1"]').val(),
-						address_line2: $('[data-stripe="address_line2"]').val(),
-						address_city: $('[data-stripe="address_city"]').val(),
-						address_state: $('[data-stripe="address_state"]').val(),
-						address_zip: $('[data-stripe="address_zip"]').val(),
-						address_country: $('[data-stripe="address_country"]').val()
-					}, function() {
+					// Validate the expiration:
+					if (!Stripe.card.validateExpiry(expMonth, expYear)) {
+						error = true;
+						//INPUTERROR.report('The expiration date appears to be invalid.');
+						Bert.alert("The expiration date appears to be invalid");
+					}
+					// Take our card data and create a Stripe token from the client. This
+					// ensures that our code is PCI compliant to keep the man from knocking
+					// on our door.
+					if (!error) {
+						STRIPE.getToken( '#application-signup', {
+							number: $('[data-stripe="cardNumber"]').val(),
+							exp_month: $('[data-stripe="expMo"]').val(),
+							exp_year: $('[data-stripe="expYr"]').val(),
+							cvc: $('[data-stripe="cvc"]').val(),
+							name: $('[data-stripe="cardholder_name"]').val(),
+							address_line1: $('[data-stripe="address_line1"]').val(),
+							address_line2: $('[data-stripe="address_line2"]').val(),
+							address_city: $('[data-stripe="address_city"]').val(),
+							address_state: $('[data-stripe="address_state"]').val(),
+							address_zip: $('[data-stripe="address_zip"]').val(),
+							address_country: $('[data-stripe="address_country"]').val()
+						}, function() {
 
-						// Grab the customer's details.
-						var token = {
-							token: $('[name="stripeToken"]').val()
-						};
+							// Grab the customer's details.
+							var token = {
+								token: $('[name="stripeToken"]').val()
+							};
 
-						//var submitButton = $('input[type="submit"]').button('loading');
-						console.log("test");
-						Meteor.call('createCustomer', student, parent, misc, token, function(err, response){
+							//var submitButton = $('input[type="submit"]').button('loading');
+							console.log("test");
+							Meteor.call('createCustomer', student, parent, misc, token, function(err, response){
 
-							if (err) {
-								//INPUTERROR.report('There was a problem with your signup. Please try again');
-								alert(error.reason);
-								Bert.alert("Error 1");
-								// If creation fails, make sure to "reset" our signup interface.
-								//submitButton.button('reset');
-								//Router.go('error')
-							} else {
-								console.log("no error");
-								//Router.go('/');
-								// Note: because we're using a Future to return a value, even if an error
-								// occurs on the server, it will be passed back to the client as the
-								// response argument. Here, we test to make sure we didn't receive an error
-								// in our response before continuing.
-								if ( response.error ) {
-									alert(response.message);
-									Bert.alert("Error 2");
-									Router.go('error')
+								if (err) {
+									//INPUTERROR.report('There was a problem with your signup. Please try again');
+									alert(error.reason);
+									Bert.alert("Error 1");
 									// If creation fails, make sure to "reset" our signup interface.
 									//submitButton.button('reset');
+									//Router.go('error')
 								} else {
-									// Our user exists, so now we can log them in! Note: because we know
-									// that we created our user using the emailAddress and password values
-									// above, we can simply login with these Hot dog, indeed.
-									FlowRouter.go('/initialLogin');
-									console.log("login with password");
-									/* Meteor.loginWithPassword(customer.emailAddress, customer.password, function(error){
-									if (error) {
-									alert(error.reason);
-									// If login fails, make sure to "reset" our signup interface.
-									//submitButton.button('reset');
-								} else {
-								// Router.go('/');
-								// If creation fails, make sure to "reset" our signup interface.
-								submitButton.button('reset');
-							}
-						});*/
-					}
+									console.log("no error");
+									//Router.go('/');
+									// Note: because we're using a Future to return a value, even if an error
+									// occurs on the server, it will be passed back to the client as the
+									// response argument. Here, we test to make sure we didn't receive an error
+									// in our response before continuing.
+									if ( response.error ) {
+										alert(response.message);
+										Bert.alert("Error 2");
+										// If creation fails, make sure to "reset" our signup interface.
+										//submitButton.button('reset');
+									} else {
+										// Our user exists, so now we can log them in! Note: because we know
+										// that we created our user using the emailAddress and password values
+										// above, we can simply login with these Hot dog, indeed.
+										FlowRouter.go('/initialLogin');
+										console.log("login with password");
+
+									}
+								}
+							});
+
+						});
+					} // end STRIPE.getToken();
 				}
-			});
-
-		});
-	} // end STRIPE.getToken();
+			}
+		}
+	});
 }
-}
-}
-});
-}
-/*
-Meteor.call('createreguser', student, parent, misc, function(err,res) {
-if (err){
-console.log(err);
-Bert.alert(err);
-}else{
-//redirects you to pay contribution if successfully signed up
-//FlowRouter.go("/payContribution");
-}
-});
-
-FlowRouter.go('/initialLogin');
-}else{
-event.preventDefault();
-Bert.alert('Form is not uploaded or password is not validated','warning');
-}
-},//end of signup
-});
-}
-//put a conditional around all fields but name(s), email, and password if no pay?
-*/

@@ -1,11 +1,3 @@
-/*
-* Methods: Stripe
-* Methods for interacting with the Stripe API. Because we'll interact with the
-* Stripe API in a number of different ways, we want to break up the various
-* functions into multiple methods. This will allow us to define each function
-* once, while reusing them multiple times in our application. Sweet!
-*/
-
 var secret = Meteor.settings.private.stripe.liveSecretKey;
 var Stripe = StripeAPI(secret);
 var Future = Npm.require('fibers/future');
@@ -31,9 +23,9 @@ Meteor.methods({
       email: email
     }, function(err, customer){
       if (err){
-      //  console.log("stripeserver: stripe.customers.create:", err.message);
+        //console.log("stripeserver error: stripe.customers.create:", err.message);
       } else {
-        //console.log("stripeserver: stripe.customers.create:","stripeId=", customer.id);
+        //console.log("stripeserver good: stripe.customers.create:","stripeId=", customer.id);
         stripeCustomer.return(customer);
       }
     });

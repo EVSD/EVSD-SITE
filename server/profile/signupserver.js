@@ -121,6 +121,7 @@ Meteor.methods({
 
                   }
                 });
+                 console.log('successfully created user');
 
             //   console.log("new Accounts.createuser");
                 // Before we return our user to the client, we need to perform a Meteor.users.update
