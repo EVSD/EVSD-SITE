@@ -17,9 +17,7 @@
             Meteor.users.update(Meteor.userId(),{
               $set: {"profile.payContribution": "yes"}
             });
-            Meteor.users.update(Meteor.userId(),{
-              $set: {"profile.paidContribution": "yes"}
-            });
+            
             //FlowRouter.go('/waiver');
             //FlowRouter.go('/signupSuccess');
           } else {
