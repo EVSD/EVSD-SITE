@@ -1,15 +1,12 @@
 if(Meteor.isClient){
 	Template.tSignup.onRendered(function() {
-		//$('select').material_select('destroy');
 		$('select').material_select();
 	});
 	//functions
 	Template.tSignup.helpers({
-		users: function () {
-	    return Meteor.users.find({}, {
-	      sort: { "profile.lastName": 1 }
-	    });
-	  },
+		users: function(){
+			return Meteor.users.find({}); //only return certain fields
+			},
 		tournamentList: function (){
 			return TournamentList.find({},{
 				fields:{
@@ -33,7 +30,8 @@ if(Meteor.isClient){
 			if (theOne.judges == "no") {judgesToggle.style.display = "none";}
 			if (theOne.partner == "no") {partnerToggle.style.display = "none";}
 		},
-		"click #pay": function(event){
+		//submit is a type of HTML input
+		"submit .add-tournament": function(event){
 
 			event.preventDefault(); //so it doesn't refresh
 
@@ -89,7 +87,7 @@ if(Meteor.isClient){
 					}
 				//payment and account creation
 				StripeCheckout.open({
-			    	key: Meteor.settings.public.stripe.livePublishableKey,
+			    	key: Meteor.settings.public.stripe.testPublishableKey,
 			        amount: price * 100,
 			        name: 'Tournament Payment',
 			        // description: 'As reviewed in the Parent Orientation, this is the bare minimum we need to cover coaching expenses and salaries, facilities, school tournament fees, club events, financial aid & subsidies to students, league fees, professional material, and much more. Most schools ask for around $400-$600, so we are trying our best to do with as little aid as possible. Please contact team administration at evhs.sd@gmail.com for questions or concerns. We use Paypal and Stripe software to power our payment process, which means our platform is verified and 100% safe. Because we are a registered 501c3 under California State Government and an ESUHSD Booster, your contribution is tax-deductible.',
@@ -107,7 +105,7 @@ if(Meteor.isClient){
 
 						//in the display determine it based off of tournament
 				} else{
-				Bert.alert ("You and/or your parent have not consented yet.");
+				alert ("You and/or your parent have not consented yet.");
 				}
 			//send some confirmation alert
 			},
