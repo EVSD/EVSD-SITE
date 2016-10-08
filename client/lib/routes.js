@@ -264,6 +264,19 @@ FlowRouter.route('/ResetPassword', {
   }
 });
 
+FlowRouter.route('/tournamentSignup', {
+  action: function() {
+    BlazeLayout.render("view", {main: "tournamentSignup"});
+  }
+});
+
+FlowRouter.route('/judgeSignup', {
+  action: function() {
+    BlazeLayout.render("view", {main: "judgeSignup"});
+  }
+});
+
+
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
