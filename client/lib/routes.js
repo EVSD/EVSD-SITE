@@ -276,7 +276,16 @@ FlowRouter.route('/judgeSignup', {
   }
 });
 
-
+FlowRouter.route ('/editablePage_edit',{
+  action:function(){
+    BlazeLayout.render("view",{main: "editablePage_edit"});
+  }
+})
+FlowRouter.route ('/editablePage_1',{
+  action:function(){
+    BlazeLayout.render("view",{main: "editablePage_1"});
+  }
+})
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
