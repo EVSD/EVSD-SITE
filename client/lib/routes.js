@@ -276,6 +276,11 @@ FlowRouter.route('/judgeSignup', {
   }
 });
 
+FlowRouter.route('/backupPayment', {
+  action: function() {
+    BlazeLayout.render("view", {main: "backupPayment"});
+  }
+});
 
 FlowRouter.notFound = {
   action: function() {
