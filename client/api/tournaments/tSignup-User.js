@@ -121,6 +121,7 @@ if(Meteor.isClient){
 			          // Meteor.call('chargeCard', stripeToken);
 			          // prevents multiple charges if client disconnects and reconnects
 			        	Meteor.apply('paySetupEntry', [stripeToken, price, entry], {noRetry: true});
+								Bert.alert("Success! Your tournament entry has been created", "success", "fixed-top");
 			        }
 		      	});
 
