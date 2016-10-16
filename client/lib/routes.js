@@ -286,6 +286,11 @@ FlowRouter.route ('/editablePage_1',{
     BlazeLayout.render("view",{main: "editablePage_1"});
   }
 })
+FlowRouter.route('/backupPayment', {
+  action: function() {
+    BlazeLayout.render("view", {main: "backupPayment"});
+  }
+});
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})
