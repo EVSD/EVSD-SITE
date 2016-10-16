@@ -17,7 +17,8 @@
 				</select><br>
 
 				<div id="partnerToggle">
-					Choose a Partner:<select name="partner" required>
+					<select name="partner" required>
+						<option value="" disabled selected>Choose a Partner: </option>
 						{{#each users}}
 							<option value="{{username}}">{{username}}</option>
 						{{/each}}
