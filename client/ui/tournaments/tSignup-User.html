@@ -1,69 +1,69 @@
 <template name="tSignup">
 
 
-{{#if currentUser}}
+	{{#if currentUser}}
 	<h2>Sign Up For a Tournament</h2>
-		<h6>Note: For partner tournaments, only one partner should sign up here to create an entry.
-			After the first partner signs up and pays, the second partner will be able to see the entry under "My tournaments", confirm, and pay</h6>
-			<form class ="add-tournament" novalidate> <!--used to create a form like something to input things-->
+	<h6>Note: For partner tournaments, only one partner should sign up here to create an entry.
+		After the first partner signs up and pays, the second partner will be able to see the entry under "My tournaments", confirm, and pay</h6>
+		<form class ="add-tournament" novalidate> <!--used to create a form like something to input things-->
 
- 						<select name="tournament" id="tournament" required>
- 						<option value="" disabled selected>Choose a Tournament: </option>
- 						{{#each tournamentList}}
+			<select name="tournament" id="tournament" required>
+				<option value="" disabled selected>Choose a Tournament: </option>
+				{{#each tournamentList}}
 
-						<option value='{{name}}' {{disableIfPassDue _id}}>
-							{{name}} - Due: {{signUpDeadline}}
-							<!--disable based off deadline-->
-						</option>
+				<option value='{{name}}' {{disableIfPassDue _id}}>
+					{{name}} - Due: {{signUpDeadline}}
+					<!--disable based off deadline-->
+				</option>
+				{{/each}}
+			</select><br>
+
+			<div id="partnerToggle">
+				<select name="partner" required>
+					<option value="" disabled selected>Choose a Partner: </option>
+					{{#each users}}
+					<option value="{{username}}">{{username}}</option>
 					{{/each}}
 				</select><br>
+			</div>
 
-				<div id="partnerToggle">
-					<select name="partner" required>
-						<option value="" disabled selected>Choose a Partner: </option>
-						{{#each users}}
-							<option value="{{username}}">{{username}}</option>
-						{{/each}}
-					</select><br>
-				</div>
+			<div id="judgesToggle" required>
+				<h3>Insert Your Judge:</h3>
+				<!--type="hidden" - make this the conditional-->
+				<label for="judgeFirst">First Name</label>
+				<input type="text" name="judgeFirst" autofocus required><br>
+				<label for="judgeLast">Last Name</label>
+				<input type="text" name="judgeLast" autofocus required><br>
+				<label for="judgeEmail">Email</label>
+				<input type="email" name="judgeEmail" class="validate" autofocus required><br>
+				<label for="judgePhone">Phone number</label>
+				<input type="tel" name="judgePhone" autofocus required>
+				<!--if has no value still put it in the tournament list so that chance for
+				admin to add back later-->
+			</div>
+			<h3> Notes for the Admin </h3>
+			<textarea name="notes" class="materialize-textarea" placeholder="i.e. event"></textarea>
 
-				<div id="judgesToggle" required>
-					<h3>Insert Your Judge:</h3>
-					<!--type="hidden" - make this the conditional-->
-						<label for="judgeFirst">First Name</label>
-		                  <input type="text" name="judgeFirst" autofocus required><br>
-		                <label for="judgeLast">Last Name</label>
-		                  <input type="text" name="judgeLast" autofocus required><br>
-		                <label for="judgeEmail">Email</label>
-		                  <input type="email" name="judgeEmail" class="validate" autofocus required><br>
-		                <label for="judgePhone">Phone number</label>
-		                  <input type="tel" name="judgePhone" autofocus required>
-	                  <!--if has no value still put it in the tournament list so that chance for
-	                  		admin to add back later-->
-				</div>
-				<h3> Notes for the Admin </h3>
-					<textarea name="notes" class="materialize-textarea" placeholder="i.e. event"></textarea>
+			<h3> Terms of Conditions </h3> <!--implement later more explicitly-->
+			<p>This is where the terms of conditions will go</p>
 
-				<h3> Terms of Conditions </h3> <!--implement later more explicitly-->
-					<p>This is where the terms of conditions will go</p>
+			<p>I, the student of this account, fully agree to the above terms of conditions.</p>
+			<input type="radio" name="studentConsent" value="yes" id='scyes' class="with-gap">
+			<label for="scyes">Yes, we(I) agree</label>
+			<input type="radio" name="studentConsent" value="no" id='scno' class="with-gap">
+			<label for="scno">No, we(I) do not</label>
+			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
+			<input type="radio" name="parentConsent" id='pcyes' value="yes" class="with-gap">
+			<label for="pcyes">Yes, we(I) agree</label>
+			<input  type="radio" name="parentConsent" id='pcno' value="no" class="with-gap">
+			<label for="pcno">No, we(I) do not</label>
+			<br><br>
+			<button class="btn waves-effect waves-light" type="submit" name="action">Pay Now to Sign Up</button>
 
-					<p>I, the student of this account, fully agree to the above terms of conditions.</p>
-			  			<input type="radio" name="studentConsent" value="yes" id='scyes' class="with-gap">
-								<label for="scyes">Yes, we(I) agree</label>
-			  			<input type="radio" name="studentConsent" value="no" id='scno' class="with-gap">
-							<label for="scno">No, we(I) do not</label>
-		  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
-		  				<input type="radio" name="parentConsent" id='pcyes' value="yes" class="with-gap">
-								<label for="pcyes">Yes, we(I) agree</label>
-		  				<input  type="radio" name="parentConsent" id='pcno' value="no" class="with-gap">
-								<label for="pcno">No, we(I) do not</label>
-								<br>
-				<button class="btn waves-effect waves-light" type="submit" name="action">Pay Now to Sign Up</button>
+		</form>
+		{{else}}
+		<p>Please login to sign up for tournaments</p>
 
-			</form>
-			{{else}}
-				<p>Please login to add tournaments</p>
+		{{/if}}
 
-{{/if}}
-
-</template>
+	</template>
