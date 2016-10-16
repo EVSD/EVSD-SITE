@@ -7,6 +7,7 @@ if(Meteor.isClient){
 	        	sort: {"tournament":1, "createdAt": -1},
     		})
 			},
+			/*
 		//this create the path to get to the entry
 	 	pathForEntry: function() {
 		    let params = {
@@ -15,7 +16,7 @@ if(Meteor.isClient){
 		    let routeName = "editEntry";
 		    return path = FlowRouter.go(routeName, params);
 			},
-
+*/
 	});
 	Template.myTournaments.events({
 		"click .delete-entry": function(event){
