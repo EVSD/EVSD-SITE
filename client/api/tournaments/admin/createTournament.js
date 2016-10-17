@@ -12,7 +12,8 @@ if (Meteor.isClient){
 		});
 	});
 	Template.createTournament.events({
-		'submit .create-tournament': function(){
+		'submit .create-tournament': function(event){
+			event.preventDefault();
 			let tournament ={
 					name: event.target.name.value,
 					cost: event.target.cost.value,
