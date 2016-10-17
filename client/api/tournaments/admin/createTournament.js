@@ -22,10 +22,10 @@ if (Meteor.isClient){
 				};
 				console.log(tournament.name+" "+tournament.cost);
 			//if there are actual values
-			if (tournament.name != '' && tournament.cost != '' && tournament.signUpDeadline != '' && tournament.partner != '' && tournament.judges != '')
+			if (tournament.name != '' && tournament.cost != '' && tournament.signUpDeadline != '' && tournament.partner != '' && tournament.judges != '') {
 				Meteor.call('createTournament', tournament);
 				Bert.alert("Success! Your tournament has been created", "success", "fixed-top");
-			else {
+			} else {
 				event.preventDefault();
 				Bert.alert ("Fill out all the fields");
 			}
