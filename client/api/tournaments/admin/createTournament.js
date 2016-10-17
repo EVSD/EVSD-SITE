@@ -24,6 +24,7 @@ if (Meteor.isClient){
 			//if there are actual values
 			if (tournament.name != '' && tournament.cost != '' && tournament.signUpDeadline != '' && tournament.partner != '' && tournament.judges != '')
 				Meteor.call('createTournament', tournament);
+				Bert.alert("Success! Your tournament has been created", "success", "fixed-top");
 			else {
 				event.preventDefault();
 				Bert.alert ("Fill out all the fields");

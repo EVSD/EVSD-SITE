@@ -127,7 +127,7 @@ if(Meteor.isClient){
 
 						//in the display determine it based off of tournament
 				} else{
-				alert ("You and/or your parent have not consented yet.");
+				Bert.alert ("You and/or your parent have not consented yet.");
 				}
 			//send some confirmation alert
 			},
