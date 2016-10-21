@@ -28,10 +28,11 @@ if (Meteor.isClient){
 
       Meteor.users.update(user._id, {
         $set: {"profile.balance": (user.profile.balance + Number(checkAmount))}
-      })
+      });
 			Meteor.users.update(user._id, {
 				$addToSet: {"profile.accountBalanceLog": {cc: false, description: "N/A", checkNo: checkNumber, paymentMethod: "check", amount: checkAmount, name: checkName, date: new Date(), dateWritten: written, dateDeposited: deposited, memo: checkMemo}}
-			})
+			});
+			Bert.alert("Success! Your payment has been logged", "success", "fixed-top");
 		},
 	});
 }

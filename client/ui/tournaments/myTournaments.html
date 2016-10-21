@@ -1,5 +1,5 @@
 <template name= "myTournaments">
-	
+
 
 	{{#if currentUser}}
 
@@ -23,17 +23,24 @@
 
 				<!--if the current user's email matches p2 user name and p2 hasn't payed-->
 				<form class="partnerPay" id="partnerPay" {{showPartnerPay p2Paid p2Email}} >
-					<h3> Terms of Conditions </h3>
-						<p>This is where the terms of conditions will go</p>
+					<h3> Terms and conditions </h3>
+					<p>By signing up for this tournament, I, the student of this account, agree to the terms and conditions detailed
+						<a href="https://drive.google.com/drive/folders/0BxnoswyGr3ePZVhBVkZZd0xmMDQ?usp=sharing">here</a></p>
 
-						<p>I, the student of this account, fully agree to the above terms of conditions.</p>
-				  			<input type="radio" name="studentConsent" value="yes"> Yes, I agree
-				  			<input type="radio" name="studentConsent" value="no"> No, I do not <br>
-			  			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
-			  				<input type="radio" name="parentConsent" value="yes"> Yes, we(I) agree
-			  				<input type="radio" name="parentConsent" value="no"> No, we(I) do not <br>
+<!--
+						<p>I, the student of this account, fully agree to the above terms and conditions.</p>
+						<input type="radio" name="studentConsent" value="yes" id='scyes' class="with-gap">
+						<label for="scyes">Yes, we(I) agree</label>
+						<input type="radio" name="studentConsent" value="no" id='scno' class="with-gap">
+						<label for="scno">No, we(I) do not</label>
+						<p>We(I), the parent(s) of this student, fully agree to the above terms and conditions.</p>
+						<input type="radio" name="parentConsent" id='pcyes' value="yes" class="with-gap">
+						<label for="pcyes">Yes, we(I) agree</label>
+						<input  type="radio" name="parentConsent" id='pcno' value="no" class="with-gap">
+						<label for="pcno">No, we(I) do not</label>
+						<br><br> -->
+						<button class="btn waves-effect waves-light" type="submit" name="action">Pay Now to Sign Up</button>
 
-					<input type="submit" value="Pay for Tournament">
 				</form>
 
 				<p>Created At: {{createdAt}}</p>

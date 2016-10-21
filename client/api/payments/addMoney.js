@@ -16,6 +16,7 @@ if (Meteor.isClient) {
               // Meteor.call('chargeCard', stripeToken);
               // prevents multiple charges if client disconnects and reconnects
               Meteor.apply('addMoney', [stripeToken, paymentAmount], {noRetry: true});
+							Bert.alert("Success! Your payment has been processed and your balance has been increased accordingly", "success", "fixed-top");
             }
           });
 		},

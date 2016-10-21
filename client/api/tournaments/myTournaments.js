@@ -7,6 +7,7 @@ if(Meteor.isClient){
 	        	sort: {"tournament":1, "createdAt": -1},
     		})
 			},
+			/*
 		//this create the path to get to the entry
 	 	pathForEntry: function() {
 		    let params = {
@@ -15,7 +16,7 @@ if(Meteor.isClient){
 		    let routeName = "editEntry";
 		    return path = FlowRouter.go(routeName, params);
 			},
-
+*/
 	});
 	Template.myTournaments.events({
 		"click .delete-entry": function(event){
@@ -33,14 +34,14 @@ if(Meteor.isClient){
 			let theOne = TournamentList.findOne({
 				"name": tournament
 				});
-
-			let studentConsent = event.target.studentConsent.value,
-				parentConsent = event.target.parentConsent.value;
+			//
+			// let studentConsent = event.target.studentConsent.value,
+			// 	parentConsent = event.target.parentConsent.value;
 
 			let price = theOne.cost,
 				entryId = this._id; //test to see if this works
 
-			if(parentConsent == "yes" && studentConsent == "yes"){
+			// if(parentConsent == "yes" && studentConsent == "yes"){
 				//payment and account creation
 				StripeCheckout.open({
 			    	key: Meteor.settings.public.stripe.livePublishableKey,
@@ -55,7 +56,7 @@ if(Meteor.isClient){
 			        	Meteor.apply('payEntryPartner', [stripeToken, price, entryId], {noRetry: true});
 			        }
 			    });
-			}else Bert.alert("Agree to the terms for both parent and student.");
+			// }else Bert.alert("Agree to the terms for both parent and student.");
 		},//end of partnerPay
 	});
 }
