@@ -264,6 +264,33 @@ FlowRouter.route('/ResetPassword', {
   }
 });
 
+FlowRouter.route('/tournamentSignup', {
+  action: function() {
+    BlazeLayout.render("view", {main: "tournamentSignup"});
+  }
+});
+
+FlowRouter.route('/judgeSignup', {
+  action: function() {
+    BlazeLayout.render("view", {main: "judgeSignup"});
+  }
+});
+
+FlowRouter.route ('/editablePage_edit',{
+  action:function(){
+    BlazeLayout.render("view",{main: "editablePage_edit"});
+  }
+})
+FlowRouter.route ('/editablePage_1',{
+  action:function(){
+    BlazeLayout.render("view",{main: "editablePage_1"});
+  }
+})
+FlowRouter.route('/backupPayment', {
+  action: function() {
+    BlazeLayout.render("view", {main: "backupPayment"});
+  }
+});
 FlowRouter.notFound = {
   action: function() {
     BlazeLayout.render("view", {main: "404"})

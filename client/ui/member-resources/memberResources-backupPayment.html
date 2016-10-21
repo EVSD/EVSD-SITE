@@ -1,0 +1,18 @@
+<template name = "backupPayment">
+  <h2>Backup Payment</h2>
+  <p>Use this feature for a backup payment method, if Stripe does not work</p>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="N3JMEFZMDN96G">
+	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  </form>
+  <ol>
+  	<li>Click the "Pay Now" button above.</li>
+  	<li>Enter the amount owed under "Item Price," then click "Update"</li>
+  	<li>Click on "Don't have a PayPal account?"</li>
+  	<li>Fill in your card information.</li>
+  	<li>Click on "Add" next to "Enter name of the studnet (First Last)." Type in the name of the whom you are paying for. If you leave this field blank, we will not be able to credit the money to your account</li>
+  	<li>If you submit your payment without filling in the student name, please immediately send us an email listing the name you entered under "Billing Information" and indicating which student that payment intended to cover.</li>
+  </ol>
+</template>

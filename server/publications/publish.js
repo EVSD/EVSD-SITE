@@ -6,7 +6,9 @@ if(Meteor.isServer){
 	Meteor.publish('users', function(){
 	    return Meteor.users.find({});
 		});
-
+	Meteor.publish('editablePages', function(){
+	    return PageEdits.find({});
+		});
 	Meteor.publish('tournament_list', function(){
 		return TournamentList.find({});
 	});

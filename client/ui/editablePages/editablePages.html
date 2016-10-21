@@ -1,0 +1,41 @@
+<template name = "editablePage_edit">
+  <!--if you are the admin
+      1. you can edit the areas: Title, main text
+      2. features to come: markdown support, url editing abilities, dynamic area support
+      //there should be a select dropdown menu but it doesn't work atm
+  -->
+  <!--<select name="pageToEdit" required>
+    <option value="select a page" disabled selected>Select a Page to Edit: </option>
+    {{#each validPages}}
+      <option value="{{page}}">{{page}}</option>
+    {{/each}}
+  </select>-->
+{{#if isInRole 'admin'}}
+  <form class = "editPage">
+
+    <h2>Set Page Information</h2>
+    <h4>Page To Edit</h4>
+      <input type="text" name="pageToEdit" placeholder="Enter url of page you want to edit" required>
+    <h4>Page Name</h4>
+      <input type="text" name="pageTitle" placeholder="Enter Title" required>
+    <h4>Content</h4>
+      <textarea name="pageContent" placeholder="enter content" required></textarea>
+
+    <input type="submit" class="btn btn-success btn-block" style="margin-top: 40px; margin-bottom: 20px;" value="Save Changes">
+  </form>
+
+  <form class = "indexNewPage">
+    <h3>Enter new Page (Programmer Only)</h3>
+      <input type="text" name="pageName" placeholder="Enter Title" required>
+    <input type="submit" class="btn btn-success btn-block" style="margin-top: 40px; margin-bottom: 20px;" value="Add New Page">
+
+  </form>
+  <!--need a place to submit new pages-->
+  {{/if}}
+</template>
+
+<template name = "editablePage_1">
+    <h2>{{page.title}}</h2>
+    <p>{{page.content}}</p>
+  <!--you set the page in the helper using findOne-->
+</template>
