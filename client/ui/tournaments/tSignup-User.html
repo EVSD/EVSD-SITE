@@ -28,7 +28,7 @@
 			</div>
 
 			<div id="judgesToggle" required>
-				<h3>Insert Your Judge:</h3>
+				<h3>Enter Judge Information</h3>
 				<!--type="hidden" - make this the conditional-->
 				<label for="judgeFirst">First Name</label>
 				<input type="text" name="judgeFirst" autofocus required><br>
@@ -41,18 +41,19 @@
 				<!--if has no value still put it in the tournament list so that chance for
 				admin to add back later-->
 			</div>
-			<h3> Notes for the Admin </h3>
+			<h3> Notes</h3>
 			<textarea name="notes" class="materialize-textarea" placeholder="i.e. event"></textarea>
 
-			<h3> Terms of Conditions </h3> <!--implement later more explicitly-->
-			<p>This is where the terms of conditions will go</p>
+			<h3> Terms and conditions </h3> <!--implement later more explicitly-->
+			<p>By signing up for this tournament, I, the student of this account, agree to the terms and conditions detailed
+				<a href="https://drive.google.com/drive/folders/0BxnoswyGr3ePZVhBVkZZd0xmMDQ?usp=sharing">here</a></p>
 <!--
-			<p>I, the student of this account, fully agree to the above terms of conditions.</p>
+			<p>I, the student of this account, fully agree to the above Terms and conditions.</p>
 			<input type="radio" name="studentConsent" value="yes" id='scyes' class="with-gap">
 			<label for="scyes">Yes, we(I) agree</label>
 			<input type="radio" name="studentConsent" value="no" id='scno' class="with-gap">
 			<label for="scno">No, we(I) do not</label>
-			<p>We(I), the parent(s) of this student, fully agree to the above terms of conditions.</p>
+			<p>We(I), the parent(s) of this student, fully agree to the above Terms and conditions.</p>
 			<input type="radio" name="parentConsent" id='pcyes' value="yes" class="with-gap">
 			<label for="pcyes">Yes, we(I) agree</label>
 			<input  type="radio" name="parentConsent" id='pcno' value="no" class="with-gap">
