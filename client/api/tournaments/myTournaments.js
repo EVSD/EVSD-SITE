@@ -34,14 +34,14 @@ if(Meteor.isClient){
 			let theOne = TournamentList.findOne({
 				"name": tournament
 				});
-
-			let studentConsent = event.target.studentConsent.value,
-				parentConsent = event.target.parentConsent.value;
+			//
+			// let studentConsent = event.target.studentConsent.value,
+			// 	parentConsent = event.target.parentConsent.value;
 
 			let price = theOne.cost,
 				entryId = this._id; //test to see if this works
 
-			if(parentConsent == "yes" && studentConsent == "yes"){
+			// if(parentConsent == "yes" && studentConsent == "yes"){
 				//payment and account creation
 				StripeCheckout.open({
 			    	key: Meteor.settings.public.stripe.livePublishableKey,
@@ -56,7 +56,7 @@ if(Meteor.isClient){
 			        	Meteor.apply('payEntryPartner', [stripeToken, price, entryId], {noRetry: true});
 			        }
 			    });
-			}else Bert.alert("Agree to the terms for both parent and student.");
+			// }else Bert.alert("Agree to the terms for both parent and student.");
 		},//end of partnerPay
 	});
 }

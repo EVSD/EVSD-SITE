@@ -42,22 +42,22 @@ if(Meteor.isClient){
 				"name": selected
 				});
 			let price = theOne.cost; //cost of tournament
-
-			let studentConsent = $('input[name="studentConsent"]:checked').val(),
-				parentConsent = $('input[name="parentConsent"]:checked').val();
+			//
+			// let studentConsent = $('input[name="studentConsent"]:checked').val(),
+			// 	parentConsent = $('input[name="parentConsent"]:checked').val();
 
 
 			//gets all the tournament data and prompts user to pay before account created
 				//when parent and student have consented
-			if(parentConsent == "yes" && studentConsent == "yes"){
+			// if(parentConsent == "yes" && studentConsent == "yes"){
 				//data for user, partner, and the judge
 				let userFirst = Meteor.user().profile.firstName,
 					userLast = Meteor.user().profile.lastName,
 					userEmail = Meteor.user().emails[0].address;
 
-					let theOne = TournamentList.findOne({
-						"name": selected
-						});
+					//  theOne = TournamentList.findOne({
+					// 	"name": selected
+					// 	});
 
 						var username, partner, partnerFirst, partnerLast, partnerEmail;
 						var judgeFirst, judgeLast, judgeEmail, judgePhone;
@@ -97,8 +97,8 @@ if(Meteor.isClient){
 					 partnerLast : partnerLast,
 					 partnerEmail : partnerEmail,
 
-					 studentConsent: studentConsent,
-					 parentConsent: parentConsent,
+					 studentConsent: "yes",
+					 parentConsent: "yes",
 					 judgeFirst: judgeFirst,
 					 judgeLast: judgeLast,
 					 judgeEmail: judgeEmail,
@@ -126,9 +126,9 @@ if(Meteor.isClient){
 		      	});
 
 						//in the display determine it based off of tournament
-				} else{
-				Bert.alert ("You and/or your parent have not consented yet.");
-				}
+				// } else{
+				// Bert.alert ("You and/or your parent have not consented yet.");
+				// }
 			//send some confirmation alert
 			},
 	});
