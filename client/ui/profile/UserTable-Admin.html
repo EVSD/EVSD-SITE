@@ -5,6 +5,7 @@
 <!--Users and their roles-->
 	<table class="table table-bordered">
 		<thead>
+      <th class="text-center">Remove</th>
 			<th class="text-center">Name</th>
 			<th class="text-center">Email Address </th>
 		    <th class="text-center">Role</th>
@@ -12,6 +13,7 @@
 		<tbody>
 		  {{#each users}}
 		    <tr>
+          <td><a href="#" class="remove-user">Remove</a></td>
 		  		<!--First/Last Name-->
 		  		<td >{{profile.firstName}} {{profile.lastName}}</td>
 		  		<!--identifies email-->
