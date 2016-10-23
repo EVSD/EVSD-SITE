@@ -25,13 +25,15 @@ if (Meteor.isClient){
 			} else return false;
 		},
 		'click .remove-user': function(event) {
-			Meteor.users.remove({ _id: this._id }, function (error, result) {
-				if (error) {
-					Bert.alert("Error removing user: " + error);
-				} else {
-					Bert.alert("Successfully removed user", "success");
-				}
-			})
+			if (confirm("Are you sure?")) {
+				Meteor.users.remove({ _id: this._id }, function (error, result) {
+					if (error) {
+						Bert.alert("Error removing user: " + error);
+					} else {
+						Bert.alert("Successfully removed user", "success");
+					}
+				});
+			};
 		},
 	});
 }
