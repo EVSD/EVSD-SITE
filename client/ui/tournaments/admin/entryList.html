@@ -16,10 +16,10 @@
 <!--approve tournament-->
 		<form class="approve-tournament">
 			<label for="approved">Approved?</label>
-		    	<input type="radio" name="approved" id="approvedYes" checked="{{checked approved 'yes'}}" class="with-gap">
-						<label for="approvedYes">Yes</label>
-	  			<input type="radio" name="approved" value="no" id="approvedNo" checked ="{{checked approved 'no'}}" class="with-gap">
-						<label for="approvedNo">No</label><br>
+		    	<input type="radio" name="approved" id={{createdAt}}approvedYes checked="{{checked approved 'yes'}}" class="with-gap yes">
+						<label for={{createdAt}}approvedYes>Yes</label>
+	  			<input type="radio" name="approved" value="no" id={{createdAt}}approvedNo checked ="{{checked approved 'no'}}" class="with-gap no">
+						<label for={{createdAt}}approvedNo>No</label><br>
 		</form>
 <!--rest of the tournament entry information-->
 		<p>created at: {{createdAt}}</p>
@@ -53,15 +53,15 @@
 			{{/if}}
 		</h3>
 <!--approve tournament-->
-		<form class="approve-tournament">
-			<label for="approved">Approved?</label>
-		    	<input type="radio" name="approved" id="approvedYes" checked="{{checked approved 'yes'}}" class="with-gap">
-						<label for="approvedYes">Yes</label>
-	  			<input type="radio" name="approved" value="no" id="approvedNo" checked ="{{checked approved 'no'}}" class="with-gap">
-						<label for="approvedNo">No</label><br>
-		</form>
+<form class="approve-tournament">
+	<label for="approved">Approved?</label>
+			<input type="radio" name="approved" id={{createdAt}}approvedYes checked="{{checked approved 'yes'}}" class="with-gap">
+				<label for={{createdAt}}approvedYes>Yes</label>
+			<input type="radio" name="approved" value="no" id={{createdAt}}approvedNo checked ="{{checked approved 'no'}}" class="with-gap">
+				<label for={{createdAt}}approvedNo>No</label><br>
+</form>
 <!--rest of the tournament entry information-->
-		<p>created at: {{createdAt}}</p>
+		<p>Created at: {{createdAt}}</p>
 		<h4>Partner 1</h4>
 			<li> {{p1FirstName}} {{p1LastName}}</li>
 			<li> {{p1Email}}</li>

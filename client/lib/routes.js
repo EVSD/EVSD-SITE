@@ -50,8 +50,7 @@ FlowRouter.route('/', {
       BlazeLayout.render("view", {main: "export"});
     }
   });
-
-var tournamentRoutes = FlowRouter.group({
+  var tournamentRoutes = FlowRouter.group({
   prefix: '/tournaments',
     name: 'tournament',
   });
@@ -96,6 +95,7 @@ var tournamentRoutes = FlowRouter.group({
   });
   //for /tournaments/editEntry route
     //to edit your own tournament entries
+    
   tournamentRoutes.route('/myTournaments/edit/:entryId', {
     name: "editEntry",
     action: function() {

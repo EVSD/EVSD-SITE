@@ -24,10 +24,11 @@ if (Meteor.isClient){
 			let eventDescription = event.target.description.value;
       Meteor.users.update(user._id, {
         $set: {"profile.balance": (user.profile.balance + Number(eventAmount))}
-      })
+      });
 			Meteor.users.update(user._id, {
 				$addToSet: {"profile.accountBalanceLog": {cc: true, description: eventDescription, checkNo: 0, paymentMethod: "administrative manual payment logging", amount: eventAmount, name: eventName, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
-			})
+			});
+			Bert.alert("Success! User balance has been modified", "success", "fixed-top");
 		},
 	});
 }

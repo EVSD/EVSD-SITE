@@ -12,7 +12,8 @@ if (Meteor.isClient){
 		});
 	});
 	Template.createTournament.events({
-		'submit .create-tournament': function(){
+		'submit .create-tournament': function(event){
+			event.preventDefault();
 			let tournament ={
 					name: event.target.name.value,
 					cost: event.target.cost.value,
@@ -22,9 +23,10 @@ if (Meteor.isClient){
 				};
 				console.log(tournament.name+" "+tournament.cost);
 			//if there are actual values
-			if (tournament.name != '' && tournament.cost != '' && tournament.signUpDeadline != '' && tournament.partner != '' && tournament.judges != '')
+			if (tournament.name != '' && tournament.cost != '' && tournament.signUpDeadline != '' && tournament.partner != '' && tournament.judges != '') {
 				Meteor.call('createTournament', tournament);
-			else {
+				Bert.alert("Success! Your tournament has been created", "success", "fixed-top");
+			} else {
 				event.preventDefault();
 				Bert.alert ("Fill out all the fields");
 			}

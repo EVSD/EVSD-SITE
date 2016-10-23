@@ -1,15 +1,12 @@
 if(Meteor.isClient){
 	Template.tSignup.onRendered(function() {
-		//$('select').material_select('destroy');
 		$('select').material_select();
 	});
 	//functions
 	Template.tSignup.helpers({
-		users: function () {
-	    return Meteor.users.find({}, {
-	      sort: { "profile.lastName": 1 }
-	    });
-	  },
+		users: function(){
+			return Meteor.users.find({}); //only return certain fields
+			},
 		tournamentList: function (){
 			return TournamentList.find({},{
 				fields:{
@@ -33,7 +30,8 @@ if(Meteor.isClient){
 			if (theOne.judges == "no") {judgesToggle.style.display = "none";}
 			if (theOne.partner == "no") {partnerToggle.style.display = "none";}
 		},
-		"click #pay": function(event){
+		//submit is a type of HTML input
+		"submit .add-tournament": function(event){
 
 			event.preventDefault(); //so it doesn't refresh
 
@@ -44,29 +42,50 @@ if(Meteor.isClient){
 				"name": selected
 				});
 			let price = theOne.cost; //cost of tournament
-
-			let studentConsent = $('input[name="studentConsent"]:checked').val(),
-				parentConsent = $('input[name="parentConsent"]:checked').val();
+			//
+			// let studentConsent = $('input[name="studentConsent"]:checked').val(),
+			// 	parentConsent = $('input[name="parentConsent"]:checked').val();
 
 
 			//gets all the tournament data and prompts user to pay before account created
 				//when parent and student have consented
-			if(parentConsent == "yes" && studentConsent == "yes"){
+			// if(parentConsent == "yes" && studentConsent == "yes"){
 				//data for user, partner, and the judge
 				let userFirst = Meteor.user().profile.firstName,
 					userLast = Meteor.user().profile.lastName,
 					userEmail = Meteor.user().emails[0].address;
 
-				let username = event.target.partner.value, //this gets the partner's username
-					partner = Meteor.users.findOne({username:username}),
-					partnerFirst = partner.profile.firstName,
-					partnerLast = partner.profile.lastName,
-					partnerEmail = partner.emails[0].address;
+					//  theOne = TournamentList.findOne({
+					// 	"name": selected
+					// 	});
 
-				let judgeFirst= event.target.judgeFirst.value,
-				 	judgeLast= event.target.judgeLast.value,
-					judgeEmail= event.target.judgeEmail.value,
-					judgePhone= event.target.judgePhone.value
+						var username, partner, partnerFirst, partnerLast, partnerEmail;
+						var judgeFirst, judgeLast, judgeEmail, judgePhone;
+						// if partner tournament
+				if (theOne.partner == "yes") {
+				 username = event.target.partner.value; //this gets the partner's username
+					partner = Meteor.users.findOne({username:username});
+					partnerFirst = partner.profile.firstName;
+					partnerLast = partner.profile.lastName;
+					partnerEmail = partner.emails[0].address;
+				} else {
+					// otherwise, if single person tournament
+					partner = "none";
+					partnerFirst = "none";
+					partnerLast = "none";
+					partnerEmail = "none";
+				}
+				if (theOne.judges == "yes") {
+				 judgeFirst= event.target.judgeFirst.value;
+				 	judgeLast= event.target.judgeLast.value;
+					judgeEmail= event.target.judgeEmail.value;
+					judgePhone= event.target.judgePhone.value;
+				} else {
+					judgeFirst = "none";
+					judgeLast = "none";
+					judgeEmail = "none";
+					judgePhone = "none";
+				}
 				//has to be a var
 				var entry ={
 					 tournament : event.target.tournament.value,
@@ -78,8 +97,8 @@ if(Meteor.isClient){
 					 partnerLast : partnerLast,
 					 partnerEmail : partnerEmail,
 
-					 studentConsent: studentConsent,
-					 parentConsent: parentConsent,
+					 studentConsent: "yes",
+					 parentConsent: "yes",
 					 judgeFirst: judgeFirst,
 					 judgeLast: judgeLast,
 					 judgeEmail: judgeEmail,
@@ -102,13 +121,14 @@ if(Meteor.isClient){
 			          // Meteor.call('chargeCard', stripeToken);
 			          // prevents multiple charges if client disconnects and reconnects
 			        	Meteor.apply('paySetupEntry', [stripeToken, price, entry], {noRetry: true});
+								Bert.alert("Success! Your tournament entry has been created", "success", "fixed-top");
 			        }
 		      	});
 
 						//in the display determine it based off of tournament
-				} else{
-				Bert.alert ("You and/or your parent have not consented yet.");
-				}
+				// } else{
+				// Bert.alert ("You and/or your parent have not consented yet.");
+				// }
 			//send some confirmation alert
 			},
 	});
