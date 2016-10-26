@@ -47,19 +47,9 @@
 			<h3> Terms and conditions </h3> <!--implement later more explicitly-->
 			<p>By signing up for this tournament, I, the student of this account, agree to the terms and conditions detailed
 				<a href="https://drive.google.com/drive/folders/0BxnoswyGr3ePZVhBVkZZd0xmMDQ?usp=sharing">here</a></p>
-<!--
-			<p>I, the student of this account, fully agree to the above Terms and conditions.</p>
-			<input type="radio" name="studentConsent" value="yes" id='scyes' class="with-gap">
-			<label for="scyes">Yes, we(I) agree</label>
-			<input type="radio" name="studentConsent" value="no" id='scno' class="with-gap">
-			<label for="scno">No, we(I) do not</label>
-			<p>We(I), the parent(s) of this student, fully agree to the above Terms and conditions.</p>
-			<input type="radio" name="parentConsent" id='pcyes' value="yes" class="with-gap">
-			<label for="pcyes">Yes, we(I) agree</label>
-			<input  type="radio" name="parentConsent" id='pcno' value="no" class="with-gap">
-			<label for="pcno">No, we(I) do not</label>
-			<br><br> -->
-			<button class="btn waves-effect waves-light" type="submit" name="action">Pay Now to Sign Up</button>
+				<p>You can either pay using Stripe, or you can pay out of your current account balance, if sufficient.</p>
+			<button class="btn waves-effect waves-light" id="payfromstripe" name="action">Pay Through Stripe to Sign Up</button>
+			<button class="btn waves-effect waves-light" id="payfrombalance">Pay From Account Balance to Sign Up</button>
 
 		</form>
 		{{else}}
