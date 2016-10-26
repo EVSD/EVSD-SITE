@@ -27,8 +27,17 @@ if(Meteor.isClient){
 			let theOne = TournamentList.findOne({
 				"name": selected
 				});
-			if (theOne.judges == "no") {judgesToggle.style.display = "none";}
-			if (theOne.partner == "no") {partnerToggle.style.display = "none";}
+			if (theOne.judges == "no") {
+				judgesToggle.style.display = "none";
+			} else {
+				judgesToggle.style.display = "initial";
+			}
+			if (theOne.partner == "no") {
+				partnerToggle.style.display = "none";
+			} else {
+				partnerToggle.style.display = "initial";
+			}
+			
 		},
 		//submit is a type of HTML input
 		"submit .add-tournament": function(event){
