@@ -37,7 +37,15 @@ if(Meteor.isClient){
 			} else {
 				partnerToggle.style.display = "initial";
 			}
-			
+			if (Meteor.user().profile.balance < theOne.cost) {
+				payfrombalance.style.display = "none";
+				console.log(Meteor.user().profile.balance);
+				console.log(theOne.cost);
+			} else {
+				payfrombalance.style.display = "initial";
+				console.log(Meteor.user().profile.balance);
+				console.log(theOne.cost);
+			}
 		},
 		//submit is a type of HTML input
 		"submit .add-tournament": function(event){
