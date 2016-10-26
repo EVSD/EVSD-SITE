@@ -39,18 +39,14 @@ if(Meteor.isClient){
 			}
 			if (Meteor.user().profile.balance < theOne.cost) {
 				payfrombalance.style.display = "none";
-				console.log(Meteor.user().profile.balance);
-				console.log(theOne.cost);
 			} else {
 				payfrombalance.style.display = "initial";
-				console.log(Meteor.user().profile.balance);
-				console.log(theOne.cost);
 			}
 		},
-		//submit is a type of HTML input
+
 		"click #payfromstripe": function(event){
 
-			//event.preventDefault(); //so it doesn't refresh
+			event.preventDefault(); //so it doesn't refresh
 
 			//use find one to find the tournament
 			let e = document.getElementById("tournament");
@@ -148,5 +144,91 @@ if(Meteor.isClient){
 				// }
 			//send some confirmation alert
 			},
+
+			"click #payfrombalance": function(event){
+
+				event.preventDefault(); //so it doesn't refresh
+
+				//use find one to find the tournament
+				let e = document.getElementById("tournament");
+				var selected = String(e.options[e.selectedIndex].value);
+				let theOne = TournamentList.findOne({
+					"name": selected
+					});
+				let price = theOne.cost; //cost of tournament
+				//
+				// let studentConsent = $('input[name="studentConsent"]:checked').val(),
+				// 	parentConsent = $('input[name="parentConsent"]:checked').val();
+
+
+				//gets all the tournament data and prompts user to pay before account created
+					//when parent and student have consented
+				// if(parentConsent == "yes" && studentConsent == "yes"){
+					//data for user, partner, and the judge
+					let userFirst = Meteor.user().profile.firstName,
+						userLast = Meteor.user().profile.lastName,
+						userEmail = Meteor.user().emails[0].address;
+
+						//  theOne = TournamentList.findOne({
+						// 	"name": selected
+						// 	});
+
+							var username, partner, partnerFirst, partnerLast, partnerEmail;
+							var judgeFirst, judgeLast, judgeEmail, judgePhone;
+							// if partner tournament
+					if (theOne.partner == "yes") {
+						// let partnerElement = document.getElementById("partner");
+						// var selectedPartner = String(partnerElement.options[partnerElement.selectedIndex].value);
+						// let partner = Meteor.users.findOne({
+						// 	username: selectedPartner
+						// 	});
+					 username = event.target.partner.value; //this gets the partner's username
+						partner = Meteor.users.findOne({username:username});
+						partnerFirst = partner.profile.firstName;
+						partnerLast = partner.profile.lastName;
+						partnerEmail = partner.emails[0].address;
+					} else {
+						// otherwise, if single person tournament
+						partner = "none";
+						partnerFirst = "none";
+						partnerLast = "none";
+						partnerEmail = "none";
+					}
+					if (theOne.judges == "yes") {
+					 judgeFirst= event.target.judgeFirst.value;
+					 	judgeLast= event.target.judgeLast.value;
+						judgeEmail= event.target.judgeEmail.value;
+						judgePhone= event.target.judgePhone.value;
+					} else {
+						judgeFirst = "none";
+						judgeLast = "none";
+						judgeEmail = "none";
+						judgePhone = "none";
+					}
+					//has to be a var
+					var entry ={
+						 tournament : event.target.tournament.value,
+						 userFirst : userFirst,
+						 userLast : userLast,
+						 userEmail : userEmail,
+
+						 partnerFirst : partnerFirst,
+						 partnerLast : partnerLast,
+						 partnerEmail : partnerEmail,
+
+						 studentConsent: "yes",
+						 parentConsent: "yes",
+						 judgeFirst: judgeFirst,
+						 judgeLast: judgeLast,
+						 judgeEmail: judgeEmail,
+						 judgePhone: judgePhone,
+
+						 notes: event.target.notes.value,
+					 };
+
+
+				Bert.alert("Success! Your tournament entry has been created, and your balance has been deducted appropriately", "success", "fixed-top");
+
+				},
 	});
 }//end of isClient

@@ -19,7 +19,7 @@
 			</select><br>
 
 			<div id="partnerToggle">
-				<select name="partner" required>
+				<select name="partner" id="partner" required>
 					<option value="" disabled selected>Choose a Partner: </option>
 					{{#each users}}
 					<option value="{{username}}">{{username}}</option>
@@ -29,7 +29,6 @@
 
 			<div id="judgesToggle" required>
 				<h3>Enter Judge Information</h3>
-				<!--type="hidden" - make this the conditional-->
 				<label for="judgeFirst">First Name</label>
 				<input type="text" name="judgeFirst" autofocus required><br>
 				<label for="judgeLast">Last Name</label>
