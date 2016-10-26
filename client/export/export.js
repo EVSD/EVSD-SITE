@@ -36,6 +36,7 @@ if (Meteor.isClient){
     for (var index in array[0]) {
       //if it is an object, it gets the values of the head
       var subObj = array[0][index];
+      // if (index == "createdAt") line += '"' + index.replace(/"/g, '""') + '",';
       if (typeof(subObj) == 'object'){
         for (var i in subObj){
           var value = i + "";
@@ -58,6 +59,7 @@ if (Meteor.isClient){
         line += '"' + value.replace(/"/g, '""') + '",';
       }
   }
+  line += '"' + "createdAt".replace(/"/g, '""') + '",';
     line = line.slice(0, -1);
     console.log(line);
     str += line + '\n';
@@ -68,13 +70,14 @@ if (Meteor.isClient){
     for (var length = 0; length < array.length; length++){
       for (var index in array[length]) {
         var subObj = array[length][index];
+        //if (index == "createdAt") line += '"' + (subObj + "").replace(/"/g, '""') + '",';
         //if the index is an object
         if (typeof(subObj) == 'object' && subObj != 'services'){
           //console.log(subObj);
           //for each property in the 'sub'object we add a value
           for (var i in subObj){
             var stringCheck = i + ''; //used to convert i into string
-            //MARK: should be iterating again if it is still an object
+            //TODO: should be iterating again if it is still an object
 
             if(subObj.hasOwnProperty(i) && (subObj != 'admin' && subObj != 'officer'&& subObj != 'frozen' && subObj != 'member' && i != 'password' && i != 'resume')){
               //check for objects inside of objects. i.e. user -> profile -> emails
@@ -100,6 +103,11 @@ if (Meteor.isClient){
           console.log(value);
           line += '"' + value.replace(/"/g, '""') + '",';
         }
+
+      }
+      for (var index in array[length]) {
+        var subObj = array[length][index];
+        if (index == "createdAt") line += '"' + (subObj + "").replace(/"/g, '""') + '",';
       }
 
       line = line.slice(0, -1);
