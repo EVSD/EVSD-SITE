@@ -48,9 +48,9 @@ if(Meteor.isClient){
 			}
 		},
 		//submit is a type of HTML input
-		"submit .add-tournament": function(event){
+		"click #payfromstripe": function(event){
 
-			event.preventDefault(); //so it doesn't refresh
+			//event.preventDefault(); //so it doesn't refresh
 
 			//use find one to find the tournament
 			let e = document.getElementById("tournament");
