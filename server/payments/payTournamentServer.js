@@ -87,4 +87,20 @@ Meteor.methods({
         }
       }));
   },
+  'updateBalance': function(entryId, tournamentName, price) {
+    Tournaments.update(entryId, {
+      $set: {
+        "p2Paid": "yes",
+        "p2studentConsent": "yes",
+        "p2parentConsent": "yes"
+      }
+    });
+    Meteor.users.update(Meteor.userId(), {
+      $addToSet: {"profile.accountBalanceLog":
+        {cc: true, description: "N/A", checkNo: 0, paymentMethod: "pay from account balance", name: 'Balance deducted for tournament - '+tournamentName+' (as partner 2)', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+    });
+    Meteor.users.update(Meteor.userId(), {
+      $set: {"profile.balance": (Meteor.user().profile.balance - Number(price))}
+    });
+  }
 });

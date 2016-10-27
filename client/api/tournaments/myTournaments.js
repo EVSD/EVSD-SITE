@@ -32,7 +32,7 @@ if(Meteor.isClient){
 			// 	parentConsent = event.target.parentConsent.value;
 
 			let price = theOne.cost,
-				tournamentName = this.tournament;
+				tournamentName = this.tournament,
 				entryId = this._id; //test to see if this works
 			// if(parentConsent == "yes" && studentConsent == "yes"){
 				//payment and account creation
@@ -60,31 +60,13 @@ if(Meteor.isClient){
 			let theOne = TournamentList.findOne({
 				"name": tournament
 				});
-			//
-			// let studentConsent = event.target.studentConsent.value,
-			// 	parentConsent = event.target.parentConsent.value;
 
 			let price = theOne.cost,
+				tournamentName = this.tournament,
 				entryId = this._id; //test to see if this works
 
-				Tournaments.update(entryId, {
-					$set: {
-						"p2Paid": "yes",
-						"p2studentConsent": "yes",
-						"p2parentConsent": "yes"
-					}
-				});//end of tournament update
-
-				Meteor.users.update(Meteor.userId(), {
-					$addToSet: {"profile.accountBalanceLog":
-						{cc: true, description: "N/A", checkNo: 0, paymentMethod: "pay from account balance", name: 'Balance deducted for tournament - '+entryId.tournament+' (as partner 2)', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
-				});
-				Meteor.users.update(Meteor.userId(), {
-					$set: {"profile.balance": (Meteor.user().profile.balance - Number(price))}
-				});
-	Bert.alert("Success! Your payment has been received", "success", "fixed-top");
-				 // end of account update
-
+				Bert.alert("Success! Your payment has been received", "success", "fixed-top");
+			Meteor.apply('updateBalance', [entryId, tournamentName, price], {noRetry: true});
 			// }else Bert.alert("Agree to the terms for both parent and student.");
 		},//end of partnerPay
 	});
