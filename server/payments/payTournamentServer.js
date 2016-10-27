@@ -44,12 +44,12 @@ Meteor.methods({
   },
   //payment func for the partner
   //payment function for when the tournament entry is created
-  'payEntryPartner': function(stripeToken, price, entryId) {
+  'payEntryPartner': function(stripeToken, price, entryId, tournamentName) {
 
     check(
       stripeToken, String,
       price, Number,
-      entryId, String //idk if it actually has to be a string
+      entryId, String
       );
 
     let Stripe = StripeAPI(Meteor.settings.private.stripe.liveSecretKey);
@@ -60,8 +60,7 @@ Meteor.methods({
       currency: 'usd',
       receipt_email: Meteor.user().emails[0].address
     }, Meteor.bindEnvironment(function(err, charge) {
-        console.log(entryId);
-        //console.log(err, charge);
+        //console.log(entryId);
         if (charge.status == 'succeeded') {
           Tournaments.update(entryId, {
             $set: {
@@ -73,12 +72,12 @@ Meteor.methods({
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
-              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'tournament - '+entryId.tournament+'_p1', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe", name: 'Paid for tournament - '+tournamentName+' (as partner 2)', amount: price, date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           });
 
           Meteor.users.update(Meteor.userId(), {
             $addToSet: {"profile.accountBalanceLog":
-              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe (upon tournament signup)", name: 'Balance deducted for tournament - '+entryId.tournament+'_p1', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+              {cc: true, description: "N/A", checkNo: 0, paymentMethod: "stripe", name: 'Balance deducted for tournament - '+tournamentName+' (as partner 2)', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
           }); // end of account update
 
           //FlowRouter.go('signupSuccess');
