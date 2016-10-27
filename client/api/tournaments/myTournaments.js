@@ -7,26 +7,19 @@ if(Meteor.isClient){
 	        	sort: {"tournament":1, "createdAt": -1},
     		})
 			},
-			/*
-		//this create the path to get to the entry
-	 	pathForEntry: function() {
-		    let params = {
-		        entryId: this._id //entry ID
-		    };
-		    let routeName = "editEntry";
-		    return path = FlowRouter.go(routeName, params);
-			},
-*/
+
 	});
 	Template.myTournaments.events({
 		"click .delete-entry": function(event){
+			if (confirm("Are you sure you want to delete this entry?")) {
 			Meteor.call('removeEntry', this._id, function(err){
 	            	if(err){
 	                	console.log(err);
 	            	}
            		});
+						}
 		},
-		"submit .partnerPay": function(event){
+		"click #payfromstripe": function(event){
 			event.preventDefault();
 			//get the tournament in question
 			let tournament = this.tournament;
@@ -39,8 +32,8 @@ if(Meteor.isClient){
 			// 	parentConsent = event.target.parentConsent.value;
 
 			let price = theOne.cost,
+				tournamentName = this.tournament,
 				entryId = this._id; //test to see if this works
-
 			// if(parentConsent == "yes" && studentConsent == "yes"){
 				//payment and account creation
 				StripeCheckout.open({
@@ -53,9 +46,27 @@ if(Meteor.isClient){
 		       		//get user email
 			        token: function(response) {
 			        	stripeToken = response.id;
-			        	Meteor.apply('payEntryPartner', [stripeToken, price, entryId], {noRetry: true});
+			        	Meteor.apply('payEntryPartner', [stripeToken, price, entryId, tournamentName], {noRetry: true});
+									Bert.alert("Success! Your payment has been received", "success", "fixed-top");
 			        }
 			    });
+			// }else Bert.alert("Agree to the terms for both parent and student.");
+		},//end of partnerPay
+		"click #payfrombalance": function(event){
+			event.preventDefault();
+			//get the tournament in question
+			let tournament = this.tournament;
+			console.log(tournament);
+			let theOne = TournamentList.findOne({
+				"name": tournament
+				});
+
+			let price = theOne.cost,
+				tournamentName = this.tournament,
+				entryId = this._id; //test to see if this works
+
+				Bert.alert("Success! Your payment has been received", "success", "fixed-top");
+			Meteor.apply('updateBalance', [entryId, tournamentName, price], {noRetry: true});
 			// }else Bert.alert("Agree to the terms for both parent and student.");
 		},//end of partnerPay
 	});
