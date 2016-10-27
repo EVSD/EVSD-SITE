@@ -76,7 +76,10 @@ if(Meteor.isClient){
 						var judgeFirst, judgeLast, judgeEmail, judgePhone;
 						// if partner tournament
 				if (theOne.partner == "yes") {
-				 username = event.target.partner.value; //this gets the partner's username
+					let partnerElement = document.getElementById("partner");
+					//var username = String(e.options[e.selectedIndex].value);
+				 //username = event.target.partner.value; //this gets the partner's username
+				 username = String(partnerElement[partnerElement.selectedIndex].value);
 					partner = Meteor.users.findOne({username:username});
 					partnerFirst = partner.profile.firstName;
 					partnerLast = partner.profile.lastName;
@@ -89,10 +92,14 @@ if(Meteor.isClient){
 					partnerEmail = "none";
 				}
 				if (theOne.judges == "yes") {
-				 judgeFirst= event.target.judgeFirst.value;
-				 	judgeLast= event.target.judgeLast.value;
-					judgeEmail= event.target.judgeEmail.value;
-					judgePhone= event.target.judgePhone.value;
+				//  judgeFirst= event.target.judgeFirst.value;
+				//  	judgeLast= event.target.judgeLast.value;
+				// 	judgeEmail= event.target.judgeEmail.value;
+				// 	judgePhone= event.target.judgePhone.value;
+				judgeFirst= $('[name="judgeFirst"]').val();
+				judgeLast= $('[name="judgeLast"]').val();
+				judgeEmail= $('[name="judgeEmail"]').val();
+				judgePhone= $('[name="judgePhone"]').val();
 				} else {
 					judgeFirst = "none";
 					judgeLast = "none";
@@ -101,7 +108,7 @@ if(Meteor.isClient){
 				}
 				//has to be a var
 				var entry ={
-					 tournament : event.target.tournament.value,
+					 tournament : selected,
 					 userFirst : userFirst,
 					 userLast : userLast,
 					 userEmail : userEmail,
@@ -117,7 +124,7 @@ if(Meteor.isClient){
 					 judgeEmail: judgeEmail,
 					 judgePhone: judgePhone,
 
-					 notes: event.target.notes.value,
+					 notes: $('[name="notes"]').val(),
 					}
 				//payment and account creation
 				StripeCheckout.open({
@@ -147,88 +154,96 @@ if(Meteor.isClient){
 
 			"click #payfrombalance": function(event){
 
-				event.preventDefault(); //so it doesn't refresh
+							event.preventDefault(); //so it doesn't refresh
 
-				//use find one to find the tournament
-				let e = document.getElementById("tournament");
-				var selected = String(e.options[e.selectedIndex].value);
-				let theOne = TournamentList.findOne({
-					"name": selected
-					});
-				let price = theOne.cost; //cost of tournament
-				//
-				// let studentConsent = $('input[name="studentConsent"]:checked').val(),
-				// 	parentConsent = $('input[name="parentConsent"]:checked').val();
-
-
-				//gets all the tournament data and prompts user to pay before account created
-					//when parent and student have consented
-				// if(parentConsent == "yes" && studentConsent == "yes"){
-					//data for user, partner, and the judge
-					let userFirst = Meteor.user().profile.firstName,
-						userLast = Meteor.user().profile.lastName,
-						userEmail = Meteor.user().emails[0].address;
-
-						//  theOne = TournamentList.findOne({
-						// 	"name": selected
-						// 	});
-
-							var username, partner, partnerFirst, partnerLast, partnerEmail;
-							var judgeFirst, judgeLast, judgeEmail, judgePhone;
-							// if partner tournament
-					if (theOne.partner == "yes") {
-						// let partnerElement = document.getElementById("partner");
-						// var selectedPartner = String(partnerElement.options[partnerElement.selectedIndex].value);
-						// let partner = Meteor.users.findOne({
-						// 	username: selectedPartner
-						// 	});
-					 username = event.target.partner.value; //this gets the partner's username
-						partner = Meteor.users.findOne({username:username});
-						partnerFirst = partner.profile.firstName;
-						partnerLast = partner.profile.lastName;
-						partnerEmail = partner.emails[0].address;
-					} else {
-						// otherwise, if single person tournament
-						partner = "none";
-						partnerFirst = "none";
-						partnerLast = "none";
-						partnerEmail = "none";
-					}
-					if (theOne.judges == "yes") {
-					 judgeFirst= event.target.judgeFirst.value;
-					 	judgeLast= event.target.judgeLast.value;
-						judgeEmail= event.target.judgeEmail.value;
-						judgePhone= event.target.judgePhone.value;
-					} else {
-						judgeFirst = "none";
-						judgeLast = "none";
-						judgeEmail = "none";
-						judgePhone = "none";
-					}
-					//has to be a var
-					var entry ={
-						 tournament : event.target.tournament.value,
-						 userFirst : userFirst,
-						 userLast : userLast,
-						 userEmail : userEmail,
-
-						 partnerFirst : partnerFirst,
-						 partnerLast : partnerLast,
-						 partnerEmail : partnerEmail,
-
-						 studentConsent: "yes",
-						 parentConsent: "yes",
-						 judgeFirst: judgeFirst,
-						 judgeLast: judgeLast,
-						 judgeEmail: judgeEmail,
-						 judgePhone: judgePhone,
-
-						 notes: event.target.notes.value,
-					 };
+							//use find one to find the tournament
+							let e = document.getElementById("tournament");
+							var selected = String(e.options[e.selectedIndex].value);
+							let theOne = TournamentList.findOne({
+								"name": selected
+								});
+							let price = theOne.cost; //cost of tournament
+							//
+							// let studentConsent = $('input[name="studentConsent"]:checked').val(),
+							// 	parentConsent = $('input[name="parentConsent"]:checked').val();
 
 
+							//gets all the tournament data and prompts user to pay before account created
+								//when parent and student have consented
+							// if(parentConsent == "yes" && studentConsent == "yes"){
+								//data for user, partner, and the judge
+								let userFirst = Meteor.user().profile.firstName,
+									userLast = Meteor.user().profile.lastName,
+									userEmail = Meteor.user().emails[0].address;
+
+									//  theOne = TournamentList.findOne({
+									// 	"name": selected
+									// 	});
+
+										var username, partner, partnerFirst, partnerLast, partnerEmail;
+										var judgeFirst, judgeLast, judgeEmail, judgePhone;
+										// if partner tournament
+								if (theOne.partner == "yes") {
+									let partnerElement = document.getElementById("partner");
+									//var username = String(e.options[e.selectedIndex].value);
+								 //username = event.target.partner.value; //this gets the partner's username
+								 username = String(partnerElement[partnerElement.selectedIndex].value);
+									partner = Meteor.users.findOne({username:username});
+									partnerFirst = partner.profile.firstName;
+									partnerLast = partner.profile.lastName;
+									partnerEmail = partner.emails[0].address;
+								} else {
+									// otherwise, if single person tournament
+									partner = "none";
+									partnerFirst = "none";
+									partnerLast = "none";
+									partnerEmail = "none";
+								}
+								if (theOne.judges == "yes") {
+								//  judgeFirst= event.target.judgeFirst.value;
+								//  	judgeLast= event.target.judgeLast.value;
+								// 	judgeEmail= event.target.judgeEmail.value;
+								// 	judgePhone= event.target.judgePhone.value;
+								judgeFirst= $('[name="judgeFirst"]').val();
+								judgeLast= $('[name="judgeLast"]').val();
+								judgeEmail= $('[name="judgeEmail"]').val();
+								judgePhone= $('[name="judgePhone"]').val();
+								} else {
+									judgeFirst = "none";
+									judgeLast = "none";
+									judgeEmail = "none";
+									judgePhone = "none";
+								}
+								//has to be a var
+								var entry ={
+									 tournament : selected,
+									 userFirst : userFirst,
+									 userLast : userLast,
+									 userEmail : userEmail,
+
+									 partnerFirst : partnerFirst,
+									 partnerLast : partnerLast,
+									 partnerEmail : partnerEmail,
+
+									 studentConsent: "yes",
+									 parentConsent: "yes",
+									 judgeFirst: judgeFirst,
+									 judgeLast: judgeLast,
+									 judgeEmail: judgeEmail,
+									 judgePhone: judgePhone,
+
+									 notes: $('[name="notes"]').val(),
+									}
+									Meteor.call('createEntry', entry);
 				Bert.alert("Success! Your tournament entry has been created, and your balance has been deducted appropriately", "success", "fixed-top");
 
+				Meteor.users.update(Meteor.userId(), {
+					$addToSet: {"profile.accountBalanceLog":
+						{cc: true, description: "N/A", checkNo: 0, paymentMethod: "pay from account balance (upon tournament signup)", name: 'Balance deducted for tournament - '+entry.tournament+' (as partner 1)', amount: (-1 * price), date: new Date(), dateWritten: new Date(), dateDeposited: new Date(), memo: ""}}
+				});
+				Meteor.users.update(Meteor.userId(), {
+					$set: {"profile.balance": (Meteor.user().profile.balance - Number(price))}
+				});
 				},
 	});
 }//end of isClient
