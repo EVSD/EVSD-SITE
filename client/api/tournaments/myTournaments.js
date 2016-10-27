@@ -20,11 +20,13 @@ if(Meteor.isClient){
 	});
 	Template.myTournaments.events({
 		"click .delete-entry": function(event){
+			if (confirm("Are you sure you want to delete this entry?")) {
 			Meteor.call('removeEntry', this._id, function(err){
 	            	if(err){
 	                	console.log(err);
 	            	}
            		});
+						}
 		},
 		"submit .partnerPay": function(event){
 			event.preventDefault();
