@@ -9,17 +9,16 @@
 <!--for each touranment entry-->
 	{{#each entry}}
 		<h3>{{tournament}} Entry
-			{{#if currentUser}}
-				<a href="#" class="delete-entry">x</a><br>
-			{{/if}}
 		</h3>
 <!--approve tournament-->
 		<form class="approve-tournament">
-			<label for="approved">Approved?</label>
+			<label for="approved">Approved?</label><br>
 		    	<input type="radio" name="approved" id={{createdAt}}approvedYes checked="{{checked approved 'yes'}}" class="with-gap yes">
-						<label for={{createdAt}}approvedYes>Yes</label>
+						<label for={{createdAt}}approvedYes>Yes</label><br>
 	  			<input type="radio" name="approved" value="no" id={{createdAt}}approvedNo checked ="{{checked approved 'no'}}" class="with-gap no">
 						<label for={{createdAt}}approvedNo>No</label><br>
+						<input type="radio" name="approved" value="rejected" id={{createdAt}}rejected checked ="{{checked approved 'rejected'}}" class="with-gap rejected">
+							<label for={{createdAt}}rejected>Rejected</label><br>
 		</form>
 <!--rest of the tournament entry information-->
 		<p>created at: {{createdAt}}</p>
