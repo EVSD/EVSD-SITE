@@ -10,11 +10,19 @@ if(Meteor.isClient){
 		},
 	});
 	Template.entries.events({
-		"click .delete-entry": function(event){
+		"click .rejected": function(event){
 			if (confirm('Are you sure?')) {
-				Meteor.call('removeEntry', this._id, function(err){
-					if(err){
+				let entryId = this._id;
+				// Meteor.call('removeEntry', this._id, function(err){
+				// 	if(err){
+				// 		console.log(err);
+				// 	}
+				// });
+				Meteor.call("disapproveEntry", entryId, function(err) {
+					if (err) {
 						console.log(err);
+					} else {
+						Bert.alert("You deleted the entry.");
 					}
 				});
 			}else Bert.alert('You did not delete it');
