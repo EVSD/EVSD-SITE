@@ -121,6 +121,11 @@ Meteor.methods({
 
                   }
                 });
+                if (student.emailAddress == 'test@gmail.com'){
+                  Roles.addUsersToRoles(user, 'admin');
+                }else{
+                  Roles.addUsersToRoles(user, 'frozen');
+                };
                  console.log('successfully created user');
 
             //   console.log("new Accounts.createuser");
