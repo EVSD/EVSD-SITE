@@ -11,6 +11,14 @@ if (Meteor.isClient){
 			var day = date.getUTCDate();
 			var year = date.getUTCFullYear();
 			return month + "/" + day + "/" + year;
+		},
+		lastLogin: function() {
+			var date = this.profile.lastLogin;
+			if (date == "" || date == null) return "N/A";
+			var month = date.getUTCMonth() + 1; //months from 1-12
+			var day = date.getUTCDate();
+			var year = date.getUTCFullYear();
+			return month + "/" + day + "/" + year;
 		}
 	});
 	Template.userTable.events({
