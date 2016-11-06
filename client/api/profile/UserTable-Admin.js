@@ -4,6 +4,13 @@ if (Meteor.isClient){
 			return Meteor.users.find({}, {
 				sort: { "profile.lastName": 1 }
 			});
+		},
+		creationDate: function() {
+			var date = this.createdAt;
+			var month = date.getUTCMonth() + 1; //months from 1-12
+			var day = date.getUTCDate();
+			var year = date.getUTCFullYear();
+			return month + "/" + day + "/" + year;
 		}
 	});
 	Template.userTable.events({

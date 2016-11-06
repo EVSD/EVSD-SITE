@@ -9,6 +9,8 @@
 			<th class="text-center">Name</th>
 			<th class="text-center">Email Address </th>
 		    <th class="text-center">Role</th>
+        <th class="text-center">Creation Date</th>
+        <th class="text-center">Last Login</th>
 		</thead>
 		<tbody>
 		  {{#each users}}
@@ -36,6 +38,12 @@
 
 				</select>
 		        </td>
+            <td>
+              {{creationDate}}
+            </td>
+            <td>
+              Last login date
+            </td>
 		    </tr>
 		  {{/each}}
 		</tbody>
