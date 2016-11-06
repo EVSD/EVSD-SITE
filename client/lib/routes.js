@@ -95,7 +95,7 @@ FlowRouter.route('/', {
   });
   //for /tournaments/editEntry route
     //to edit your own tournament entries
-    
+
   tournamentRoutes.route('/myTournaments/edit/:entryId', {
     name: "editEntry",
     action: function() {
@@ -249,6 +249,12 @@ FlowRouter.route('/googleanalytics', {
 FlowRouter.route('/practiceCalendar', {
   action: function() {
     BlazeLayout.render("view", {main: "practiceCalendar"});
+  }
+});
+
+FlowRouter.route('/tournamentCalendar', {
+  action: function() {
+    BlazeLayout.render("view", {main: "tournamentCalendar"});
   }
 });
 
