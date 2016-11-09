@@ -8,6 +8,9 @@ if(Meteor.isClient){
 				sort: {"tournament":1, "createdAt": -1},
 			});
 		},
+		deletedByUser: function() {
+			return this.approved == "deleted";
+		},
 	});
 	Template.entries.events({
 		"click .rejected": function(event){
@@ -22,10 +25,10 @@ if(Meteor.isClient){
 					if (err) {
 						console.log(err);
 					} else {
-						Bert.alert("You deleted the entry.");
+						Bert.alert("You rejected the entry.");
 					}
 				});
-			}else Bert.alert('You did not delete it');
+			}else Bert.alert('You did not reject it');
 		},
 		'change .yes' : function (){
 			let entryId = this._id;
@@ -43,6 +46,6 @@ if(Meteor.isClient){
 					console.log(err);
 				}
 			})
-		},
+		}
 	});//end of the events of the template
 }

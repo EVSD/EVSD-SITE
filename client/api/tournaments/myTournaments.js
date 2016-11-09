@@ -11,7 +11,7 @@ if(Meteor.isClient){
 	});
 	Template.myTournaments.events({
 		"click .delete-entry": function(event){
-			if (confirm("Are you sure you want to delete this entry?")) {
+			if (confirm("Are you sure you want to delete this entry? Note: The entry will remain for record purposes, but will be marked as deleted")) {
 			Meteor.call('removeEntry', this._id, function(err){
 	            	if(err){
 	                	console.log(err);

@@ -71,7 +71,8 @@
 	},
 	removeEntry (id){
 		check(id, String);
-    	Tournaments.remove(id);
+    	//Tournaments.remove(id);
+      Tournaments.update(id, {$set: {"approved": "deleted"}});
   	},
 	createTournament (tournament){
 		check(tournament, {
