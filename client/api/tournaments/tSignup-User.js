@@ -19,9 +19,6 @@ if(Meteor.isClient){
 				},
 				sort: {"signUpDeadline": -1},
 			});
-		},
-		notFrozen: function() {
-			
 		}
 	});
 	Template.tSignup.events({
