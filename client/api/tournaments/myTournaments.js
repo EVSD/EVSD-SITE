@@ -14,8 +14,8 @@ if(Meteor.isClient){
 		  //       	sort: {"tournament":1, "createdAt": -1},
 	    // 		}).fetch());
 			// 	return _.sortBy(t, "createdAt").reverse();
-			return Tournaments.find({$or: [{p1FirstName: Meteor.user().profile.firstName,p2FirstName: Meteor.user().profile.firstName}],
-					$or: [{p1LastName: Meteor.user().profile.lastName,p2LastName: Meteor.user().profile.lastName}],
+			return Tournaments.find({$or: [{p1FirstName: Meteor.user().profile.firstName},{p2FirstName: Meteor.user().profile.firstName}],
+					$or: [{p1LastName: Meteor.user().profile.lastName},{p2LastName: Meteor.user().profile.lastName}],
 			},{
 	        	sort: {"tournament":1, "createdAt": -1},
     		}).fetch();
