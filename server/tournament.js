@@ -121,6 +121,10 @@
 		check(id, String);
 		TournamentList.remove(id);
 	},
+  restoreEntry(id){
+		check(id, String);
+		Tournaments.update(id, {$set: { "approved": "no" }});
+	},
 	changeApproved(approved, entryId){
 		check(
 			approved, String,

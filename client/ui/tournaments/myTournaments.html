@@ -17,10 +17,16 @@
 				<a style="color:red" {{hideApproved approved 'rejected'}} > Rejected by admin </a>
 				<a style="color:red" {{hideApproved approved 'deleted'}} > Deleted by user </a>
 				 </h3>
+				 {{#if notDeleted}}
 				 <p>
 				 	<a href="#" class="delete-entry">Delete</a>
 					<!-- <a href={{pathForEntry}}>Edit</a> -->
 				</p>
+				{{else}}
+				<p>
+					<a href="#" class="restore-entry">Restore this entry</a>
+				</p>
+				{{/if}}
 
 
 				<!--if the current user's email matches p2 user name and p2 hasn't payed-->

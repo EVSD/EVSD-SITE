@@ -7,6 +7,9 @@ if(Meteor.isClient){
 	        	sort: {"tournament":1, "createdAt": -1},
     		})
 			},
+			notDeleted: function() {
+				return !(this.approved == "deleted");
+			}
 
 	});
 	Template.myTournaments.events({
@@ -18,6 +21,15 @@ if(Meteor.isClient){
 	            	}
            		});
 						}
+		},
+		"click .restore-entry": function(event) {
+			if (confirm("Are you sure you want to restore this entry?")) {
+				Meteor.call("restoreEntry", this._id, function(err) {
+					if (err) {
+						console.log(err);
+					}
+				});
+			}
 		},
 		"click #payfromstripe": function(event){
 			event.preventDefault();
