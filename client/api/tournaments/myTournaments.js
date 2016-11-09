@@ -3,9 +3,22 @@ if(Meteor.isClient){
 
 	Template.myTournaments.helpers({
 		tournaments: function (){
-			return Tournaments.find({},{
+			// var t = Tournaments.find({
+			// 	p1FirstName: Meteor.user().profile.firstName, p1LastName:Meteor.user().profile.lastName
+			// },{
+	    //     	sort: {"tournament":1, "createdAt": -1},
+    	// 	}).fetch();
+			// 	t.push.apply(t,Tournaments.find({
+			// 		p2FirstName: Meteor.user().profile.firstName, p2LastName:Meteor.user().profile.lastName
+			// 	},{
+		  //       	sort: {"tournament":1, "createdAt": -1},
+	    // 		}).fetch());
+			// 	return _.sortBy(t, "createdAt").reverse();
+			return Tournaments.find({$or: [{p1FirstName: Meteor.user().profile.firstName},{p2FirstName: Meteor.user().profile.firstName}],
+					$or: [{p1LastName: Meteor.user().profile.lastName},{p2LastName: Meteor.user().profile.lastName}],
+			},{
 	        	sort: {"tournament":1, "createdAt": -1},
-    		})
+    		}).fetch();
 			},
 			notDeleted: function() {
 				return !(this.approved == "deleted");
