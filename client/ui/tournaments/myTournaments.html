@@ -6,7 +6,7 @@
 
 
 	<h2> My Entries </h2>
-		<p>If you want to change your partner, delete your entry and reenter with a new one.<br>
+		<p>If you wish to make changes to your entry, please contact the administrator.<br>
 			If you have signed up for a tournament and dropped before the deadline, your account balance has been increased accordingly.
 		</p>
 		{{#each tournaments}}
@@ -17,10 +17,10 @@
 				<a style="color:red" {{hideApproved approved 'rejected'}} > Rejected by admin </a>
 
 				 </h3>
-				 <p>
+				 <!-- <p>
 				 	<a href="#" class="delete-entry">Delete</a>
 					<a href={{pathForEntry}}>Edit</a>
-				</p>
+				</p> -->
 
 				<!--if the current user's email matches p2 user name and p2 hasn't payed-->
 				<form class="partnerPay" id="partnerPay" {{showPartnerPay p2Paid p2Email}} >
