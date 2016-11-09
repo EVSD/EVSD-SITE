@@ -19,7 +19,7 @@ if(Meteor.isClient){
 				},
 				sort: {"signUpDeadline": -1},
 			});
-		},
+		}
 	});
 	Template.tSignup.events({
 		"change #tournament": function(event){

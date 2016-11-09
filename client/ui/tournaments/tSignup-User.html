@@ -2,6 +2,11 @@
 
 
 	{{#if currentUser}}
+	{{#if isInRole 'frozen'}}
+	<h5>Please ask the administrator to unfreeze you.
+	<br>
+You will not be able to sign up for tournaments until your account has been approved by the admin.</h5>
+	{{else}}
 	<h2>Sign Up For a Tournament</h2>
 	<h5>Important Note: For partner tournaments, <b>only one partner</b> should sign up here to create an entry.
 		After the first partner signs up and pays, the second partner will be able to see the entry under "My tournaments", confirm, and pay.</h5>
@@ -51,6 +56,7 @@
 			<button class="btn waves-effect waves-light" id="payfrombalance">Pay From Account Balance to Sign Up</button>
 
 		</form>
+{{/if}}
 		{{else}}
 		<p>Please login to sign up for tournaments</p>
 
