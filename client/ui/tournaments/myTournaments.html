@@ -16,7 +16,12 @@
 				<a style="color:red" {{hideApproved approved 'no'}} > Unapproved </a>
 				<a style="color:red" {{hideApproved approved 'rejected'}} > Rejected by admin </a>
 				<a style="color:red" {{hideApproved approved 'deleted'}} > Deleted by user </a>
+
 				 </h3>
+				 {{#if rejected}}
+ 				<h5>Reason for entry rejection: {{rejectMessage}}</h5>
+				{{/if}}
+				
 				 {{#if notDeleted}}
 				 <p>
 				 	<a href="#" class="delete-entry">Delete</a>
