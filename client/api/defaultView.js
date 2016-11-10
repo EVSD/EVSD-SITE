@@ -27,7 +27,15 @@ Template.view.onRendered (function() {
                    belowOrigin: false
                    }
               );
-            
+
               $(".button-collapse").sideNav();
 $('.collapsible').collapsible();
+});
+Template.view.events({
+  'click .logout': function(event){
+      event.preventDefault();
+      Meteor.logout();
+      Bert.alert("You have successfully logged out.", "success");
+      FlowRouter.go('/');
+  }
 });
