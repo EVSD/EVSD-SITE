@@ -12,8 +12,9 @@ if(Meteor.isClient){
 	Template.entries.events({
 		"click .rejected": function(event){
 			if (confirm('Are you sure?')) {
+				let message = prompt('Enter a reason for the user why you rejected the entry: ');
 				let entryId = this._id;
-				Meteor.call("disapproveEntry", entryId, function(err) {
+				Meteor.call("disapproveEntry", entryId, message, function(err) {
 					if (err) {
 						console.log(err);
 					} else {

@@ -22,6 +22,9 @@ if(Meteor.isClient){
 			},
 			notDeleted: function() {
 				return !(this.approved == "deleted");
+			},
+			rejected: function() {
+				return this.approved == "rejected";
 			}
 
 	});
