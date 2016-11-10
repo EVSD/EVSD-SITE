@@ -20,7 +20,10 @@ if(Meteor.isClient){
 						Bert.alert("You rejected the entry.");
 					}
 				});
-			}else Bert.alert('You did not reject it');
+			}else {
+				Bert.alert('You did not reject it');
+				location.reload();
+			}
 		},
 		'change .yes' : function (){
 			let entryId = this._id;
