@@ -4,7 +4,7 @@ if(Meteor.isClient){
 	});
 	Template.tSignup.helpers({
 		users: function () {
-	    return Meteor.users.find({}, {
+	    return Meteor.users.find({createdAt: {$ne: Meteor.user().createdAt}}, {
 	      sort: { "profile.lastName": 1 }
 	    });
 	  },
