@@ -9,9 +9,11 @@ if (Meteor.isClient){
 	            	if(err){
 	                	Bert.alert(err);
 	            	}else{
-									if (Meteor.user().profile.payContribution == "no") FlowRouter.go('/payContribution');
-									else if (Meteor.user().profile.waiver == "no") FlowRouter.go('/waiver');
-									else FlowRouter.go('/profile');
+									Meteor.call('recordLogin', Meteor.userId(), function(err) {
+										if (Meteor.user().profile.payContribution == "no") FlowRouter.go('/payContribution');
+										else if (Meteor.user().profile.waiver == "no") FlowRouter.go('/waiver');
+										else FlowRouter.go('/profile');
+									}
 								}
            		});
 		}
