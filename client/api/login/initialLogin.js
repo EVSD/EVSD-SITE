@@ -13,7 +13,7 @@ if (Meteor.isClient){
 										if (Meteor.user().profile.payContribution == "no") FlowRouter.go('/payContribution');
 										else if (Meteor.user().profile.waiver == "no") FlowRouter.go('/waiver');
 										else FlowRouter.go('/profile');
-									}
+									});
 								}
            		});
 		}
