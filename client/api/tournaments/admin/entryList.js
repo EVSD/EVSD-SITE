@@ -1,7 +1,4 @@
 if(Meteor.isClient){
-
-
-	//functions
 	Template.entries.helpers({
 		entry: function (){
 			return Tournaments.find({},{
@@ -15,20 +12,19 @@ if(Meteor.isClient){
 	Template.entries.events({
 		"click .rejected": function(event){
 			if (confirm('Are you sure?')) {
+				let message = prompt('Enter a reason for the user why you rejected the entry: ');
 				let entryId = this._id;
-				// Meteor.call('removeEntry', this._id, function(err){
-				// 	if(err){
-				// 		console.log(err);
-				// 	}
-				// });
-				Meteor.call("disapproveEntry", entryId, function(err) {
+				Meteor.call("disapproveEntry", entryId, message, function(err) {
 					if (err) {
 						console.log(err);
 					} else {
 						Bert.alert("You rejected the entry.");
 					}
 				});
-			}else Bert.alert('You did not reject it');
+			}else {
+				Bert.alert('You did not reject it');
+				location.reload();
+			}
 		},
 		'change .yes' : function (){
 			let entryId = this._id;

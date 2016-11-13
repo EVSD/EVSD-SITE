@@ -5,7 +5,7 @@
 
 
 
-	<h2> My Entries </h2>
+	<h2> My Entries</h2>
 		<p>If you wish to make changes to your entry, please notify the administrator before deleting this entry and signing up again with the desired changes.<br>
 			If you have signed up for a tournament and dropped before the deadline, your account balance has been increased accordingly.
 		</p>
@@ -16,7 +16,12 @@
 				<a style="color:red" {{hideApproved approved 'no'}} > Unapproved </a>
 				<a style="color:red" {{hideApproved approved 'rejected'}} > Rejected by admin </a>
 				<a style="color:red" {{hideApproved approved 'deleted'}} > Deleted by user </a>
+
 				 </h3>
+				 {{#if rejected}}
+ 				<h5>Reason for entry rejection: {{rejectMessage}}</h5>
+				{{/if}}
+				
 				 {{#if notDeleted}}
 				 <p>
 				 	<a href="#" class="delete-entry">Delete</a>

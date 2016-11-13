@@ -132,8 +132,9 @@
 		)
 		Tournaments.update(entryId, {$set: { "approved": approved }});
 	},
-  disapproveEntry(entryId) {
+  disapproveEntry(entryId, message) {
     check(entryId, String);
     Tournaments.update(entryId, {$set: {"approved": "rejected"}});
+    Tournaments.update(entryId, {$set: {"rejectMessage": message}});
   }
 });
