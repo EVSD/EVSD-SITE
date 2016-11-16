@@ -1,27 +1,20 @@
 if (Meteor.isClient){
   Template.export.events({
 
-/*    'click #convertUsers':function(event) {
-        var users = Meteor.users.find().fetch();
-        console.log(users);
-        var csv = JSON2CSV(users);
-        $("#csv").val(csv);
-    },*/
-
     'click #downloadUsers': function(event) {
-        var users = Meteor.users.find().fetch();;
+        var users = Meteor.users.find().fetch();
         var csv = Collection2CSV(users);
         window.open("data:text/csv;charset=utf-8," + escape(csv));
         $("#csv").val(csv);
     },
     'click #downloadTournaments': function(event) {
-        var tournament = TournamentList.find().fetch();;
+        var tournament = TournamentList.find().fetch();
         var csv = Collection2CSV(tournament);
         window.open("data:text/csv;charset=utf-8," + escape(csv));
         $("#csv").val(csv);
     },
     'click #downloadTournamentEntries': function(event) {
-        var users = Tournaments.find().fetch();;
+        var entries = Tournaments.find().fetch();
         var csv = Collection2CSV(entries);
         window.open("data:text/csv;charset=utf-8," + escape(csv));
         $("#csv").val(csv);
@@ -58,14 +51,14 @@ if (Meteor.isClient){
         console.log(value);
         line += '"' + value.replace(/"/g, '""') + '",';
       }
-  }
-  line += '"' + "createdAt".replace(/"/g, '""') + '",';
+    }
+    line += '"' + "createdAt".replace(/"/g, '""') + '",';
     line = line.slice(0, -1);
     console.log(line);
     str += line + '\n';
     line = ''; //resets the line so that we can put a new iteration here.
 
-  //for getting the values for each object in the collection
+    //**for getting the values for each object in the collection
     //for each user or part of collection(in the array)
     for (var length = 0; length < array.length; length++){
       for (var index in array[length]) {
@@ -116,5 +109,5 @@ if (Meteor.isClient){
     }
     console.log(str);
     return str;
-    }
+  }
 }
