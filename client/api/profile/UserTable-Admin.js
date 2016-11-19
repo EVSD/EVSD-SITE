@@ -40,7 +40,10 @@ if (Meteor.isClient){
 			} else return false;
 		},
 		'click .remove-user': function(event) {
-			if (confirm("Are you sure?")) {
+			console.log(Roles.getRolesForUser(this._id)[0]);
+			if(Roles.getRolesForUser(this._id)[0]=="admin"){
+				Bert.alert("Cannot remove yourself");//some people just want to watch the world burn
+			}else if (confirm("Are you sure?")) {
 				Meteor.users.remove({ _id: this._id }, function (error, result) {
 					if (error) {
 						Bert.alert("Error removing user: " + error);

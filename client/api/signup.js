@@ -21,10 +21,10 @@ if (Meteor.isClient){
 	});
 	Template.signup.events({
 		'input #confirmPassword': function(event){
-			console.log('password');
+			//console.log('password');
 			var password = document.getElementById("password"),
 			confirm_password = document.getElementById("confirmPassword");
-			console.log(password.value+' '+confirm_password.value);
+			//console.log(password.value+' '+confirm_password.value);
 			if(password.value != confirm_password.value) {
 				confirm_password.setCustomValidity("Passwords Don't Match");
 				Bert.alert( 'Your password does not match!', 'danger', 'growl-top-right' );
@@ -34,10 +34,10 @@ if (Meteor.isClient){
 			}
 		},
 		'input #password': function(event){
-			console.log('password');
+			//console.log('password');
 			var password = document.getElementById("password"),
 			confirm_password = document.getElementById("confirmPassword");
-			console.log(password.value+' '+confirm_password.value);
+			//console.log(password.value+' '+confirm_password.value);
 			if(password.value != confirm_password.value) {
 				confirm_password.setCustomValidity("Passwords Don't Match");
 				Bert.alert( 'Your password does not match!', 'danger', 'growl-top-right' );
@@ -158,7 +158,7 @@ if (Meteor.isClient){
 							};
 
 							//var submitButton = $('input[type="submit"]').button('loading');
-							console.log("test");
+							//console.log("test");
 							Meteor.call('createCustomer', student, parent, misc, token, function(err, response){
 
 								if (err) {
@@ -185,7 +185,7 @@ if (Meteor.isClient){
 										// that we created our user using the emailAddress and password values
 										// above, we can simply login with these Hot dog, indeed.
 										FlowRouter.go('/initialLogin');
-										console.log("login with password");
+										//console.log("login with password");
 
 									}
 								}
