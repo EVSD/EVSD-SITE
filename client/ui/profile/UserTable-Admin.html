@@ -30,6 +30,8 @@
 		    	<td>
 
 				<select {{disableIfAdmin _id}} name="userRole" class="form-control">
+					<!--set it so that only admin shows admin option-->
+					<option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
 		            <option selected="{{selected roles.[0] 'officer'}}" value="officer">Officer</option>
 		            <option selected="{{selected roles.[0] 'member'}}" value="member">Member</option>
 		            <option selected="{{selected roles.[0] 'frozen'}}" value="frozen">Frozen</option>
