@@ -1,15 +1,15 @@
 # EVSD-SITE
 
-###Purpose
+### Purpose
 The goal of this project was to create a website which will facilitate the logistics of running a speech and debate team, including club registration/payment, tournament registration/payment, and mass communcation. The project utilizes the Meteor JavaScript framework, Materialize CSS Framework, Stripe Checkout, and several Meteor packages which are listed below. 
 
-###User Roles on Website
+### User Roles on Website
 - Admin: Controls the website. Can add tournaments, change user roles, and manually change user balances. 
 - User: Student
 - Frozen: users initially frozen until approved by admin. Admin can also freeze users to prevent them from signing up from tournaments.
 - Officer: to be added feature
 
-###Website Structure
+### Website Structure
 A side navigation bar allows the user to navigate between pages, and a footer is located at the bottom of the page.
 
 If no user is logged in, the website contains the following:
@@ -32,43 +32,43 @@ Admin specific content:
 - Change User Balance: admin can change user balances manually to add or deduct a specified amount.
 - Profile: admin can see site users and change their roles here (unfreeze their account after signup, etc). 
 
-###Features To Be Added
+### Features To Be Added
 - Mass emailing for communication
 - UI Improvements
 
-###Sources (Packages and Frameworks Used)<br />
-Project: Meteor JS Framework
-UI: Materialize CSS Framework
-Payment: Stripe Checkout 
-Packages:
-- meteor-base@1.0.4
-- mobile-experience@1.0.4
-- mongo@1.1.11
-- blaze-html-templates@1.0.4
-- reactive-var@1.0.10
-- jquery@1.11.9
-- tracker@1.1.0
-- standard-minifier-css@1.2.0
-- standard-minifier-js@1.2.0
-- es5-shim@4.6.14
-- ecmascript@0.5.8
-- insecure@1.0.7
-- accounts-ui@1.1.9
-- accounts-password@1.3.0
-- accounts-base@1.2.11
-- check@1.2.3
-- alanning:roles
-- kadira:flow-router
-- kadira:blaze-layout
-- themeteorchef:bert
-- mrgalaxy:stripe
-- ostrio:files
-- npm-bcrypt
-- shell-server
-- materialize:materialize
-- edgee:slingshot
+### Sources (Packages and Frameworks Used)
+- Project: Meteor JS Framework
+- UI: Materialize CSS Framework
+- Payment: Stripe Checkout
+- Packages:
+ - meteor-base@1.0.4
+ - mobile-experience@1.0.4
+ - mongo@1.1.11
+ - blaze-html-templates@1.0.4
+ - reactive-var@1.0.10
+ - jquery@1.11.9
+ - tracker@1.1.0
+ - standard-minifier-css@1.2.0
+ - standard-minifier-js@1.2.0
+ - es5-shim@4.6.14
+ - ecmascript@0.5.8
+ - insecure@1.0.7
+ - accounts-ui@1.1.9
+ - accounts-password@1.3.0
+ - accounts-base@1.2.11
+ - check@1.2.3
+ - alanning:roles
+ - kadira:flow-router
+ - kadira:blaze-layout
+ - themeteorchef:bert
+ - mrgalaxy:stripe
+ - ostrio:files
+ - npm-bcrypt
+ - shell-server
+ - materialize:materialize
+ - edgee:slingshot
 
-###Code Credits
+### Code Credits
 - Project Oversight and Guidance: Artem Raskin
 - Website Structure (Navbar, Icon): Michelle Li, Richard Huang
 - Homepage Content: Connie Lu, Michelle Li
