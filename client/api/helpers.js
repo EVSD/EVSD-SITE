@@ -18,6 +18,13 @@ if (Meteor.isClient){
 		  	return "hidden";
 		}
 	});
+	// checks if account balance sufficient for tournament
+	Template.registerHelper( 'balanceSufficient', ( tournamentName ) => {
+		let theOne = TournamentList.findOne({"name": tournamentName});
+		if (Meteor.user().profile.balance < theOne.cost){
+				return "hidden";
+		}
+	});
 	//checks if there is an approval for the tournament, and hides respective element
 	Template.registerHelper( 'hideApproved', ( approved, which ) => {
 		if (approved != which){
