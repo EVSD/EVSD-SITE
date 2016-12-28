@@ -37,6 +37,12 @@ FlowRouter.route('/', {
       BlazeLayout.render("view", {main: "login"});
     }
   });
+  FlowRouter.route('/chaperoning', {
+
+    action: function() {
+      BlazeLayout.render("view", {main: "chaperoning"});
+    }
+  });
 
   FlowRouter.route('/upload',{
     action: function() {
