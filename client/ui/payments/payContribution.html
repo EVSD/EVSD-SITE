@@ -1,16 +1,14 @@
 <template name = "payContribution">
   {{#if currentUser}}
-<br>
-  <h2> If you have not already done so, please pay the EVSD Annual Contribution.</h2>
-  <h4 class="page-header">Payment Information</h4>
-
-  <blockquote>EVSD Annual Contribution: $250
-  <br>
-  As reviewed at the Parent Orientation, this is the bare minimum we need to pay for team administration, coaching stipends, chaperon expenses, league fees, professional materials, and the many other expenses associated with running a large team. Most schools ask for around $400-$600, so we are trying our best to do with as little aid as possible. To ensure payment security, we rely on Stripe (an online payment service similar to PayPal) to process our financial transactions, which means that we do not store credit card information on our own website. Please note that club contributions are non-refundable. Because the IPACE parent committee is a registered 501c3 non-profit, your contribution is tax-deductible. Depending on who your employer is, it is also possible that they may fully or partially match your contribution.
-  </blockquote>
-  <br>
-
-  <button class='btn stripeCheckout'> Pay with Stripe Checkout </button>
+  <div id="paid"></div>
+  <script>
+  var temp=Meteor.user().profile.payContribution;
+  if(temp=='yes'){
+    document.getElementById('paid').innerHTML="<h3>You have already paid your mandatory donation this year</h3>";
+  }else{
+    document.getElementById('paid').innerHTML="<br><h2>It seems that you have not paid the EVSD Annual Contribution.</h2><h4 class='page-header'>Payment Information</h4><blockquote>EVSD Annual Contribution: $250<br>As reviewed at the Parent Orientation, this is the bare minimum we need to pay for team administration, coaching stipends, chaperon expenses, league fees, professional materials, and the many other expenses associated with running a large team. Most schools ask for around $400-$600, so we are trying our best to do with as little aid as possible. To ensure payment security, we rely on Stripe (an online payment service similar to PayPal) to process our financial transactions, which means that we do not store credit card information on our own website. Please note that club contributions are non-refundable. Because the IPACE parent committee is a registered 501c3 non-profit, your contribution is tax-deductible. Depending on who your employer is, it is also possible that they may fully or partially match your contribution.</blockquote><br><button class='btn stripeCheckout'> Pay with Stripe Checkout </button>";
+  }
+  </script>
   {{else}}
   <h2> Please login to continue.</h2>
   {{/if}}
