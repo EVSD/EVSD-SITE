@@ -46,7 +46,10 @@ if(Meteor.isClient){
 		 },
 		 waiver: function() {
 		 		return Meteor.user().profile.waiverUrl;
-		 	},
+		 },
+		 payContribution: function(){
+			 return Meteor.user().profile.payContribution;
+		 }
 		//parent1
 		//parent2
 
