@@ -15,14 +15,16 @@
 		<tbody>
 		  {{#each users}}
 		    <tr>
+
+          {{#if isCurrentUser _id}}
+          <td><label class="label label-success" style="color:red">You!</label></td>
+          {{else}}
           <td><a href="#" class="remove-user">Remove</a></td>
+          {{/if}}
 		  		<!--First/Last Name-->
 		  		<td >{{profile.firstName}} {{profile.lastName}}</td>
 		  		<!--identifies email-->
 		  		<td class="text-left text-middle">
-			  		{{#if isCurrentUser _id}}
-			  			<label class="label label-success">You!</label>
-			  		{{/if}}
 			  		{{emails.[0].address}}
 		  		</td>
 
