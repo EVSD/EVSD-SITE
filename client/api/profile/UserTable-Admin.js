@@ -5,6 +5,9 @@ if (Meteor.isClient){
 				sort: { "profile.lastName": 1 }
 			});
 		},
+		payContribution: function(){
+			return this.profile.payContribution;
+		},
 		creationDate: function() {
 			var date = this.createdAt;
 			var month = date.getUTCMonth() + 1; //months from 1-12
