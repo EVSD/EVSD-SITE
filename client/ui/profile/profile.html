@@ -17,7 +17,8 @@
               Grade: {{studentGrade}}<br>
               Birthdate: {{birthdate}}<br>
               Student Id: {{studentId}}<br>
-              Student Phone #: {{studentPhone}}<br><br>
+              Student Phone #: {{studentPhone}}<br>
+              Paid Mandatory Donation: {{payContribution}}<br><br>
         			<a class="yellow-text" href="/profile/edit">edit info</a><br>
             </span>
           </div>
@@ -42,7 +43,7 @@
 			{{#if isInRole 'admin'}}
 				{{> userTable}}
 			{{/if}}
-      
+
 		{{/if}}
 	{{/if}}
 
