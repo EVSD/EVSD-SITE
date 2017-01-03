@@ -1,4 +1,4 @@
- <template name ="userTable">
+<template name="userTable">
 
 	<h3>Site Users</h3>
 
@@ -8,14 +8,15 @@
       <th class="text-center">Remove</th>
 			<th class="text-center">Name</th>
 			<th class="text-center">Email Address </th>
-		    <th class="text-center">Role</th>
+		    <th class="text-center">Donation</th>
+        <th class="text-center">Role</th>
         <th class="text-center">Creation Date</th>
         <th class="text-center">Last Login</th>
 		</thead>
 		<tbody>
 		  {{#each users}}
 		    <tr>
-
+          <!-- make sure not to remove self but leave ability to remove other admins -->
           {{#if isCurrentUser _id}}
           <td><label class="label label-success" style="color:red">You!</label></td>
           {{else}}
@@ -27,25 +28,19 @@
 		  		<td class="text-left text-middle">
 			  		{{emails.[0].address}}
 		  		</td>
-
+          <td>{{payContribution}}</td>
 		    	<!--Role-->
 		    	<td>
-
-				<select {{disableIfAdmin _id}} name="userRole" class="form-control">
-					<!--set it so that only admin shows admin option-->
-					<option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
-		            <option selected="{{selected roles.[0] 'officer'}}" value="officer">Officer</option>
-		            <option selected="{{selected roles.[0] 'member'}}" value="member">Member</option>
-		            <option selected="{{selected roles.[0] 'frozen'}}" value="frozen">Frozen</option>
-
-				</select>
-		        </td>
-            <td>
-              {{creationDate}}
-            </td>
-            <td>
-              {{lastLogin}}
-            </td>
+				        <select {{disableIfAdmin _id}} name="userRole" class="form-control">
+					      <!--set it so that only admin shows admin option-->
+					           <option selected="{{selected roles.[0] 'admin'}}" value="admin">Admin</option>
+		                 <option selected="{{selected roles.[0] 'officer'}}" value="officer">Officer</option>
+		                 <option selected="{{selected roles.[0] 'member'}}" value="member">Member</option>
+		                 <option selected="{{selected roles.[0] 'frozen'}}" value="frozen">Frozen</option>
+				        </select>
+		      </td>
+          <td>{{creationDate}}</td>
+          <td>{{lastLogin}}</td>
 		    </tr>
 		  {{/each}}
 		</tbody>
