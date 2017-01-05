@@ -7,8 +7,8 @@
 		<thead>
       <th class="text-center">Remove</th>
 			<th class="text-center">Name</th>
-			<th class="text-center">Email Address </th>
-		    <th class="text-center">Donation</th>
+			<th class="text-center">Email Address</th>
+		    <th class="text-center">Donated</th>
         <th class="text-center">Role</th>
         <th class="text-center">Creation Date</th>
         <th class="text-center">Last Login</th>
@@ -18,7 +18,7 @@
 		    <tr>
           <!-- make sure not to remove self but leave ability to remove other admins -->
           {{#if isCurrentUser _id}}
-          <td><label class="label label-success" style="color:red">You!</label></td>
+          <td ><label class="label label-success" style="color:red" onclick="Bert.alert('Trying to remove yourself? I hope not.')">You!</label></td>
           {{else}}
           <td><a href="#" class="remove-user">Remove</a></td>
           {{/if}}

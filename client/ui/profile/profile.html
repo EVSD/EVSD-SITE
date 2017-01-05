@@ -3,9 +3,9 @@
  	{{#if currentUser}}
 		{{#if isInRole 'frozen'}}
 			<p>You are frozen. Ask admin for permission</p>
-		{{else}}
-			<h3>{{username}}'s Profile</h3>
-
+    {{/if}}
+    {{#if isInRole 'member'}}
+			<h3>{{firstname}}'s Profile</h3>
       <div class="row">
         <div class="col s12 m4">
           <div class="card-panel teal">
@@ -24,7 +24,6 @@
           </div>
         </div>
       </div>
-      {{#if isInRole 'member'}}
       {{> uploader}}
       <div class="row">
         <div class="col s12 m6">
@@ -43,14 +42,5 @@
 			{{#if isInRole 'admin'}}
 				{{> userTable}}
 			{{/if}}
-
 		{{/if}}
-	{{/if}}
-
-
-	<!--testing the roles
-	<form class="takeRoles">
-		<a href="#">add roles</a>
-	</form>-->
-
 </template>
