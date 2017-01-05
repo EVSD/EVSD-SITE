@@ -4,8 +4,10 @@
 		{{#if isInRole 'frozen'}}
 			<p>You are frozen. Ask admin for permission</p>
     {{/if}}
-    {{#if isInRole 'member'}}
-			<h3>{{firstName}}'s Profile</h3>
+			{{#if isInRole 'admin'}}
+				{{> userTable}}
+      {{else}}
+      <h3>{{firstName}}'s Profile</h3>
       <div class="row">
         <div class="col s12 m4">
           <div class="card-panel teal">
@@ -19,7 +21,7 @@
               Student Id: {{studentId}}<br>
               Student Phone #: {{studentPhone}}<br>
               Paid Mandatory Donation: {{payContribution}}<br><br>
-        			<a class="yellow-text" href="/profile/edit">edit info</a><br>
+              <a class="yellow-text" href="/profile/edit">edit info</a><br>
             </span>
           </div>
         </div>
@@ -38,9 +40,6 @@
           </div>
         </div>
       </div>
-      {{/if}}<br>
-			{{#if isInRole 'admin'}}
-				{{> userTable}}
 			{{/if}}
 		{{/if}}
 </template>
