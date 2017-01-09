@@ -3,7 +3,7 @@
  	{{#if currentUser}}
 		{{#if isInRole 'frozen'}}
 			<p>You are frozen. Ask admin for permission</p>
-    {{/if}}
+    {{else}}
 			{{#if isInRole 'admin'}}
 				{{> userTable}}
       {{else}}
@@ -42,4 +42,5 @@
       </div>
 			{{/if}}
 		{{/if}}
+    {{/if}}
 </template>
