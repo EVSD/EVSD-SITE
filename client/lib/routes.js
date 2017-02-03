@@ -245,13 +245,6 @@ FlowRouter.route('/contacttech', {
     BlazeLayout.render("view", {main: "contacttech"});
   }
 });
-
-FlowRouter.route('/googleanalytics', {
-  action: function() {
-    BlazeLayout.render("view", {main: "googleanalytics"});
-  }
-});
-
 FlowRouter.route('/practiceCalendar', {
   action: function() {
     BlazeLayout.render("view", {main: "practiceCalendar"});
