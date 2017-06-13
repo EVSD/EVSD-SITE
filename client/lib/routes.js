@@ -19,6 +19,13 @@ FlowRouter.route('/waivers', {
   }
 });
 
+FlowRouter.route('/summerCamp', {
+  action: function() {
+    name: 'summerCamp',
+    BlazeLayout.render("view", {main: "summerCamp"});
+  }
+});
+
 FlowRouter.route('/', {
   action: function() {
     name: 'home',
